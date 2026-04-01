@@ -1,0 +1,3979 @@
+id: https://w3id.org/lmodel/spdx
+name: spdx
+title: spdx
+description: This ontology defines the terms and relationships used in the SPDX specification
+  to describe system packages
+license: Apache-2.0
+see_also:
+- https://lmodel.github.io/spdx
+- https://spdx.dev/specifications/
+version: 3.0.1
+
+prefixes:
+  spdx: https://spdx.org/rdf/3.0.1/terms/
+  core: https://spdx.org/rdf/3.0.1/terms/Core/
+  ai: https://spdx.org/rdf/3.0.1/terms/AI/
+  build: https://spdx.org/rdf/3.0.1/terms/Build/
+  dataset: https://spdx.org/rdf/3.0.1/terms/Dataset/
+  security: https://spdx.org/rdf/3.0.1/terms/Security/
+  software: https://spdx.org/rdf/3.0.1/terms/Software/
+  expandedlicensing: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/
+  simplelicensing: https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/
+  extension: https://spdx.org/rdf/3.0.1/terms/Extension/
+  linkml: https://w3id.org/linkml/
+  xsd: http://www.w3.org/2001/XMLSchema#
+default_prefix: spdx
+default_range: string
+imports:
+- linkml:types
+enums:
+  EnergyUnitType:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/AI/EnergyUnitType
+    permissible_values:
+      kilowattHour:
+        meaning: https://spdx.org/rdf/3.0.1/terms/AI/EnergyUnitType/kilowattHour
+        description: Kilowatt-hour.
+      megajoule:
+        meaning: https://spdx.org/rdf/3.0.1/terms/AI/EnergyUnitType/megajoule
+        description: Megajoule.
+      other:
+        meaning: https://spdx.org/rdf/3.0.1/terms/AI/EnergyUnitType/other
+        description: Any other units of energy measurement.
+    description: Specifies the unit of energy consumption.
+    notes:
+    - 'Open/extensible enum: slots using this type allow any string via any_of.'
+  SafetyRiskAssessmentType:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/AI/SafetyRiskAssessmentType
+    permissible_values:
+      high:
+        meaning: https://spdx.org/rdf/3.0.1/terms/AI/SafetyRiskAssessmentType/high
+        description: The second-highest level of risk posed by an AI system.
+      low:
+        meaning: https://spdx.org/rdf/3.0.1/terms/AI/SafetyRiskAssessmentType/low
+        description: Low/no risk is posed by an AI system.
+      medium:
+        meaning: https://spdx.org/rdf/3.0.1/terms/AI/SafetyRiskAssessmentType/medium
+        description: The third-highest level of risk posed by an AI system.
+      serious:
+        meaning: https://spdx.org/rdf/3.0.1/terms/AI/SafetyRiskAssessmentType/serious
+        description: The highest level of risk posed by an AI system.
+    description: Specifies the safety risk level.
+  AnnotationType:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/Core/AnnotationType
+    permissible_values:
+      other:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/AnnotationType/other
+        description: Used to store extra information about an Element which is not
+          part of a review (e.g. extra information provided during the creation of
+          the Element).
+      review:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/AnnotationType/review
+        description: Used when someone reviews the Element.
+    description: Specifies the type of an annotation.
+    notes:
+    - 'Open/extensible enum: slots using this type allow any string via any_of.'
+  ExternalIdentifierType:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType
+    permissible_values:
+      cpe22:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/cpe22
+        description: '[Common Platform Enumeration Specification 2.2](https://cpe.mitre.org/files/cpe-specification_2.2.pdf)'
+      cpe23:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/cpe23
+        description: '[Common Platform Enumeration: Naming Specification Version 2.3](https://csrc.nist.gov/publications/detail/nistir/7695/final)'
+      cve:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/cve
+        description: Common Vulnerabilities and Exposures identifiers, an identifier
+          for a specific software flaw defined within the official CVE Dictionary
+          and that conforms to the [CVE specification](https://csrc.nist.gov/glossary/term/cve_id).
+      email:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/email
+        description: Email address, as defined in [RFC 3696](https://datatracker.ietf.org/doc/rfc3986/)
+          Section 3.
+      gitoid:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/gitoid
+        description: '[Gitoid](https://www.iana.org/assignments/uri-schemes/prov/gitoid),
+          stands for [Git Object ID](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects).
+          A gitoid of type blob is a unique hash of a binary artifact. A gitoid may
+          represent either an [Artifact Identifier](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#artifact-identifier-types)
+          for the software artifact or an [Input Manifest Identifier](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#input-manifest-identifier)
+          for the software artifact''s associated [Artifact Input Manifest](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#artifact-input-manifest);
+          this ambiguity exists because the Artifact Input Manifest is itself an artifact,
+          and the gitoid of that artifact is its valid identifier. Gitoids calculated
+          on software artifacts (Snippet, File, or Package Elements) should be recorded
+          in the SPDX 3.0 SoftwareArtifact''s contentIdentifier property. Gitoids
+          calculated on the Artifact Input Manifest (Input Manifest Identifier) should
+          be recorded in the SPDX 3.0 Element''s externalIdentifier property. See
+          [OmniBOR Specification](https://github.com/omnibor/spec/), a minimalistic
+          specification for describing software [Artifact Dependency Graphs](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#artifact-dependency-graph-adg).'
+      other:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/other
+        description: Used when the type does not match any of the other options.
+      packageUrl:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/packageUrl
+        description: Package URL, as defined in the corresponding [Annex](../../../annexes/pkg-url-specification.md)
+          of this specification.
+      securityOther:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/securityOther
+        description: Used when there is a security related identifier of unspecified
+          type.
+      swhid:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/swhid
+        description: SoftWare Hash IDentifier, a persistent intrinsic identifier for
+          digital artifacts, such as files, trees (also known as directories or folders),
+          commits, and other objects typically found in version control systems. The
+          format of the identifiers is defined in the [SWHID specification](https://www.swhid.org/specification/v1.1/4.Syntax)
+          (ISO/IEC DIS 18670). They typically look like `swh:1:cnt:94a9ed024d3859793618152ea559a168bbcbb5e2`.
+      swid:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/swid
+        description: Concise Software Identification (CoSWID) tag, as defined in [RFC
+          9393](https://datatracker.ietf.org/doc/rfc9393/) Section 2.3.
+      urlScheme:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/urlScheme
+        description: '[Uniform Resource Identifier (URI) Schemes](https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml).
+          The scheme used in order to locate a resource.'
+    description: Specifies the type of an external identifier.
+    notes:
+    - 'Open/extensible enum: slots using this type allow any string via any_of.'
+  ExternalRefType:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType
+    permissible_values:
+      altDownloadLocation:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/altDownloadLocation
+        description: A reference to an alternative download location.
+      altWebPage:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/altWebPage
+        description: A reference to an alternative web page.
+      binaryArtifact:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/binaryArtifact
+        description: A reference to binary artifacts related to a package.
+      bower:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/bower
+        description: A reference to a Bower package. The package locator format, looks
+          like `package#version`, is defined in the "install" section of [Bower API
+          documentation](https://bower.io/docs/api/#install).
+      buildMeta:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/buildMeta
+        description: A reference build metadata related to a published package.
+      buildSystem:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/buildSystem
+        description: A reference build system used to create or publish the package.
+      certificationReport:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/certificationReport
+        description: A reference to a certification report for a package from an accredited/independent
+          body.
+      chat:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/chat
+        description: A reference to the instant messaging system used by the maintainer
+          for a package.
+      componentAnalysisReport:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/componentAnalysisReport
+        description: A reference to a Software Composition Analysis (SCA) report.
+      cwe:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/cwe
+        description: '[Common Weakness Enumeration](https://csrc.nist.gov/glossary/term/common_weakness_enumeration).
+          A reference to a source of software flaw defined within the official [CWE
+          List](https://cwe.mitre.org/data/) that conforms to the [CWE specification](https://cwe.mitre.org/).'
+      documentation:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/documentation
+        description: A reference to the documentation for a package.
+      dynamicAnalysisReport:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/dynamicAnalysisReport
+        description: A reference to a dynamic analysis report for a package.
+      eolNotice:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/eolNotice
+        description: A reference to the End Of Sale (EOS) and/or End Of Life (EOL)
+          information related to a package.
+      exportControlAssessment:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/exportControlAssessment
+        description: A reference to a export control assessment for a package.
+      funding:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/funding
+        description: A reference to funding information related to a package.
+      issueTracker:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/issueTracker
+        description: A reference to the issue tracker for a package.
+      license:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/license
+        description: A reference to additional license information related to an artifact.
+      mailingList:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/mailingList
+        description: A reference to the mailing list used by the maintainer for a
+          package.
+      mavenCentral:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/mavenCentral
+        description: A reference to a Maven repository artifact. The artifact locator
+          format is defined in the [Maven documentation](https://maven.apache.org/guides/mini/guide-naming-conventions.html)
+          and looks like `groupId:artifactId[:version]`.
+      metrics:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/metrics
+        description: A reference to metrics related to package such as OpenSSF scorecards.
+      npm:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/npm
+        description: A reference to an npm package. The package locator format is
+          defined in the [npm documentation](https://docs.npmjs.com/cli/v10/configuring-npm/package-json)
+          and looks like `package@version`.
+      nuget:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/nuget
+        description: A reference to a NuGet package. The package locator format is
+          defined in the [NuGet documentation](https://docs.nuget.org) and looks like
+          `package/version`.
+      other:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/other
+        description: Used when the type does not match any of the other options.
+      privacyAssessment:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/privacyAssessment
+        description: A reference to a privacy assessment for a package.
+      productMetadata:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/productMetadata
+        description: A reference to additional product metadata such as reference
+          within organization's product catalog.
+      purchaseOrder:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/purchaseOrder
+        description: A reference to a purchase order for a package.
+      qualityAssessmentReport:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/qualityAssessmentReport
+        description: A reference to a quality assessment for a package.
+      releaseHistory:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/releaseHistory
+        description: A reference to a published list of releases for a package.
+      releaseNotes:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/releaseNotes
+        description: A reference to the release notes for a package.
+      riskAssessment:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/riskAssessment
+        description: A reference to a risk assessment for a package.
+      runtimeAnalysisReport:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/runtimeAnalysisReport
+        description: A reference to a runtime analysis report for a package.
+      secureSoftwareAttestation:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/secureSoftwareAttestation
+        description: A reference to information assuring that the software is developed
+          using security practices as defined by [NIST SP 800-218 Secure Software
+          Development Framework (SSDF) Version 1.1](https://csrc.nist.gov/pubs/sp/800/218/final)
+          or [CISA Secure Software Development Attestation Form](https://www.cisa.gov/resources-tools/resources/secure-software-development-attestation-form).
+      securityAdversaryModel:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/securityAdversaryModel
+        description: A reference to the security adversary model for a package.
+      securityAdvisory:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/securityAdvisory
+        description: A reference to a published security advisory (where advisory
+          as defined per [ISO 29147:2018](https://www.iso.org/standard/72311.html))
+          that may affect one or more elements, e.g., vendor advisories or specific
+          NVD entries.
+      securityFix:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/securityFix
+        description: A reference to the patch or source code that fixes a vulnerability.
+      securityOther:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/securityOther
+        description: A reference to related security information of unspecified type.
+      securityPenTestReport:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/securityPenTestReport
+        description: A reference to a [penetration test](https://en.wikipedia.org/wiki/Penetration_test)
+          report for a package.
+      securityPolicy:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/securityPolicy
+        description: A reference to instructions for reporting newly discovered security
+          vulnerabilities for a package.
+      securityThreatModel:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/securityThreatModel
+        description: A reference the [security threat model](https://en.wikipedia.org/wiki/Threat_model)
+          for a package.
+      socialMedia:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/socialMedia
+        description: A reference to a social media channel for a package.
+      sourceArtifact:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/sourceArtifact
+        description: A reference to an artifact containing the sources for a package.
+      staticAnalysisReport:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/staticAnalysisReport
+        description: A reference to a static analysis report for a package.
+      support:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/support
+        description: A reference to the software support channel or other support
+          information for a package.
+      vcs:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/vcs
+        description: A reference to a version control system related to a software
+          artifact.
+      vulnerabilityDisclosureReport:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/vulnerabilityDisclosureReport
+        description: A reference to a Vulnerability Disclosure Report (VDR) which
+          provides the software supplier's analysis and findings describing the impact
+          (or lack of impact) that reported vulnerabilities have on packages or products
+          in the supplier's SBOM as defined in [NIST SP 800-161 Cybersecurity Supply
+          Chain Risk Management Practices for Systems and Organizations](https://csrc.nist.gov/pubs/sp/800/161/r1/final).
+      vulnerabilityExploitabilityAssessment:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/vulnerabilityExploitabilityAssessment
+        description: A reference to a Vulnerability Exploitability eXchange (VEX)
+          statement which provides information on whether a product is impacted by
+          a specific vulnerability in an included package and, if affected, whether
+          there are actions recommended to remediate. See also [NTIA VEX one-page
+          summary](https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf).
+    description: Specifies the type of an external reference.
+    notes:
+    - 'Open/extensible enum: slots using this type allow any string via any_of.'
+  HashAlgorithm:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm
+    permissible_values:
+      adler32:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/adler32
+        description: Adler-32 checksum is part of the widely used zlib compression
+          library as defined in [RFC 1950](https://datatracker.ietf.org/doc/rfc1950/)
+          Section 2.3.
+      blake2b256:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/blake2b256
+        description: BLAKE2b algorithm with a digest size of 256, as defined in [RFC
+          7693](https://datatracker.ietf.org/doc/rfc7693/) Section 4.
+      blake2b384:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/blake2b384
+        description: BLAKE2b algorithm with a digest size of 384, as defined in [RFC
+          7693](https://datatracker.ietf.org/doc/rfc7693/) Section 4.
+      blake2b512:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/blake2b512
+        description: BLAKE2b algorithm with a digest size of 512, as defined in [RFC
+          7693](https://datatracker.ietf.org/doc/rfc7693/) Section 4.
+      blake3:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/blake3
+        description: '[BLAKE3](https://github.com/BLAKE3-team/BLAKE3-specs/blob/master/blake3.pdf)'
+      crystalsDilithium:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/crystalsDilithium
+        description: '[Dilithium](https://pq-crystals.org/dilithium/)'
+      crystalsKyber:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/crystalsKyber
+        description: '[Kyber](https://pq-crystals.org/kyber/)'
+      falcon:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/falcon
+        description: '[FALCON](https://falcon-sign.info/falcon.pdf)'
+      md2:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/md2
+        description: MD2 message-digest algorithm, as defined in [RFC 1319](https://datatracker.ietf.org/doc/rfc1319/).
+      md4:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/md4
+        description: MD4 message-digest algorithm, as defined in [RFC 1186](https://datatracker.ietf.org/doc/rfc1186/).
+      md5:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/md5
+        description: MD5 message-digest algorithm, as defined in [RFC 1321](https://datatracker.ietf.org/doc/rfc1321/).
+      md6:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/md6
+        description: '[MD6 hash function](https://people.csail.mit.edu/rivest/pubs/RABCx08.pdf)'
+      other:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/other
+        description: any hashing algorithm that does not exist in this list of entries
+      sha1:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/sha1
+        description: SHA-1, a secure hashing algorithm, as defined in [RFC 3174](https://datatracker.ietf.org/doc/rfc3174/).
+      sha224:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/sha224
+        description: SHA-2 with a digest length of 224, as defined in [RFC 3874](https://datatracker.ietf.org/doc/rfc3874/).
+      sha256:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/sha256
+        description: SHA-2 with a digest length of 256, as defined in [RFC 6234](https://datatracker.ietf.org/doc/rfc6234/).
+      sha384:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/sha384
+        description: SHA-2 with a digest length of 384, as defined in [RFC 6234](https://datatracker.ietf.org/doc/rfc6234/).
+      sha3_224:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/sha3_224
+        description: SHA-3 with a digest length of 224, as defined in [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final).
+      sha3_256:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/sha3_256
+        description: SHA-3 with a digest length of 256, as defined in [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final).
+      sha3_384:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/sha3_384
+        description: SHA-3 with a digest length of 384, as defined in [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final).
+      sha3_512:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/sha3_512
+        description: SHA-3 with a digest length of 512, as defined in [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final).
+      sha512:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/sha512
+        description: SHA-2 with a digest length of 512, as defined in [RFC 6234](https://datatracker.ietf.org/doc/rfc6234/).
+    description: A mathematical algorithm that maps data of arbitrary size to a bit
+      string.
+    notes:
+    - 'Open/extensible enum: slots using this type allow any string via any_of.'
+  LifecycleScopeType:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/Core/LifecycleScopeType
+    permissible_values:
+      build:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/LifecycleScopeType/build
+        description: A relationship has specific context implications during an element's
+          build phase, during development.
+      design:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/LifecycleScopeType/design
+        description: A relationship has specific context implications during an element's
+          design.
+      development:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/LifecycleScopeType/development
+        description: A relationship has specific context implications during development
+          phase of an element.
+      other:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/LifecycleScopeType/other
+        description: A relationship has other specific context information necessary
+          to capture that the above set of enumerations does not handle.
+      runtime:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/LifecycleScopeType/runtime
+        description: A relationship has specific context implications during the execution
+          phase of an element.
+      test:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/LifecycleScopeType/test
+        description: A relationship has specific context implications during an element's
+          testing phase, during development.
+    description: Provide an enumerated set of lifecycle phases that can provide context
+      to relationships.
+    notes:
+    - 'Open/extensible enum: slots using this type allow any string via any_of.'
+  PresenceType:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/Core/PresenceType
+    permissible_values:
+      'no':
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/no
+        description: Indicates absence of the field.
+      noAssertion:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/noAssertion
+        description: Makes no assertion about the field.
+      'yes':
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/yes
+        description: Indicates presence of the field.
+    description: Categories of presence or absence.
+  ProfileIdentifierType:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType
+    permissible_values:
+      ai:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/ai
+        description: the element follows the AI profile specification
+      build:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/build
+        description: the element follows the Build profile specification
+      core:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/core
+        description: the element follows the Core profile specification
+      dataset:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/dataset
+        description: the element follows the Dataset profile specification
+      expandedLicensing:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/expandedLicensing
+        description: the element follows the ExpandedLicensing profile specification
+      extension:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/extension
+        description: the element follows the Extension profile specification
+      lite:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/lite
+        description: the element follows the Lite profile specification
+      security:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/security
+        description: the element follows the Security profile specification
+      simpleLicensing:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/simpleLicensing
+        description: the element follows the SimpleLicensing profile specification
+      software:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/software
+        description: the element follows the Software profile specification
+    description: Enumeration of the valid profiles.
+  RelationshipCompleteness:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipCompleteness
+    permissible_values:
+      complete:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipCompleteness/complete
+        description: The relationship is known to be exhaustive.
+      incomplete:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipCompleteness/incomplete
+        description: The relationship is known not to be exhaustive.
+      noAssertion:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipCompleteness/noAssertion
+        description: No assertion can be made about the completeness of the relationship.
+    description: Indicates whether a relationship is known to be complete, incomplete,
+      or if no assertion is made with respect to relationship completeness.
+  RelationshipType:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType
+    permissible_values:
+      affects:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/affects
+        description: The `from` Vulnerability affects each `to` Element. The use of
+          the `affects` type is constrained to `VexAffectedVulnAssessmentRelationship`
+          classed relationships.
+      amendedBy:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/amendedBy
+        description: The `from` Element is amended by each `to` Element.
+      ancestorOf:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/ancestorOf
+        description: The `from` Element is an ancestor of each `to` Element.
+      availableFrom:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/availableFrom
+        description: The `from` Element is available from the additional supplier
+          described by each `to` Element.
+      configures:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/configures
+        description: The `from` Element is a configuration applied to each `to` Element,
+          during a LifecycleScopeType period.
+      contains:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/contains
+        description: The `from` Element contains each `to` Element.
+      coordinatedBy:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/coordinatedBy
+        description: The `from` Vulnerability is coordinatedBy the `to` Agent(s) (vendor,
+          researcher, or consumer agent).
+      copiedTo:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/copiedTo
+        description: The `from` Element has been copied to each `to` Element.
+      delegatedTo:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/delegatedTo
+        description: The `from` Agent is delegating an action to the Agent of the
+          `to` Relationship (which must be of type invokedBy), during a LifecycleScopeType
+          (e.g. the `to` invokedBy Relationship is being done on behalf of `from`).
+      dependsOn:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/dependsOn
+        description: The `from` Element depends on each `to` Element, during a LifecycleScopeType
+          period.
+      descendantOf:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/descendantOf
+        description: The `from` Element is a descendant of each `to` Element.
+      describes:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/describes
+        description: The `from` Element describes each `to` Element. To denote the
+          root(s) of a tree of elements in a collection, the rootElement property
+          should be used.
+      doesNotAffect:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/doesNotAffect
+        description: The `from` Vulnerability has no impact on each `to` Element.
+          The use of the `doesNotAffect` is constrained to `VexNotAffectedVulnAssessmentRelationship`
+          classed relationships.
+      expandsTo:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/expandsTo
+        description: The `from` archive expands out as an artifact described by each
+          `to` Element.
+      exploitCreatedBy:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/exploitCreatedBy
+        description: The `from` Vulnerability has had an exploit created against it
+          by each `to` Agent.
+      fixedBy:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/fixedBy
+        description: Designates a `from` Vulnerability has been fixed by the `to`
+          Agent(s).
+      fixedIn:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/fixedIn
+        description: A `from` Vulnerability has been fixed in each `to` Element. The
+          use of the `fixedIn` type is constrained to `VexFixedVulnAssessmentRelationship`
+          classed relationships.
+      foundBy:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/foundBy
+        description: Designates a `from` Vulnerability was originally discovered by
+          the `to` Agent(s).
+      generates:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/generates
+        description: The `from` Element generates each `to` Element.
+      hasAddedFile:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasAddedFile
+        description: Every `to` Element is a file added to the `from` Element (`from`
+          hasAddedFile `to`).
+      hasAssessmentFor:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasAssessmentFor
+        description: Relates a `from` Vulnerability and each `to` Element with a security
+          assessment. To be used with `VulnAssessmentRelationship` types.
+      hasAssociatedVulnerability:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasAssociatedVulnerability
+        description: Used to associate a `from` Artifact with each `to` Vulnerability.
+      hasConcludedLicense:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasConcludedLicense
+        description: The `from` SoftwareArtifact is concluded by the SPDX data creator
+          to be governed by each `to` license.
+      hasDataFile:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasDataFile
+        description: 'The `from` Element treats each `to` Element as a data file.
+          A data file is an artifact that stores data required or optional for the
+          `from` Element''s functionality. A data file can be a database file, an
+          index file, a log file, an AI model file, a calibration data file, a temporary
+          file, a backup file, and more. For AI training dataset, test dataset, test
+          artifact, configuration data, build input data, and build output data, please
+          consider using the more specific relationship types: `trainedOn`, `testedOn`,
+          `hasTest`, `configures`, `hasInput`, and `hasOutput`, respectively. This
+          relationship does not imply dependency.'
+      hasDeclaredLicense:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasDeclaredLicense
+        description: The `from` SoftwareArtifact was discovered to actually contain
+          each `to` license, for example as detected by use of automated tooling.
+      hasDeletedFile:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasDeletedFile
+        description: Every `to` Element is a file deleted from the `from` Element
+          (`from` hasDeletedFile `to`).
+      hasDependencyManifest:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasDependencyManifest
+        description: The `from` Element has manifest files that contain dependency
+          information in each `to` Element.
+      hasDistributionArtifact:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasDistributionArtifact
+        description: The `from` Element is distributed as an artifact in each `to`
+          Element (e.g. an RPM or archive file).
+      hasDocumentation:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasDocumentation
+        description: The `from` Element is documented by each `to` Element.
+      hasDynamicLink:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasDynamicLink
+        description: The `from` Element dynamically links in each `to` Element, during
+          a LifecycleScopeType period.
+      hasEvidence:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasEvidence
+        description: Every `to` Element is considered as evidence for the `from` Element
+          (`from` hasEvidence `to`).
+      hasExample:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasExample
+        description: Every `to` Element is an example for the `from` Element (`from`
+          hasExample `to`).
+      hasHost:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasHost
+        description: The `from` Build was run on the `to` Element during a LifecycleScopeType
+          period (e.g. the host that the build runs on).
+      hasInput:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasInput
+        description: The `from` Build has each `to` Element as an input, during a
+          LifecycleScopeType period.
+      hasMetadata:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasMetadata
+        description: Every `to` Element is metadata about the `from` Element (`from`
+          hasMetadata `to`).
+      hasOptionalComponent:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasOptionalComponent
+        description: Every `to` Element is an optional component of the `from` Element
+          (`from` hasOptionalComponent `to`).
+      hasOptionalDependency:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasOptionalDependency
+        description: The `from` Element optionally depends on each `to` Element, during
+          a LifecycleScopeType period.
+      hasOutput:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasOutput
+        description: The `from` Build element generates each `to` Element as an output,
+          during a LifecycleScopeType period.
+      hasPrerequisite:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasPrerequisite
+        description: The `from` Element has a prerequisite on each `to` Element, during
+          a LifecycleScopeType period.
+      hasProvidedDependency:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasProvidedDependency
+        description: The `from` Element has a dependency on each `to` Element, dependency
+          is not in the distributed artifact, but assumed to be provided, during a
+          LifecycleScopeType period.
+      hasRequirement:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasRequirement
+        description: The `from` Element has a requirement on each `to` Element, during
+          a LifecycleScopeType period.
+      hasSpecification:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasSpecification
+        description: Every `to` Element is a specification for the `from` Element
+          (`from` hasSpecification `to`), during a LifecycleScopeType period.
+      hasStaticLink:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasStaticLink
+        description: The `from` Element statically links in each `to` Element, during
+          a LifecycleScopeType period.
+      hasTest:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasTest
+        description: Every `to` Element is a test artifact for the `from` Element
+          (`from` hasTest `to`), during a LifecycleScopeType period.
+      hasTestCase:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasTestCase
+        description: Every `to` Element is a test case for the `from` Element (`from`
+          hasTestCase `to`).
+      hasVariant:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasVariant
+        description: Every `to` Element is a variant the `from` Element (`from` hasVariant
+          `to`).
+      invokedBy:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/invokedBy
+        description: The `from` Element was invoked by the `to` Agent, during a LifecycleScopeType
+          period (for example, a Build element that describes a build step).
+      modifiedBy:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/modifiedBy
+        description: The `from` Element is modified by each `to` Element.
+      other:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/other
+        description: Every `to` Element is related to the `from` Element where the
+          relationship type is not described by any of the SPDX relationship types
+          (this relationship is directionless).
+      packagedBy:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/packagedBy
+        description: Every `to` Element is a packaged instance of the `from` Element
+          (`from` packagedBy `to`).
+      patchedBy:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/patchedBy
+        description: Every `to` Element is a patch for the `from` Element (`from`
+          patchedBy `to`).
+      publishedBy:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/publishedBy
+        description: Designates a `from` Vulnerability was made available for public
+          use or reference by each `to` Agent.
+      reportedBy:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/reportedBy
+        description: Designates a `from` Vulnerability was first reported to a project,
+          vendor, or tracking database for formal identification by each `to` Agent.
+      republishedBy:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/republishedBy
+        description: Designates a `from` Vulnerability's details were tracked, aggregated,
+          and/or enriched to improve context (i.e. NVD) by each `to` Agent.
+      serializedInArtifact:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/serializedInArtifact
+        description: The `from` SpdxDocument can be found in a serialized form in
+          each `to` Artifact.
+      testedOn:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/testedOn
+        description: The `from` Element has been tested on the `to` Element(s).
+      trainedOn:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/trainedOn
+        description: The `from` Element has been trained on the `to` Element(s).
+      underInvestigationFor:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/underInvestigationFor
+        description: The `from` Vulnerability impact is being investigated for each
+          `to` Element. The use of the `underInvestigationFor` type is constrained
+          to `VexUnderInvestigationVulnAssessmentRelationship` classed relationships.
+      usesTool:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/usesTool
+        description: The `from` Element uses each `to` Element as a tool, during a
+          LifecycleScopeType period.
+    description: Information about the relationship between two Elements.
+    notes:
+    - 'Open/extensible enum: slots using this type allow any string via any_of.'
+  SupportType:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/Core/SupportType
+    permissible_values:
+      deployed:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/SupportType/deployed
+        description: in addition to being supported by the supplier, the software
+          is known to have been deployed and is in use.  For a software as a service
+          provider, this implies the software is now available as a service.
+      development:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/SupportType/development
+        description: the artifact is in active development and is not considered ready
+          for formal support from the supplier.
+      endOfSupport:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/SupportType/endOfSupport
+        description: there is a defined end of support for the artifact from the supplier.  This
+          may also be referred to as end of life. There is a validUntilDate that can
+          be used to signal when support ends for the artifact.
+      limitedSupport:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/SupportType/limitedSupport
+        description: the artifact has been released, and there is limited support
+          available from the supplier. There is a validUntilDate that can provide
+          additional information about the duration of support.
+      noAssertion:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/SupportType/noAssertion
+        description: no assertion about the type of support is made.   This is considered
+          the default if no other support type is used.
+      noSupport:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/SupportType/noSupport
+        description: there is no support for the artifact from the supplier, consumer
+          assumes any support obligations.
+      support:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Core/SupportType/support
+        description: the artifact has been released, and is supported from the supplier.   There
+          is a validUntilDate that can provide additional information about the duration
+          of support.
+    description: Indicates the type of support that is associated with an artifact.
+  ConfidentialityLevelType:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/Dataset/ConfidentialityLevelType
+    permissible_values:
+      amber:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/ConfidentialityLevelType/amber
+        description: Data points in the dataset can be shared only with specific organizations
+          and their clients on a need to know basis.
+      clear:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/ConfidentialityLevelType/clear
+        description: Dataset may be distributed freely, without restriction.
+      green:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/ConfidentialityLevelType/green
+        description: Dataset can be shared within a community of peers and partners.
+      red:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/ConfidentialityLevelType/red
+        description: Data points in the dataset are highly confidential and can only
+          be shared with named recipients.
+    description: Categories of confidentiality level.
+  DatasetAvailabilityType:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetAvailabilityType
+    permissible_values:
+      clickthrough:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetAvailabilityType/clickthrough
+        description: the dataset is not publicly available and can only be accessed
+          after affirmatively accepting terms on a clickthrough webpage.
+      directDownload:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetAvailabilityType/directDownload
+        description: the dataset is publicly available and can be downloaded directly.
+      query:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetAvailabilityType/query
+        description: the dataset is publicly available, but not all at once, and can
+          only be accessed through queries which return parts of the dataset.
+      registration:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetAvailabilityType/registration
+        description: the dataset is not publicly available and an email registration
+          is required before accessing the dataset, although without an affirmative
+          acceptance of terms.
+      scrapingScript:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetAvailabilityType/scrapingScript
+        description: the dataset provider is not making available the underlying data
+          and the dataset must be reassembled, typically using the provided script
+          for scraping the data.
+    description: Availability of dataset.
+  DatasetType:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetType
+    permissible_values:
+      audio:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetType/audio
+        description: data is audio based, such as a collection of music from the 80s.
+      categorical:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetType/categorical
+        description: data that is classified into a discrete number of categories,
+          such as the eye color of a population of people.
+      graph:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetType/graph
+        description: data is in the form of a graph where entries are somehow related
+          to each other through edges, such a social network of friends.
+      image:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetType/image
+        description: data is a collection of images such as pictures of animals.
+      noAssertion:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetType/noAssertion
+        description: data type is not known.
+      numeric:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetType/numeric
+        description: data consists only of numeric entries.
+      other:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetType/other
+        description: data is of a type not included in this list.
+      sensor:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetType/sensor
+        description: data is recorded from a physical sensor, such as a thermometer
+          reading or biometric device.
+      structured:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetType/structured
+        description: data is stored in tabular format or retrieved from a relational
+          database.
+      syntactic:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetType/syntactic
+        description: data describes the syntax or semantics of a language or text,
+          such as a parse tree used for natural language processing.
+      text:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetType/text
+        description: data consists of unstructured text, such as a book, Wikipedia
+          article (without images), or transcript.
+      timeseries:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetType/timeseries
+        description: data is recorded in an ordered sequence of timestamped entries,
+          such as the price of a stock over the course of a day.
+      timestamp:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetType/timestamp
+        description: data is recorded with a timestamp for each entry, but not necessarily
+          ordered or at specific intervals, such as when a taxi ride starts and ends.
+      video:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetType/video
+        description: data is video based, such as a collection of movie clips featuring
+          Tom Hanks.
+    description: Enumeration of dataset types.
+    notes:
+    - 'Open/extensible enum: slots using this type allow any string via any_of.'
+  CvssSeverityType:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/Security/CvssSeverityType
+    permissible_values:
+      critical:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Security/CvssSeverityType/critical
+        description: When a CVSS score is between 9.0 - 10.0
+      high:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Security/CvssSeverityType/high
+        description: When a CVSS score is between 7.0 - 8.9
+      low:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Security/CvssSeverityType/low
+        description: When a CVSS score is between 0.1 - 3.9
+      medium:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Security/CvssSeverityType/medium
+        description: When a CVSS score is between 4.0 - 6.9
+      none:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Security/CvssSeverityType/none
+        description: When a CVSS score is 0.0
+    description: Specifies the CVSS base, temporal, threat, or environmental severity
+      type.
+  ExploitCatalogType:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/Security/ExploitCatalogType
+    permissible_values:
+      kev:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Security/ExploitCatalogType/kev
+        description: CISA's Known Exploited Vulnerability (KEV) Catalog
+      other:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Security/ExploitCatalogType/other
+        description: Other exploit catalogs
+    description: Specifies the exploit catalog type.
+    notes:
+    - 'Open/extensible enum: slots using this type allow any string via any_of.'
+  SsvcDecisionType:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/Security/SsvcDecisionType
+    permissible_values:
+      act:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Security/SsvcDecisionType/act
+        description: The vulnerability requires attention from the organization's
+          internal, supervisory-level and leadership-level individuals. Necessary
+          actions include requesting assistance or information about the vulnerability,
+          as well as publishing a notification either internally and/or externally.
+          Typically, internal groups would meet to determine the overall response
+          and then execute agreed upon actions. CISA recommends remediating Act vulnerabilities
+          as soon as possible.
+      attend:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Security/SsvcDecisionType/attend
+        description: The vulnerability requires attention from the organization's
+          internal, supervisory-level individuals. Necessary actions include requesting
+          assistance or information about the vulnerability, and may involve publishing
+          a notification either internally and/or externally. CISA recommends remediating
+          Attend vulnerabilities sooner than standard update timelines.
+      track:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Security/SsvcDecisionType/track
+        description: The vulnerability does not require action at this time. The organization
+          would continue to track the vulnerability and reassess it if new information
+          becomes available. CISA recommends remediating Track vulnerabilities within
+          standard update timelines.
+      trackStar:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Security/SsvcDecisionType/trackStar
+        description: ("Track\*" in the SSVC spec) The vulnerability contains specific
+          characteristics that may require closer monitoring for changes. CISA recommends
+          remediating Track\* vulnerabilities within standard update timelines.
+    description: Specifies the SSVC decision type.
+  VexJustificationType:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType
+    permissible_values:
+      componentNotPresent:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType/componentNotPresent
+        description: The software is not affected because the vulnerable component
+          is not in the product.
+      inlineMitigationsAlreadyExist:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType/inlineMitigationsAlreadyExist
+        description: Built-in inline controls or mitigations prevent an adversary
+          from leveraging the vulnerability.
+      vulnerableCodeCannotBeControlledByAdversary:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType/vulnerableCodeCannotBeControlledByAdversary
+        description: The vulnerable component is present, and the component contains
+          the vulnerable code. However, vulnerable code is used in such a way that
+          an attacker cannot mount any anticipated attack.
+      vulnerableCodeNotInExecutePath:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType/vulnerableCodeNotInExecutePath
+        description: The affected code is not reachable through the execution of the
+          code, including non-anticipated states of the product.
+      vulnerableCodeNotPresent:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType/vulnerableCodeNotPresent
+        description: The product is not affected because the code underlying the vulnerability
+          is not present in the product.
+    description: Specifies the VEX justification type.
+  ContentIdentifierType:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/Software/ContentIdentifierType
+    permissible_values:
+      gitoid:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/ContentIdentifierType/gitoid
+        description: '[Gitoid](https://www.iana.org/assignments/uri-schemes/prov/gitoid),
+          stands for [Git Object ID](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects).
+          A gitoid of type blob is a unique hash of a binary artifact. A gitoid may
+          represent either an [Artifact Identifier](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#artifact-identifier-types)
+          for the software artifact or an [Input Manifest Identifier](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#input-manifest-identifier)
+          for the software artifact''s associated [Artifact Input Manifest](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#artifact-input-manifest);
+          this ambiguity exists because the Artifact Input Manifest is itself an artifact,
+          and the gitoid of that artifact is its valid identifier. Gitoids calculated
+          on software artifacts (Snippet, File, or Package Elements) should be recorded
+          in the SPDX 3.0 SoftwareArtifact''s contentIdentifier property. Gitoids
+          calculated on the Artifact Input Manifest (Input Manifest Identifier) should
+          be recorded in the SPDX 3.0 Element''s externalIdentifier property. See
+          [OmniBOR Specification](https://github.com/omnibor/spec/), a minimalistic
+          specification for describing software [Artifact Dependency Graphs](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#artifact-dependency-graph-adg).'
+      swhid:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/ContentIdentifierType/swhid
+        description: SoftWare Hash IDentifier, a persistent intrinsic identifier for
+          digital artifacts, such as files, trees (also known as directories or folders),
+          commits, and other objects typically found in version control systems. The
+          format of the identifiers is defined in the [SWHID specification](https://www.swhid.org/specification/v1.1/4.Syntax)
+          (ISO/IEC DIS 18670). They typically look like `swh:1:cnt:94a9ed024d3859793618152ea559a168bbcbb5e2`.
+    description: Specifies the type of a content identifier.
+  FileKindType:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/Software/FileKindType
+    permissible_values:
+      directory:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/FileKindType/directory
+        description: The file represents a directory and all content stored in that
+          directory.
+      file:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/FileKindType/file
+        description: The file represents a single file (default).
+    description: Enumeration of the different kinds of SPDX file.
+  SbomType:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/Software/SbomType
+    permissible_values:
+      analyzed:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SbomType/analyzed
+        description: SBOM generated through analysis of artifacts (e.g., executables,
+          packages, containers, and virtual machine images) after its build. Such
+          analysis generally requires a variety of heuristics. In some contexts, this
+          may also be referred to as a "3rd party" SBOM.
+      build:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SbomType/build
+        description: SBOM generated as part of the process of building the software
+          to create a releasable artifact (e.g., executable or package) from data
+          such as source files, dependencies, built components, build process ephemeral
+          data, and other SBOMs.
+      deployed:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SbomType/deployed
+        description: SBOM provides an inventory of software that is present on a system.
+          This may be an assembly of other SBOMs that combines analysis of configuration
+          options, and examination of execution behavior in a (potentially simulated)
+          deployment environment.
+      design:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SbomType/design
+        description: SBOM of intended, planned software project or product with included
+          components (some of which may not yet exist) for a new software artifact.
+      runtime:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SbomType/runtime
+        description: SBOM generated through instrumenting the system running the software,
+          to capture only components present in the system, as well as external call-outs
+          or dynamically loaded components. In some contexts, this may also be referred
+          to as an "Instrumented" or "Dynamic" SBOM.
+      source:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SbomType/source
+        description: SBOM created directly from the development environment, source
+          files, and included dependencies used to build an product artifact.
+    description: 'Provides a set of values to be used to describe the common types
+      of SBOMs that
+
+      tools may create.'
+  SoftwarePurpose:
+    enum_uri: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose
+    permissible_values:
+      application:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/application
+        description: The Element is a software application.
+      archive:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/archive
+        description: The Element is an archived collection of one or more files (.tar,
+          .zip, etc.).
+      bom:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/bom
+        description: The Element is a bill of materials.
+      configuration:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/configuration
+        description: The Element is configuration data.
+      container:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/container
+        description: The Element is a container image which can be used by a container
+          runtime application.
+      data:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/data
+        description: The Element is data.
+      device:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/device
+        description: The Element refers to a chipset, processor, or electronic board.
+      deviceDriver:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/deviceDriver
+        description: The Element represents software that controls hardware devices.
+      diskImage:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/diskImage
+        description: The Element refers to a disk image that can be written to a disk,
+          booted in a VM, etc. A disk image typically contains most or all of the
+          components necessary to boot, such as bootloaders, kernels, firmware, userspace,
+          etc.
+      documentation:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/documentation
+        description: The Element is documentation.
+      evidence:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/evidence
+        description: The Element is the evidence that a specification or requirement
+          has been fulfilled.
+      executable:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/executable
+        description: The Element is an Artifact that can be run on a computer.
+      file:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/file
+        description: The Element is a single file which can be independently distributed
+          (configuration file, statically linked binary, Kubernetes deployment, etc.).
+      filesystemImage:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/filesystemImage
+        description: The Element is a file system image that can be written to a disk
+          (or virtual) partition.
+      firmware:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/firmware
+        description: The Element provides low level control over a device's hardware.
+      framework:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/framework
+        description: The Element is a software framework.
+      install:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/install
+        description: The Element is used to install software on disk.
+      library:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/library
+        description: The Element is a software library.
+      manifest:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/manifest
+        description: The Element is a software manifest.
+      model:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/model
+        description: The Element is a machine learning or artificial intelligence
+          model.
+      module:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/module
+        description: The Element is a module of a piece of software.
+      operatingSystem:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/operatingSystem
+        description: The Element is an operating system.
+      other:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/other
+        description: The Element doesn't fit into any of the other categories.
+      patch:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/patch
+        description: The Element contains a set of changes to update, fix, or improve
+          another Element.
+      platform:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/platform
+        description: The Element represents a runtime environment.
+      requirement:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/requirement
+        description: The Element provides a requirement needed as input for another
+          Element.
+      source:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/source
+        description: The Element is a single or a collection of source files.
+      specification:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/specification
+        description: The Element is a plan, guideline or strategy how to create, perform
+          or analyze an application.
+      test:
+        meaning: https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/test
+        description: The Element is a test used to verify functionality on an software
+          element.
+    description: Provides information about the primary purpose of an Element.
+    notes:
+    - 'Open/extensible enum: slots using this type allow any string via any_of.'
+classes:
+  AIPackage:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/AI/AIPackage
+    description: Specifies an AI package and its associated information.
+    is_a: Package
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - informationAboutTraining
+    - modelDataPreprocessing
+    - typeOfModel
+    - safetyRiskAssessment
+    - metricDecisionThreshold
+    - useSensitivePersonalInformation
+    - energyConsumption
+    - limitation
+    - hyperparameter
+    - autonomyType
+    - domain
+    - modelExplainability
+    - informationAboutApplication
+    - metric
+    - standardCompliance
+    slot_usage:
+      informationAboutTraining:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      modelDataPreprocessing:
+        range: string
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      typeOfModel:
+        range: string
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      safetyRiskAssessment:
+        range: SafetyRiskAssessmentType
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [ai:SafetyRiskAssessmentType/serious, ai:SafetyRiskAssessmentType/high,
+          ai:SafetyRiskAssessmentType/medium, ai:SafetyRiskAssessmentType/low]'
+      metricDecisionThreshold:
+        range: DictionaryEntry
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+      useSensitivePersonalInformation:
+        range: PresenceType
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [core:PresenceType/yes, core:PresenceType/no, core:PresenceType/noAssertion]'
+      energyConsumption:
+        range: EnergyConsumption
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+      limitation:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      hyperparameter:
+        range: DictionaryEntry
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+      autonomyType:
+        range: PresenceType
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [core:PresenceType/yes, core:PresenceType/no, core:PresenceType/noAssertion]'
+      domain:
+        range: string
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      modelExplainability:
+        range: string
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      informationAboutApplication:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      metric:
+        range: DictionaryEntry
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+      standardCompliance:
+        range: string
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  EnergyConsumption:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/AI/EnergyConsumption
+    description: 'A class for describing the energy consumption incurred by an AI
+      model in
+
+      different stages of its lifecycle.'
+    annotations:
+      shacl_node_kind:
+        value: sh:BlankNodeOrIRI
+    slots:
+    - finetuningEnergyConsumption
+    - inferenceEnergyConsumption
+    - trainingEnergyConsumption
+    slot_usage:
+      finetuningEnergyConsumption:
+        range: EnergyConsumptionDescription
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+      inferenceEnergyConsumption:
+        range: EnergyConsumptionDescription
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+      trainingEnergyConsumption:
+        range: EnergyConsumptionDescription
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+  EnergyConsumptionDescription:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/AI/EnergyConsumptionDescription
+    description: 'The class that helps note down the quantity of energy consumption
+      and the unit
+
+      used for measurement.'
+    annotations:
+      shacl_node_kind:
+        value: sh:BlankNodeOrIRI
+    slots:
+    - energyQuantity
+    - energyUnit
+    slot_usage:
+      energyQuantity:
+        range: decimal
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      energyUnit:
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [ai:EnergyUnitType/kilowattHour, ai:EnergyUnitType/megajoule,
+          ai:EnergyUnitType/other]'
+  Build:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Build/Build
+    description: Class that describes a build instance of software/artifacts.
+    is_a: Element
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - buildType
+    - buildEndTime
+    - buildId
+    - configSourceDigest
+    - buildStartTime
+    - configSourceUri
+    - parameter
+    - configSourceEntrypoint
+    - environment
+    slot_usage:
+      buildType:
+        range: uri
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      buildEndTime:
+        range: datetime
+        multivalued: false
+        pattern: ^\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\dZ$
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      buildId:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      configSourceDigest:
+        range: Hash
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+      buildStartTime:
+        range: datetime
+        multivalued: false
+        pattern: ^\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\dZ$
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      configSourceUri:
+        range: uri
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      parameter:
+        range: DictionaryEntry
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+      configSourceEntrypoint:
+        range: string
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      environment:
+        range: DictionaryEntry
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+  Agent:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/Agent
+    description: Agent represents anything with the potential to act on a system.
+    is_a: Element
+    abstract: true
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+  Annotation:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/Annotation
+    description: An assertion made in relation to one or more elements.
+    is_a: Element
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - contentType
+    - statement
+    - subject
+    - annotationType
+    slot_usage:
+      contentType:
+        range: string
+        multivalued: false
+        pattern: ^[^\/]+\/[^\/]+$
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      statement:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      subject:
+        range: Element
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+      annotationType:
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [core:AnnotationType/other, core:AnnotationType/review]'
+  Artifact:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/Artifact
+    description: A distinct article or unit within the digital domain.
+    is_a: Element
+    abstract: true
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+      shacl_message:
+        value: https://spdx.org/rdf/3.0.1/terms/Core/Artifact is an abstract class
+          and should not be instantiated directly. Instantiate a subclass instead.
+      shacl_not:
+        value: '{ sh:hasValue core:Artifact }'
+    slots:
+    - standardName
+    - builtTime
+    - validUntilTime
+    - supportLevel
+    - suppliedBy
+    - originatedBy
+    - releaseTime
+    slot_usage:
+      standardName:
+        range: string
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      builtTime:
+        range: datetime
+        multivalued: false
+        pattern: ^\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\dZ$
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      validUntilTime:
+        range: datetime
+        multivalued: false
+        pattern: ^\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\dZ$
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      supportLevel:
+        range: SupportType
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [core:SupportType/development, core:SupportType/support, core:SupportType/deployed,
+          core:SupportType/limitedSupport, core:SupportType/endOfSupport, core:SupportType/noSupport,
+          core:SupportType/noAssertion]'
+      suppliedBy:
+        range: Agent
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+      originatedBy:
+        range: Agent
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+      releaseTime:
+        range: datetime
+        multivalued: false
+        pattern: ^\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\dZ$
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  Bom:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/Bom
+    description: 'A container for a grouping of SPDX-3.0 content characterizing details
+
+      (provenence, composition, licensing, etc.) about a product.'
+    is_a: Bundle
+    abstract: true
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+  Bundle:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/Bundle
+    description: A collection of Elements that have a shared context.
+    is_a: ElementCollection
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - context
+    slot_usage:
+      context:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  CreationInfo:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/CreationInfo
+    description: Provides information about the creation of the Element.
+    annotations:
+      shacl_node_kind:
+        value: sh:BlankNodeOrIRI
+    slots:
+    - createdBy
+    - createdUsing
+    - created
+    - specVersion
+    - comment
+    slot_usage:
+      createdBy:
+        range: Agent
+        required: true
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+      createdUsing:
+        range: Tool
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+      created:
+        range: datetime
+        required: true
+        multivalued: false
+        pattern: ^\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\dZ$
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      specVersion:
+        range: string
+        required: true
+        multivalued: false
+        pattern: ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      comment:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  DictionaryEntry:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/DictionaryEntry
+    description: A key with an associated value.
+    annotations:
+      shacl_node_kind:
+        value: sh:BlankNodeOrIRI
+    slots:
+    - value
+    - key
+    slot_usage:
+      value:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      key:
+        range: string
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  Element:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/Element
+    description: Base domain class from which all other SPDX-3.0 domain classes derive.
+    abstract: true
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+      shacl_not_slot_extension_summary:
+        value: 54 restricted classes
+      shacl_not_slot_extension_item_count:
+        value: '54'
+      shacl_not_slot_extension_constraint_type:
+        value: sh:or
+      shacl_not_slot_extension:
+        value: '{ sh:or [{ sh:class security:SsvcVulnAssessmentRelationship }, { sh:class
+          security:CvssV2VulnAssessmentRelationship }, { sh:class security:ExploitCatalogVulnAssessmentRelationship
+          }, { sh:class security:CvssV4VulnAssessmentRelationship }, { sh:class security:VexAffectedVulnAssessmentRelationship
+          }, { sh:class security:VexNotAffectedVulnAssessmentRelationship }, { sh:class
+          security:CvssV3VulnAssessmentRelationship }, { sh:class security:Vulnerability
+          }, { sh:class security:VexUnderInvestigationVulnAssessmentRelationship },
+          { sh:class security:EpssVulnAssessmentRelationship }, { sh:class security:VexFixedVulnAssessmentRelationship
+          }, { sh:class core:NamespaceMap }, { sh:class core:LifecycleScopedRelationship
+          }, { sh:class core:Hash }, { sh:class core:Agent }, { sh:class core:CreationInfo
+          }, { sh:class core:ExternalRef }, { sh:class core:Bom }, { sh:class core:IndividualElement
+          }, { sh:class core:Relationship }, { sh:class core:PositiveIntegerRange
+          }, { sh:class core:DictionaryEntry }, { sh:class core:ExternalMap }, { sh:class
+          core:Annotation }, { sh:class core:SpdxDocument }, { sh:class core:Person
+          }, { sh:class core:Organization }, { sh:class core:Bundle }, { sh:class
+          core:Tool }, { sh:class core:ExternalIdentifier }, { sh:class core:SoftwareAgent
+          }, { sh:class core:PackageVerificationCode }, { sh:class ai:AIPackage },
+          { sh:class ai:EnergyConsumptionDescription }, { sh:class ai:EnergyConsumption
+          }, { sh:class build:Build }, { sh:class dataset:DatasetPackage }, { sh:class
+          expandedlicensing:CustomLicense }, { sh:class expandedlicensing:OrLaterOperator
+          }, { sh:class expandedlicensing:ListedLicense }, { sh:class expandedlicensing:DisjunctiveLicenseSet
+          }, { sh:class expandedlicensing:ListedLicenseException }, { sh:class expandedlicensing:WithAdditionOperator
+          }, { sh:class expandedlicensing:IndividualLicensingInfo }, { sh:class expandedlicensing:CustomLicenseAddition
+          }, { sh:class expandedlicensing:ConjunctiveLicenseSet }, { sh:class simplelicensing:LicenseExpression
+          }, { sh:class simplelicensing:SimpleLicensingText }, { sh:class extension:CdxPropertyEntry
+          }, { sh:class software:Package }, { sh:class software:File }, { sh:class
+          software:Sbom }, { sh:class software:Snippet }, { sh:class software:ContentIdentifier
+          }] }'
+      shacl_message:
+        value: https://spdx.org/rdf/3.0.1/terms/Core/Element is an abstract class
+          and should not be instantiated directly. Instantiate a subclass instead.
+      shacl_not:
+        value: '{ sh:hasValue core:Element }'
+    slots:
+    - externalIdentifier
+    - extension
+    - summary
+    - description
+    - comment
+    - verifiedUsing
+    - externalRef
+    - name
+    - creationInfo
+    slot_usage:
+      externalIdentifier:
+        range: ExternalIdentifier
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+      extension:
+        range: Extension
+        multivalued: true
+        comments:
+        - Class is known to not derive from Extension and cannot be used
+        notes:
+        - 'SHACL not: (54 restricted classes)'
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+      summary:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      description:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      comment:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      verifiedUsing:
+        range: IntegrityMethod
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+      externalRef:
+        range: ExternalRef
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+      name:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      creationInfo:
+        range: CreationInfo
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+  ElementCollection:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/ElementCollection
+    description: A collection of Elements, not necessarily with unifying context.
+    is_a: Element
+    abstract: true
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+      shacl_message:
+        value: https://spdx.org/rdf/3.0.1/terms/Core/ElementCollection is an abstract
+          class and should not be instantiated directly. Instantiate a subclass instead.
+      shacl_not:
+        value: '{ sh:hasValue core:ElementCollection }'
+    slots:
+    - element
+    - profileConformance
+    - rootElement
+    slot_usage:
+      element:
+        range: Element
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+      profileConformance:
+        range: ProfileIdentifierType
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [core:ProfileIdentifierType/core, core:ProfileIdentifierType/software,
+          core:ProfileIdentifierType/simpleLicensing, core:ProfileIdentifierType/expandedLicensing,
+          core:ProfileIdentifierType/security, core:ProfileIdentifierType/build, core:ProfileIdentifierType/ai,
+          core:ProfileIdentifierType/dataset, core:ProfileIdentifierType/extension,
+          core:ProfileIdentifierType/lite]'
+      rootElement:
+        range: Element
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+  ExternalIdentifier:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifier
+    description: A reference to a resource identifier defined outside the scope of
+      SPDX-3.0 content that uniquely identifies an Element.
+    annotations:
+      shacl_node_kind:
+        value: sh:BlankNodeOrIRI
+    slots:
+    - identifierLocator
+    - externalIdentifierType
+    - issuingAuthority
+    - identifier
+    - comment
+    slot_usage:
+      identifierLocator:
+        range: uri
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      externalIdentifierType:
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [core:ExternalIdentifierType/cpe22, core:ExternalIdentifierType/cpe23,
+          core:ExternalIdentifierType/cve, core:ExternalIdentifierType/email, core:ExternalIdentifierType/gitoid,
+          core:ExternalIdentifierType/other, core:ExternalIdentifierType/packageUrl,
+          core:ExternalIdentifierType/securityOther, core:ExternalIdentifierType/swhid,
+          core:ExternalIdentifierType/swid, core:ExternalIdentifierType/urlScheme]'
+      issuingAuthority:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      identifier:
+        range: string
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      comment:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  ExternalMap:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/ExternalMap
+    description: 'A map of Element identifiers that are used within an SpdxDocument
+      but defined
+
+      external to that SpdxDocument.'
+    annotations:
+      shacl_node_kind:
+        value: sh:BlankNodeOrIRI
+    slots:
+    - definingArtifact
+    - locationHint
+    - externalSpdxId
+    - verifiedUsing
+    slot_usage:
+      definingArtifact:
+        range: Artifact
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+      locationHint:
+        range: uri
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      externalSpdxId:
+        range: uri
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      verifiedUsing:
+        range: IntegrityMethod
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+  ExternalRef:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/ExternalRef
+    description: A reference to a resource outside the scope of SPDX-3.0 content related
+      to an Element.
+    annotations:
+      shacl_node_kind:
+        value: sh:BlankNodeOrIRI
+    slots:
+    - core_locator
+    - externalRefType
+    - comment
+    - contentType
+    slot_usage:
+      core_locator:
+        range: string
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      externalRefType:
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [core:ExternalRefType/altDownloadLocation, core:ExternalRefType/altWebPage,
+          core:ExternalRefType/binaryArtifact, core:ExternalRefType/bower, core:ExternalRefType/buildMeta,
+          core:ExternalRefType/buildSystem, core:ExternalRefType/chat, core:ExternalRefType/certificationReport,
+          core:ExternalRefType/componentAnalysisReport, core:ExternalRefType/cwe,
+          core:ExternalRefType/documentation, core:ExternalRefType/dynamicAnalysisReport,
+          core:ExternalRefType/eolNotice, core:ExternalRefType/exportControlAssessment,
+          core:ExternalRefType/funding, core:ExternalRefType/issueTracker, core:ExternalRefType/mailingList,
+          core:ExternalRefType/mavenCentral, core:ExternalRefType/metrics, core:ExternalRefType/npm,
+          core:ExternalRefType/nuget, core:ExternalRefType/license, core:ExternalRefType/other,
+          core:ExternalRefType/privacyAssessment, core:ExternalRefType/productMetadata,
+          core:ExternalRefType/purchaseOrder, core:ExternalRefType/qualityAssessmentReport,
+          core:ExternalRefType/releaseNotes, core:ExternalRefType/releaseHistory,
+          core:ExternalRefType/riskAssessment, core:ExternalRefType/runtimeAnalysisReport,
+          core:ExternalRefType/secureSoftwareAttestation, core:ExternalRefType/securityAdvisory,
+          core:ExternalRefType/securityAdversaryModel, core:ExternalRefType/securityFix,
+          core:ExternalRefType/securityOther, core:ExternalRefType/securityPenTestReport,
+          core:ExternalRefType/securityPolicy, core:ExternalRefType/securityThreatModel,
+          core:ExternalRefType/socialMedia, core:ExternalRefType/sourceArtifact, core:ExternalRefType/staticAnalysisReport,
+          core:ExternalRefType/support, core:ExternalRefType/vcs, core:ExternalRefType/vulnerabilityDisclosureReport,
+          core:ExternalRefType/vulnerabilityExploitabilityAssessment]'
+      comment:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      contentType:
+        range: string
+        multivalued: false
+        pattern: ^[^\/]+\/[^\/]+$
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  Hash:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/Hash
+    description: A mathematically calculated representation of a grouping of data.
+    is_a: IntegrityMethod
+    annotations:
+      shacl_node_kind:
+        value: sh:BlankNodeOrIRI
+    slots:
+    - algorithm
+    - hashValue
+    slot_usage:
+      algorithm:
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [core:HashAlgorithm/adler32, core:HashAlgorithm/blake2b256, core:HashAlgorithm/blake2b384,
+          core:HashAlgorithm/blake2b512, core:HashAlgorithm/blake3, core:HashAlgorithm/crystalsDilithium,
+          core:HashAlgorithm/crystalsKyber, core:HashAlgorithm/falcon, core:HashAlgorithm/md2,
+          core:HashAlgorithm/md4, core:HashAlgorithm/md5, core:HashAlgorithm/md6,
+          core:HashAlgorithm/other, core:HashAlgorithm/sha1, core:HashAlgorithm/sha224,
+          core:HashAlgorithm/sha256, core:HashAlgorithm/sha384, core:HashAlgorithm/sha512,
+          core:HashAlgorithm/sha3_224, core:HashAlgorithm/sha3_256, core:HashAlgorithm/sha3_384,
+          core:HashAlgorithm/sha3_512]'
+      hashValue:
+        range: string
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  IndividualElement:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/IndividualElement
+    description: 'A concrete subclass of Element used by Individuals in the
+
+      Core profile.'
+    is_a: Element
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+  IntegrityMethod:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/IntegrityMethod
+    description: Provides an independently reproducible mechanism that permits verification
+      of a specific Element.
+    abstract: true
+    annotations:
+      shacl_node_kind:
+        value: sh:BlankNodeOrIRI
+      shacl_message:
+        value: https://spdx.org/rdf/3.0.1/terms/Core/IntegrityMethod is an abstract
+          class and should not be instantiated directly. Instantiate a subclass instead.
+      shacl_not:
+        value: '{ sh:hasValue core:IntegrityMethod }'
+    slots:
+    - comment
+    slot_usage:
+      comment:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  LifecycleScopedRelationship:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/LifecycleScopedRelationship
+    description: Provide context for a relationship that occurs in the lifecycle.
+    is_a: Relationship
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - scope
+    slot_usage:
+      scope:
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [core:LifecycleScopeType/design, core:LifecycleScopeType/development,
+          core:LifecycleScopeType/build, core:LifecycleScopeType/test, core:LifecycleScopeType/runtime,
+          core:LifecycleScopeType/other]'
+  NamespaceMap:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/NamespaceMap
+    description: A mapping between prefixes and namespace partial URIs.
+    annotations:
+      shacl_node_kind:
+        value: sh:BlankNodeOrIRI
+    slots:
+    - prefix
+    - namespace
+    slot_usage:
+      prefix:
+        range: string
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      namespace:
+        range: uri
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  Organization:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/Organization
+    description: A group of people who work together in an organized way for a shared
+      purpose.
+    is_a: Agent
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+  PackageVerificationCode:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/PackageVerificationCode
+    description: An SPDX version 2.X compatible verification method for software packages.
+    is_a: IntegrityMethod
+    annotations:
+      shacl_node_kind:
+        value: sh:BlankNodeOrIRI
+    slots:
+    - packageVerificationCodeExcludedFile
+    - hashValue
+    - algorithm
+    slot_usage:
+      packageVerificationCodeExcludedFile:
+        range: string
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      hashValue:
+        range: string
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      algorithm:
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [core:HashAlgorithm/adler32, core:HashAlgorithm/blake2b256, core:HashAlgorithm/blake2b384,
+          core:HashAlgorithm/blake2b512, core:HashAlgorithm/blake3, core:HashAlgorithm/crystalsDilithium,
+          core:HashAlgorithm/crystalsKyber, core:HashAlgorithm/falcon, core:HashAlgorithm/md2,
+          core:HashAlgorithm/md4, core:HashAlgorithm/md5, core:HashAlgorithm/md6,
+          core:HashAlgorithm/other, core:HashAlgorithm/sha1, core:HashAlgorithm/sha224,
+          core:HashAlgorithm/sha256, core:HashAlgorithm/sha384, core:HashAlgorithm/sha512,
+          core:HashAlgorithm/sha3_224, core:HashAlgorithm/sha3_256, core:HashAlgorithm/sha3_384,
+          core:HashAlgorithm/sha3_512]'
+  Person:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/Person
+    description: An individual human being.
+    is_a: Agent
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+  PositiveIntegerRange:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/PositiveIntegerRange
+    description: A tuple of two positive integers that define a range.
+    annotations:
+      shacl_node_kind:
+        value: sh:BlankNodeOrIRI
+    slots:
+    - endIntegerRange
+    - beginIntegerRange
+    slot_usage:
+      endIntegerRange:
+        range: integer
+        required: true
+        multivalued: false
+        minimum_value: 1
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      beginIntegerRange:
+        range: integer
+        required: true
+        multivalued: false
+        minimum_value: 1
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  Relationship:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/Relationship
+    description: Describes a relationship between one or more elements.
+    is_a: Element
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - to
+    - completeness
+    - startTime
+    - relationshipType
+    - from
+    - endTime
+    slot_usage:
+      to:
+        range: Element
+        required: true
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+      completeness:
+        range: RelationshipCompleteness
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [core:RelationshipCompleteness/incomplete, core:RelationshipCompleteness/complete,
+          core:RelationshipCompleteness/noAssertion]'
+      startTime:
+        range: datetime
+        multivalued: false
+        pattern: ^\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\dZ$
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      relationshipType:
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [core:RelationshipType/affects, core:RelationshipType/amendedBy,
+          core:RelationshipType/ancestorOf, core:RelationshipType/availableFrom, core:RelationshipType/configures,
+          core:RelationshipType/contains, core:RelationshipType/coordinatedBy, core:RelationshipType/copiedTo,
+          core:RelationshipType/delegatedTo, core:RelationshipType/dependsOn, core:RelationshipType/descendantOf,
+          core:RelationshipType/describes, core:RelationshipType/doesNotAffect, core:RelationshipType/expandsTo,
+          core:RelationshipType/exploitCreatedBy, core:RelationshipType/fixedBy, core:RelationshipType/fixedIn,
+          core:RelationshipType/foundBy, core:RelationshipType/generates, core:RelationshipType/hasAddedFile,
+          core:RelationshipType/hasAssessmentFor, core:RelationshipType/hasAssociatedVulnerability,
+          core:RelationshipType/hasConcludedLicense, core:RelationshipType/hasDataFile,
+          core:RelationshipType/hasDeclaredLicense, core:RelationshipType/hasDeletedFile,
+          core:RelationshipType/hasDependencyManifest, core:RelationshipType/hasDistributionArtifact,
+          core:RelationshipType/hasDocumentation, core:RelationshipType/hasDynamicLink,
+          core:RelationshipType/hasEvidence, core:RelationshipType/hasExample, core:RelationshipType/hasHost,
+          core:RelationshipType/hasInput, core:RelationshipType/hasMetadata, core:RelationshipType/hasOptionalComponent,
+          core:RelationshipType/hasOptionalDependency, core:RelationshipType/hasOutput,
+          core:RelationshipType/hasPrerequisite, core:RelationshipType/hasProvidedDependency,
+          core:RelationshipType/hasRequirement, core:RelationshipType/hasSpecification,
+          core:RelationshipType/hasStaticLink, core:RelationshipType/hasTest, core:RelationshipType/hasTestCase,
+          core:RelationshipType/hasVariant, core:RelationshipType/invokedBy, core:RelationshipType/modifiedBy,
+          core:RelationshipType/other, core:RelationshipType/packagedBy, core:RelationshipType/patchedBy,
+          core:RelationshipType/publishedBy, core:RelationshipType/reportedBy, core:RelationshipType/republishedBy,
+          core:RelationshipType/serializedInArtifact, core:RelationshipType/testedOn,
+          core:RelationshipType/trainedOn, core:RelationshipType/underInvestigationFor,
+          core:RelationshipType/usesTool]'
+      from:
+        range: Element
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+      endTime:
+        range: datetime
+        multivalued: false
+        pattern: ^\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\dZ$
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  SoftwareAgent:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/SoftwareAgent
+    description: A software agent.
+    is_a: Agent
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+  SpdxDocument:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/SpdxDocument
+    description: A collection of SPDX Elements that could potentially be serialized.
+    is_a: ElementCollection
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - namespaceMap
+    - dataLicense
+    - import
+    slot_usage:
+      namespaceMap:
+        range: NamespaceMap
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+      dataLicense:
+        range: AnyLicenseInfo
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+      import:
+        range: ExternalMap
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+  Tool:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Core/Tool
+    description: An element of hardware and/or software utilized to carry out a particular
+      function.
+    is_a: Element
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+  DatasetPackage:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetPackage
+    description: Specifies a data package and its associated information.
+    is_a: Package
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - datasetSize
+    - datasetType
+    - anonymizationMethodUsed
+    - datasetUpdateMechanism
+    - dataCollectionProcess
+    - knownBias
+    - sensor
+    - dataPreprocessing
+    - intendedUse
+    - confidentialityLevel
+    - datasetAvailability
+    - hasSensitivePersonalInformation
+    - datasetNoise
+    slot_usage:
+      datasetSize:
+        range: integer
+        multivalued: false
+        minimum_value: 0
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      datasetType:
+        required: true
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [dataset:DatasetType/audio, dataset:DatasetType/categorical,
+          dataset:DatasetType/graph, dataset:DatasetType/image, dataset:DatasetType/noAssertion,
+          dataset:DatasetType/numeric, dataset:DatasetType/other, dataset:DatasetType/sensor,
+          dataset:DatasetType/structured, dataset:DatasetType/syntactic, dataset:DatasetType/text,
+          dataset:DatasetType/timeseries, dataset:DatasetType/timestamp, dataset:DatasetType/video]'
+      anonymizationMethodUsed:
+        range: string
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      datasetUpdateMechanism:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      dataCollectionProcess:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      knownBias:
+        range: string
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      sensor:
+        range: DictionaryEntry
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+      dataPreprocessing:
+        range: string
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      intendedUse:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      confidentialityLevel:
+        range: ConfidentialityLevelType
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [dataset:ConfidentialityLevelType/red, dataset:ConfidentialityLevelType/amber,
+          dataset:ConfidentialityLevelType/green, dataset:ConfidentialityLevelType/clear]'
+      datasetAvailability:
+        range: DatasetAvailabilityType
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [dataset:DatasetAvailabilityType/clickthrough, dataset:DatasetAvailabilityType/directDownload,
+          dataset:DatasetAvailabilityType/query, dataset:DatasetAvailabilityType/registration,
+          dataset:DatasetAvailabilityType/scrapingScript]'
+      hasSensitivePersonalInformation:
+        range: PresenceType
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [core:PresenceType/yes, core:PresenceType/no, core:PresenceType/noAssertion]'
+      datasetNoise:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  ConjunctiveLicenseSet:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/ConjunctiveLicenseSet
+    description: 'Portion of an AnyLicenseInfo representing a set of licensing information
+
+      where all elements apply.'
+    is_a: AnyLicenseInfo
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - member
+    slot_usage:
+      member:
+        range: AnyLicenseInfo
+        required: true
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+  CustomLicense:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/CustomLicense
+    description: A license that is not listed on the SPDX License List.
+    is_a: License
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+  CustomLicenseAddition:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/CustomLicenseAddition
+    description: A license addition that is not listed on the SPDX Exceptions List.
+    is_a: LicenseAddition
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+  DisjunctiveLicenseSet:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/DisjunctiveLicenseSet
+    description: 'Portion of an AnyLicenseInfo representing a set of licensing information
+      where
+
+      only one of the elements applies.'
+    is_a: AnyLicenseInfo
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - member
+    slot_usage:
+      member:
+        range: AnyLicenseInfo
+        required: true
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+  ExtendableLicense:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/ExtendableLicense
+    description: Abstract class representing a License or an OrLaterOperator.
+    is_a: AnyLicenseInfo
+    abstract: true
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+  IndividualLicensingInfo:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/IndividualLicensingInfo
+    description: 'A concrete subclass of AnyLicenseInfo used by Individuals in the
+
+      ExpandedLicensing profile.'
+    is_a: AnyLicenseInfo
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+  License:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/License
+    description: Abstract class for the portion of an AnyLicenseInfo representing
+      a license.
+    is_a: ExtendableLicense
+    abstract: true
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+      shacl_message:
+        value: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/License is an abstract
+          class and should not be instantiated directly. Instantiate a subclass instead.
+      shacl_not:
+        value: '{ sh:hasValue expandedlicensing:License }'
+    slots:
+    - obsoletedBy
+    - standardLicenseHeader
+    - seeAlso
+    - isFsfLibre
+    - isDeprecatedLicenseId
+    - isOsiApproved
+    - licenseXml
+    - licenseText
+    - standardLicenseTemplate
+    slot_usage:
+      obsoletedBy:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      standardLicenseHeader:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      seeAlso:
+        range: uri
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      isFsfLibre:
+        range: boolean
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      isDeprecatedLicenseId:
+        range: boolean
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      isOsiApproved:
+        range: boolean
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      licenseXml:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      licenseText:
+        range: string
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      standardLicenseTemplate:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  LicenseAddition:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/LicenseAddition
+    description: 'Abstract class for additional text intended to be added to a License,
+      but
+
+      which is not itself a standalone License.'
+    is_a: Element
+    abstract: true
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+      shacl_message:
+        value: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/LicenseAddition
+          is an abstract class and should not be instantiated directly. Instantiate
+          a subclass instead.
+      shacl_not:
+        value: '{ sh:hasValue expandedlicensing:LicenseAddition }'
+    slots:
+    - standardAdditionTemplate
+    - seeAlso
+    - obsoletedBy
+    - licenseXml
+    - isDeprecatedAdditionId
+    - additionText
+    slot_usage:
+      standardAdditionTemplate:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      seeAlso:
+        range: uri
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      obsoletedBy:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      licenseXml:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      isDeprecatedAdditionId:
+        range: boolean
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      additionText:
+        range: string
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  ListedLicense:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/ListedLicense
+    description: A license that is listed on the SPDX License List.
+    is_a: License
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - deprecatedVersion
+    - listVersionAdded
+    slot_usage:
+      deprecatedVersion:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      listVersionAdded:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  ListedLicenseException:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/ListedLicenseException
+    description: A license exception that is listed on the SPDX Exceptions list.
+    is_a: LicenseAddition
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - listVersionAdded
+    - deprecatedVersion
+    slot_usage:
+      listVersionAdded:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      deprecatedVersion:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  OrLaterOperator:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/OrLaterOperator
+    description: 'Portion of an AnyLicenseInfo representing this version, or any later
+      version,
+
+      of the indicated License.'
+    is_a: ExtendableLicense
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - subjectLicense
+    slot_usage:
+      subjectLicense:
+        range: License
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+  WithAdditionOperator:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/WithAdditionOperator
+    description: 'Portion of an AnyLicenseInfo representing a License which has additional
+
+      text applied to it.'
+    is_a: AnyLicenseInfo
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - subjectExtendableLicense
+    - subjectAddition
+    slot_usage:
+      subjectExtendableLicense:
+        range: ExtendableLicense
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+      subjectAddition:
+        range: LicenseAddition
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+  CdxPropertiesExtension:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Extension/CdxPropertiesExtension
+    description: A type of extension consisting of a list of name value pairs.
+    is_a: Extension
+    annotations:
+      shacl_node_kind:
+        value: sh:BlankNodeOrIRI
+    slots:
+    - cdxProperty
+    slot_usage:
+      cdxProperty:
+        range: CdxPropertyEntry
+        required: true
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+  CdxPropertyEntry:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Extension/CdxPropertyEntry
+    description: A property name with an associated value.
+    annotations:
+      shacl_node_kind:
+        value: sh:BlankNodeOrIRI
+    slots:
+    - cdxPropValue
+    - cdxPropName
+    slot_usage:
+      cdxPropValue:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      cdxPropName:
+        range: string
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  Extension:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Extension/Extension
+    description: A characterization of some aspect of an Element that is associated
+      with the Element in a generalized fashion.
+    abstract: true
+    annotations:
+      shacl_node_kind:
+        value: sh:BlankNodeOrIRI
+  CvssV2VulnAssessmentRelationship:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Security/CvssV2VulnAssessmentRelationship
+    description: Provides a CVSS version 2.0 assessment for a vulnerability.
+    is_a: VulnAssessmentRelationship
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - vectorString
+    - score
+    slot_usage:
+      vectorString:
+        range: string
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      score:
+        range: decimal
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  CvssV3VulnAssessmentRelationship:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Security/CvssV3VulnAssessmentRelationship
+    description: Provides a CVSS version 3 assessment for a vulnerability.
+    is_a: VulnAssessmentRelationship
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - severity
+    - vectorString
+    - score
+    slot_usage:
+      severity:
+        range: CvssSeverityType
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [security:CvssSeverityType/critical, security:CvssSeverityType/high,
+          security:CvssSeverityType/medium, security:CvssSeverityType/low, security:CvssSeverityType/none]'
+      vectorString:
+        range: string
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      score:
+        range: decimal
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  CvssV4VulnAssessmentRelationship:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Security/CvssV4VulnAssessmentRelationship
+    description: Provides a CVSS version 4 assessment for a vulnerability.
+    is_a: VulnAssessmentRelationship
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - severity
+    - vectorString
+    - score
+    slot_usage:
+      severity:
+        range: CvssSeverityType
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [security:CvssSeverityType/critical, security:CvssSeverityType/high,
+          security:CvssSeverityType/medium, security:CvssSeverityType/low, security:CvssSeverityType/none]'
+      vectorString:
+        range: string
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      score:
+        range: decimal
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  EpssVulnAssessmentRelationship:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Security/EpssVulnAssessmentRelationship
+    description: Provides an EPSS assessment for a vulnerability.
+    is_a: VulnAssessmentRelationship
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - percentile
+    - probability
+    slot_usage:
+      percentile:
+        range: decimal
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      probability:
+        range: decimal
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  ExploitCatalogVulnAssessmentRelationship:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Security/ExploitCatalogVulnAssessmentRelationship
+    description: Provides an exploit assessment of a vulnerability.
+    is_a: VulnAssessmentRelationship
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - exploited
+    - security_locator
+    - catalogType
+    slot_usage:
+      exploited:
+        range: boolean
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      security_locator:
+        range: uri
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      catalogType:
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [security:ExploitCatalogType/kev, security:ExploitCatalogType/other]'
+  SsvcVulnAssessmentRelationship:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Security/SsvcVulnAssessmentRelationship
+    description: Provides an SSVC assessment for a vulnerability.
+    is_a: VulnAssessmentRelationship
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - decisionType
+    slot_usage:
+      decisionType:
+        range: SsvcDecisionType
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [security:SsvcDecisionType/act, security:SsvcDecisionType/attend,
+          security:SsvcDecisionType/track, security:SsvcDecisionType/trackStar]'
+  VexAffectedVulnAssessmentRelationship:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Security/VexAffectedVulnAssessmentRelationship
+    description: 'Connects a vulnerability and an element designating the element
+      as a product
+
+      affected by the vulnerability.'
+    is_a: VexVulnAssessmentRelationship
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - actionStatement
+    - actionStatementTime
+    slot_usage:
+      actionStatement:
+        range: string
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      actionStatementTime:
+        range: datetime
+        multivalued: false
+        pattern: ^\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\dZ$
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  VexFixedVulnAssessmentRelationship:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Security/VexFixedVulnAssessmentRelationship
+    description: 'Links a vulnerability and elements representing products (in the
+      VEX sense) where
+
+      a fix has been applied and are no longer affected.'
+    is_a: VexVulnAssessmentRelationship
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+  VexNotAffectedVulnAssessmentRelationship:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Security/VexNotAffectedVulnAssessmentRelationship
+    description: 'Links a vulnerability and one or more elements designating the latter
+      as products
+
+      not affected by the vulnerability.'
+    is_a: VexVulnAssessmentRelationship
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - impactStatementTime
+    - justificationType
+    - impactStatement
+    slot_usage:
+      impactStatementTime:
+        range: datetime
+        multivalued: false
+        pattern: ^\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\dZ$
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      justificationType:
+        range: VexJustificationType
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [security:VexJustificationType/componentNotPresent, security:VexJustificationType/vulnerableCodeNotPresent,
+          security:VexJustificationType/vulnerableCodeCannotBeControlledByAdversary,
+          security:VexJustificationType/vulnerableCodeNotInExecutePath, security:VexJustificationType/inlineMitigationsAlreadyExist]'
+      impactStatement:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  VexUnderInvestigationVulnAssessmentRelationship:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Security/VexUnderInvestigationVulnAssessmentRelationship
+    description: 'Designates elements as products where the impact of a vulnerability
+      is being
+
+      investigated.'
+    is_a: VexVulnAssessmentRelationship
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+  VexVulnAssessmentRelationship:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Security/VexVulnAssessmentRelationship
+    description: Abstract ancestor class for all VEX relationships
+    is_a: VulnAssessmentRelationship
+    abstract: true
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+      shacl_message:
+        value: https://spdx.org/rdf/3.0.1/terms/Security/VexVulnAssessmentRelationship
+          is an abstract class and should not be instantiated directly. Instantiate
+          a subclass instead.
+      shacl_not:
+        value: '{ sh:hasValue security:VexVulnAssessmentRelationship }'
+    slots:
+    - vexVersion
+    - statusNotes
+    slot_usage:
+      vexVersion:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      statusNotes:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  VulnAssessmentRelationship:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Security/VulnAssessmentRelationship
+    description: Abstract ancestor class for all vulnerability assessments
+    is_a: Relationship
+    abstract: true
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+      shacl_message:
+        value: https://spdx.org/rdf/3.0.1/terms/Security/VulnAssessmentRelationship
+          is an abstract class and should not be instantiated directly. Instantiate
+          a subclass instead.
+      shacl_not:
+        value: '{ sh:hasValue security:VulnAssessmentRelationship }'
+    slots:
+    - withdrawnTime
+    - publishedTime
+    - assessedElement
+    - suppliedBy
+    - modifiedTime
+    slot_usage:
+      withdrawnTime:
+        range: datetime
+        multivalued: false
+        pattern: ^\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\dZ$
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      publishedTime:
+        range: datetime
+        multivalued: false
+        pattern: ^\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\dZ$
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      assessedElement:
+        range: SoftwareArtifact
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+      suppliedBy:
+        range: Agent
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+      modifiedTime:
+        range: datetime
+        multivalued: false
+        pattern: ^\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\dZ$
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  Vulnerability:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Security/Vulnerability
+    description: Specifies a vulnerability and its associated information.
+    is_a: Artifact
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - withdrawnTime
+    - modifiedTime
+    - publishedTime
+    slot_usage:
+      withdrawnTime:
+        range: datetime
+        multivalued: false
+        pattern: ^\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\dZ$
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      modifiedTime:
+        range: datetime
+        multivalued: false
+        pattern: ^\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\dZ$
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      publishedTime:
+        range: datetime
+        multivalued: false
+        pattern: ^\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\dZ$
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  AnyLicenseInfo:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/AnyLicenseInfo
+    description: Abstract class representing a license combination consisting of one
+      or more licenses.
+    is_a: Element
+    abstract: true
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+  LicenseExpression:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/LicenseExpression
+    description: An SPDX Element containing an SPDX license expression string.
+    is_a: AnyLicenseInfo
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - customIdToUri
+    - licenseExpression
+    - licenseListVersion
+    slot_usage:
+      customIdToUri:
+        range: DictionaryEntry
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+      licenseExpression:
+        range: string
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      licenseListVersion:
+        range: string
+        multivalued: false
+        pattern: ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  SimpleLicensingText:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/SimpleLicensingText
+    description: A license or addition that is not listed on the SPDX License List.
+    is_a: Element
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - licenseText
+    slot_usage:
+      licenseText:
+        range: string
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  ContentIdentifier:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Software/ContentIdentifier
+    description: A canonical, unique, immutable identifier
+    is_a: IntegrityMethod
+    annotations:
+      shacl_node_kind:
+        value: sh:BlankNodeOrIRI
+    slots:
+    - contentIdentifierValue
+    - contentIdentifierType
+    slot_usage:
+      contentIdentifierValue:
+        range: uri
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      contentIdentifierType:
+        range: ContentIdentifierType
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [software:ContentIdentifierType/gitoid, software:ContentIdentifierType/swhid]'
+  File:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Software/File
+    description: Refers to any object that stores content on a computer.
+    is_a: SoftwareArtifact
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - fileKind
+    - contentType
+    slot_usage:
+      fileKind:
+        range: FileKindType
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [software:FileKindType/file, software:FileKindType/directory]'
+      contentType:
+        range: string
+        multivalued: false
+        pattern: ^[^\/]+\/[^\/]+$
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  Package:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Software/Package
+    description: 'Refers to any unit of content that can be associated with a distribution
+      of
+
+      software.'
+    is_a: SoftwareArtifact
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - sourceInfo
+    - homePage
+    - downloadLocation
+    - packageVersion
+    - packageUrl
+    slot_usage:
+      sourceInfo:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      homePage:
+        range: uri
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      downloadLocation:
+        range: uri
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      packageVersion:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      packageUrl:
+        range: uri
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+  Sbom:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Software/Sbom
+    description: A collection of SPDX Elements describing a single package.
+    is_a: Bom
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - sbomType
+    slot_usage:
+      sbomType:
+        range: SbomType
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [software:SbomType/design, software:SbomType/source, software:SbomType/build,
+          software:SbomType/deployed, software:SbomType/runtime, software:SbomType/analyzed]'
+  Snippet:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Software/Snippet
+    description: Describes a certain part of a file.
+    is_a: SoftwareArtifact
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+    slots:
+    - lineRange
+    - snippetFromFile
+    - byteRange
+    slot_usage:
+      lineRange:
+        range: PositiveIntegerRange
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+      snippetFromFile:
+        range: File
+        required: true
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+      byteRange:
+        range: PositiveIntegerRange
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+  SoftwareArtifact:
+    class_uri: https://spdx.org/rdf/3.0.1/terms/Software/SoftwareArtifact
+    description: A distinct article or unit related to Software.
+    is_a: Artifact
+    abstract: true
+    annotations:
+      shacl_node_kind:
+        value: sh:IRI
+      shacl_message:
+        value: https://spdx.org/rdf/3.0.1/terms/Software/SoftwareArtifact is an abstract
+          class and should not be instantiated directly. Instantiate a subclass instead.
+      shacl_not:
+        value: '{ sh:hasValue software:SoftwareArtifact }'
+    slots:
+    - attributionText
+    - primaryPurpose
+    - additionalPurpose
+    - contentIdentifier
+    - copyrightText
+    slot_usage:
+      attributionText:
+        range: string
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+      primaryPurpose:
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [software:SoftwarePurpose/application, software:SoftwarePurpose/archive,
+          software:SoftwarePurpose/bom, software:SoftwarePurpose/configuration, software:SoftwarePurpose/container,
+          software:SoftwarePurpose/data, software:SoftwarePurpose/device, software:SoftwarePurpose/diskImage,
+          software:SoftwarePurpose/deviceDriver, software:SoftwarePurpose/documentation,
+          software:SoftwarePurpose/evidence, software:SoftwarePurpose/executable,
+          software:SoftwarePurpose/file, software:SoftwarePurpose/filesystemImage,
+          software:SoftwarePurpose/firmware, software:SoftwarePurpose/framework, software:SoftwarePurpose/install,
+          software:SoftwarePurpose/library, software:SoftwarePurpose/manifest, software:SoftwarePurpose/model,
+          software:SoftwarePurpose/module, software:SoftwarePurpose/operatingSystem,
+          software:SoftwarePurpose/other, software:SoftwarePurpose/patch, software:SoftwarePurpose/platform,
+          software:SoftwarePurpose/requirement, software:SoftwarePurpose/source, software:SoftwarePurpose/specification,
+          software:SoftwarePurpose/test]'
+      additionalPurpose:
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:IRI'
+        - 'SHACL in: [software:SoftwarePurpose/application, software:SoftwarePurpose/archive,
+          software:SoftwarePurpose/bom, software:SoftwarePurpose/configuration, software:SoftwarePurpose/container,
+          software:SoftwarePurpose/data, software:SoftwarePurpose/device, software:SoftwarePurpose/diskImage,
+          software:SoftwarePurpose/deviceDriver, software:SoftwarePurpose/documentation,
+          software:SoftwarePurpose/evidence, software:SoftwarePurpose/executable,
+          software:SoftwarePurpose/file, software:SoftwarePurpose/filesystemImage,
+          software:SoftwarePurpose/firmware, software:SoftwarePurpose/framework, software:SoftwarePurpose/install,
+          software:SoftwarePurpose/library, software:SoftwarePurpose/manifest, software:SoftwarePurpose/model,
+          software:SoftwarePurpose/module, software:SoftwarePurpose/operatingSystem,
+          software:SoftwarePurpose/other, software:SoftwarePurpose/patch, software:SoftwarePurpose/platform,
+          software:SoftwarePurpose/requirement, software:SoftwarePurpose/source, software:SoftwarePurpose/specification,
+          software:SoftwarePurpose/test]'
+      contentIdentifier:
+        range: ContentIdentifier
+        multivalued: true
+        notes:
+        - 'SHACL nodeKind: sh:BlankNodeOrIRI'
+      copyrightText:
+        range: string
+        multivalued: false
+        notes:
+        - 'SHACL nodeKind: sh:Literal'
+slots:
+  autonomyType:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/AI/autonomyType
+    description: 'Indicates whether the system can perform a decision or action without
+      human
+
+      involvement or guidance.'
+    range: PresenceType
+  domain:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/AI/domain
+    description: Captures the domain in which the AI package can be used.
+    range: string
+  energyConsumption:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/AI/energyConsumption
+    description: Indicates the amount of energy consumption incurred by an AI model.
+    range: EnergyConsumption
+  energyQuantity:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/AI/energyQuantity
+    description: Represents the energy quantity.
+    range: decimal
+  energyUnit:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/AI/energyUnit
+    description: Specifies the unit in which energy is measured.
+    any_of:
+    - range: EnergyUnitType
+    - range: string
+  finetuningEnergyConsumption:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/AI/finetuningEnergyConsumption
+    description: 'Specifies the amount of energy consumed when finetuning the AI model
+      that is
+
+      being used in the AI system.'
+    range: EnergyConsumptionDescription
+  hyperparameter:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/AI/hyperparameter
+    description: 'Records a hyperparameter used to build the AI model contained in
+      the AI
+
+      package.'
+    range: DictionaryEntry
+  inferenceEnergyConsumption:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/AI/inferenceEnergyConsumption
+    description: 'Specifies the amount of energy consumed during inference time by
+      an AI model
+
+      that is being used in the AI system.'
+    range: EnergyConsumptionDescription
+  informationAboutApplication:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/AI/informationAboutApplication
+    description: 'Provides relevant information about the AI software, not including
+      the model
+
+      description.'
+    range: string
+  informationAboutTraining:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/AI/informationAboutTraining
+    description: Describes relevant information about different steps of the training
+      process.
+    range: string
+  limitation:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/AI/limitation
+    description: Captures a limitation of the AI software.
+    range: string
+  metric:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/AI/metric
+    description: Records the measurement of prediction quality of the AI model.
+    range: DictionaryEntry
+  metricDecisionThreshold:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/AI/metricDecisionThreshold
+    description: 'Captures the threshold that was used for computation of a metric
+      described in
+
+      the metric field.'
+    range: DictionaryEntry
+  modelDataPreprocessing:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/AI/modelDataPreprocessing
+    description: 'Describes all the preprocessing steps applied to the training data
+      before the
+
+      model training.'
+    range: string
+  modelExplainability:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/AI/modelExplainability
+    description: Describes methods that can be used to explain the results from the
+      AI model.
+    range: string
+  safetyRiskAssessment:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/AI/safetyRiskAssessment
+    description: Records the results of general safety risk assessment of the AI system.
+    range: SafetyRiskAssessmentType
+  standardCompliance:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/AI/standardCompliance
+    description: Captures a standard that is being complied with.
+    range: string
+  trainingEnergyConsumption:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/AI/trainingEnergyConsumption
+    description: 'Specifies the amount of energy consumed when training the AI model
+      that is
+
+      being used in the AI system.'
+    range: EnergyConsumptionDescription
+  typeOfModel:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/AI/typeOfModel
+    description: Records the type of the model used in the AI software.
+    range: string
+  useSensitivePersonalInformation:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/AI/useSensitivePersonalInformation
+    description: 'Records if sensitive personal information is used during model training
+      or
+
+      could be used during the inference.'
+    range: PresenceType
+  buildEndTime:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Build/buildEndTime
+    description: Property that describes the time at which a build stops.
+    range: datetime
+  buildId:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Build/buildId
+    description: 'A buildId is a locally unique identifier used by a builder to identify
+      a unique
+
+      instance of a build produced by it.'
+    range: string
+  buildStartTime:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Build/buildStartTime
+    description: Property describing the start time of a build.
+    range: datetime
+  buildType:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Build/buildType
+    description: 'A buildType is a hint that is used to indicate the toolchain, platform,
+      or
+
+      infrastructure that the build was invoked on.'
+    range: uri
+  configSourceDigest:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Build/configSourceDigest
+    description: 'Property that describes the digest of the build configuration file
+      used to
+
+      invoke a build.'
+    range: Hash
+  configSourceEntrypoint:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Build/configSourceEntrypoint
+    description: Property describes the invocation entrypoint of a build.
+    range: string
+  configSourceUri:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Build/configSourceUri
+    description: Property that describes the URI of the build configuration source
+      file.
+    range: uri
+  environment:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Build/environment
+    description: Property describing the session in which a build is invoked.
+    range: DictionaryEntry
+  parameter:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Build/parameter
+    description: Property describing a parameter used in an instance of a build.
+    range: DictionaryEntry
+  algorithm:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/algorithm
+    description: Specifies the algorithm used for calculating the hash value.
+    any_of:
+    - range: HashAlgorithm
+    - range: string
+  annotationType:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/annotationType
+    description: Describes the type of annotation.
+    any_of:
+    - range: AnnotationType
+    - range: string
+  beginIntegerRange:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/beginIntegerRange
+    description: Defines the beginning of a range.
+    range: integer
+    minimum_value: 1
+  builtTime:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/builtTime
+    description: Specifies the time an artifact was built.
+    range: datetime
+  comment:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/comment
+    description: 'Provide consumers with comments by the creator of the Element about
+      the
+
+      Element.'
+    range: string
+  completeness:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/completeness
+    description: Provides information about the completeness of relationships.
+    range: RelationshipCompleteness
+  contentType:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/contentType
+    description: Provides information about the content type of an Element or a Property.
+    range: string
+  context:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/context
+    description: 'Gives information about the circumstances or unifying properties
+
+      that Elements of the bundle have been assembled under.'
+    range: string
+  created:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/created
+    description: Identifies when the Element was originally created.
+    range: datetime
+  createdBy:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/createdBy
+    description: Identifies who or what created the Element.
+    range: Agent
+  createdUsing:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/createdUsing
+    description: Identifies the tooling that was used during the creation of the Element.
+    range: Tool
+  creationInfo:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/creationInfo
+    description: Provides information about the creation of the Element.
+    range: CreationInfo
+  dataLicense:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/dataLicense
+    description: 'Provides the license under which the SPDX documentation of the Element
+      can be
+
+      used.'
+    range: AnyLicenseInfo
+  definingArtifact:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/definingArtifact
+    description: 'Artifact representing a serialization instance of SPDX data containing
+      the
+
+      definition of a particular Element.'
+    range: Artifact
+  description:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/description
+    description: Provides a detailed description of the Element.
+    range: string
+  element:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/element
+    description: Refers to one or more Elements that are part of an ElementCollection.
+    range: Element
+  endIntegerRange:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/endIntegerRange
+    description: Defines the end of a range.
+    range: integer
+    minimum_value: 1
+  endTime:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/endTime
+    description: Specifies the time from which an element is no longer applicable
+      / valid.
+    range: datetime
+  extension:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/extension
+    description: Specifies an Extension characterization of some aspect of an Element.
+    range: Extension
+  externalIdentifier:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/externalIdentifier
+    description: 'Provides a reference to a resource outside the scope of SPDX-3.0
+      content
+
+      that uniquely identifies an Element.'
+    range: ExternalIdentifier
+  externalIdentifierType:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/externalIdentifierType
+    description: Specifies the type of the external identifier.
+    any_of:
+    - range: ExternalIdentifierType
+    - range: string
+  externalRef:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/externalRef
+    description: 'Points to a resource outside the scope of the SPDX-3.0 content
+
+      that provides additional characteristics of an Element.'
+    range: ExternalRef
+  externalRefType:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/externalRefType
+    description: Specifies the type of the external reference.
+    any_of:
+    - range: ExternalRefType
+    - range: string
+  externalSpdxId:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/externalSpdxId
+    description: 'Identifies an external Element used within an SpdxDocument but defined
+
+      external to that SpdxDocument.'
+    range: uri
+  from:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/from
+    description: References the Element on the left-hand side of a relationship.
+    range: Element
+  hashValue:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/hashValue
+    description: The result of applying a hash algorithm to an Element.
+    range: string
+  identifier:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/identifier
+    description: Uniquely identifies an external element.
+    range: string
+  identifierLocator:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/identifierLocator
+    description: Provides the location for more information regarding an external
+      identifier.
+    range: uri
+  import:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/import
+    description: Provides an ExternalMap of Element identifiers.
+    range: ExternalMap
+  issuingAuthority:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/issuingAuthority
+    description: An entity that is authorized to issue identification credentials.
+    range: string
+  key:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/key
+    description: A key used in a generic key-value pair.
+    range: string
+  locationHint:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/locationHint
+    description: Provides an indication of where to retrieve an external Element.
+    range: uri
+  core_locator:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/locator
+    description: Provides the location of an external reference.
+    range: string
+  name:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/name
+    description: Identifies the name of an Element as designated by the creator.
+    range: string
+  namespace:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/namespace
+    description: 'Provides an unambiguous mechanism for conveying a URI fragment portion
+      of an
+
+      Element ID.'
+    range: uri
+  namespaceMap:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/namespaceMap
+    description: Provides a NamespaceMap of prefixes and associated namespace partial
+      URIs applicable to an SpdxDocument and independent of any specific serialization
+      format or instance.
+    range: NamespaceMap
+  originatedBy:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/originatedBy
+    description: Identifies from where or whom the Element originally came.
+    range: Agent
+  packageVerificationCodeExcludedFile:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/packageVerificationCodeExcludedFile
+    description: 'The relative file name of a file to be excluded from the
+
+      `PackageVerificationCode`.'
+    range: string
+  prefix:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/prefix
+    description: A substitute for a URI.
+    range: string
+  profileConformance:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/profileConformance
+    description: 'Describes one a profile which the creator of this ElementCollection
+      intends to
+
+      conform to.'
+    range: ProfileIdentifierType
+  relationshipType:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/relationshipType
+    description: Information about the relationship between two Elements.
+    any_of:
+    - range: RelationshipType
+    - range: string
+  releaseTime:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/releaseTime
+    description: Specifies the time an artifact was released.
+    range: datetime
+  rootElement:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/rootElement
+    description: This property is used to denote the root Element(s) of a tree of
+      elements contained in a BOM.
+    range: Element
+  scope:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/scope
+    description: Capture the scope of information about a specific relationship between
+      elements.
+    any_of:
+    - range: LifecycleScopeType
+    - range: string
+  specVersion:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/specVersion
+    description: 'Provides a reference number that can be used to understand how to
+      parse and
+
+      interpret an Element.'
+    range: string
+  standardName:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/standardName
+    description: The name of a relevant standard that may apply to an artifact.
+    range: string
+  startTime:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/startTime
+    description: Specifies the time from which an element is applicable / valid.
+    range: datetime
+  statement:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/statement
+    description: Commentary on an assertion that an annotator has made.
+    range: string
+  subject:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/subject
+    description: An Element an annotator has made an assertion about.
+    range: Element
+  summary:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/summary
+    description: A short description of an Element.
+    range: string
+  suppliedBy:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/suppliedBy
+    description: 'Identifies who or what supplied the artifact or VulnAssessmentRelationship
+
+      referenced by the Element.'
+    range: Agent
+  supportLevel:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/supportLevel
+    description: Specifies the level of support associated with an artifact.
+    range: SupportType
+  to:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/to
+    description: References an Element on the right-hand side of a relationship.
+    range: Element
+  validUntilTime:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/validUntilTime
+    description: 'Specifies until when the artifact can be used before its usage needs
+      to be
+
+      reassessed.'
+    range: datetime
+  value:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/value
+    description: A value used in a generic key-value pair.
+    range: string
+  verifiedUsing:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Core/verifiedUsing
+    description: 'Provides an IntegrityMethod with which the integrity of an Element
+      can be
+
+      asserted.'
+    range: IntegrityMethod
+  anonymizationMethodUsed:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Dataset/anonymizationMethodUsed
+    description: Describes the anonymization methods used.
+    range: string
+  confidentialityLevel:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Dataset/confidentialityLevel
+    description: Describes the confidentiality level of the data points contained
+      in the dataset.
+    range: ConfidentialityLevelType
+  dataCollectionProcess:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Dataset/dataCollectionProcess
+    description: Describes how the dataset was collected.
+    range: string
+  dataPreprocessing:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Dataset/dataPreprocessing
+    description: Describes the preprocessing steps that were applied to the raw data
+      to create the given dataset.
+    range: string
+  datasetAvailability:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Dataset/datasetAvailability
+    description: The field describes the availability of a dataset.
+    range: DatasetAvailabilityType
+  datasetNoise:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Dataset/datasetNoise
+    description: Describes potentially noisy elements of the dataset.
+    range: string
+  datasetSize:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Dataset/datasetSize
+    description: Captures the size of the dataset.
+    range: integer
+    minimum_value: 0
+  datasetType:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Dataset/datasetType
+    description: Describes the type of the given dataset.
+    any_of:
+    - range: DatasetType
+    - range: string
+  datasetUpdateMechanism:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Dataset/datasetUpdateMechanism
+    description: Describes a mechanism to update the dataset.
+    range: string
+  hasSensitivePersonalInformation:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Dataset/hasSensitivePersonalInformation
+    description: Describes if any sensitive personal information is present in the
+      dataset.
+    range: PresenceType
+  intendedUse:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Dataset/intendedUse
+    description: Describes what the given dataset should be used for.
+    range: string
+  knownBias:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Dataset/knownBias
+    description: Records the biases that the dataset is known to encompass.
+    range: string
+  sensor:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Dataset/sensor
+    description: Describes a sensor used for collecting the data.
+    range: DictionaryEntry
+  additionText:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/additionText
+    description: Identifies the full text of a LicenseAddition.
+    range: string
+  deprecatedVersion:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/deprecatedVersion
+    description: 'Specifies the SPDX License List version in which this license or
+      exception
+
+      identifier was deprecated.'
+    range: string
+  isDeprecatedAdditionId:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/isDeprecatedAdditionId
+    description: Specifies whether an additional text identifier has been marked as
+      deprecated.
+    range: boolean
+  isDeprecatedLicenseId:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/isDeprecatedLicenseId
+    description: 'Specifies whether a license or additional text identifier has been
+      marked as
+
+      deprecated.'
+    range: boolean
+  isFsfLibre:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/isFsfLibre
+    description: 'Specifies whether the License is listed as free by the
+
+      Free Software Foundation (FSF).'
+    range: boolean
+  isOsiApproved:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/isOsiApproved
+    description: 'Specifies whether the License is listed as approved by the
+
+      Open Source Initiative (OSI).'
+    range: boolean
+  licenseXml:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/licenseXml
+    description: 'Identifies all the text and metadata associated with a license in
+      the license
+
+      XML format.'
+    range: string
+  listVersionAdded:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/listVersionAdded
+    description: 'Specifies the SPDX License List version in which this ListedLicense
+      or
+
+      ListedLicenseException identifier was first added.'
+    range: string
+  member:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/member
+    description: A license expression participating in a license set.
+    range: AnyLicenseInfo
+  obsoletedBy:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/obsoletedBy
+    description: 'Specifies the licenseId that is preferred to be used in place of
+      a deprecated
+
+      License or LicenseAddition.'
+    range: string
+  seeAlso:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/seeAlso
+    description: Contains a URL where the License or LicenseAddition can be found
+      in use.
+    range: uri
+  standardAdditionTemplate:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/standardAdditionTemplate
+    description: Identifies the full text of a LicenseAddition, in SPDX templating
+      format.
+    range: string
+  standardLicenseHeader:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/standardLicenseHeader
+    description: 'Provides a License author''s preferred text to indicate that a file
+      is covered
+
+      by the License.'
+    range: string
+  standardLicenseTemplate:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/standardLicenseTemplate
+    description: Identifies the full text of a License, in SPDX templating format.
+    range: string
+  subjectAddition:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/subjectAddition
+    description: A LicenseAddition participating in a 'with addition' model.
+    range: LicenseAddition
+  subjectExtendableLicense:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/subjectExtendableLicense
+    description: A License participating in a 'with addition' model.
+    range: ExtendableLicense
+  subjectLicense:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/subjectLicense
+    description: A License participating in an 'or later' model.
+    range: License
+  cdxPropName:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Extension/cdxPropName
+    description: A name used in a CdxPropertyEntry name-value pair.
+    range: string
+  cdxPropValue:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Extension/cdxPropValue
+    description: A value used in a CdxPropertyEntry name-value pair.
+    range: string
+  cdxProperty:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Extension/cdxProperty
+    description: Provides a map of a property names to a values.
+    range: CdxPropertyEntry
+  actionStatement:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Security/actionStatement
+    description: 'Provides advise on how to mitigate or remediate a vulnerability
+      when a VEX product
+
+      is affected by it.'
+    range: string
+  actionStatementTime:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Security/actionStatementTime
+    description: 'Records the time when a recommended action was communicated in a
+      VEX statement
+
+      to mitigate a vulnerability.'
+    range: datetime
+  assessedElement:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Security/assessedElement
+    description: 'Specifies an Element contained in a piece of software where a vulnerability
+      was
+
+      found.'
+    range: SoftwareArtifact
+  catalogType:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Security/catalogType
+    description: Specifies the exploit catalog type.
+    any_of:
+    - range: ExploitCatalogType
+    - range: string
+  decisionType:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Security/decisionType
+    description: 'Provide the enumeration of possible decisions in the
+
+      [Stakeholder-Specific Vulnerability Categorization (SSVC) decision tree](https://www.cisa.gov/stakeholder-specific-vulnerability-categorization-ssvc).'
+    range: SsvcDecisionType
+  exploited:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Security/exploited
+    description: Describe that a CVE is known to have an exploit because it's been
+      listed in an exploit catalog.
+    range: boolean
+  impactStatement:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Security/impactStatement
+    description: 'Explains why a VEX product is not affected by a vulnerability. It
+      is an
+
+      alternative in VexNotAffectedVulnAssessmentRelationship to the machine-readable
+
+      justification label.'
+    range: string
+  impactStatementTime:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Security/impactStatementTime
+    description: Timestamp of impact statement.
+    range: datetime
+  justificationType:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Security/justificationType
+    description: 'Impact justification label to be used when linking a vulnerability
+      to an element
+
+      representing a VEX product with a VexNotAffectedVulnAssessmentRelationship
+
+      relationship.'
+    range: VexJustificationType
+  security_locator:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Security/locator
+    description: Provides the location of an exploit catalog.
+    range: uri
+  modifiedTime:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Security/modifiedTime
+    description: Specifies a time when a vulnerability assessment was modified
+    range: datetime
+  percentile:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Security/percentile
+    description: The percentile of the current probability score.
+    range: decimal
+  probability:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Security/probability
+    description: A probability score between 0 and 1 of a vulnerability being exploited.
+    range: decimal
+  publishedTime:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Security/publishedTime
+    description: Specifies the time when a vulnerability was published.
+    range: datetime
+  score:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Security/score
+    description: Provides a numerical (0-10) representation of the severity of a vulnerability.
+    range: decimal
+  severity:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Security/severity
+    description: Specifies the CVSS qualitative severity rating of a vulnerability
+      in relation to a piece of software.
+    range: CvssSeverityType
+  statusNotes:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Security/statusNotes
+    description: Conveys information about how VEX status was determined.
+    range: string
+  vectorString:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Security/vectorString
+    description: Specifies the CVSS vector string for a vulnerability.
+    range: string
+  vexVersion:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Security/vexVersion
+    description: Specifies the version of a VEX statement.
+    range: string
+  withdrawnTime:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Security/withdrawnTime
+    description: Specified the time and date when a vulnerability was withdrawn.
+    range: datetime
+  customIdToUri:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/customIdToUri
+    description: 'Maps a LicenseRef or AdditionRef string for a Custom License or
+      a Custom
+
+      License Addition to its URI ID.'
+    range: DictionaryEntry
+  licenseExpression:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/licenseExpression
+    description: A string in the license expression format.
+    range: string
+  licenseListVersion:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/licenseListVersion
+    description: The version of the SPDX License List used in the license expression.
+    range: string
+  licenseText:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/licenseText
+    description: Identifies the full text of a License or Addition.
+    range: string
+  additionalPurpose:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Software/additionalPurpose
+    description: Provides additional purpose information of the software artifact.
+    any_of:
+    - range: SoftwarePurpose
+    - range: string
+  attributionText:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Software/attributionText
+    description: 'Provides a place for the SPDX data creator to record acknowledgement
+      text for
+
+      a software Package, File or Snippet.'
+    range: string
+  byteRange:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Software/byteRange
+    description: 'Defines the byte range in the original host file that the snippet
+      information
+
+      applies to.'
+    range: PositiveIntegerRange
+  contentIdentifier:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Software/contentIdentifier
+    description: 'A canonical, unique, immutable identifier of the artifact content,
+      that may be
+
+      used for verifying its identity and/or integrity.'
+    range: ContentIdentifier
+  contentIdentifierType:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Software/contentIdentifierType
+    description: Specifies the type of the content identifier.
+    range: ContentIdentifierType
+  contentIdentifierValue:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Software/contentIdentifierValue
+    description: Specifies the value of the content identifier.
+    range: uri
+  copyrightText:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Software/copyrightText
+    description: 'Identifies the text of one or more copyright notices for a software
+      Package,
+
+      File or Snippet, if any.'
+    range: string
+  downloadLocation:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Software/downloadLocation
+    description: 'Identifies the download Uniform Resource Identifier for the package
+      at the time
+
+      that the document was created.'
+    range: uri
+  fileKind:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Software/fileKind
+    description: Describes if a given file is a directory or non-directory kind of
+      file.
+    range: FileKindType
+  homePage:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Software/homePage
+    description: 'A place for the SPDX document creator to record a website that serves
+      as the
+
+      package''s home page.'
+    range: uri
+  lineRange:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Software/lineRange
+    description: 'Defines the line range in the original host file that the snippet
+      information
+
+      applies to.'
+    range: PositiveIntegerRange
+  packageUrl:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Software/packageUrl
+    description: 'Provides a place for the SPDX data creator to record the package
+      URL string
+
+      (in accordance with the Package URL specification) for a software Package.'
+    range: uri
+  packageVersion:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Software/packageVersion
+    description: Identify the version of a package.
+    range: string
+  primaryPurpose:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Software/primaryPurpose
+    description: Provides information about the primary purpose of the software artifact.
+    any_of:
+    - range: SoftwarePurpose
+    - range: string
+  sbomType:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Software/sbomType
+    description: Provides information about the type of an SBOM.
+    range: SbomType
+  snippetFromFile:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Software/snippetFromFile
+    description: Defines the original host file that the snippet information applies
+      to.
+    range: File
+  sourceInfo:
+    slot_uri: https://spdx.org/rdf/3.0.1/terms/Software/sourceInfo
+    description: 'Records any relevant background information or additional comments
+
+      about the origin of the package.'
+    range: string
