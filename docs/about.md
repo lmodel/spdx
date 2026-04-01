@@ -2,6 +2,8 @@
 
 System Package Data Exhange (SPDX): LinkML Schema
 
-# Reference
+# References
 
-Based on [SPDX model 3.0.1](./spdx-model.ttl).
+- [SPDX model 3.0.1](./spdx-model.ttl)
+- [spdx-examples](https://github.com/spdx/spdx-examples)
+
