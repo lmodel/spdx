@@ -1,0 +1,20 @@
+package None;
+
+/* metamodel_version: 1.7.0 */
+/* version: 3.0.1 */
+import java.util.List;
+import lombok.*;
+
+/**
+  A reference to a resource outside the scope of SPDX-3.0 content related to an Element.
+**/
+@Data
+@EqualsAndHashCode(callSuper=false)
+public class ExternalRef  {
+
+  private List<String> coreLocator;
+  private String externalRefType;
+  private String comment;
+  private String contentType;
+
+}

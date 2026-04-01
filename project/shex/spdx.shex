@@ -1,0 +1,865 @@
+# metamodel_version: 1.7.0
+# version: 3.0.1
+BASE <https://spdx.org/rdf/3.0.1/terms/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX core: <https://spdx.org/rdf/3.0.1/terms/Core/>
+PREFIX ai: <https://spdx.org/rdf/3.0.1/terms/AI/>
+PREFIX build: <https://spdx.org/rdf/3.0.1/terms/Build/>
+PREFIX dataset: <https://spdx.org/rdf/3.0.1/terms/Dataset/>
+PREFIX security: <https://spdx.org/rdf/3.0.1/terms/Security/>
+PREFIX software: <https://spdx.org/rdf/3.0.1/terms/Software/>
+PREFIX expandedlicensing: <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/>
+PREFIX simplelicensing: <https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/>
+PREFIX extension: <https://spdx.org/rdf/3.0.1/terms/Extension/>
+PREFIX linkml: <https://w3id.org/linkml/>
+
+
+linkml:String xsd:string
+
+linkml:Integer xsd:integer
+
+linkml:Boolean xsd:boolean
+
+linkml:Float xsd:float
+
+linkml:Double xsd:double
+
+linkml:Decimal xsd:decimal
+
+linkml:Time xsd:time
+
+linkml:Date xsd:date
+
+linkml:Datetime xsd:dateTime
+
+linkml:DateOrDatetime linkml:DateOrDatetime
+
+linkml:Uriorcurie IRI
+
+linkml:Curie xsd:string
+
+linkml:Uri IRI
+
+linkml:Ncname xsd:string
+
+linkml:Objectidentifier IRI
+
+linkml:Nodeidentifier NONLITERAL
+
+linkml:Jsonpointer xsd:string
+
+linkml:Jsonpath xsd:string
+
+linkml:Sparqlpath xsd:string
+
+<Agent>  (
+    @<Organization> OR @<Person> OR @<SoftwareAgent>
+)
+
+<Agent_struct> {
+    (  $<Agent_tes> (  &<Element_tes> ;
+          rdf:type [ core:Element ] ?
+       ) ;
+       rdf:type [ core:Agent ] ?
+    )
+}
+
+<AIPackage> CLOSED {
+    (  $<AIPackage_tes> (  &<Package_tes> ;
+          rdf:type [ software:Package ] ? ;
+          ai:informationAboutTraining @linkml:String ? ;
+          ai:modelDataPreprocessing @linkml:String * ;
+          ai:typeOfModel @linkml:String * ;
+          ai:safetyRiskAssessment [ <https://spdx.org/rdf/3.0.1/terms/AI/SafetyRiskAssessmentType/high>
+             <https://spdx.org/rdf/3.0.1/terms/AI/SafetyRiskAssessmentType/low>
+             <https://spdx.org/rdf/3.0.1/terms/AI/SafetyRiskAssessmentType/medium>
+             <https://spdx.org/rdf/3.0.1/terms/AI/SafetyRiskAssessmentType/serious> ] ? ;
+          ai:metricDecisionThreshold @<DictionaryEntry> * ;
+          ai:useSensitivePersonalInformation [ <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/no>
+             <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/noAssertion>
+             <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/yes> ] ? ;
+          ai:energyConsumption @<EnergyConsumption> ? ;
+          ai:limitation @linkml:String ? ;
+          ai:hyperparameter @<DictionaryEntry> * ;
+          ai:autonomyType [ <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/no>
+             <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/noAssertion>
+             <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/yes> ] ? ;
+          ai:domain @linkml:String * ;
+          ai:modelExplainability @linkml:String * ;
+          ai:informationAboutApplication @linkml:String ? ;
+          ai:metric @<DictionaryEntry> * ;
+          ai:standardCompliance @linkml:String *
+       ) ;
+       rdf:type [ ai:AIPackage ] ?
+    )
+}
+
+<Annotation> CLOSED {
+    (  $<Annotation_tes> (  &<Element_tes> ;
+          rdf:type [ core:Element ] ? ;
+          core:contentType @linkml:String ? ;
+          core:statement @linkml:String ? ;
+          core:subject @<Element> ;
+          core:annotationType @linkml:String
+       ) ;
+       rdf:type [ core:Annotation ] ?
+    )
+}
+
+<AnyLicenseInfo>  (
+    @<ConjunctiveLicenseSet> OR @<DisjunctiveLicenseSet> OR @<ExtendableLicense> OR @<IndividualLicensingInfo> OR
+    @<LicenseExpression> OR @<WithAdditionOperator>
+)
+
+<AnyLicenseInfo_struct> {
+    (  $<AnyLicenseInfo_tes> (  &<Element_tes> ;
+          rdf:type [ core:Element ] ?
+       ) ;
+       rdf:type [ simplelicensing:AnyLicenseInfo ] ?
+    )
+}
+
+<Artifact>  (
+    @<SoftwareArtifact> OR @<Vulnerability>
+)
+
+<Artifact_struct> {
+    (  $<Artifact_tes> (  &<Element_tes> ;
+          rdf:type [ core:Element ] ? ;
+          core:standardName @linkml:String * ;
+          core:builtTime @linkml:Datetime ? ;
+          core:validUntilTime @linkml:Datetime ? ;
+          core:supportLevel [ <https://spdx.org/rdf/3.0.1/terms/Core/SupportType/deployed>
+             <https://spdx.org/rdf/3.0.1/terms/Core/SupportType/development>
+             <https://spdx.org/rdf/3.0.1/terms/Core/SupportType/endOfSupport>
+             <https://spdx.org/rdf/3.0.1/terms/Core/SupportType/limitedSupport>
+             <https://spdx.org/rdf/3.0.1/terms/Core/SupportType/noAssertion>
+             <https://spdx.org/rdf/3.0.1/terms/Core/SupportType/noSupport>
+             <https://spdx.org/rdf/3.0.1/terms/Core/SupportType/support> ] * ;
+          core:suppliedBy @<Agent> ? ;
+          core:originatedBy @<Agent> * ;
+          core:releaseTime @linkml:Datetime ?
+       ) ;
+       rdf:type [ core:Artifact ] ?
+    )
+}
+
+<Bom>  (
+    {
+       (  $<Bom_tes> (  &<Bundle_tes> ;
+             rdf:type [ core:Bundle ] ?
+          ) ;
+          rdf:type [ core:Bom ] ?
+       )
+    } OR @<Sbom>
+)
+
+<Build> CLOSED {
+    (  $<Build_tes> (  &<Element_tes> ;
+          rdf:type [ core:Element ] ? ;
+          build:buildType @linkml:Uri ;
+          build:buildEndTime @linkml:Datetime ? ;
+          build:buildId @linkml:String ? ;
+          build:configSourceDigest @<Hash> * ;
+          build:buildStartTime @linkml:Datetime ? ;
+          build:configSourceUri @linkml:Uri * ;
+          build:parameter @<DictionaryEntry> * ;
+          build:configSourceEntrypoint @linkml:String * ;
+          build:environment @<DictionaryEntry> *
+       ) ;
+       rdf:type [ build:Build ] ?
+    )
+}
+
+<Bundle>  (
+    CLOSED {
+       (  $<Bundle_tes> (  &<ElementCollection_tes> ;
+             rdf:type [ core:ElementCollection ] ? ;
+             core:context @linkml:String ?
+          ) ;
+          rdf:type [ core:Bundle ] ?
+       )
+    } OR @<Bom>
+)
+
+<CdxPropertiesExtension> CLOSED {
+    (  $<CdxPropertiesExtension_tes> (  &<Extension_tes> ;
+          rdf:type [ extension:Extension ] ? ;
+          extension:cdxProperty @<CdxPropertyEntry> +
+       ) ;
+       rdf:type [ extension:CdxPropertiesExtension ] ?
+    )
+}
+
+<CdxPropertyEntry> CLOSED {
+    (  $<CdxPropertyEntry_tes> (  extension:cdxPropValue @linkml:String ? ;
+          extension:cdxPropName @linkml:String
+       ) ;
+       rdf:type [ extension:CdxPropertyEntry ] ?
+    )
+}
+
+<ConjunctiveLicenseSet> CLOSED {
+    (  $<ConjunctiveLicenseSet_tes> (  &<AnyLicenseInfo_tes> ;
+          rdf:type [ simplelicensing:AnyLicenseInfo ] ? ;
+          expandedlicensing:member @<AnyLicenseInfo> +
+       ) ;
+       rdf:type [ expandedlicensing:ConjunctiveLicenseSet ] ?
+    )
+}
+
+<ContentIdentifier> CLOSED {
+    (  $<ContentIdentifier_tes> (  &<IntegrityMethod_tes> ;
+          rdf:type [ core:IntegrityMethod ] ? ;
+          software:contentIdentifierValue @linkml:Uri ;
+          software:contentIdentifierType [ <https://spdx.org/rdf/3.0.1/terms/Software/ContentIdentifierType/gitoid>
+             <https://spdx.org/rdf/3.0.1/terms/Software/ContentIdentifierType/swhid> ]
+       ) ;
+       rdf:type [ software:ContentIdentifier ] ?
+    )
+}
+
+<CreationInfo> CLOSED {
+    (  $<CreationInfo_tes> (  core:createdBy @<Agent> + ;
+          core:createdUsing @<Tool> * ;
+          core:created @linkml:Datetime ;
+          core:specVersion @linkml:String ;
+          core:comment @linkml:String ?
+       ) ;
+       rdf:type [ core:CreationInfo ] ?
+    )
+}
+
+<CustomLicense> CLOSED {
+    (  $<CustomLicense_tes> (  &<License_tes> ;
+          rdf:type [ expandedlicensing:License ] ?
+       ) ;
+       rdf:type [ expandedlicensing:CustomLicense ] ?
+    )
+}
+
+<CustomLicenseAddition> CLOSED {
+    (  $<CustomLicenseAddition_tes> (  &<LicenseAddition_tes> ;
+          rdf:type [ expandedlicensing:LicenseAddition ] ?
+       ) ;
+       rdf:type [ expandedlicensing:CustomLicenseAddition ] ?
+    )
+}
+
+<CvssV2VulnAssessmentRelationship> CLOSED {
+    (  $<CvssV2VulnAssessmentRelationship_tes> (  &<VulnAssessmentRelationship_tes> ;
+          rdf:type [ security:VulnAssessmentRelationship ] ? ;
+          security:vectorString @linkml:String ;
+          security:score @linkml:Decimal
+       ) ;
+       rdf:type [ security:CvssV2VulnAssessmentRelationship ] ?
+    )
+}
+
+<CvssV3VulnAssessmentRelationship> CLOSED {
+    (  $<CvssV3VulnAssessmentRelationship_tes> (  &<VulnAssessmentRelationship_tes> ;
+          rdf:type [ security:VulnAssessmentRelationship ] ? ;
+          security:severity [ <https://spdx.org/rdf/3.0.1/terms/Security/CvssSeverityType/critical>
+             <https://spdx.org/rdf/3.0.1/terms/Security/CvssSeverityType/high>
+             <https://spdx.org/rdf/3.0.1/terms/Security/CvssSeverityType/low>
+             <https://spdx.org/rdf/3.0.1/terms/Security/CvssSeverityType/medium>
+             <https://spdx.org/rdf/3.0.1/terms/Security/CvssSeverityType/none> ] ;
+          security:vectorString @linkml:String ;
+          security:score @linkml:Decimal
+       ) ;
+       rdf:type [ security:CvssV3VulnAssessmentRelationship ] ?
+    )
+}
+
+<CvssV4VulnAssessmentRelationship> CLOSED {
+    (  $<CvssV4VulnAssessmentRelationship_tes> (  &<VulnAssessmentRelationship_tes> ;
+          rdf:type [ security:VulnAssessmentRelationship ] ? ;
+          security:severity [ <https://spdx.org/rdf/3.0.1/terms/Security/CvssSeverityType/critical>
+             <https://spdx.org/rdf/3.0.1/terms/Security/CvssSeverityType/high>
+             <https://spdx.org/rdf/3.0.1/terms/Security/CvssSeverityType/low>
+             <https://spdx.org/rdf/3.0.1/terms/Security/CvssSeverityType/medium>
+             <https://spdx.org/rdf/3.0.1/terms/Security/CvssSeverityType/none> ] ;
+          security:vectorString @linkml:String ;
+          security:score @linkml:Decimal
+       ) ;
+       rdf:type [ security:CvssV4VulnAssessmentRelationship ] ?
+    )
+}
+
+<DatasetPackage> CLOSED {
+    (  $<DatasetPackage_tes> (  &<Package_tes> ;
+          rdf:type [ software:Package ] ? ;
+          dataset:datasetSize @linkml:Integer ? ;
+          dataset:datasetType @linkml:String + ;
+          dataset:anonymizationMethodUsed @linkml:String * ;
+          dataset:datasetUpdateMechanism @linkml:String ? ;
+          dataset:dataCollectionProcess @linkml:String ? ;
+          dataset:knownBias @linkml:String * ;
+          dataset:sensor @<DictionaryEntry> * ;
+          dataset:dataPreprocessing @linkml:String * ;
+          dataset:intendedUse @linkml:String ? ;
+          dataset:confidentialityLevel [ <https://spdx.org/rdf/3.0.1/terms/Dataset/ConfidentialityLevelType/amber>
+             <https://spdx.org/rdf/3.0.1/terms/Dataset/ConfidentialityLevelType/clear>
+             <https://spdx.org/rdf/3.0.1/terms/Dataset/ConfidentialityLevelType/green>
+             <https://spdx.org/rdf/3.0.1/terms/Dataset/ConfidentialityLevelType/red> ] ? ;
+          dataset:datasetAvailability [ <https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetAvailabilityType/clickthrough>
+             <https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetAvailabilityType/directDownload>
+             <https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetAvailabilityType/query>
+             <https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetAvailabilityType/registration>
+             <https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetAvailabilityType/scrapingScript> ] ? ;
+          dataset:hasSensitivePersonalInformation [ <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/no>
+             <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/noAssertion>
+             <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/yes> ] ? ;
+          dataset:datasetNoise @linkml:String ?
+       ) ;
+       rdf:type [ dataset:DatasetPackage ] ?
+    )
+}
+
+<DictionaryEntry> CLOSED {
+    (  $<DictionaryEntry_tes> (  core:value @linkml:String ? ;
+          core:key @linkml:String
+       ) ;
+       rdf:type [ core:DictionaryEntry ] ?
+    )
+}
+
+<DisjunctiveLicenseSet> CLOSED {
+    (  $<DisjunctiveLicenseSet_tes> (  &<AnyLicenseInfo_tes> ;
+          rdf:type [ simplelicensing:AnyLicenseInfo ] ? ;
+          expandedlicensing:member @<AnyLicenseInfo> +
+       ) ;
+       rdf:type [ expandedlicensing:DisjunctiveLicenseSet ] ?
+    )
+}
+
+<Element>  (
+    @<Agent> OR @<Annotation> OR @<AnyLicenseInfo> OR @<Artifact> OR @<Build> OR @<ElementCollection> OR @<IndividualElement> OR
+    @<LicenseAddition> OR @<Relationship> OR @<SimpleLicensingText> OR @<Tool>
+)
+
+<Element_struct> {
+    (  $<Element_tes> (  core:externalIdentifier @<ExternalIdentifier> * ;
+          core:extension @<Extension> * ;
+          core:summary @linkml:String ? ;
+          core:description @linkml:String ? ;
+          core:comment @linkml:String ? ;
+          core:verifiedUsing @<IntegrityMethod> * ;
+          core:externalRef @<ExternalRef> * ;
+          core:name @linkml:String ? ;
+          core:creationInfo @<CreationInfo>
+       ) ;
+       rdf:type [ core:Element ] ?
+    )
+}
+
+<ElementCollection>  (
+    @<Bundle> OR @<SpdxDocument>
+)
+
+<ElementCollection_struct> {
+    (  $<ElementCollection_tes> (  &<Element_tes> ;
+          rdf:type [ core:Element ] ? ;
+          core:element @<Element> * ;
+          core:profileConformance [ <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/ai>
+             <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/build>
+             <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/core>
+             <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/dataset>
+             <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/expandedLicensing>
+             <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/extension>
+             <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/lite>
+             <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/security>
+             <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/simpleLicensing>
+             <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/software> ] * ;
+          core:rootElement @<Element> *
+       ) ;
+       rdf:type [ core:ElementCollection ] ?
+    )
+}
+
+<EnergyConsumption> CLOSED {
+    (  $<EnergyConsumption_tes> (  ai:finetuningEnergyConsumption @<EnergyConsumptionDescription> * ;
+          ai:inferenceEnergyConsumption @<EnergyConsumptionDescription> * ;
+          ai:trainingEnergyConsumption @<EnergyConsumptionDescription> *
+       ) ;
+       rdf:type [ ai:EnergyConsumption ] ?
+    )
+}
+
+<EnergyConsumptionDescription> CLOSED {
+    (  $<EnergyConsumptionDescription_tes> (  ai:energyQuantity @linkml:Decimal ;
+          ai:energyUnit @linkml:String
+       ) ;
+       rdf:type [ ai:EnergyConsumptionDescription ] ?
+    )
+}
+
+<EpssVulnAssessmentRelationship> CLOSED {
+    (  $<EpssVulnAssessmentRelationship_tes> (  &<VulnAssessmentRelationship_tes> ;
+          rdf:type [ security:VulnAssessmentRelationship ] ? ;
+          security:percentile @linkml:Decimal ;
+          security:probability @linkml:Decimal
+       ) ;
+       rdf:type [ security:EpssVulnAssessmentRelationship ] ?
+    )
+}
+
+<ExploitCatalogVulnAssessmentRelationship> CLOSED {
+    (  $<ExploitCatalogVulnAssessmentRelationship_tes> (  &<VulnAssessmentRelationship_tes> ;
+          rdf:type [ security:VulnAssessmentRelationship ] ? ;
+          security:exploited @linkml:Boolean ;
+          security:locator @linkml:Uri ;
+          security:catalogType @linkml:String
+       ) ;
+       rdf:type [ security:ExploitCatalogVulnAssessmentRelationship ] ?
+    )
+}
+
+<ExtendableLicense>  (
+    @<License> OR @<OrLaterOperator>
+)
+
+<ExtendableLicense_struct> {
+    (  $<ExtendableLicense_tes> (  &<AnyLicenseInfo_tes> ;
+          rdf:type [ simplelicensing:AnyLicenseInfo ] ?
+       ) ;
+       rdf:type [ expandedlicensing:ExtendableLicense ] ?
+    )
+}
+
+<Extension>  (
+    {
+       (  $<Extension_tes> rdf:type . * ;
+          rdf:type [ extension:Extension ] ?
+       )
+    } OR @<CdxPropertiesExtension>
+)
+
+<ExternalIdentifier> CLOSED {
+    (  $<ExternalIdentifier_tes> (  core:identifierLocator @linkml:Uri * ;
+          core:externalIdentifierType @linkml:String ;
+          core:issuingAuthority @linkml:String ? ;
+          core:identifier @linkml:String ;
+          core:comment @linkml:String ?
+       ) ;
+       rdf:type [ core:ExternalIdentifier ] ?
+    )
+}
+
+<ExternalMap> CLOSED {
+    (  $<ExternalMap_tes> (  core:definingArtifact @<Artifact> ? ;
+          core:locationHint @linkml:Uri ? ;
+          core:externalSpdxId @linkml:Uri ;
+          core:verifiedUsing @<IntegrityMethod> *
+       ) ;
+       rdf:type [ core:ExternalMap ] ?
+    )
+}
+
+<ExternalRef> CLOSED {
+    (  $<ExternalRef_tes> (  core:locator @linkml:String * ;
+          core:externalRefType @linkml:String ? ;
+          core:comment @linkml:String ? ;
+          core:contentType @linkml:String ?
+       ) ;
+       rdf:type [ core:ExternalRef ] ?
+    )
+}
+
+<File> CLOSED {
+    (  $<File_tes> (  &<SoftwareArtifact_tes> ;
+          rdf:type [ software:SoftwareArtifact ] ? ;
+          software:fileKind [ <https://spdx.org/rdf/3.0.1/terms/Software/FileKindType/directory>
+             <https://spdx.org/rdf/3.0.1/terms/Software/FileKindType/file> ] ? ;
+          core:contentType @linkml:String ?
+       ) ;
+       rdf:type [ software:File ] ?
+    )
+}
+
+<Hash> CLOSED {
+    (  $<Hash_tes> (  &<IntegrityMethod_tes> ;
+          rdf:type [ core:IntegrityMethod ] ? ;
+          core:algorithm @linkml:String ;
+          core:hashValue @linkml:String
+       ) ;
+       rdf:type [ core:Hash ] ?
+    )
+}
+
+<IndividualElement> CLOSED {
+    (  $<IndividualElement_tes> (  &<Element_tes> ;
+          rdf:type [ core:Element ] ?
+       ) ;
+       rdf:type [ core:IndividualElement ] ?
+    )
+}
+
+<IndividualLicensingInfo> CLOSED {
+    (  $<IndividualLicensingInfo_tes> (  &<AnyLicenseInfo_tes> ;
+          rdf:type [ simplelicensing:AnyLicenseInfo ] ?
+       ) ;
+       rdf:type [ expandedlicensing:IndividualLicensingInfo ] ?
+    )
+}
+
+<IntegrityMethod>  (
+    @<ContentIdentifier> OR @<Hash> OR @<PackageVerificationCode>
+)
+
+<IntegrityMethod_struct> {
+    (  $<IntegrityMethod_tes> core:comment @linkml:String ? ;
+       rdf:type [ core:IntegrityMethod ] ?
+    )
+}
+
+<License>  (
+    @<CustomLicense> OR @<ListedLicense>
+)
+
+<License_struct> {
+    (  $<License_tes> (  &<ExtendableLicense_tes> ;
+          rdf:type [ expandedlicensing:ExtendableLicense ] ? ;
+          expandedlicensing:obsoletedBy @linkml:String ? ;
+          expandedlicensing:standardLicenseHeader @linkml:String ? ;
+          expandedlicensing:seeAlso @linkml:Uri * ;
+          expandedlicensing:isFsfLibre @linkml:Boolean ? ;
+          expandedlicensing:isDeprecatedLicenseId @linkml:Boolean ? ;
+          expandedlicensing:isOsiApproved @linkml:Boolean ? ;
+          expandedlicensing:licenseXml @linkml:String ? ;
+          simplelicensing:licenseText @linkml:String ;
+          expandedlicensing:standardLicenseTemplate @linkml:String ?
+       ) ;
+       rdf:type [ expandedlicensing:License ] ?
+    )
+}
+
+<LicenseAddition>  (
+    @<CustomLicenseAddition> OR @<ListedLicenseException>
+)
+
+<LicenseAddition_struct> {
+    (  $<LicenseAddition_tes> (  &<Element_tes> ;
+          rdf:type [ core:Element ] ? ;
+          expandedlicensing:standardAdditionTemplate @linkml:String ? ;
+          expandedlicensing:seeAlso @linkml:Uri * ;
+          expandedlicensing:obsoletedBy @linkml:String ? ;
+          expandedlicensing:licenseXml @linkml:String ? ;
+          expandedlicensing:isDeprecatedAdditionId @linkml:Boolean ? ;
+          expandedlicensing:additionText @linkml:String
+       ) ;
+       rdf:type [ expandedlicensing:LicenseAddition ] ?
+    )
+}
+
+<LicenseExpression> CLOSED {
+    (  $<LicenseExpression_tes> (  &<AnyLicenseInfo_tes> ;
+          rdf:type [ simplelicensing:AnyLicenseInfo ] ? ;
+          simplelicensing:customIdToUri @<DictionaryEntry> * ;
+          simplelicensing:licenseExpression @linkml:String ;
+          simplelicensing:licenseListVersion @linkml:String ?
+       ) ;
+       rdf:type [ simplelicensing:LicenseExpression ] ?
+    )
+}
+
+<LifecycleScopedRelationship> CLOSED {
+    (  $<LifecycleScopedRelationship_tes> (  &<Relationship_tes> ;
+          rdf:type [ core:Relationship ] ? ;
+          core:scope @linkml:String ?
+       ) ;
+       rdf:type [ core:LifecycleScopedRelationship ] ?
+    )
+}
+
+<ListedLicense> CLOSED {
+    (  $<ListedLicense_tes> (  &<License_tes> ;
+          rdf:type [ expandedlicensing:License ] ? ;
+          expandedlicensing:deprecatedVersion @linkml:String ? ;
+          expandedlicensing:listVersionAdded @linkml:String ?
+       ) ;
+       rdf:type [ expandedlicensing:ListedLicense ] ?
+    )
+}
+
+<ListedLicenseException> CLOSED {
+    (  $<ListedLicenseException_tes> (  &<LicenseAddition_tes> ;
+          rdf:type [ expandedlicensing:LicenseAddition ] ? ;
+          expandedlicensing:listVersionAdded @linkml:String ? ;
+          expandedlicensing:deprecatedVersion @linkml:String ?
+       ) ;
+       rdf:type [ expandedlicensing:ListedLicenseException ] ?
+    )
+}
+
+<NamespaceMap> CLOSED {
+    (  $<NamespaceMap_tes> (  core:prefix @linkml:String ;
+          core:namespace @linkml:Uri
+       ) ;
+       rdf:type [ core:NamespaceMap ] ?
+    )
+}
+
+<Organization> CLOSED {
+    (  $<Organization_tes> (  &<Agent_tes> ;
+          rdf:type [ core:Agent ] ?
+       ) ;
+       rdf:type [ core:Organization ] ?
+    )
+}
+
+<OrLaterOperator> CLOSED {
+    (  $<OrLaterOperator_tes> (  &<ExtendableLicense_tes> ;
+          rdf:type [ expandedlicensing:ExtendableLicense ] ? ;
+          expandedlicensing:subjectLicense @<License>
+       ) ;
+       rdf:type [ expandedlicensing:OrLaterOperator ] ?
+    )
+}
+
+<Package>  (
+    CLOSED {
+       (  $<Package_tes> (  &<SoftwareArtifact_tes> ;
+             rdf:type [ software:SoftwareArtifact ] ? ;
+             software:sourceInfo @linkml:String ? ;
+             software:homePage @linkml:Uri ? ;
+             software:downloadLocation @linkml:Uri ? ;
+             software:packageVersion @linkml:String ? ;
+             software:packageUrl @linkml:Uri ?
+          ) ;
+          rdf:type [ software:Package ] ?
+       )
+    } OR @<AIPackage> OR @<DatasetPackage>
+)
+
+<PackageVerificationCode> CLOSED {
+    (  $<PackageVerificationCode_tes> (  &<IntegrityMethod_tes> ;
+          rdf:type [ core:IntegrityMethod ] ? ;
+          core:packageVerificationCodeExcludedFile @linkml:String * ;
+          core:hashValue @linkml:String ;
+          core:algorithm @linkml:String
+       ) ;
+       rdf:type [ core:PackageVerificationCode ] ?
+    )
+}
+
+<Person> CLOSED {
+    (  $<Person_tes> (  &<Agent_tes> ;
+          rdf:type [ core:Agent ] ?
+       ) ;
+       rdf:type [ core:Person ] ?
+    )
+}
+
+<PositiveIntegerRange> CLOSED {
+    (  $<PositiveIntegerRange_tes> (  core:endIntegerRange @linkml:Integer ;
+          core:beginIntegerRange @linkml:Integer
+       ) ;
+       rdf:type [ core:PositiveIntegerRange ] ?
+    )
+}
+
+<Relationship>  (
+    CLOSED {
+       (  $<Relationship_tes> (  &<Element_tes> ;
+             rdf:type [ core:Element ] ? ;
+             core:to @<Element> + ;
+             core:completeness [ <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipCompleteness/complete>
+                <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipCompleteness/incomplete>
+                <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipCompleteness/noAssertion> ] ? ;
+             core:startTime @linkml:Datetime ? ;
+             core:relationshipType @linkml:String ;
+             core:from @<Element> ;
+             core:endTime @linkml:Datetime ?
+          ) ;
+          rdf:type [ core:Relationship ] ?
+       )
+    } OR @<LifecycleScopedRelationship> OR @<VulnAssessmentRelationship>
+)
+
+<Sbom> CLOSED {
+    (  $<Sbom_tes> (  &<Bom_tes> ;
+          rdf:type [ core:Bom ] ? ;
+          software:sbomType [ <https://spdx.org/rdf/3.0.1/terms/Software/SbomType/analyzed>
+             <https://spdx.org/rdf/3.0.1/terms/Software/SbomType/build>
+             <https://spdx.org/rdf/3.0.1/terms/Software/SbomType/deployed>
+             <https://spdx.org/rdf/3.0.1/terms/Software/SbomType/design>
+             <https://spdx.org/rdf/3.0.1/terms/Software/SbomType/runtime>
+             <https://spdx.org/rdf/3.0.1/terms/Software/SbomType/source> ] *
+       ) ;
+       rdf:type [ software:Sbom ] ?
+    )
+}
+
+<SimpleLicensingText> CLOSED {
+    (  $<SimpleLicensingText_tes> (  &<Element_tes> ;
+          rdf:type [ core:Element ] ? ;
+          simplelicensing:licenseText @linkml:String
+       ) ;
+       rdf:type [ simplelicensing:SimpleLicensingText ] ?
+    )
+}
+
+<Snippet> CLOSED {
+    (  $<Snippet_tes> (  &<SoftwareArtifact_tes> ;
+          rdf:type [ software:SoftwareArtifact ] ? ;
+          software:lineRange @<PositiveIntegerRange> ? ;
+          software:snippetFromFile @<File> ;
+          software:byteRange @<PositiveIntegerRange> ?
+       ) ;
+       rdf:type [ software:Snippet ] ?
+    )
+}
+
+<SoftwareAgent> CLOSED {
+    (  $<SoftwareAgent_tes> (  &<Agent_tes> ;
+          rdf:type [ core:Agent ] ?
+       ) ;
+       rdf:type [ core:SoftwareAgent ] ?
+    )
+}
+
+<SoftwareArtifact>  (
+    @<File> OR @<Package> OR @<Snippet>
+)
+
+<SoftwareArtifact_struct> {
+    (  $<SoftwareArtifact_tes> (  &<Artifact_tes> ;
+          rdf:type [ core:Artifact ] ? ;
+          software:attributionText @linkml:String * ;
+          software:primaryPurpose @linkml:String ? ;
+          software:additionalPurpose @linkml:String * ;
+          software:contentIdentifier @<ContentIdentifier> * ;
+          software:copyrightText @linkml:String ?
+       ) ;
+       rdf:type [ software:SoftwareArtifact ] ?
+    )
+}
+
+<SpdxDocument> CLOSED {
+    (  $<SpdxDocument_tes> (  &<ElementCollection_tes> ;
+          rdf:type [ core:ElementCollection ] ? ;
+          core:namespaceMap @<NamespaceMap> * ;
+          core:dataLicense @<AnyLicenseInfo> ? ;
+          core:import @<ExternalMap> *
+       ) ;
+       rdf:type [ core:SpdxDocument ] ?
+    )
+}
+
+<SsvcVulnAssessmentRelationship> CLOSED {
+    (  $<SsvcVulnAssessmentRelationship_tes> (  &<VulnAssessmentRelationship_tes> ;
+          rdf:type [ security:VulnAssessmentRelationship ] ? ;
+          security:decisionType [ <https://spdx.org/rdf/3.0.1/terms/Security/SsvcDecisionType/act>
+             <https://spdx.org/rdf/3.0.1/terms/Security/SsvcDecisionType/attend>
+             <https://spdx.org/rdf/3.0.1/terms/Security/SsvcDecisionType/track>
+             <https://spdx.org/rdf/3.0.1/terms/Security/SsvcDecisionType/trackStar> ]
+       ) ;
+       rdf:type [ security:SsvcVulnAssessmentRelationship ] ?
+    )
+}
+
+<Tool> CLOSED {
+    (  $<Tool_tes> (  &<Element_tes> ;
+          rdf:type [ core:Element ] ?
+       ) ;
+       rdf:type [ core:Tool ] ?
+    )
+}
+
+<VexAffectedVulnAssessmentRelationship> CLOSED {
+    (  $<VexAffectedVulnAssessmentRelationship_tes> (  &<VexVulnAssessmentRelationship_tes> ;
+          rdf:type [ security:VexVulnAssessmentRelationship ] ? ;
+          security:actionStatement @linkml:String ;
+          security:actionStatementTime @linkml:Datetime ?
+       ) ;
+       rdf:type [ security:VexAffectedVulnAssessmentRelationship ] ?
+    )
+}
+
+<VexFixedVulnAssessmentRelationship> CLOSED {
+    (  $<VexFixedVulnAssessmentRelationship_tes> (  &<VexVulnAssessmentRelationship_tes> ;
+          rdf:type [ security:VexVulnAssessmentRelationship ] ?
+       ) ;
+       rdf:type [ security:VexFixedVulnAssessmentRelationship ] ?
+    )
+}
+
+<VexNotAffectedVulnAssessmentRelationship> CLOSED {
+    (  $<VexNotAffectedVulnAssessmentRelationship_tes> (  &<VexVulnAssessmentRelationship_tes> ;
+          rdf:type [ security:VexVulnAssessmentRelationship ] ? ;
+          security:impactStatementTime @linkml:Datetime ? ;
+          security:justificationType [ <https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType/componentNotPresent>
+             <https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType/inlineMitigationsAlreadyExist>
+             <https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType/vulnerableCodeCannotBeControlledByAdversary>
+             <https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType/vulnerableCodeNotInExecutePath>
+             <https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType/vulnerableCodeNotPresent> ] ? ;
+          security:impactStatement @linkml:String ?
+       ) ;
+       rdf:type [ security:VexNotAffectedVulnAssessmentRelationship ] ?
+    )
+}
+
+<VexUnderInvestigationVulnAssessmentRelationship> CLOSED {
+    (  $<VexUnderInvestigationVulnAssessmentRelationship_tes> (  &<VexVulnAssessmentRelationship_tes> ;
+          rdf:type [ security:VexVulnAssessmentRelationship ] ?
+       ) ;
+       rdf:type [ security:VexUnderInvestigationVulnAssessmentRelationship ] ?
+    )
+}
+
+<VexVulnAssessmentRelationship>  (
+    @<VexAffectedVulnAssessmentRelationship> OR @<VexFixedVulnAssessmentRelationship> OR
+    @<VexNotAffectedVulnAssessmentRelationship> OR @<VexUnderInvestigationVulnAssessmentRelationship>
+)
+
+<VexVulnAssessmentRelationship_struct> {
+    (  $<VexVulnAssessmentRelationship_tes> (  &<VulnAssessmentRelationship_tes> ;
+          rdf:type [ security:VulnAssessmentRelationship ] ? ;
+          security:vexVersion @linkml:String ? ;
+          security:statusNotes @linkml:String ?
+       ) ;
+       rdf:type [ security:VexVulnAssessmentRelationship ] ?
+    )
+}
+
+<VulnAssessmentRelationship>  (
+    @<CvssV2VulnAssessmentRelationship> OR @<CvssV3VulnAssessmentRelationship> OR @<CvssV4VulnAssessmentRelationship> OR
+    @<EpssVulnAssessmentRelationship> OR @<ExploitCatalogVulnAssessmentRelationship> OR @<SsvcVulnAssessmentRelationship> OR
+    @<VexVulnAssessmentRelationship>
+)
+
+<VulnAssessmentRelationship_struct> {
+    (  $<VulnAssessmentRelationship_tes> (  &<Relationship_tes> ;
+          rdf:type [ core:Relationship ] ? ;
+          security:withdrawnTime @linkml:Datetime ? ;
+          security:publishedTime @linkml:Datetime ? ;
+          security:assessedElement @<SoftwareArtifact> ? ;
+          core:suppliedBy @<Agent> ? ;
+          security:modifiedTime @linkml:Datetime ?
+       ) ;
+       rdf:type [ security:VulnAssessmentRelationship ] ?
+    )
+}
+
+<Vulnerability> CLOSED {
+    (  $<Vulnerability_tes> (  &<Artifact_tes> ;
+          rdf:type [ core:Artifact ] ? ;
+          security:withdrawnTime @linkml:Datetime ? ;
+          security:modifiedTime @linkml:Datetime ? ;
+          security:publishedTime @linkml:Datetime ?
+       ) ;
+       rdf:type [ security:Vulnerability ] ?
+    )
+}
+
+<WithAdditionOperator> CLOSED {
+    (  $<WithAdditionOperator_tes> (  &<AnyLicenseInfo_tes> ;
+          rdf:type [ simplelicensing:AnyLicenseInfo ] ? ;
+          expandedlicensing:subjectExtendableLicense @<ExtendableLicense> ;
+          expandedlicensing:subjectAddition @<LicenseAddition>
+       ) ;
+       rdf:type [ expandedlicensing:WithAdditionOperator ] ?
+    )
+}

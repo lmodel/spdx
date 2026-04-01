@@ -197,15 +197,7 @@ _test-python: gen-python
 
 # Run example tests
 _test-examples: _ensure_examples_output
-  uv run linkml-run-examples \
-    --input-formats json \
-    --input-formats yaml \
-    --output-formats json \
-    --output-formats yaml \
-    --counter-example-input-directory tests/data/invalid \
-    --input-directory tests/data/valid \
-    --output-directory examples/output \
-    --schema {{source_schema_path}} > examples/output/README.md
+  uv run python -m pytest tests/test_data.py
 
 # Add the merged model to docs/schema.
 _gen-yaml:

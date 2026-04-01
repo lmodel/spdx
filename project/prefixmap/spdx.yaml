@@ -1,0 +1,215 @@
+{
+   "ai": "https://spdx.org/rdf/3.0.1/terms/AI/",
+   "build": "https://spdx.org/rdf/3.0.1/terms/Build/",
+   "core": "https://spdx.org/rdf/3.0.1/terms/Core/",
+   "dataset": "https://spdx.org/rdf/3.0.1/terms/Dataset/",
+   "expandedlicensing": "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/",
+   "extension": "https://spdx.org/rdf/3.0.1/terms/Extension/",
+   "linkml": "https://w3id.org/linkml/",
+   "security": "https://spdx.org/rdf/3.0.1/terms/Security/",
+   "simplelicensing": "https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/",
+   "software": "https://spdx.org/rdf/3.0.1/terms/Software/",
+   "spdx": "https://spdx.org/rdf/3.0.1/terms/",
+   "xsd": "http://www.w3.org/2001/XMLSchema#",
+   "Agent": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/Agent"
+   },
+   "AIPackage": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/AI/AIPackage"
+   },
+   "Annotation": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/Annotation"
+   },
+   "AnyLicenseInfo": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/AnyLicenseInfo"
+   },
+   "Artifact": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/Artifact"
+   },
+   "Bom": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/Bom"
+   },
+   "Build": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Build/Build"
+   },
+   "Bundle": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/Bundle"
+   },
+   "CdxPropertiesExtension": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Extension/CdxPropertiesExtension"
+   },
+   "CdxPropertyEntry": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Extension/CdxPropertyEntry"
+   },
+   "ConjunctiveLicenseSet": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/ConjunctiveLicenseSet"
+   },
+   "ContentIdentifier": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Software/ContentIdentifier"
+   },
+   "CreationInfo": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/CreationInfo"
+   },
+   "CustomLicense": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/CustomLicense"
+   },
+   "CustomLicenseAddition": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/CustomLicenseAddition"
+   },
+   "CvssV2VulnAssessmentRelationship": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Security/CvssV2VulnAssessmentRelationship"
+   },
+   "CvssV3VulnAssessmentRelationship": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Security/CvssV3VulnAssessmentRelationship"
+   },
+   "CvssV4VulnAssessmentRelationship": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Security/CvssV4VulnAssessmentRelationship"
+   },
+   "DatasetPackage": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetPackage"
+   },
+   "DictionaryEntry": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/DictionaryEntry"
+   },
+   "DisjunctiveLicenseSet": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/DisjunctiveLicenseSet"
+   },
+   "Element": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/Element"
+   },
+   "ElementCollection": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/ElementCollection"
+   },
+   "EnergyConsumption": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/AI/EnergyConsumption"
+   },
+   "EnergyConsumptionDescription": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/AI/EnergyConsumptionDescription"
+   },
+   "EpssVulnAssessmentRelationship": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Security/EpssVulnAssessmentRelationship"
+   },
+   "ExploitCatalogVulnAssessmentRelationship": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Security/ExploitCatalogVulnAssessmentRelationship"
+   },
+   "ExtendableLicense": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/ExtendableLicense"
+   },
+   "Extension": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Extension/Extension"
+   },
+   "ExternalIdentifier": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifier"
+   },
+   "ExternalMap": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/ExternalMap"
+   },
+   "ExternalRef": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/ExternalRef"
+   },
+   "File": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Software/File"
+   },
+   "Hash": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/Hash"
+   },
+   "IndividualElement": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/IndividualElement"
+   },
+   "IndividualLicensingInfo": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/IndividualLicensingInfo"
+   },
+   "IntegrityMethod": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/IntegrityMethod"
+   },
+   "License": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/License"
+   },
+   "LicenseAddition": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/LicenseAddition"
+   },
+   "LicenseExpression": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/LicenseExpression"
+   },
+   "LifecycleScopedRelationship": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/LifecycleScopedRelationship"
+   },
+   "ListedLicense": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/ListedLicense"
+   },
+   "ListedLicenseException": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/ListedLicenseException"
+   },
+   "NamespaceMap": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/NamespaceMap"
+   },
+   "Organization": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/Organization"
+   },
+   "OrLaterOperator": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/OrLaterOperator"
+   },
+   "Package": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Software/Package"
+   },
+   "PackageVerificationCode": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/PackageVerificationCode"
+   },
+   "Person": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/Person"
+   },
+   "PositiveIntegerRange": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/PositiveIntegerRange"
+   },
+   "Relationship": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/Relationship"
+   },
+   "Sbom": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Software/Sbom"
+   },
+   "SimpleLicensingText": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/SimpleLicensingText"
+   },
+   "Snippet": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Software/Snippet"
+   },
+   "SoftwareAgent": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/SoftwareAgent"
+   },
+   "SoftwareArtifact": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Software/SoftwareArtifact"
+   },
+   "SpdxDocument": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/SpdxDocument"
+   },
+   "SsvcVulnAssessmentRelationship": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Security/SsvcVulnAssessmentRelationship"
+   },
+   "Tool": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Core/Tool"
+   },
+   "VexAffectedVulnAssessmentRelationship": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Security/VexAffectedVulnAssessmentRelationship"
+   },
+   "VexFixedVulnAssessmentRelationship": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Security/VexFixedVulnAssessmentRelationship"
+   },
+   "VexNotAffectedVulnAssessmentRelationship": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Security/VexNotAffectedVulnAssessmentRelationship"
+   },
+   "VexUnderInvestigationVulnAssessmentRelationship": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Security/VexUnderInvestigationVulnAssessmentRelationship"
+   },
+   "VexVulnAssessmentRelationship": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Security/VexVulnAssessmentRelationship"
+   },
+   "VulnAssessmentRelationship": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Security/VulnAssessmentRelationship"
+   },
+   "Vulnerability": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/Security/Vulnerability"
+   },
+   "WithAdditionOperator": {
+      "@id": "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/WithAdditionOperator"
+   }
+}

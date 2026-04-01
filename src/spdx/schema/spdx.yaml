@@ -1,13 +1,16 @@
 id: https://w3id.org/lmodel/spdx
 name: spdx
 title: spdx
-description: This ontology defines the terms and relationships used in the SPDX specification
+description: System Package Data Exchange (SPDX), LinkML schema
+comments: >-
+  This ontology defines the terms and relationships used in the SPDX specification
   to describe system packages
 license: Apache-2.0
 see_also:
 - https://lmodel.github.io/spdx
 - https://spdx.dev/specifications/
 version: 3.0.1
+source: https://spdx.github.io/spdx-spec/v3.0/rdf/spdx-model.ttl
 
 prefixes:
   spdx: https://spdx.org/rdf/3.0.1/terms/

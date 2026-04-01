@@ -1,0 +1,962 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.7.0
+// version: 3.0.1
+// Specifies an AI package and its associated information.
+message AIPackage
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  string standardName = 0
+  datetime builtTime = 0
+  datetime validUntilTime = 0
+ repeated  supportType supportLevel = 0
+  agent suppliedBy = 0
+ repeated  agent originatedBy = 0
+  datetime releaseTime = 0
+ repeated  string attributionText = 0
+  string primaryPurpose = 0
+ repeated  string additionalPurpose = 0
+ repeated  contentIdentifier contentIdentifier = 0
+  string copyrightText = 0
+  string sourceInfo = 0
+  uri homePage = 0
+  uri downloadLocation = 0
+  string packageVersion = 0
+  uri packageUrl = 0
+  string informationAboutTraining = 0
+ repeated  string modelDataPreprocessing = 0
+ repeated  string typeOfModel = 0
+  safetyRiskAssessmentType safetyRiskAssessment = 0
+ repeated  dictionaryEntry metricDecisionThreshold = 0
+  presenceType useSensitivePersonalInformation = 0
+  energyConsumption energyConsumption = 0
+  string limitation = 0
+ repeated  dictionaryEntry hyperparameter = 0
+  presenceType autonomyType = 0
+ repeated  string domain = 0
+ repeated  string modelExplainability = 0
+  string informationAboutApplication = 0
+ repeated  dictionaryEntry metric = 0
+ repeated  string standardCompliance = 0
+ }
+// An assertion made in relation to one or more elements.
+message Annotation
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+  string contentType = 0
+  string statement = 0
+  element subject = 0
+  string annotationType = 0
+ }
+// Class that describes a build instance of software/artifacts.
+message Build
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+  uri buildType = 0
+  datetime buildEndTime = 0
+  string buildId = 0
+ repeated  hash configSourceDigest = 0
+  datetime buildStartTime = 0
+ repeated  uri configSourceUri = 0
+ repeated  dictionaryEntry parameter = 0
+ repeated  string configSourceEntrypoint = 0
+ repeated  dictionaryEntry environment = 0
+ }
+// A collection of Elements that have a shared context.
+message Bundle
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  element element = 0
+ repeated  profileIdentifierType profileConformance = 0
+ repeated  element rootElement = 0
+  string context = 0
+ }
+// A type of extension consisting of a list of name value pairs.
+message CdxPropertiesExtension
+ {
+ repeated  cdxPropertyEntry cdxProperty = 0
+ }
+// A property name with an associated value.
+message CdxPropertyEntry
+ {
+  string cdxPropValue = 0
+  string cdxPropName = 0
+ }
+// Portion of an AnyLicenseInfo representing a set of licensing information
+// where all elements apply.
+message ConjunctiveLicenseSet
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  anyLicenseInfo member = 0
+ }
+// A canonical, unique, immutable identifier
+message ContentIdentifier
+ {
+  string comment = 0
+  uri contentIdentifierValue = 0
+  contentIdentifierType contentIdentifierType = 0
+ }
+// Provides information about the creation of the Element.
+message CreationInfo
+ {
+ repeated  agent createdBy = 0
+ repeated  tool createdUsing = 0
+  datetime created = 0
+  string specVersion = 0
+  string comment = 0
+ }
+// A license that is not listed on the SPDX License List.
+message CustomLicense
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+  string obsoletedBy = 0
+  string standardLicenseHeader = 0
+ repeated  uri seeAlso = 0
+  boolean isFsfLibre = 0
+  boolean isDeprecatedLicenseId = 0
+  boolean isOsiApproved = 0
+  string licenseXml = 0
+  string licenseText = 0
+  string standardLicenseTemplate = 0
+ }
+// A license addition that is not listed on the SPDX Exceptions List.
+message CustomLicenseAddition
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+  string standardAdditionTemplate = 0
+ repeated  uri seeAlso = 0
+  string obsoletedBy = 0
+  string licenseXml = 0
+  boolean isDeprecatedAdditionId = 0
+  string additionText = 0
+ }
+// Provides a CVSS version 2.0 assessment for a vulnerability.
+message CvssV2VulnAssessmentRelationship
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  element to = 0
+  relationshipCompleteness completeness = 0
+  datetime startTime = 0
+  string relationshipType = 0
+  element from = 0
+  datetime endTime = 0
+  datetime withdrawnTime = 0
+  datetime publishedTime = 0
+  softwareArtifact assessedElement = 0
+  agent suppliedBy = 0
+  datetime modifiedTime = 0
+  string vectorString = 0
+  decimal score = 0
+ }
+// Provides a CVSS version 3 assessment for a vulnerability.
+message CvssV3VulnAssessmentRelationship
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  element to = 0
+  relationshipCompleteness completeness = 0
+  datetime startTime = 0
+  string relationshipType = 0
+  element from = 0
+  datetime endTime = 0
+  datetime withdrawnTime = 0
+  datetime publishedTime = 0
+  softwareArtifact assessedElement = 0
+  agent suppliedBy = 0
+  datetime modifiedTime = 0
+  cvssSeverityType severity = 0
+  string vectorString = 0
+  decimal score = 0
+ }
+// Provides a CVSS version 4 assessment for a vulnerability.
+message CvssV4VulnAssessmentRelationship
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  element to = 0
+  relationshipCompleteness completeness = 0
+  datetime startTime = 0
+  string relationshipType = 0
+  element from = 0
+  datetime endTime = 0
+  datetime withdrawnTime = 0
+  datetime publishedTime = 0
+  softwareArtifact assessedElement = 0
+  agent suppliedBy = 0
+  datetime modifiedTime = 0
+  cvssSeverityType severity = 0
+  string vectorString = 0
+  decimal score = 0
+ }
+// Specifies a data package and its associated information.
+message DatasetPackage
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  string standardName = 0
+  datetime builtTime = 0
+  datetime validUntilTime = 0
+ repeated  supportType supportLevel = 0
+  agent suppliedBy = 0
+ repeated  agent originatedBy = 0
+  datetime releaseTime = 0
+ repeated  string attributionText = 0
+  string primaryPurpose = 0
+ repeated  string additionalPurpose = 0
+ repeated  contentIdentifier contentIdentifier = 0
+  string copyrightText = 0
+  string sourceInfo = 0
+  uri homePage = 0
+  uri downloadLocation = 0
+  string packageVersion = 0
+  uri packageUrl = 0
+  integer datasetSize = 0
+ repeated  string datasetType = 0
+ repeated  string anonymizationMethodUsed = 0
+  string datasetUpdateMechanism = 0
+  string dataCollectionProcess = 0
+ repeated  string knownBias = 0
+ repeated  dictionaryEntry sensor = 0
+ repeated  string dataPreprocessing = 0
+  string intendedUse = 0
+  confidentialityLevelType confidentialityLevel = 0
+  datasetAvailabilityType datasetAvailability = 0
+  presenceType hasSensitivePersonalInformation = 0
+  string datasetNoise = 0
+ }
+// A key with an associated value.
+message DictionaryEntry
+ {
+  string value = 0
+  string key = 0
+ }
+// Portion of an AnyLicenseInfo representing a set of licensing information where
+// only one of the elements applies.
+message DisjunctiveLicenseSet
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  anyLicenseInfo member = 0
+ }
+// A class for describing the energy consumption incurred by an AI model in
+// different stages of its lifecycle.
+message EnergyConsumption
+ {
+ repeated  energyConsumptionDescription finetuningEnergyConsumption = 0
+ repeated  energyConsumptionDescription inferenceEnergyConsumption = 0
+ repeated  energyConsumptionDescription trainingEnergyConsumption = 0
+ }
+// The class that helps note down the quantity of energy consumption and the unit
+// used for measurement.
+message EnergyConsumptionDescription
+ {
+  decimal energyQuantity = 0
+  string energyUnit = 0
+ }
+// Provides an EPSS assessment for a vulnerability.
+message EpssVulnAssessmentRelationship
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  element to = 0
+  relationshipCompleteness completeness = 0
+  datetime startTime = 0
+  string relationshipType = 0
+  element from = 0
+  datetime endTime = 0
+  datetime withdrawnTime = 0
+  datetime publishedTime = 0
+  softwareArtifact assessedElement = 0
+  agent suppliedBy = 0
+  datetime modifiedTime = 0
+  decimal percentile = 0
+  decimal probability = 0
+ }
+// Provides an exploit assessment of a vulnerability.
+message ExploitCatalogVulnAssessmentRelationship
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  element to = 0
+  relationshipCompleteness completeness = 0
+  datetime startTime = 0
+  string relationshipType = 0
+  element from = 0
+  datetime endTime = 0
+  datetime withdrawnTime = 0
+  datetime publishedTime = 0
+  softwareArtifact assessedElement = 0
+  agent suppliedBy = 0
+  datetime modifiedTime = 0
+  boolean exploited = 0
+  uri securityLocator = 0
+  string catalogType = 0
+ }
+// A reference to a resource identifier defined outside the scope of SPDX-3.0 content that uniquely identifies an Element.
+message ExternalIdentifier
+ {
+ repeated  uri identifierLocator = 0
+  string externalIdentifierType = 0
+  string issuingAuthority = 0
+  string identifier = 0
+  string comment = 0
+ }
+// A map of Element identifiers that are used within an SpdxDocument but defined
+// external to that SpdxDocument.
+message ExternalMap
+ {
+  artifact definingArtifact = 0
+  uri locationHint = 0
+  uri externalSpdxId = 0
+ repeated  integrityMethod verifiedUsing = 0
+ }
+// A reference to a resource outside the scope of SPDX-3.0 content related to an Element.
+message ExternalRef
+ {
+ repeated  string coreLocator = 0
+  string externalRefType = 0
+  string comment = 0
+  string contentType = 0
+ }
+// Refers to any object that stores content on a computer.
+message File
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  string standardName = 0
+  datetime builtTime = 0
+  datetime validUntilTime = 0
+ repeated  supportType supportLevel = 0
+  agent suppliedBy = 0
+ repeated  agent originatedBy = 0
+  datetime releaseTime = 0
+ repeated  string attributionText = 0
+  string primaryPurpose = 0
+ repeated  string additionalPurpose = 0
+ repeated  contentIdentifier contentIdentifier = 0
+  string copyrightText = 0
+  fileKindType fileKind = 0
+  string contentType = 0
+ }
+// A mathematically calculated representation of a grouping of data.
+message Hash
+ {
+  string comment = 0
+  string algorithm = 0
+  string hashValue = 0
+ }
+// A concrete subclass of Element used by Individuals in the
+// Core profile.
+message IndividualElement
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ }
+// A concrete subclass of AnyLicenseInfo used by Individuals in the
+// ExpandedLicensing profile.
+message IndividualLicensingInfo
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ }
+// An SPDX Element containing an SPDX license expression string.
+message LicenseExpression
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  dictionaryEntry customIdToUri = 0
+  string licenseExpression = 0
+  string licenseListVersion = 0
+ }
+// Provide context for a relationship that occurs in the lifecycle.
+message LifecycleScopedRelationship
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  element to = 0
+  relationshipCompleteness completeness = 0
+  datetime startTime = 0
+  string relationshipType = 0
+  element from = 0
+  datetime endTime = 0
+  string scope = 0
+ }
+// A license that is listed on the SPDX License List.
+message ListedLicense
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+  string obsoletedBy = 0
+  string standardLicenseHeader = 0
+ repeated  uri seeAlso = 0
+  boolean isFsfLibre = 0
+  boolean isDeprecatedLicenseId = 0
+  boolean isOsiApproved = 0
+  string licenseXml = 0
+  string licenseText = 0
+  string standardLicenseTemplate = 0
+  string deprecatedVersion = 0
+  string listVersionAdded = 0
+ }
+// A license exception that is listed on the SPDX Exceptions list.
+message ListedLicenseException
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+  string standardAdditionTemplate = 0
+ repeated  uri seeAlso = 0
+  string obsoletedBy = 0
+  string licenseXml = 0
+  boolean isDeprecatedAdditionId = 0
+  string additionText = 0
+  string listVersionAdded = 0
+  string deprecatedVersion = 0
+ }
+// A mapping between prefixes and namespace partial URIs.
+message NamespaceMap
+ {
+  string prefix = 0
+  uri namespace = 0
+ }
+// A group of people who work together in an organized way for a shared purpose.
+message Organization
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ }
+// Portion of an AnyLicenseInfo representing this version, or any later version,
+// of the indicated License.
+message OrLaterOperator
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+  license subjectLicense = 0
+ }
+// Refers to any unit of content that can be associated with a distribution of
+// software.
+message Package
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  string standardName = 0
+  datetime builtTime = 0
+  datetime validUntilTime = 0
+ repeated  supportType supportLevel = 0
+  agent suppliedBy = 0
+ repeated  agent originatedBy = 0
+  datetime releaseTime = 0
+ repeated  string attributionText = 0
+  string primaryPurpose = 0
+ repeated  string additionalPurpose = 0
+ repeated  contentIdentifier contentIdentifier = 0
+  string copyrightText = 0
+  string sourceInfo = 0
+  uri homePage = 0
+  uri downloadLocation = 0
+  string packageVersion = 0
+  uri packageUrl = 0
+ }
+// An SPDX version 2.X compatible verification method for software packages.
+message PackageVerificationCode
+ {
+  string comment = 0
+ repeated  string packageVerificationCodeExcludedFile = 0
+  string hashValue = 0
+  string algorithm = 0
+ }
+// An individual human being.
+message Person
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ }
+// A tuple of two positive integers that define a range.
+message PositiveIntegerRange
+ {
+  integer endIntegerRange = 0
+  integer beginIntegerRange = 0
+ }
+// Describes a relationship between one or more elements.
+message Relationship
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  element to = 0
+  relationshipCompleteness completeness = 0
+  datetime startTime = 0
+  string relationshipType = 0
+  element from = 0
+  datetime endTime = 0
+ }
+// A collection of SPDX Elements describing a single package.
+message Sbom
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  element element = 0
+ repeated  profileIdentifierType profileConformance = 0
+ repeated  element rootElement = 0
+  string context = 0
+ repeated  sbomType sbomType = 0
+ }
+// A license or addition that is not listed on the SPDX License List.
+message SimpleLicensingText
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+  string licenseText = 0
+ }
+// Describes a certain part of a file.
+message Snippet
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  string standardName = 0
+  datetime builtTime = 0
+  datetime validUntilTime = 0
+ repeated  supportType supportLevel = 0
+  agent suppliedBy = 0
+ repeated  agent originatedBy = 0
+  datetime releaseTime = 0
+ repeated  string attributionText = 0
+  string primaryPurpose = 0
+ repeated  string additionalPurpose = 0
+ repeated  contentIdentifier contentIdentifier = 0
+  string copyrightText = 0
+  positiveIntegerRange lineRange = 0
+  file snippetFromFile = 0
+  positiveIntegerRange byteRange = 0
+ }
+// A software agent.
+message SoftwareAgent
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ }
+// A collection of SPDX Elements that could potentially be serialized.
+message SpdxDocument
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  element element = 0
+ repeated  profileIdentifierType profileConformance = 0
+ repeated  element rootElement = 0
+ repeated  namespaceMap namespaceMap = 0
+  anyLicenseInfo dataLicense = 0
+ repeated  externalMap import = 0
+ }
+// Provides an SSVC assessment for a vulnerability.
+message SsvcVulnAssessmentRelationship
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  element to = 0
+  relationshipCompleteness completeness = 0
+  datetime startTime = 0
+  string relationshipType = 0
+  element from = 0
+  datetime endTime = 0
+  datetime withdrawnTime = 0
+  datetime publishedTime = 0
+  softwareArtifact assessedElement = 0
+  agent suppliedBy = 0
+  datetime modifiedTime = 0
+  ssvcDecisionType decisionType = 0
+ }
+// An element of hardware and/or software utilized to carry out a particular function.
+message Tool
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ }
+// Connects a vulnerability and an element designating the element as a product
+// affected by the vulnerability.
+message VexAffectedVulnAssessmentRelationship
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  element to = 0
+  relationshipCompleteness completeness = 0
+  datetime startTime = 0
+  string relationshipType = 0
+  element from = 0
+  datetime endTime = 0
+  datetime withdrawnTime = 0
+  datetime publishedTime = 0
+  softwareArtifact assessedElement = 0
+  agent suppliedBy = 0
+  datetime modifiedTime = 0
+  string vexVersion = 0
+  string statusNotes = 0
+  string actionStatement = 0
+  datetime actionStatementTime = 0
+ }
+// Links a vulnerability and elements representing products (in the VEX sense) where
+// a fix has been applied and are no longer affected.
+message VexFixedVulnAssessmentRelationship
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  element to = 0
+  relationshipCompleteness completeness = 0
+  datetime startTime = 0
+  string relationshipType = 0
+  element from = 0
+  datetime endTime = 0
+  datetime withdrawnTime = 0
+  datetime publishedTime = 0
+  softwareArtifact assessedElement = 0
+  agent suppliedBy = 0
+  datetime modifiedTime = 0
+  string vexVersion = 0
+  string statusNotes = 0
+ }
+// Links a vulnerability and one or more elements designating the latter as products
+// not affected by the vulnerability.
+message VexNotAffectedVulnAssessmentRelationship
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  element to = 0
+  relationshipCompleteness completeness = 0
+  datetime startTime = 0
+  string relationshipType = 0
+  element from = 0
+  datetime endTime = 0
+  datetime withdrawnTime = 0
+  datetime publishedTime = 0
+  softwareArtifact assessedElement = 0
+  agent suppliedBy = 0
+  datetime modifiedTime = 0
+  string vexVersion = 0
+  string statusNotes = 0
+  datetime impactStatementTime = 0
+  vexJustificationType justificationType = 0
+  string impactStatement = 0
+ }
+// Designates elements as products where the impact of a vulnerability is being
+// investigated.
+message VexUnderInvestigationVulnAssessmentRelationship
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  element to = 0
+  relationshipCompleteness completeness = 0
+  datetime startTime = 0
+  string relationshipType = 0
+  element from = 0
+  datetime endTime = 0
+  datetime withdrawnTime = 0
+  datetime publishedTime = 0
+  softwareArtifact assessedElement = 0
+  agent suppliedBy = 0
+  datetime modifiedTime = 0
+  string vexVersion = 0
+  string statusNotes = 0
+ }
+// Specifies a vulnerability and its associated information.
+message Vulnerability
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+ repeated  string standardName = 0
+  datetime builtTime = 0
+  datetime validUntilTime = 0
+ repeated  supportType supportLevel = 0
+  agent suppliedBy = 0
+ repeated  agent originatedBy = 0
+  datetime releaseTime = 0
+  datetime withdrawnTime = 0
+  datetime modifiedTime = 0
+  datetime publishedTime = 0
+ }
+// Portion of an AnyLicenseInfo representing a License which has additional
+// text applied to it.
+message WithAdditionOperator
+ {
+ repeated  externalIdentifier externalIdentifier = 0
+ repeated  extension extension = 0
+  string summary = 0
+  string description = 0
+  string comment = 0
+ repeated  integrityMethod verifiedUsing = 0
+ repeated  externalRef externalRef = 0
+  string name = 0
+  creationInfo creationInfo = 0
+  extendableLicense subjectExtendableLicense = 0
+  licenseAddition subjectAddition = 0
+ }
