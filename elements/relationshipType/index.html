@@ -502,11 +502,6 @@ Alias: relationshipType</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../LifecycleScopedRelationship/">LifecycleScopedRelationship</a></td>
-<td>Provide context for a relationship that occurs in the lifecycle</td>
-<td>no</td>
-</tr>
-<tr>
 <td><a href="../Relationship/">Relationship</a></td>
 <td>Describes a relationship between one or more elements</td>
 <td>yes</td>
@@ -517,18 +512,18 @@ Alias: relationshipType</p>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../VulnAssessmentRelationship/">VulnAssessmentRelationship</a></td>
-<td>Abstract ancestor class for all vulnerability assessments</td>
-<td>no</td>
-</tr>
-<tr>
 <td><a href="../CvssV4VulnAssessmentRelationship/">CvssV4VulnAssessmentRelationship</a></td>
 <td>Provides a CVSS version 4 assessment for a vulnerability</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../CvssV3VulnAssessmentRelationship/">CvssV3VulnAssessmentRelationship</a></td>
-<td>Provides a CVSS version 3 assessment for a vulnerability</td>
+<td><a href="../LifecycleScopedRelationship/">LifecycleScopedRelationship</a></td>
+<td>Provide context for a relationship that occurs in the lifecycle</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../VulnAssessmentRelationship/">VulnAssessmentRelationship</a></td>
+<td>Abstract ancestor class for all vulnerability assessments</td>
 <td>no</td>
 </tr>
 <tr>
@@ -537,23 +532,8 @@ Alias: relationshipType</p>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../ExploitCatalogVulnAssessmentRelationship/">ExploitCatalogVulnAssessmentRelationship</a></td>
-<td>Provides an exploit assessment of a vulnerability</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../SsvcVulnAssessmentRelationship/">SsvcVulnAssessmentRelationship</a></td>
-<td>Provides an SSVC assessment for a vulnerability</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../VexFixedVulnAssessmentRelationship/">VexFixedVulnAssessmentRelationship</a></td>
-<td>Links a vulnerability and elements representing products (in the VEX sense) w...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../VexAffectedVulnAssessmentRelationship/">VexAffectedVulnAssessmentRelationship</a></td>
-<td>Connects a vulnerability and an element designating the element as a product</td>
+<td><a href="../VexNotAffectedVulnAssessmentRelationship/">VexNotAffectedVulnAssessmentRelationship</a></td>
+<td>Links a vulnerability and one or more elements designating the latter as prod...</td>
 <td>no</td>
 </tr>
 <tr>
@@ -562,13 +542,33 @@ Alias: relationshipType</p>
 <td>no</td>
 </tr>
 <tr>
+<td><a href="../SsvcVulnAssessmentRelationship/">SsvcVulnAssessmentRelationship</a></td>
+<td>Provides an SSVC assessment for a vulnerability</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../ExploitCatalogVulnAssessmentRelationship/">ExploitCatalogVulnAssessmentRelationship</a></td>
+<td>Provides an exploit assessment of a vulnerability</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../VexAffectedVulnAssessmentRelationship/">VexAffectedVulnAssessmentRelationship</a></td>
+<td>Connects a vulnerability and an element designating the element as a product</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../VexFixedVulnAssessmentRelationship/">VexFixedVulnAssessmentRelationship</a></td>
+<td>Links a vulnerability and elements representing products (in the VEX sense) w...</td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="../VexUnderInvestigationVulnAssessmentRelationship/">VexUnderInvestigationVulnAssessmentRelationship</a></td>
 <td>Designates elements as products where the impact of a vulnerability is being</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../VexNotAffectedVulnAssessmentRelationship/">VexNotAffectedVulnAssessmentRelationship</a></td>
-<td>Links a vulnerability and one or more elements designating the latter as prod...</td>
+<td><a href="../CvssV3VulnAssessmentRelationship/">CvssV3VulnAssessmentRelationship</a></td>
+<td>Provides a CVSS version 3 assessment for a vulnerability</td>
 <td>no</td>
 </tr>
 </tbody>
