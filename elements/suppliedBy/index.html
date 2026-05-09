@@ -503,13 +503,23 @@ Alias: suppliedBy</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../CvssV3VulnAssessmentRelationship/">CvssV3VulnAssessmentRelationship</a></td>
-<td>Provides a CVSS version 3 assessment for a vulnerability</td>
+<td><a href="../Artifact/">Artifact</a></td>
+<td>A distinct article or unit within the digital domain</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../ExploitCatalogVulnAssessmentRelationship/">ExploitCatalogVulnAssessmentRelationship</a></td>
+<td>Provides an exploit assessment of a vulnerability</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../VexUnderInvestigationVulnAssessmentRelationship/">VexUnderInvestigationVulnAssessmentRelationship</a></td>
-<td>Designates elements as products where the impact of a vulnerability is being</td>
+<td><a href="../VexVulnAssessmentRelationship/">VexVulnAssessmentRelationship</a></td>
+<td>Abstract ancestor class for all VEX relationships</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../DatasetPackage/">DatasetPackage</a></td>
+<td>Specifies a data package and its associated information</td>
 <td>no</td>
 </tr>
 <tr>
@@ -523,53 +533,8 @@ Alias: suppliedBy</p>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../VexVulnAssessmentRelationship/">VexVulnAssessmentRelationship</a></td>
-<td>Abstract ancestor class for all VEX relationships</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../File/">File</a></td>
-<td>Refers to any object that stores content on a computer</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../SsvcVulnAssessmentRelationship/">SsvcVulnAssessmentRelationship</a></td>
-<td>Provides an SSVC assessment for a vulnerability</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../VexAffectedVulnAssessmentRelationship/">VexAffectedVulnAssessmentRelationship</a></td>
-<td>Connects a vulnerability and an element designating the element as a product</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../VexFixedVulnAssessmentRelationship/">VexFixedVulnAssessmentRelationship</a></td>
-<td>Links a vulnerability and elements representing products (in the VEX sense) w...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Artifact/">Artifact</a></td>
-<td>A distinct article or unit within the digital domain</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../VulnAssessmentRelationship/">VulnAssessmentRelationship</a></td>
-<td>Abstract ancestor class for all vulnerability assessments</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../ExploitCatalogVulnAssessmentRelationship/">ExploitCatalogVulnAssessmentRelationship</a></td>
-<td>Provides an exploit assessment of a vulnerability</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../DatasetPackage/">DatasetPackage</a></td>
-<td>Specifies a data package and its associated information</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../VexNotAffectedVulnAssessmentRelationship/">VexNotAffectedVulnAssessmentRelationship</a></td>
-<td>Links a vulnerability and one or more elements designating the latter as prod...</td>
+<td><a href="../Vulnerability/">Vulnerability</a></td>
+<td>Specifies a vulnerability and its associated information</td>
 <td>no</td>
 </tr>
 <tr>
@@ -578,13 +543,38 @@ Alias: suppliedBy</p>
 <td>no</td>
 </tr>
 <tr>
+<td><a href="../VexNotAffectedVulnAssessmentRelationship/">VexNotAffectedVulnAssessmentRelationship</a></td>
+<td>Links a vulnerability and one or more elements designating the latter as prod...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../VexUnderInvestigationVulnAssessmentRelationship/">VexUnderInvestigationVulnAssessmentRelationship</a></td>
+<td>Designates elements as products where the impact of a vulnerability is being</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../SsvcVulnAssessmentRelationship/">SsvcVulnAssessmentRelationship</a></td>
+<td>Provides an SSVC assessment for a vulnerability</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../CvssV3VulnAssessmentRelationship/">CvssV3VulnAssessmentRelationship</a></td>
+<td>Provides a CVSS version 3 assessment for a vulnerability</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../VexFixedVulnAssessmentRelationship/">VexFixedVulnAssessmentRelationship</a></td>
+<td>Links a vulnerability and elements representing products (in the VEX sense) w...</td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="../SoftwareArtifact/">SoftwareArtifact</a></td>
 <td>A distinct article or unit related to Software</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../EpssVulnAssessmentRelationship/">EpssVulnAssessmentRelationship</a></td>
-<td>Provides an EPSS assessment for a vulnerability</td>
+<td><a href="../VexAffectedVulnAssessmentRelationship/">VexAffectedVulnAssessmentRelationship</a></td>
+<td>Connects a vulnerability and an element designating the element as a product</td>
 <td>no</td>
 </tr>
 <tr>
@@ -598,8 +588,18 @@ Alias: suppliedBy</p>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../Vulnerability/">Vulnerability</a></td>
-<td>Specifies a vulnerability and its associated information</td>
+<td><a href="../VulnAssessmentRelationship/">VulnAssessmentRelationship</a></td>
+<td>Abstract ancestor class for all vulnerability assessments</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../File/">File</a></td>
+<td>Refers to any object that stores content on a computer</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../EpssVulnAssessmentRelationship/">EpssVulnAssessmentRelationship</a></td>
+<td>Provides an EPSS assessment for a vulnerability</td>
 <td>no</td>
 </tr>
 </tbody>
