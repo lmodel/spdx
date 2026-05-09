@@ -11532,7 +11532,7 @@ classes:
     class_uri: https://spdx.org/rdf/3.0.1/terms/Software/SoftwareArtifact
 metamodel_version: 1.7.0
 source_file: spdx.yaml
-source_file_date: '2026-05-09T00:35:36'
+source_file_date: '2026-05-09T00:36:19'
 source_file_size: 169002
-generation_date: '2026-05-09T00:35:52'
+generation_date: '2026-05-09T00:36:28'
 
