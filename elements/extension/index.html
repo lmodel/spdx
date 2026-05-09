@@ -502,23 +502,23 @@ Alias: extension</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../Vulnerability/">Vulnerability</a></td>
-<td>Specifies a vulnerability and its associated information</td>
+<td><a href="../Organization/">Organization</a></td>
+<td>A group of people who work together in an organized way for a shared purpose</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../Package/">Package</a></td>
-<td>Refers to any unit of content that can be associated with a distribution of</td>
+<td><a href="../ListedLicenseException/">ListedLicenseException</a></td>
+<td>A license exception that is listed on the SPDX Exceptions list</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../Agent/">Agent</a></td>
-<td>Agent represents anything with the potential to act on a system</td>
+<td><a href="../VulnAssessmentRelationship/">VulnAssessmentRelationship</a></td>
+<td>Abstract ancestor class for all vulnerability assessments</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../AnyLicenseInfo/">AnyLicenseInfo</a></td>
-<td>Abstract class representing a license combination consisting of one or more l...</td>
+<td><a href="../LicenseExpression/">LicenseExpression</a></td>
+<td>An SPDX Element containing an SPDX license expression string</td>
 <td>no</td>
 </tr>
 <tr>
@@ -527,43 +527,33 @@ Alias: extension</p>
 <td>no</td>
 </tr>
 <tr>
+<td><a href="../AnyLicenseInfo/">AnyLicenseInfo</a></td>
+<td>Abstract class representing a license combination consisting of one or more l...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Vulnerability/">Vulnerability</a></td>
+<td>Specifies a vulnerability and its associated information</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../ConjunctiveLicenseSet/">ConjunctiveLicenseSet</a></td>
+<td>Portion of an AnyLicenseInfo representing a set of licensing information</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Element/">Element</a></td>
+<td>Base domain class from which all other SPDX-3</td>
+<td>yes</td>
+</tr>
+<tr>
 <td><a href="../ElementCollection/">ElementCollection</a></td>
 <td>A collection of Elements, not necessarily with unifying context</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../VexAffectedVulnAssessmentRelationship/">VexAffectedVulnAssessmentRelationship</a></td>
-<td>Connects a vulnerability and an element designating the element as a product</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Person/">Person</a></td>
-<td>An individual human being</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../VexUnderInvestigationVulnAssessmentRelationship/">VexUnderInvestigationVulnAssessmentRelationship</a></td>
-<td>Designates elements as products where the impact of a vulnerability is being</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Artifact/">Artifact</a></td>
-<td>A distinct article or unit within the digital domain</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../SoftwareArtifact/">SoftwareArtifact</a></td>
-<td>A distinct article or unit related to Software</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../File/">File</a></td>
-<td>Refers to any object that stores content on a computer</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../CustomLicense/">CustomLicense</a></td>
-<td>A license that is not listed on the SPDX License List</td>
+<td><a href="../OrLaterOperator/">OrLaterOperator</a></td>
+<td>Portion of an AnyLicenseInfo representing this version, or any later version,</td>
 <td>no</td>
 </tr>
 <tr>
@@ -572,13 +562,118 @@ Alias: extension</p>
 <td>no</td>
 </tr>
 <tr>
+<td><a href="../ListedLicense/">ListedLicense</a></td>
+<td>A license that is listed on the SPDX License List</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Package/">Package</a></td>
+<td>Refers to any unit of content that can be associated with a distribution of</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../VexAffectedVulnAssessmentRelationship/">VexAffectedVulnAssessmentRelationship</a></td>
+<td>Connects a vulnerability and an element designating the element as a product</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../CustomLicense/">CustomLicense</a></td>
+<td>A license that is not listed on the SPDX License List</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../SoftwareArtifact/">SoftwareArtifact</a></td>
+<td>A distinct article or unit related to Software</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Bom/">Bom</a></td>
+<td>A container for a grouping of SPDX-3</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Artifact/">Artifact</a></td>
+<td>A distinct article or unit within the digital domain</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../IndividualLicensingInfo/">IndividualLicensingInfo</a></td>
+<td>A concrete subclass of AnyLicenseInfo used by Individuals in the</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../CustomLicenseAddition/">CustomLicenseAddition</a></td>
+<td>A license addition that is not listed on the SPDX Exceptions List</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../VexNotAffectedVulnAssessmentRelationship/">VexNotAffectedVulnAssessmentRelationship</a></td>
+<td>Links a vulnerability and one or more elements designating the latter as prod...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Agent/">Agent</a></td>
+<td>Agent represents anything with the potential to act on a system</td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="../LicenseAddition/">LicenseAddition</a></td>
 <td>Abstract class for additional text intended to be added to a License, but</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../VexVulnAssessmentRelationship/">VexVulnAssessmentRelationship</a></td>
-<td>Abstract ancestor class for all VEX relationships</td>
+<td><a href="../EpssVulnAssessmentRelationship/">EpssVulnAssessmentRelationship</a></td>
+<td>Provides an EPSS assessment for a vulnerability</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../License/">License</a></td>
+<td>Abstract class for the portion of an AnyLicenseInfo representing a license</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../SoftwareAgent/">SoftwareAgent</a></td>
+<td>A software agent</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Snippet/">Snippet</a></td>
+<td>Describes a certain part of a file</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../VexUnderInvestigationVulnAssessmentRelationship/">VexUnderInvestigationVulnAssessmentRelationship</a></td>
+<td>Designates elements as products where the impact of a vulnerability is being</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../LifecycleScopedRelationship/">LifecycleScopedRelationship</a></td>
+<td>Provide context for a relationship that occurs in the lifecycle</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Relationship/">Relationship</a></td>
+<td>Describes a relationship between one or more elements</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Person/">Person</a></td>
+<td>An individual human being</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../CvssV2VulnAssessmentRelationship/">CvssV2VulnAssessmentRelationship</a></td>
+<td>Provides a CVSS version 2</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../File/">File</a></td>
+<td>Refers to any object that stores content on a computer</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Build/">Build</a></td>
+<td>Class that describes a build instance of software/artifacts</td>
 <td>no</td>
 </tr>
 <tr>
@@ -592,23 +687,8 @@ Alias: extension</p>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../SpdxDocument/">SpdxDocument</a></td>
-<td>A collection of SPDX Elements that could potentially be serialized</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Element/">Element</a></td>
-<td>Base domain class from which all other SPDX-3</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../DatasetPackage/">DatasetPackage</a></td>
-<td>Specifies a data package and its associated information</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../CvssV2VulnAssessmentRelationship/">CvssV2VulnAssessmentRelationship</a></td>
-<td>Provides a CVSS version 2</td>
+<td><a href="../Bundle/">Bundle</a></td>
+<td>A collection of Elements that have a shared context</td>
 <td>no</td>
 </tr>
 <tr>
@@ -617,48 +697,8 @@ Alias: extension</p>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../Build/">Build</a></td>
-<td>Class that describes a build instance of software/artifacts</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Bundle/">Bundle</a></td>
-<td>A collection of Elements that have a shared context</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Organization/">Organization</a></td>
-<td>A group of people who work together in an organized way for a shared purpose</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Relationship/">Relationship</a></td>
-<td>Describes a relationship between one or more elements</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../CvssV4VulnAssessmentRelationship/">CvssV4VulnAssessmentRelationship</a></td>
-<td>Provides a CVSS version 4 assessment for a vulnerability</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../SoftwareAgent/">SoftwareAgent</a></td>
-<td>A software agent</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../WithAdditionOperator/">WithAdditionOperator</a></td>
-<td>Portion of an AnyLicenseInfo representing a License which has additional</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../EpssVulnAssessmentRelationship/">EpssVulnAssessmentRelationship</a></td>
-<td>Provides an EPSS assessment for a vulnerability</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../VexNotAffectedVulnAssessmentRelationship/">VexNotAffectedVulnAssessmentRelationship</a></td>
-<td>Links a vulnerability and one or more elements designating the latter as prod...</td>
+<td><a href="../Tool/">Tool</a></td>
+<td>An element of hardware and/or software utilized to carry out a particular fun...</td>
 <td>no</td>
 </tr>
 <tr>
@@ -667,63 +707,23 @@ Alias: extension</p>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../LifecycleScopedRelationship/">LifecycleScopedRelationship</a></td>
-<td>Provide context for a relationship that occurs in the lifecycle</td>
+<td><a href="../CvssV4VulnAssessmentRelationship/">CvssV4VulnAssessmentRelationship</a></td>
+<td>Provides a CVSS version 4 assessment for a vulnerability</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../Snippet/">Snippet</a></td>
-<td>Describes a certain part of a file</td>
+<td><a href="../SpdxDocument/">SpdxDocument</a></td>
+<td>A collection of SPDX Elements that could potentially be serialized</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../License/">License</a></td>
-<td>Abstract class for the portion of an AnyLicenseInfo representing a license</td>
+<td><a href="../WithAdditionOperator/">WithAdditionOperator</a></td>
+<td>Portion of an AnyLicenseInfo representing a License which has additional</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../VulnAssessmentRelationship/">VulnAssessmentRelationship</a></td>
-<td>Abstract ancestor class for all vulnerability assessments</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ConjunctiveLicenseSet/">ConjunctiveLicenseSet</a></td>
-<td>Portion of an AnyLicenseInfo representing a set of licensing information</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Bom/">Bom</a></td>
-<td>A container for a grouping of SPDX-3</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../DisjunctiveLicenseSet/">DisjunctiveLicenseSet</a></td>
-<td>Portion of an AnyLicenseInfo representing a set of licensing information wher...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Tool/">Tool</a></td>
-<td>An element of hardware and/or software utilized to carry out a particular fun...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ListedLicenseException/">ListedLicenseException</a></td>
-<td>A license exception that is listed on the SPDX Exceptions list</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ListedLicense/">ListedLicense</a></td>
-<td>A license that is listed on the SPDX License List</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../LicenseExpression/">LicenseExpression</a></td>
-<td>An SPDX Element containing an SPDX license expression string</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../IndividualLicensingInfo/">IndividualLicensingInfo</a></td>
-<td>A concrete subclass of AnyLicenseInfo used by Individuals in the</td>
+<td><a href="../DatasetPackage/">DatasetPackage</a></td>
+<td>Specifies a data package and its associated information</td>
 <td>no</td>
 </tr>
 <tr>
@@ -732,28 +732,28 @@ Alias: extension</p>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../SimpleLicensingText/">SimpleLicensingText</a></td>
-<td>A license or addition that is not listed on the SPDX License List</td>
-<td>no</td>
-</tr>
-<tr>
 <td><a href="../ExploitCatalogVulnAssessmentRelationship/">ExploitCatalogVulnAssessmentRelationship</a></td>
 <td>Provides an exploit assessment of a vulnerability</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../CustomLicenseAddition/">CustomLicenseAddition</a></td>
-<td>A license addition that is not listed on the SPDX Exceptions List</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../OrLaterOperator/">OrLaterOperator</a></td>
-<td>Portion of an AnyLicenseInfo representing this version, or any later version,</td>
-<td>no</td>
-</tr>
-<tr>
 <td><a href="../Annotation/">Annotation</a></td>
 <td>An assertion made in relation to one or more elements</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../SimpleLicensingText/">SimpleLicensingText</a></td>
+<td>A license or addition that is not listed on the SPDX License List</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../DisjunctiveLicenseSet/">DisjunctiveLicenseSet</a></td>
+<td>Portion of an AnyLicenseInfo representing a set of licensing information wher...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../VexVulnAssessmentRelationship/">VexVulnAssessmentRelationship</a></td>
+<td>Abstract ancestor class for all VEX relationships</td>
 <td>no</td>
 </tr>
 </tbody>
