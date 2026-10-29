@@ -80,8 +80,9 @@ SEMVER_PATTERN = (
     r"(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$"
 )
 
-# Each type names its base as well as its typeof: the SQL and TypeScript generators
-# read the base from the type itself and do not follow typeof (linkml 1.12.1).
+# Each type names its base as well as its typeof: the SQL generator reads the base
+# from the type itself and does not follow typeof, so a datetime type would be a TEXT
+# column (linkml 1.12.1, linkml issue 3491).
 TYPES = {
     "date_time_stamp": {
         "typeof": "datetime",
