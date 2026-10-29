@@ -17,10 +17,10 @@ from linkml_runtime.loaders import yaml_loader
 from linkml_runtime.utils.schemaview import SchemaView
 from rdflib import RDF, XSD, Graph, Literal, URIRef
 
-from spdx.datamodel import spdx as datamodel
+from spdx_linkml.datamodel import spdx_linkml as datamodel
 
 TESTS_DIR = Path(__file__).parent
-SCHEMA_PATH = TESTS_DIR.parent / "src" / "spdx" / "schema" / "spdx.yaml"
+SCHEMA_PATH = TESTS_DIR.parent / "src" / "spdx_linkml" / "schema" / "spdx_linkml.yaml"
 VALID_FILES = sorted((TESTS_DIR / "data" / "valid").glob("*.yaml"))
 
 

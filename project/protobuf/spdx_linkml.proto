@@ -1,5 +1,5 @@
 syntax = "proto3";
-package spdx;
+package spdx_linkml;
 // metamodel_version: 1.12.0
 // version: 3.0.1
 // Agent represents anything with the potential to act on a system.

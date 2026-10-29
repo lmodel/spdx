@@ -29,7 +29,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VENDORED = ROOT / "src" / "spdx" / "schema" / "upstream" / "spdx-model.ttl"
+VENDORED = ROOT / "src" / "spdx_linkml" / "schema" / "upstream" / "spdx-model.ttl"
 TAGS_API = "https://api.github.com/repos/spdx/spdx-3-model/tags?per_page=100"
 TERMS = re.compile(r"https://spdx\.org/rdf/([0-9][^/>]*)/terms/")
 TAG = re.compile(r"^v?(\d+)\.(\d+)(?:\.(\d+))?(?:-?(rc\d+))?$", re.IGNORECASE)

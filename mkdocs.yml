@@ -57,7 +57,7 @@ markdown_extensions:
   - md_in_html
 
 watch:
-  - src/spdx/schema
+  - src/spdx_linkml/schema
 
 nav:
   - Home: index.md

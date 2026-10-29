@@ -12,5 +12,5 @@ github_org: lmodel
 license: Apache-2.0
 project_description: 'System Package Data Exchange (SPDX): LinkML Schema'
 project_name: spdx
-project_slug: spdx
+project_slug: spdx_linkml
 

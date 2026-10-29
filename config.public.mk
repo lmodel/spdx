@@ -6,10 +6,10 @@
 
 # Note:
 # - just works fine with quoted variables of dot-env files like this one
-LINKML_SCHEMA_NAME="spdx"
+LINKML_SCHEMA_NAME="spdx_linkml"
 LINKML_SCHEMA_AUTHOR="Noel McLoughlin <noel.mcloughlin@gmail.com>"
 LINKML_SCHEMA_DESCRIPTION="System Package Data Exchange (SPDX): LinkML Schema"
-LINKML_SCHEMA_SOURCE_DIR="src/spdx/schema"
+LINKML_SCHEMA_SOURCE_DIR="src/spdx_linkml/schema"
 
 ###### linkml generator variables, used by justfile
 

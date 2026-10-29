@@ -96,7 +96,7 @@ linkml_meta = LinkMLMeta({'comments': ['scripts/spdx_to_linkml.py writes every Y
                  './spdx_expanded_licensing',
                  './spdx_security'],
      'license': 'Apache-2.0',
-     'name': 'spdx',
+     'name': 'spdx_linkml',
      'prefixes': {'linkml': {'prefix_prefix': 'linkml',
                              'prefix_reference': 'https://w3id.org/linkml/'},
                   'rdf': {'prefix_prefix': 'rdf',
@@ -129,7 +129,7 @@ linkml_meta = LinkMLMeta({'comments': ['scripts/spdx_to_linkml.py writes every Y
                   'https://spdx.github.io/spdx-spec/v3.0.1/',
                   'https://spdx.dev/specifications/'],
      'source': 'https://spdx.org/rdf/3.0.1/spdx-model.ttl',
-     'source_file': 'src/spdx/schema/spdx.yaml',
+     'source_file': 'src/spdx_linkml/schema/spdx_linkml.yaml',
      'title': 'System Package Data Exchange (SPDX)'} )
 
 class AnnotationType(str, Enum):

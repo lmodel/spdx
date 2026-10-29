@@ -1,6 +1,6 @@
 ---
 id: https://w3id.org/lmodel/spdx
-name: spdx
+name: spdx_linkml
 title: System Package Data Exchange (SPDX)
 description: >-
   A LinkML rendering of the SPDX 3.0.1 model: its nine profiles, each a module, with every class, property

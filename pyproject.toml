@@ -4,7 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 # Named like lmodel/gist's gist-linkml and lmodel/slsa's slsa-linkml, so the PyPI
-# name says what the distribution holds. The import package stays `spdx`.
+# name says what the distribution holds. The import package is `spdx_linkml`,
+# because the PyPI package spdx and spdx-tools before 0.8 both install `spdx`.
 name = "spdx-linkml"
 description = "System Package Data Exchange (SPDX): LinkML Schema"
 authors = [
@@ -31,7 +32,7 @@ dev = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/spdx"]
+packages = ["src/spdx_linkml"]
 
 # See https://hatch.pypa.io/latest/config/build/#file-selection for how to
 # explicitly include files other than default into the build distributions.
@@ -52,7 +53,7 @@ testpaths = ["tests"]
 # https://docs.astral.sh/ruff/configuration/
 [tool.ruff]
 exclude = [
-    "src/spdx/_version.py",
+    "src/spdx_linkml/_version.py",
     # A copy of the SPDX Project's example repository, kept as published.
     "tests/data/spdx-examples",
 ]
@@ -66,8 +67,8 @@ skip = [
   "pyproject.toml",
   "uv.lock",
   "project/*",
-  "src/spdx/datamodel/spdx_pydantic.py",
-  "src/spdx/datamodel/spdx.py",
+  "src/spdx_linkml/datamodel/spdx_linkml_pydantic.py",
+  "src/spdx_linkml/datamodel/spdx_linkml.py",
 ]
 
 # Reminder: words have to be lowercased for the ignore-words-list
@@ -84,6 +85,6 @@ extend-exclude = [
   "uv.lock",
   "pyproject.toml",
   "project/*",
-  "src/spdx/datamodel/spdx_pydantic.py",
-  "src/spdx/datamodel/spdx.py",
+  "src/spdx_linkml/datamodel/spdx_linkml_pydantic.py",
+  "src/spdx_linkml/datamodel/spdx_linkml.py",
 ]

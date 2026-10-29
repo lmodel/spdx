@@ -6,18 +6,18 @@
 
 # ============ The upstream model and the generated schema ============
 
-# src/spdx/schema/upstream/spdx-model.ttl is the SPDX model as the SPDX Project
-# publishes it, and scripts/spdx_to_linkml.py writes every YAML file in
-# src/spdx/schema/ from that copy. These recipes regenerate the schema, tell a
-# hand edit from a regeneration, and compare the vendored model with the
+# src/spdx_linkml/schema/upstream/spdx-model.ttl is the SPDX model as the SPDX
+# Project publishes it, and scripts/spdx_to_linkml.py writes every YAML file in
+# src/spdx_linkml/schema/ from that copy. These recipes regenerate the schema,
+# tell a hand edit from a regeneration, and compare the vendored model with the
 # published releases.
 
-# Rewrite src/spdx/schema/*.yaml from the vendored SPDX model
+# Rewrite src/spdx_linkml/schema/*.yaml from the vendored SPDX model
 [group('model development')]
 gen-linkml:
   uv run python scripts/spdx_to_linkml.py
 
-# Fail when src/spdx/schema/*.yaml differs from a fresh gen-linkml
+# Fail when src/spdx_linkml/schema/*.yaml differs from a fresh gen-linkml
 [group('model development')]
 gen-linkml-check:
   uv run python scripts/spdx_to_linkml.py --check

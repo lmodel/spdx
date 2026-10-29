@@ -1,5 +1,5 @@
-# Auto generated from spdx.yaml by pythongen.py version: 0.0.1
-# Schema: spdx
+# Auto generated from spdx_linkml.yaml by pythongen.py version: 0.0.1
+# Schema: spdx_linkml
 #
 # id: https://w3id.org/lmodel/spdx
 # description: A LinkML rendering of the SPDX 3.0.1 model: its nine profiles, each a module, with every class, property and vocabulary keeping its SPDX IRI.

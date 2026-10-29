@@ -1,4 +1,4 @@
-# Example data for spdx
+# Example data for spdx_linkml
 
 This folder contains example data for testing and demonstrating the datamodel`
 sorted in subfolders:

@@ -1,5 +1,5 @@
 {
-  "name": "spdx",
+  "name": "spdx_linkml",
   "description": "A LinkML rendering of the SPDX 3.0.1 model: its nine profiles, each a module, with every class, property and vocabulary keeping its SPDX IRI.",
   "title": "System Package Data Exchange (SPDX)",
   "comments": [
@@ -9501,12 +9501,12 @@
     }
   ],
   "metamodel_version": "1.12.0",
-  "source_file": "spdx.yaml",
-  "source_file_date": "2026-10-29T16:50:29",
-  "source_file_size": 2260,
+  "source_file": "spdx_linkml.yaml",
+  "source_file_date": "2026-10-29T17:14:44",
+  "source_file_size": 2267,
   "@type": "SchemaDefinition",
   "@context": [
-    "project/jsonld/spdx.context.jsonld",
+    "project/jsonld/spdx_linkml.context.jsonld",
     "https://w3id.org/linkml/types.context.jsonld",
     "./spdx_core.context.jsonld",
     "./spdx_build.context.jsonld",

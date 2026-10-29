@@ -16,12 +16,12 @@ System Package Data Exchange (SPDX): LinkML Schema
 * [project/](project/): project files, generated, so do not edit them
 * [scripts/](scripts/): the converter that writes the schema from the SPDX model, and the upstream check
 * [src/](src/): source files
-  * [spdx](src/spdx)
-    * [schema/](src/spdx/schema): the LinkML schema, one module per SPDX
+  * [spdx_linkml](src/spdx_linkml)
+    * [schema/](src/spdx_linkml/schema): the LinkML schema, one module per SPDX
       profile, written by `scripts/spdx_to_linkml.py`, so do not edit it
-      * [upstream/](src/spdx/schema/upstream): the SPDX model the schema
+      * [upstream/](src/spdx_linkml/schema/upstream): the SPDX model the schema
         is generated from
-    * [datamodel/](src/spdx/datamodel): the generated
+    * [datamodel/](src/spdx_linkml/datamodel): the generated
       Python datamodel
 * [tests/](tests/): Python tests
   * [data/](tests/data): example data
@@ -29,7 +29,9 @@ System Package Data Exchange (SPDX): LinkML Schema
 ## Upstream model
 
 `scripts/spdx_to_linkml.py` writes the schema from the SPDX model the SPDX
-Project publishes, vendored at `src/spdx/schema/upstream/spdx-model.ttl`.
+Project publishes, vendored at
+`src/spdx_linkml/schema/upstream/spdx-model.ttl`. The Python package is
+`spdx_linkml`, because the name `spdx` is taken on PyPI.
 [docs/about.md](docs/about.md) gives the recipes that regenerate and check the
 schema, says what the rendering adds to the model, and says where it differs
 from SPDX's serialisations.

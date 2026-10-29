@@ -10,10 +10,15 @@ and a request for YAML to the schema. Its source is the
 
 The SPDX Project publishes its model as OWL and SHACL in Turtle at
 <https://spdx.org/rdf/3.0.1/spdx-model.ttl>. The repository holds a copy at
-`src/spdx/schema/upstream/spdx-model.ttl`, and `scripts/spdx_to_linkml.py`
-writes every schema file from it. Those files are `spdx.yaml`, the umbrella
-that imports the rest, and one module per profile, such as `spdx_core.yaml`
-and `spdx_software.yaml`. The script's docstring lists the rules it applies.
+`src/spdx_linkml/schema/upstream/spdx-model.ttl`, and
+`scripts/spdx_to_linkml.py` writes every schema file from it. Those files are
+`spdx_linkml.yaml`, the umbrella that imports the rest, and one module per
+profile, such as `spdx_core.yaml` and `spdx_software.yaml`. The script's
+docstring lists the rules it applies.
+
+The Python package is `spdx_linkml`, and the distribution on PyPI is
+`spdx-linkml`. The name `spdx` is taken: the PyPI package spdx and spdx-tools
+before 0.8 both install a package of that name.
 
 - `just gen-linkml` rewrites the schema from the vendored model.
 - `just gen-linkml-check` fails when a schema file was edited by hand.
@@ -71,6 +76,8 @@ in LinkML 1.12.1:
   literals.
 - The JSON-LD context writes `type` as an `xsd:anyURI` literal, so JSON-LD read
   as RDF gives a node no SPDX class. The Python runtime writes the class IRI.
+  [linkml pull request 4058](https://github.com/linkml/linkml/pull/4058) maps
+  such a slot to `@type`.
 
 SPDX's SHACL also says that an Element's `extension` must not be an instance of
 a class of the model. The schema has no such rule.

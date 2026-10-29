@@ -30,7 +30,7 @@ from linkml.validator.plugins import JsonschemaValidationPlugin
 from linkml_runtime.utils.schemaview import SchemaView
 
 TESTS_DIR = Path(__file__).parent
-SCHEMA_PATH = TESTS_DIR.parent / "src" / "spdx" / "schema" / "spdx.yaml"
+SCHEMA_PATH = TESTS_DIR.parent / "src" / "spdx_linkml" / "schema" / "spdx_linkml.yaml"
 DATA_DIR = TESTS_DIR / "data"
 UPSTREAM_DIR = DATA_DIR / "spdx-examples"
 

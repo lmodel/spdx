@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Render the SPDX 3 model, OWL and SHACL in Turtle, as LinkML schema modules.
 
-The script reads the vendored model, ``src/spdx/schema/upstream/spdx-model.ttl``,
-and writes one LinkML module per SPDX profile plus an umbrella into
-``src/spdx/schema/``. Every YAML file in that folder is its output: change the
-script, or the vendored model, and run it again.
+The script reads the vendored model,
+``src/spdx_linkml/schema/upstream/spdx-model.ttl``, and writes one LinkML module
+per SPDX profile plus an umbrella into ``src/spdx_linkml/schema/``. Every YAML
+file in that folder is its output: change the script, or the vendored model,
+and run it again.
 
 Usage::
 
@@ -64,15 +65,18 @@ from rdflib import Graph, URIRef
 from rdflib.namespace import OWL, RDF, RDFS, SH, XSD
 
 ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_TTL = ROOT / "src" / "spdx" / "schema" / "upstream" / "spdx-model.ttl"
-DEFAULT_OUT = ROOT / "src" / "spdx" / "schema"
+DEFAULT_TTL = ROOT / "src" / "spdx_linkml" / "schema" / "upstream" / "spdx-model.ttl"
+DEFAULT_OUT = ROOT / "src" / "spdx_linkml" / "schema"
 
 SCHEMA_ID = "https://w3id.org/lmodel/spdx"
 OWN_PREFIX = "spdx_linkml"
 OWN_NS = SCHEMA_ID + "/"
+TERMS_PREFIX = "spdx"
 DOCS_SITE = "https://lmodel.github.io/spdx"
 LICENSE = "Apache-2.0"
-UMBRELLA = "spdx"
+# The umbrella is named like the Python package, spdx_linkml, as the project
+# template names the schema file and the w3id rules expect.
+UMBRELLA = "spdx_linkml"
 CORE = "spdx_core"
 
 # The patterns the model puts on its datatypes, each declared once as a type.
@@ -487,7 +491,7 @@ class Converter:
     # -- building the schema dictionaries ------------------------------------
 
     def prefixes(self) -> dict:
-        p = {OWN_PREFIX: OWN_NS, UMBRELLA: self.terms_ns}
+        p = {OWN_PREFIX: OWN_NS, TERMS_PREFIX: self.terms_ns}
         for profile in PROFILES:
             p[module_of_profile(profile)] = f"{self.terms_ns}{profile}/"
         p.update(

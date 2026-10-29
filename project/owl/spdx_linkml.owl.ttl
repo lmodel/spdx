@@ -1207,7 +1207,7 @@ spdx_software:SoftwarePurpose a owl:Class ;
 	dcterms:title "System Package Data Exchange (SPDX)" ;
 	pav:version "3.0.1" ;
 	a owl:Ontology ;
-	rdfs:label "spdx" ;
+	rdfs:label "spdx_linkml" ;
 	rdfs:seeAlso <https://lmodel.github.io/spdx> , <https://spdx.dev/specifications/> , <https://spdx.github.io/spdx-spec/v3.0.1/> ;
 	skos:definition "A LinkML rendering of the SPDX 3.0.1 model: its nine profiles, each a module, with every class, property and vocabulary keeping its SPDX IRI." ;
 	skos:note "The element descriptions are the model's rdfs:comment texts, which the SPDX Project publishes under the Community Specification License 1.0." , "The model's individuals (NoAssertionElement, NoneElement, NoAssertionLicense, NoneLicense and SpdxOrganization) are instance data, not schema. A reference to one is an IRI like any other Element reference." , "scripts/spdx_to_linkml.py writes every YAML file in this folder from the vendored model, upstream/spdx-model.ttl. Change the script or the model, never the files." , "spdx_core imports only the LinkML types, each profile module imports the modules it references, and this file adds nothing of its own, so an importer can import one profile alone." .
