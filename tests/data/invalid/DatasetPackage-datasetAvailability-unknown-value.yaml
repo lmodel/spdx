@@ -1,0 +1,9 @@
+spdxId: https://example.com/spdx/packages/handwriting-images-1.0
+datasetType:
+  - image
+datasetAvailability: bogus
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane

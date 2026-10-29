@@ -1,0 +1,11 @@
+spdxId: https://example.com/spdx/assessments/cve-2024-12345-cvss2
+relationshipType: hasAssessmentFor
+from: https://example.com/spdx/vulnerabilities/CVE-2024-12345
+to:
+  - https://example.com/spdx/packages/hello-1.0.0
+score: 7.5
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane
