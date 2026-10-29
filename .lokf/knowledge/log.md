@@ -2,6 +2,7 @@
 
 ## 2026-10-29
 
+* **Changed**: the generators' settings moved from `config.yaml` to `.linkml/generators.yaml`.
 * **Added**: Build and test (main.yaml), from `.github/workflows/main.yaml`.
 * **Added**: Lint & docs (lint-and-docs.yaml), from `.github/workflows/lint-and-docs.yaml`.
 * **Added**: Semantic release (semantic-release.yml), from `.github/workflows/semantic-release.yml`.

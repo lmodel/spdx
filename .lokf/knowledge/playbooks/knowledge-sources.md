@@ -22,7 +22,7 @@ sources:
   - resource: .github/PULL_REQUEST_TEMPLATE/knowledge-sync.md
   - resource: justfile
   - resource: project.justfile
-  - resource: config.yaml
+  - resource: .linkml/generators.yaml
   - resource: config.public.mk
   - resource: .linkmllint.yaml
   - resource: pyproject.toml
@@ -83,7 +83,7 @@ exclusions:
     reason: The line-ending rule for the sidecar folder, from the template.
 generated:
   by: process:ktl-librarian
-  at: "2026-10-29T19:19:54Z"
+  at: "2026-10-29T20:52:45Z"
 status: draft
 ---
 
@@ -102,7 +102,7 @@ This map lists where the bundle's concepts come from, in this repository and out
 | `tests/` | Test data and schema tests; SPDX examples copy | Count the files in each `tests/data/` folder and read each test file's functions. |
 | `project/`, `docs/schema/`, `docs/elements/` | Generated artefacts | Compare the folders with what `just gen-project` and `just gen-doc` write. |
 | `.github/workflows/`, `.github/scripts/`, `.github/dependabot.yml`, `.github/PULL_REQUEST_TEMPLATE/knowledge-sync.md` | one concept per workflow; Security policy | Read each workflow's header comment, its `on` key and its jobs. |
-| `justfile`, `project.justfile`, `config.yaml`, `config.public.mk` | Regenerate and test the schema; Generated artefacts; spdx LinkML schema | Read the recipes and the generator settings. |
+| `justfile`, `project.justfile`, `.linkml/generators.yaml`, `config.public.mk` | Regenerate and test the schema; Generated artefacts; spdx LinkML schema | Read the recipes and the generator settings. |
 | `.linkmllint.yaml`, `pyproject.toml`, `uv.lock`, `.copier-answers.yml` | LinkML; Element names and the shared namespace; License and attribution | Read the naming rule, the dependencies, the locked versions and the template's version. |
 | `.pre-commit-config.yaml`, `.yamllint.yaml`, `lychee.toml`, `.markdownlint-cli2.jsonc` | Regenerate and test the schema; Lint & docs | Read each file's exclusions and their comments. |
 | `NOTICE`, `LICENSE`, `SECURITY.md`, `AI_COVENANT.md`, `CONTRIBUTING.md` | License and attribution; Security policy; AI covenant; Regenerate and test the schema; Release the schema | Read each section. |
