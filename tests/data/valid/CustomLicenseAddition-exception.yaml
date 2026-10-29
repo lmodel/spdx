@@ -1,0 +1,9 @@
+spdxId: https://example.com/spdx/licenses/AdditionRef-Example-Exception
+type: spdx_expanded_licensing:CustomLicenseAddition
+name: Example linking exception
+additionText: Linking this library with other modules does not extend the license to them.
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane
