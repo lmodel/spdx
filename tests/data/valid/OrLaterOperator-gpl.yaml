@@ -1,0 +1,8 @@
+spdxId: https://example.com/spdx/licenses/gpl-2.0-or-later
+type: spdx_expanded_licensing:OrLaterOperator
+subjectLicense: https://spdx.org/licenses/GPL-2.0-only
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane

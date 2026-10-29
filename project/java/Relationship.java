@@ -1,7 +1,11 @@
-package None;
+package example;
 
-/* metamodel_version: 1.7.0 */
+/* metamodel_version: 1.12.0 */
 /* version: 3.0.1 */
+import java.net.URI;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
 import java.util.List;
 import lombok.*;
 
@@ -12,11 +16,12 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public class Relationship extends Element {
 
-  private List<Element> to;
   private String completeness;
-  private ZonedDateTime startTime;
-  private String relationshipType;
+  private String endTime;
   private Element from;
-  private ZonedDateTime endTime;
+  private String relationshipType;
+  private String startTime;
+  private List<Element> to;
+
 
 }

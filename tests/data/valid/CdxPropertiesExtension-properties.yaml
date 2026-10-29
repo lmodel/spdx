@@ -1,0 +1,6 @@
+type: spdx_extension:CdxPropertiesExtension
+cdxProperty:
+  - cdxPropName: cdx:reproducible
+    cdxPropValue: "true"
+  - cdxPropName: cdx:build-tool
+    cdxPropValue: make 4.4

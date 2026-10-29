@@ -1,0 +1,117 @@
+---
+id: https://w3id.org/lmodel/spdx/spdx_build
+name: spdx_build
+title: SPDX Build profile
+description: >-
+  The Build profile: a build with its type, configuration source, parameters and environment.
+version: 3.0.1
+source: https://spdx.org/rdf/3.0.1/spdx-model.ttl
+license: Apache-2.0
+see_also:
+  - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Build/
+
+prefixes:
+  spdx_linkml: https://w3id.org/lmodel/spdx/
+  spdx: https://spdx.org/rdf/3.0.1/terms/
+  spdx_core: https://spdx.org/rdf/3.0.1/terms/Core/
+  spdx_software: https://spdx.org/rdf/3.0.1/terms/Software/
+  spdx_security: https://spdx.org/rdf/3.0.1/terms/Security/
+  spdx_simple_licensing: https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/
+  spdx_expanded_licensing: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/
+  spdx_ai: https://spdx.org/rdf/3.0.1/terms/AI/
+  spdx_dataset: https://spdx.org/rdf/3.0.1/terms/Dataset/
+  spdx_build: https://spdx.org/rdf/3.0.1/terms/Build/
+  spdx_extension: https://spdx.org/rdf/3.0.1/terms/Extension/
+  linkml: https://w3id.org/linkml/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  xsd: http://www.w3.org/2001/XMLSchema#
+
+default_prefix: spdx_linkml
+default_range: string
+
+imports:
+  - linkml:types
+  - ./spdx_core
+
+classes:
+
+  Build:
+    is_a: Element
+    class_uri: spdx_build:Build
+    description: Class that describes a build instance of software/artifacts.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Classes/Build/
+    in_subset:
+      - spdx_build
+    attributes:
+      buildEndTime:
+        description: Property that describes the time at which a build stops.
+        slot_uri: spdx_build:buildEndTime
+        range: date_time_stamp
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/buildEndTime/
+      buildId:
+        description: >-
+          A buildId is a locally unique identifier used by a builder to identify a unique instance of
+          a build produced by it.
+        slot_uri: spdx_build:buildId
+        range: string
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/buildId/
+      buildStartTime:
+        description: Property describing the start time of a build.
+        slot_uri: spdx_build:buildStartTime
+        range: date_time_stamp
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/buildStartTime/
+      buildType:
+        description: >-
+          A buildType is a hint that is used to indicate the toolchain, platform, or infrastructure that
+          the build was invoked on.
+        slot_uri: spdx_build:buildType
+        range: uri
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/buildType/
+      configSourceDigest:
+        description: >-
+          Property that describes the digest of the build configuration file used to invoke a build.
+        slot_uri: spdx_build:configSourceDigest
+        range: Hash
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/configSourceDigest/
+      configSourceEntrypoint:
+        description: Property describes the invocation entrypoint of a build.
+        slot_uri: spdx_build:configSourceEntrypoint
+        range: string
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/configSourceEntrypoint/
+      configSourceUri:
+        description: Property that describes the URI of the build configuration source file.
+        slot_uri: spdx_build:configSourceUri
+        range: uri
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/configSourceUri/
+      environment:
+        description: Property describing the session in which a build is invoked.
+        slot_uri: spdx_build:environment
+        range: DictionaryEntry
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/environment/
+      parameter:
+        description: Property describing a parameter used in an instance of a build.
+        slot_uri: spdx_build:parameter
+        range: DictionaryEntry
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/parameter/

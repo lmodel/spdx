@@ -1,0 +1,13 @@
+spdxId: https://example.com/spdx/relationships/sbom-contains-package
+type: spdx_core:Relationship
+relationshipType: contains
+completeness: complete
+from: https://example.com/spdx/sboms/hello
+to:
+  - https://example.com/spdx/packages/hello-1.0.0
+  - https://example.com/spdx/files/main.c
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane

@@ -1,0 +1,25 @@
+spdxId: https://example.com/spdx/builds/run-123456
+type: spdx_build:Build
+buildType: https://example.com/build-types/github-actions/v1
+buildId: run-123456
+buildStartTime: "2024-10-01T11:40:00Z"
+buildEndTime: "2024-10-01T11:52:30Z"
+configSourceUri:
+  - https://github.com/example/hello
+configSourceEntrypoint:
+  - .github/workflows/build.yml
+configSourceDigest:
+  - type: spdx_core:Hash
+    algorithm: sha1
+    hashValue: 1b4f0e9851971998e732078544c96b36c3d01cedf
+parameter:
+  - key: target
+    value: linux-amd64
+environment:
+  - key: CI
+    value: "true"
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane

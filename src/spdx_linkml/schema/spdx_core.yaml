@@ -1,0 +1,1653 @@
+---
+id: https://w3id.org/lmodel/spdx/spdx_core
+name: spdx_core
+title: SPDX Core profile
+description: >-
+  The Core profile: the Element that every SPDX object descends from, agents, relationships, collections
+  and documents, creation information, integrity methods and external references. The other profiles build
+  on it, and it declares the schema's LinkML types.
+version: 3.0.1
+source: https://spdx.org/rdf/3.0.1/spdx-model.ttl
+license: Apache-2.0
+see_also:
+  - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Core/
+
+prefixes:
+  spdx_linkml: https://w3id.org/lmodel/spdx/
+  spdx: https://spdx.org/rdf/3.0.1/terms/
+  spdx_core: https://spdx.org/rdf/3.0.1/terms/Core/
+  spdx_software: https://spdx.org/rdf/3.0.1/terms/Software/
+  spdx_security: https://spdx.org/rdf/3.0.1/terms/Security/
+  spdx_simple_licensing: https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/
+  spdx_expanded_licensing: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/
+  spdx_ai: https://spdx.org/rdf/3.0.1/terms/AI/
+  spdx_dataset: https://spdx.org/rdf/3.0.1/terms/Dataset/
+  spdx_build: https://spdx.org/rdf/3.0.1/terms/Build/
+  spdx_extension: https://spdx.org/rdf/3.0.1/terms/Extension/
+  linkml: https://w3id.org/linkml/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  xsd: http://www.w3.org/2001/XMLSchema#
+
+default_prefix: spdx_linkml
+default_range: string
+
+imports:
+  - linkml:types
+
+subsets:
+
+  spdx_core:
+    description: Elements of the SPDX Core profile.
+
+  spdx_software:
+    description: Elements of the SPDX Software profile.
+
+  spdx_security:
+    description: Elements of the SPDX Security profile.
+
+  spdx_simple_licensing:
+    description: Elements of the SPDX Simple Licensing profile.
+
+  spdx_expanded_licensing:
+    description: Elements of the SPDX Expanded Licensing profile.
+
+  spdx_ai:
+    description: Elements of the SPDX AI profile.
+
+  spdx_dataset:
+    description: Elements of the SPDX Dataset profile.
+
+  spdx_build:
+    description: Elements of the SPDX Build profile.
+
+  spdx_extension:
+    description: Elements of the SPDX Extension profile.
+
+types:
+
+  date_time_stamp:
+    typeof: string
+    base: str
+    uri: xsd:dateTimeStamp
+    description: >-
+      A UTC timestamp as SPDX writes one: a date, a time to the second and a trailing Z.
+    pattern: ^\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\dZ$
+    in_subset:
+      - spdx_core
+
+  media_type:
+    typeof: string
+    base: str
+    uri: xsd:string
+    description: An IANA media type, such as text/plain.
+    pattern: ^[^\/]+\/[^\/]+$
+    in_subset:
+      - spdx_core
+
+  semver:
+    typeof: string
+    base: str
+    uri: xsd:string
+    description: A semantic version, such as 3.0.1.
+    pattern: ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
+    in_subset:
+      - spdx_core
+
+  positive_integer:
+    typeof: integer
+    base: int
+    uri: xsd:positiveInteger
+    description: An integer of one or more.
+    minimum_value: 1
+    in_subset:
+      - spdx_core
+
+  non_negative_integer:
+    typeof: integer
+    base: int
+    uri: xsd:nonNegativeInteger
+    description: An integer of zero or more.
+    minimum_value: 0
+    in_subset:
+      - spdx_core
+
+enums:
+
+  AnnotationType:
+    enum_uri: spdx_core:AnnotationType
+    description: Specifies the type of an annotation.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Vocabularies/AnnotationType/
+    in_subset:
+      - spdx_core
+    permissible_values:
+      other:
+        description: >-
+          Used to store extra information about an Element which is not part of a review (e.g. extra information
+          provided during the creation of the Element).
+        meaning: spdx_core:AnnotationType/other
+      review:
+        description: Used when someone reviews the Element.
+        meaning: spdx_core:AnnotationType/review
+
+  ExternalIdentifierType:
+    enum_uri: spdx_core:ExternalIdentifierType
+    description: Specifies the type of an external identifier.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Vocabularies/ExternalIdentifierType/
+    in_subset:
+      - spdx_core
+    permissible_values:
+      cpe22:
+        description: >-
+          [Common Platform Enumeration Specification 2.2](https://cpe.mitre.org/files/cpe-specification_2.2.pdf)
+        meaning: spdx_core:ExternalIdentifierType/cpe22
+      cpe23:
+        description: >-
+          [Common Platform Enumeration: Naming Specification Version 2.3](https://csrc.nist.gov/publications/detail/nistir/7695/final)
+        meaning: spdx_core:ExternalIdentifierType/cpe23
+      cve:
+        description: >-
+          Common Vulnerabilities and Exposures identifiers, an identifier for a specific software flaw
+          defined within the official CVE Dictionary and that conforms to the [CVE specification](https://csrc.nist.gov/glossary/term/cve_id).
+        meaning: spdx_core:ExternalIdentifierType/cve
+      email:
+        description: >-
+          Email address, as defined in [RFC 3696](https://datatracker.ietf.org/doc/rfc3986/) Section 3.
+        meaning: spdx_core:ExternalIdentifierType/email
+      gitoid:
+        description: >-
+          [Gitoid](https://www.iana.org/assignments/uri-schemes/prov/gitoid), stands for [Git Object ID](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects).
+          A gitoid of type blob is a unique hash of a binary artifact. A gitoid may represent either an
+          [Artifact Identifier](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#artifact-identifier-types)
+          for the software artifact or an [Input Manifest Identifier](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#input-manifest-identifier)
+          for the software artifact's associated [Artifact Input Manifest](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#artifact-input-manifest);
+          this ambiguity exists because the Artifact Input Manifest is itself an artifact, and the gitoid
+          of that artifact is its valid identifier. Gitoids calculated on software artifacts (Snippet,
+          File, or Package Elements) should be recorded in the SPDX 3.0 SoftwareArtifact's contentIdentifier
+          property. Gitoids calculated on the Artifact Input Manifest (Input Manifest Identifier) should
+          be recorded in the SPDX 3.0 Element's externalIdentifier property. See [OmniBOR Specification](https://github.com/omnibor/spec/),
+          a minimalistic specification for describing software [Artifact Dependency Graphs](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#artifact-dependency-graph-adg).
+        meaning: spdx_core:ExternalIdentifierType/gitoid
+      other:
+        description: Used when the type does not match any of the other options.
+        meaning: spdx_core:ExternalIdentifierType/other
+      packageUrl:
+        description: >-
+          Package URL, as defined in the corresponding [Annex](https://spdx.github.io/spdx-spec/v3.0.1/annexes/pkg-url-specification/)
+          of this specification.
+        meaning: spdx_core:ExternalIdentifierType/packageUrl
+      securityOther:
+        description: Used when there is a security related identifier of unspecified type.
+        meaning: spdx_core:ExternalIdentifierType/securityOther
+      swhid:
+        description: >-
+          SoftWare Hash IDentifier, a persistent intrinsic identifier for digital artifacts, such as files,
+          trees (also known as directories or folders), commits, and other objects typically found in
+          version control systems. The format of the identifiers is defined in the [SWHID specification](https://www.swhid.org/specification/v1.1/4.Syntax)
+          (ISO/IEC DIS 18670). They typically look like `swh:1:cnt:94a9ed024d3859793618152ea559a168bbcbb5e2`.
+        meaning: spdx_core:ExternalIdentifierType/swhid
+      swid:
+        description: >-
+          Concise Software Identification (CoSWID) tag, as defined in [RFC 9393](https://datatracker.ietf.org/doc/rfc9393/)
+          Section 2.3.
+        meaning: spdx_core:ExternalIdentifierType/swid
+      urlScheme:
+        description: >-
+          [Uniform Resource Identifier (URI) Schemes](https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml).
+          The scheme used in order to locate a resource.
+        meaning: spdx_core:ExternalIdentifierType/urlScheme
+
+  ExternalRefType:
+    enum_uri: spdx_core:ExternalRefType
+    description: Specifies the type of an external reference.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Vocabularies/ExternalRefType/
+    in_subset:
+      - spdx_core
+    permissible_values:
+      altDownloadLocation:
+        description: A reference to an alternative download location.
+        meaning: spdx_core:ExternalRefType/altDownloadLocation
+      altWebPage:
+        description: A reference to an alternative web page.
+        meaning: spdx_core:ExternalRefType/altWebPage
+      binaryArtifact:
+        description: A reference to binary artifacts related to a package.
+        meaning: spdx_core:ExternalRefType/binaryArtifact
+      bower:
+        description: >-
+          A reference to a Bower package. The package locator format, looks like `package#version`, is
+          defined in the "install" section of [Bower API documentation](https://bower.io/docs/api/#install).
+        meaning: spdx_core:ExternalRefType/bower
+      buildMeta:
+        description: A reference build metadata related to a published package.
+        meaning: spdx_core:ExternalRefType/buildMeta
+      buildSystem:
+        description: A reference build system used to create or publish the package.
+        meaning: spdx_core:ExternalRefType/buildSystem
+      certificationReport:
+        description: >-
+          A reference to a certification report for a package from an accredited/independent body.
+        meaning: spdx_core:ExternalRefType/certificationReport
+      chat:
+        description: >-
+          A reference to the instant messaging system used by the maintainer for a package.
+        meaning: spdx_core:ExternalRefType/chat
+      componentAnalysisReport:
+        description: A reference to a Software Composition Analysis (SCA) report.
+        meaning: spdx_core:ExternalRefType/componentAnalysisReport
+      cwe:
+        description: >-
+          [Common Weakness Enumeration](https://csrc.nist.gov/glossary/term/common_weakness_enumeration).
+          A reference to a source of software flaw defined within the official [CWE List](https://cwe.mitre.org/data/)
+          that conforms to the [CWE specification](https://cwe.mitre.org/).
+        meaning: spdx_core:ExternalRefType/cwe
+      documentation:
+        description: A reference to the documentation for a package.
+        meaning: spdx_core:ExternalRefType/documentation
+      dynamicAnalysisReport:
+        description: A reference to a dynamic analysis report for a package.
+        meaning: spdx_core:ExternalRefType/dynamicAnalysisReport
+      eolNotice:
+        description: >-
+          A reference to the End Of Sale (EOS) and/or End Of Life (EOL) information related to a package.
+        meaning: spdx_core:ExternalRefType/eolNotice
+      exportControlAssessment:
+        description: A reference to a export control assessment for a package.
+        meaning: spdx_core:ExternalRefType/exportControlAssessment
+      funding:
+        description: A reference to funding information related to a package.
+        meaning: spdx_core:ExternalRefType/funding
+      issueTracker:
+        description: A reference to the issue tracker for a package.
+        meaning: spdx_core:ExternalRefType/issueTracker
+      license:
+        description: A reference to additional license information related to an artifact.
+        meaning: spdx_core:ExternalRefType/license
+      mailingList:
+        description: A reference to the mailing list used by the maintainer for a package.
+        meaning: spdx_core:ExternalRefType/mailingList
+      mavenCentral:
+        description: >-
+          A reference to a Maven repository artifact. The artifact locator format is defined in the [Maven
+          documentation](https://maven.apache.org/guides/mini/guide-naming-conventions.html) and looks
+          like `groupId:artifactId[:version]`.
+        meaning: spdx_core:ExternalRefType/mavenCentral
+      metrics:
+        description: A reference to metrics related to package such as OpenSSF scorecards.
+        meaning: spdx_core:ExternalRefType/metrics
+      npm:
+        description: >-
+          A reference to an npm package. The package locator format is defined in the [npm documentation](https://docs.npmjs.com/cli/v10/configuring-npm/package-json)
+          and looks like `package@version`.
+        meaning: spdx_core:ExternalRefType/npm
+      nuget:
+        description: >-
+          A reference to a NuGet package. The package locator format is defined in the [NuGet documentation](https://docs.nuget.org)
+          and looks like `package/version`.
+        meaning: spdx_core:ExternalRefType/nuget
+      other:
+        description: Used when the type does not match any of the other options.
+        meaning: spdx_core:ExternalRefType/other
+      privacyAssessment:
+        description: A reference to a privacy assessment for a package.
+        meaning: spdx_core:ExternalRefType/privacyAssessment
+      productMetadata:
+        description: >-
+          A reference to additional product metadata such as reference within organization's product catalog.
+        meaning: spdx_core:ExternalRefType/productMetadata
+      purchaseOrder:
+        description: A reference to a purchase order for a package.
+        meaning: spdx_core:ExternalRefType/purchaseOrder
+      qualityAssessmentReport:
+        description: A reference to a quality assessment for a package.
+        meaning: spdx_core:ExternalRefType/qualityAssessmentReport
+      releaseHistory:
+        description: A reference to a published list of releases for a package.
+        meaning: spdx_core:ExternalRefType/releaseHistory
+      releaseNotes:
+        description: A reference to the release notes for a package.
+        meaning: spdx_core:ExternalRefType/releaseNotes
+      riskAssessment:
+        description: A reference to a risk assessment for a package.
+        meaning: spdx_core:ExternalRefType/riskAssessment
+      runtimeAnalysisReport:
+        description: A reference to a runtime analysis report for a package.
+        meaning: spdx_core:ExternalRefType/runtimeAnalysisReport
+      secureSoftwareAttestation:
+        description: >-
+          A reference to information assuring that the software is developed using security practices
+          as defined by [NIST SP 800-218 Secure Software Development Framework (SSDF) Version 1.1](https://csrc.nist.gov/pubs/sp/800/218/final)
+          or [CISA Secure Software Development Attestation Form](https://www.cisa.gov/resources-tools/resources/secure-software-development-attestation-form).
+        meaning: spdx_core:ExternalRefType/secureSoftwareAttestation
+      securityAdversaryModel:
+        description: A reference to the security adversary model for a package.
+        meaning: spdx_core:ExternalRefType/securityAdversaryModel
+      securityAdvisory:
+        description: >-
+          A reference to a published security advisory (where advisory as defined per [ISO 29147:2018](https://www.iso.org/standard/72311.html))
+          that may affect one or more elements, e.g., vendor advisories or specific NVD entries.
+        meaning: spdx_core:ExternalRefType/securityAdvisory
+      securityFix:
+        description: A reference to the patch or source code that fixes a vulnerability.
+        meaning: spdx_core:ExternalRefType/securityFix
+      securityOther:
+        description: A reference to related security information of unspecified type.
+        meaning: spdx_core:ExternalRefType/securityOther
+      securityPenTestReport:
+        description: >-
+          A reference to a [penetration test](https://en.wikipedia.org/wiki/Penetration_test) report for
+          a package.
+        meaning: spdx_core:ExternalRefType/securityPenTestReport
+      securityPolicy:
+        description: >-
+          A reference to instructions for reporting newly discovered security vulnerabilities for a package.
+        meaning: spdx_core:ExternalRefType/securityPolicy
+      securityThreatModel:
+        description: >-
+          A reference the [security threat model](https://en.wikipedia.org/wiki/Threat_model) for a package.
+        meaning: spdx_core:ExternalRefType/securityThreatModel
+      socialMedia:
+        description: A reference to a social media channel for a package.
+        meaning: spdx_core:ExternalRefType/socialMedia
+      sourceArtifact:
+        description: A reference to an artifact containing the sources for a package.
+        meaning: spdx_core:ExternalRefType/sourceArtifact
+      staticAnalysisReport:
+        description: A reference to a static analysis report for a package.
+        meaning: spdx_core:ExternalRefType/staticAnalysisReport
+      support:
+        description: >-
+          A reference to the software support channel or other support information for a package.
+        meaning: spdx_core:ExternalRefType/support
+      vcs:
+        description: A reference to a version control system related to a software artifact.
+        meaning: spdx_core:ExternalRefType/vcs
+      vulnerabilityDisclosureReport:
+        description: >-
+          A reference to a Vulnerability Disclosure Report (VDR) which provides the software supplier's
+          analysis and findings describing the impact (or lack of impact) that reported vulnerabilities
+          have on packages or products in the supplier's SBOM as defined in [NIST SP 800-161 Cybersecurity
+          Supply Chain Risk Management Practices for Systems and Organizations](https://csrc.nist.gov/pubs/sp/800/161/r1/final).
+        meaning: spdx_core:ExternalRefType/vulnerabilityDisclosureReport
+      vulnerabilityExploitabilityAssessment:
+        description: >-
+          A reference to a Vulnerability Exploitability eXchange (VEX) statement which provides information
+          on whether a product is impacted by a specific vulnerability in an included package and, if
+          affected, whether there are actions recommended to remediate. See also [NTIA VEX one-page summary](https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf).
+        meaning: spdx_core:ExternalRefType/vulnerabilityExploitabilityAssessment
+
+  HashAlgorithm:
+    enum_uri: spdx_core:HashAlgorithm
+    description: A mathematical algorithm that maps data of arbitrary size to a bit string.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Vocabularies/HashAlgorithm/
+    in_subset:
+      - spdx_core
+    permissible_values:
+      adler32:
+        description: >-
+          Adler-32 checksum is part of the widely used zlib compression library as defined in [RFC 1950](https://datatracker.ietf.org/doc/rfc1950/)
+          Section 2.3.
+        meaning: spdx_core:HashAlgorithm/adler32
+      blake2b256:
+        description: >-
+          BLAKE2b algorithm with a digest size of 256, as defined in [RFC 7693](https://datatracker.ietf.org/doc/rfc7693/)
+          Section 4.
+        meaning: spdx_core:HashAlgorithm/blake2b256
+      blake2b384:
+        description: >-
+          BLAKE2b algorithm with a digest size of 384, as defined in [RFC 7693](https://datatracker.ietf.org/doc/rfc7693/)
+          Section 4.
+        meaning: spdx_core:HashAlgorithm/blake2b384
+      blake2b512:
+        description: >-
+          BLAKE2b algorithm with a digest size of 512, as defined in [RFC 7693](https://datatracker.ietf.org/doc/rfc7693/)
+          Section 4.
+        meaning: spdx_core:HashAlgorithm/blake2b512
+      blake3:
+        description: '[BLAKE3](https://github.com/BLAKE3-team/BLAKE3-specs/blob/master/blake3.pdf)'
+        meaning: spdx_core:HashAlgorithm/blake3
+      crystalsDilithium:
+        description: '[Dilithium](https://pq-crystals.org/dilithium/)'
+        meaning: spdx_core:HashAlgorithm/crystalsDilithium
+      crystalsKyber:
+        description: '[Kyber](https://pq-crystals.org/kyber/)'
+        meaning: spdx_core:HashAlgorithm/crystalsKyber
+      falcon:
+        description: '[FALCON](https://falcon-sign.info/falcon.pdf)'
+        meaning: spdx_core:HashAlgorithm/falcon
+      md2:
+        description: >-
+          MD2 message-digest algorithm, as defined in [RFC 1319](https://datatracker.ietf.org/doc/rfc1319/).
+        meaning: spdx_core:HashAlgorithm/md2
+      md4:
+        description: >-
+          MD4 message-digest algorithm, as defined in [RFC 1186](https://datatracker.ietf.org/doc/rfc1186/).
+        meaning: spdx_core:HashAlgorithm/md4
+      md5:
+        description: >-
+          MD5 message-digest algorithm, as defined in [RFC 1321](https://datatracker.ietf.org/doc/rfc1321/).
+        meaning: spdx_core:HashAlgorithm/md5
+      md6:
+        description: '[MD6 hash function](https://people.csail.mit.edu/rivest/pubs/RABCx08.pdf)'
+        meaning: spdx_core:HashAlgorithm/md6
+      other:
+        description: any hashing algorithm that does not exist in this list of entries
+        meaning: spdx_core:HashAlgorithm/other
+      sha1:
+        description: >-
+          SHA-1, a secure hashing algorithm, as defined in [RFC 3174](https://datatracker.ietf.org/doc/rfc3174/).
+        meaning: spdx_core:HashAlgorithm/sha1
+      sha224:
+        description: >-
+          SHA-2 with a digest length of 224, as defined in [RFC 3874](https://datatracker.ietf.org/doc/rfc3874/).
+        meaning: spdx_core:HashAlgorithm/sha224
+      sha256:
+        description: >-
+          SHA-2 with a digest length of 256, as defined in [RFC 6234](https://datatracker.ietf.org/doc/rfc6234/).
+        meaning: spdx_core:HashAlgorithm/sha256
+      sha384:
+        description: >-
+          SHA-2 with a digest length of 384, as defined in [RFC 6234](https://datatracker.ietf.org/doc/rfc6234/).
+        meaning: spdx_core:HashAlgorithm/sha384
+      sha3_224:
+        description: >-
+          SHA-3 with a digest length of 224, as defined in [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final).
+        meaning: spdx_core:HashAlgorithm/sha3_224
+      sha3_256:
+        description: >-
+          SHA-3 with a digest length of 256, as defined in [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final).
+        meaning: spdx_core:HashAlgorithm/sha3_256
+      sha3_384:
+        description: >-
+          SHA-3 with a digest length of 384, as defined in [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final).
+        meaning: spdx_core:HashAlgorithm/sha3_384
+      sha3_512:
+        description: >-
+          SHA-3 with a digest length of 512, as defined in [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final).
+        meaning: spdx_core:HashAlgorithm/sha3_512
+      sha512:
+        description: >-
+          SHA-2 with a digest length of 512, as defined in [RFC 6234](https://datatracker.ietf.org/doc/rfc6234/).
+        meaning: spdx_core:HashAlgorithm/sha512
+
+  LifecycleScopeType:
+    enum_uri: spdx_core:LifecycleScopeType
+    description: >-
+      Provide an enumerated set of lifecycle phases that can provide context to relationships.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Vocabularies/LifecycleScopeType/
+    in_subset:
+      - spdx_core
+    permissible_values:
+      build:
+        description: >-
+          A relationship has specific context implications during an element's build phase, during development.
+        meaning: spdx_core:LifecycleScopeType/build
+      design:
+        description: A relationship has specific context implications during an element's design.
+        meaning: spdx_core:LifecycleScopeType/design
+      development:
+        description: >-
+          A relationship has specific context implications during development phase of an element.
+        meaning: spdx_core:LifecycleScopeType/development
+      other:
+        description: >-
+          A relationship has other specific context information necessary to capture that the above set
+          of enumerations does not handle.
+        meaning: spdx_core:LifecycleScopeType/other
+      runtime:
+        description: >-
+          A relationship has specific context implications during the execution phase of an element.
+        meaning: spdx_core:LifecycleScopeType/runtime
+      test:
+        description: >-
+          A relationship has specific context implications during an element's testing phase, during development.
+        meaning: spdx_core:LifecycleScopeType/test
+
+  PresenceType:
+    enum_uri: spdx_core:PresenceType
+    description: Categories of presence or absence.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Vocabularies/PresenceType/
+    in_subset:
+      - spdx_core
+    permissible_values:
+      'no':
+        description: Indicates absence of the field.
+        meaning: spdx_core:PresenceType/no
+      noAssertion:
+        description: Makes no assertion about the field.
+        meaning: spdx_core:PresenceType/noAssertion
+      'yes':
+        description: Indicates presence of the field.
+        meaning: spdx_core:PresenceType/yes
+
+  ProfileIdentifierType:
+    enum_uri: spdx_core:ProfileIdentifierType
+    description: Enumeration of the valid profiles.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Vocabularies/ProfileIdentifierType/
+    in_subset:
+      - spdx_core
+    permissible_values:
+      ai:
+        description: the element follows the AI profile specification
+        meaning: spdx_core:ProfileIdentifierType/ai
+      build:
+        description: the element follows the Build profile specification
+        meaning: spdx_core:ProfileIdentifierType/build
+      core:
+        description: the element follows the Core profile specification
+        meaning: spdx_core:ProfileIdentifierType/core
+      dataset:
+        description: the element follows the Dataset profile specification
+        meaning: spdx_core:ProfileIdentifierType/dataset
+      expandedLicensing:
+        description: the element follows the ExpandedLicensing profile specification
+        meaning: spdx_core:ProfileIdentifierType/expandedLicensing
+      extension:
+        description: the element follows the Extension profile specification
+        meaning: spdx_core:ProfileIdentifierType/extension
+      lite:
+        description: the element follows the Lite profile specification
+        meaning: spdx_core:ProfileIdentifierType/lite
+      security:
+        description: the element follows the Security profile specification
+        meaning: spdx_core:ProfileIdentifierType/security
+      simpleLicensing:
+        description: the element follows the SimpleLicensing profile specification
+        meaning: spdx_core:ProfileIdentifierType/simpleLicensing
+      software:
+        description: the element follows the Software profile specification
+        meaning: spdx_core:ProfileIdentifierType/software
+
+  RelationshipCompleteness:
+    enum_uri: spdx_core:RelationshipCompleteness
+    description: >-
+      Indicates whether a relationship is known to be complete, incomplete, or if no assertion is made
+      with respect to relationship completeness.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Vocabularies/RelationshipCompleteness/
+    in_subset:
+      - spdx_core
+    permissible_values:
+      complete:
+        description: The relationship is known to be exhaustive.
+        meaning: spdx_core:RelationshipCompleteness/complete
+      incomplete:
+        description: The relationship is known not to be exhaustive.
+        meaning: spdx_core:RelationshipCompleteness/incomplete
+      noAssertion:
+        description: No assertion can be made about the completeness of the relationship.
+        meaning: spdx_core:RelationshipCompleteness/noAssertion
+
+  RelationshipType:
+    enum_uri: spdx_core:RelationshipType
+    description: Information about the relationship between two Elements.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Vocabularies/RelationshipType/
+    in_subset:
+      - spdx_core
+    permissible_values:
+      affects:
+        description: >-
+          The `from` Vulnerability affects each `to` Element. The use of the `affects` type is constrained
+          to `VexAffectedVulnAssessmentRelationship` classed relationships.
+        meaning: spdx_core:RelationshipType/affects
+      amendedBy:
+        description: The `from` Element is amended by each `to` Element.
+        meaning: spdx_core:RelationshipType/amendedBy
+      ancestorOf:
+        description: The `from` Element is an ancestor of each `to` Element.
+        meaning: spdx_core:RelationshipType/ancestorOf
+      availableFrom:
+        description: >-
+          The `from` Element is available from the additional supplier described by each `to` Element.
+        meaning: spdx_core:RelationshipType/availableFrom
+      configures:
+        description: >-
+          The `from` Element is a configuration applied to each `to` Element, during a LifecycleScopeType
+          period.
+        meaning: spdx_core:RelationshipType/configures
+      contains:
+        description: The `from` Element contains each `to` Element.
+        meaning: spdx_core:RelationshipType/contains
+      coordinatedBy:
+        description: >-
+          The `from` Vulnerability is coordinatedBy the `to` Agent(s) (vendor, researcher, or consumer
+          agent).
+        meaning: spdx_core:RelationshipType/coordinatedBy
+      copiedTo:
+        description: The `from` Element has been copied to each `to` Element.
+        meaning: spdx_core:RelationshipType/copiedTo
+      delegatedTo:
+        description: >-
+          The `from` Agent is delegating an action to the Agent of the `to` Relationship (which must be
+          of type invokedBy), during a LifecycleScopeType (e.g. the `to` invokedBy Relationship is being
+          done on behalf of `from`).
+        meaning: spdx_core:RelationshipType/delegatedTo
+      dependsOn:
+        description: >-
+          The `from` Element depends on each `to` Element, during a LifecycleScopeType period.
+        meaning: spdx_core:RelationshipType/dependsOn
+      descendantOf:
+        description: The `from` Element is a descendant of each `to` Element.
+        meaning: spdx_core:RelationshipType/descendantOf
+      describes:
+        description: >-
+          The `from` Element describes each `to` Element. To denote the root(s) of a tree of elements
+          in a collection, the rootElement property should be used.
+        meaning: spdx_core:RelationshipType/describes
+      doesNotAffect:
+        description: >-
+          The `from` Vulnerability has no impact on each `to` Element. The use of the `doesNotAffect`
+          is constrained to `VexNotAffectedVulnAssessmentRelationship` classed relationships.
+        meaning: spdx_core:RelationshipType/doesNotAffect
+      expandsTo:
+        description: The `from` archive expands out as an artifact described by each `to` Element.
+        meaning: spdx_core:RelationshipType/expandsTo
+      exploitCreatedBy:
+        description: >-
+          The `from` Vulnerability has had an exploit created against it by each `to` Agent.
+        meaning: spdx_core:RelationshipType/exploitCreatedBy
+      fixedBy:
+        description: Designates a `from` Vulnerability has been fixed by the `to` Agent(s).
+        meaning: spdx_core:RelationshipType/fixedBy
+      fixedIn:
+        description: >-
+          A `from` Vulnerability has been fixed in each `to` Element. The use of the `fixedIn` type is
+          constrained to `VexFixedVulnAssessmentRelationship` classed relationships.
+        meaning: spdx_core:RelationshipType/fixedIn
+      foundBy:
+        description: >-
+          Designates a `from` Vulnerability was originally discovered by the `to` Agent(s).
+        meaning: spdx_core:RelationshipType/foundBy
+      generates:
+        description: The `from` Element generates each `to` Element.
+        meaning: spdx_core:RelationshipType/generates
+      hasAddedFile:
+        description: >-
+          Every `to` Element is a file added to the `from` Element (`from` hasAddedFile `to`).
+        meaning: spdx_core:RelationshipType/hasAddedFile
+      hasAssessmentFor:
+        description: >-
+          Relates a `from` Vulnerability and each `to` Element with a security assessment. To be used
+          with `VulnAssessmentRelationship` types.
+        meaning: spdx_core:RelationshipType/hasAssessmentFor
+      hasAssociatedVulnerability:
+        description: Used to associate a `from` Artifact with each `to` Vulnerability.
+        meaning: spdx_core:RelationshipType/hasAssociatedVulnerability
+      hasConcludedLicense:
+        description: >-
+          The `from` SoftwareArtifact is concluded by the SPDX data creator to be governed by each `to`
+          license.
+        meaning: spdx_core:RelationshipType/hasConcludedLicense
+      hasDataFile:
+        description: >-
+          The `from` Element treats each `to` Element as a data file. A data file is an artifact that
+          stores data required or optional for the `from` Element's functionality. A data file can be
+          a database file, an index file, a log file, an AI model file, a calibration data file, a temporary
+          file, a backup file, and more. For AI training dataset, test dataset, test artifact, configuration
+          data, build input data, and build output data, please consider using the more specific relationship
+          types: `trainedOn`, `testedOn`, `hasTest`, `configures`, `hasInput`, and `hasOutput`, respectively.
+          This relationship does not imply dependency.
+        meaning: spdx_core:RelationshipType/hasDataFile
+      hasDeclaredLicense:
+        description: >-
+          The `from` SoftwareArtifact was discovered to actually contain each `to` license, for example
+          as detected by use of automated tooling.
+        meaning: spdx_core:RelationshipType/hasDeclaredLicense
+      hasDeletedFile:
+        description: >-
+          Every `to` Element is a file deleted from the `from` Element (`from` hasDeletedFile `to`).
+        meaning: spdx_core:RelationshipType/hasDeletedFile
+      hasDependencyManifest:
+        description: >-
+          The `from` Element has manifest files that contain dependency information in each `to` Element.
+        meaning: spdx_core:RelationshipType/hasDependencyManifest
+      hasDistributionArtifact:
+        description: >-
+          The `from` Element is distributed as an artifact in each `to` Element (e.g. an RPM or archive
+          file).
+        meaning: spdx_core:RelationshipType/hasDistributionArtifact
+      hasDocumentation:
+        description: The `from` Element is documented by each `to` Element.
+        meaning: spdx_core:RelationshipType/hasDocumentation
+      hasDynamicLink:
+        description: >-
+          The `from` Element dynamically links in each `to` Element, during a LifecycleScopeType period.
+        meaning: spdx_core:RelationshipType/hasDynamicLink
+      hasEvidence:
+        description: >-
+          Every `to` Element is considered as evidence for the `from` Element (`from` hasEvidence `to`).
+        meaning: spdx_core:RelationshipType/hasEvidence
+      hasExample:
+        description: >-
+          Every `to` Element is an example for the `from` Element (`from` hasExample `to`).
+        meaning: spdx_core:RelationshipType/hasExample
+      hasHost:
+        description: >-
+          The `from` Build was run on the `to` Element during a LifecycleScopeType period (e.g. the host
+          that the build runs on).
+        meaning: spdx_core:RelationshipType/hasHost
+      hasInput:
+        description: >-
+          The `from` Build has each `to` Element as an input, during a LifecycleScopeType period.
+        meaning: spdx_core:RelationshipType/hasInput
+      hasMetadata:
+        description: >-
+          Every `to` Element is metadata about the `from` Element (`from` hasMetadata `to`).
+        meaning: spdx_core:RelationshipType/hasMetadata
+      hasOptionalComponent:
+        description: >-
+          Every `to` Element is an optional component of the `from` Element (`from` hasOptionalComponent
+          `to`).
+        meaning: spdx_core:RelationshipType/hasOptionalComponent
+      hasOptionalDependency:
+        description: >-
+          The `from` Element optionally depends on each `to` Element, during a LifecycleScopeType period.
+        meaning: spdx_core:RelationshipType/hasOptionalDependency
+      hasOutput:
+        description: >-
+          The `from` Build element generates each `to` Element as an output, during a LifecycleScopeType
+          period.
+        meaning: spdx_core:RelationshipType/hasOutput
+      hasPrerequisite:
+        description: >-
+          The `from` Element has a prerequisite on each `to` Element, during a LifecycleScopeType period.
+        meaning: spdx_core:RelationshipType/hasPrerequisite
+      hasProvidedDependency:
+        description: >-
+          The `from` Element has a dependency on each `to` Element, dependency is not in the distributed
+          artifact, but assumed to be provided, during a LifecycleScopeType period.
+        meaning: spdx_core:RelationshipType/hasProvidedDependency
+      hasRequirement:
+        description: >-
+          The `from` Element has a requirement on each `to` Element, during a LifecycleScopeType period.
+        meaning: spdx_core:RelationshipType/hasRequirement
+      hasSpecification:
+        description: >-
+          Every `to` Element is a specification for the `from` Element (`from` hasSpecification `to`),
+          during a LifecycleScopeType period.
+        meaning: spdx_core:RelationshipType/hasSpecification
+      hasStaticLink:
+        description: >-
+          The `from` Element statically links in each `to` Element, during a LifecycleScopeType period.
+        meaning: spdx_core:RelationshipType/hasStaticLink
+      hasTest:
+        description: >-
+          Every `to` Element is a test artifact for the `from` Element (`from` hasTest `to`), during a
+          LifecycleScopeType period.
+        meaning: spdx_core:RelationshipType/hasTest
+      hasTestCase:
+        description: >-
+          Every `to` Element is a test case for the `from` Element (`from` hasTestCase `to`).
+        meaning: spdx_core:RelationshipType/hasTestCase
+      hasVariant:
+        description: Every `to` Element is a variant the `from` Element (`from` hasVariant `to`).
+        meaning: spdx_core:RelationshipType/hasVariant
+      invokedBy:
+        description: >-
+          The `from` Element was invoked by the `to` Agent, during a LifecycleScopeType period (for example,
+          a Build element that describes a build step).
+        meaning: spdx_core:RelationshipType/invokedBy
+      modifiedBy:
+        description: The `from` Element is modified by each `to` Element.
+        meaning: spdx_core:RelationshipType/modifiedBy
+      other:
+        description: >-
+          Every `to` Element is related to the `from` Element where the relationship type is not described
+          by any of the SPDX relationship types (this relationship is directionless).
+        meaning: spdx_core:RelationshipType/other
+      packagedBy:
+        description: >-
+          Every `to` Element is a packaged instance of the `from` Element (`from` packagedBy `to`).
+        meaning: spdx_core:RelationshipType/packagedBy
+      patchedBy:
+        description: Every `to` Element is a patch for the `from` Element (`from` patchedBy `to`).
+        meaning: spdx_core:RelationshipType/patchedBy
+      publishedBy:
+        description: >-
+          Designates a `from` Vulnerability was made available for public use or reference by each `to`
+          Agent.
+        meaning: spdx_core:RelationshipType/publishedBy
+      reportedBy:
+        description: >-
+          Designates a `from` Vulnerability was first reported to a project, vendor, or tracking database
+          for formal identification by each `to` Agent.
+        meaning: spdx_core:RelationshipType/reportedBy
+      republishedBy:
+        description: >-
+          Designates a `from` Vulnerability's details were tracked, aggregated, and/or enriched to improve
+          context (i.e. NVD) by each `to` Agent.
+        meaning: spdx_core:RelationshipType/republishedBy
+      serializedInArtifact:
+        description: The `from` SpdxDocument can be found in a serialized form in each `to` Artifact.
+        meaning: spdx_core:RelationshipType/serializedInArtifact
+      testedOn:
+        description: The `from` Element has been tested on the `to` Element(s).
+        meaning: spdx_core:RelationshipType/testedOn
+      trainedOn:
+        description: The `from` Element has been trained on the `to` Element(s).
+        meaning: spdx_core:RelationshipType/trainedOn
+      underInvestigationFor:
+        description: >-
+          The `from` Vulnerability impact is being investigated for each `to` Element. The use of the
+          `underInvestigationFor` type is constrained to `VexUnderInvestigationVulnAssessmentRelationship`
+          classed relationships.
+        meaning: spdx_core:RelationshipType/underInvestigationFor
+      usesTool:
+        description: >-
+          The `from` Element uses each `to` Element as a tool, during a LifecycleScopeType period.
+        meaning: spdx_core:RelationshipType/usesTool
+
+  SupportType:
+    enum_uri: spdx_core:SupportType
+    description: Indicates the type of support that is associated with an artifact.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Vocabularies/SupportType/
+    in_subset:
+      - spdx_core
+    permissible_values:
+      deployed:
+        description: >-
+          in addition to being supported by the supplier, the software is known to have been deployed
+          and is in use. For a software as a service provider, this implies the software is now available
+          as a service.
+        meaning: spdx_core:SupportType/deployed
+      development:
+        description: >-
+          the artifact is in active development and is not considered ready for formal support from the
+          supplier.
+        meaning: spdx_core:SupportType/development
+      endOfSupport:
+        description: >-
+          there is a defined end of support for the artifact from the supplier. This may also be referred
+          to as end of life. There is a validUntilDate that can be used to signal when support ends for
+          the artifact.
+        meaning: spdx_core:SupportType/endOfSupport
+      limitedSupport:
+        description: >-
+          the artifact has been released, and there is limited support available from the supplier. There
+          is a validUntilDate that can provide additional information about the duration of support.
+        meaning: spdx_core:SupportType/limitedSupport
+      noAssertion:
+        description: >-
+          no assertion about the type of support is made. This is considered the default if no other support
+          type is used.
+        meaning: spdx_core:SupportType/noAssertion
+      noSupport:
+        description: >-
+          there is no support for the artifact from the supplier, consumer assumes any support obligations.
+        meaning: spdx_core:SupportType/noSupport
+      support:
+        description: >-
+          the artifact has been released, and is supported from the supplier. There is a validUntilDate
+          that can provide additional information about the duration of support.
+        meaning: spdx_core:SupportType/support
+
+slots:
+
+  type:
+    description: >-
+      The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
+    slot_uri: rdf:type
+    designates_type: true
+    range: uriorcurie
+    comments:
+      - >-
+        SPDX JSON-LD writes the same key with a term of its context, software_Package for a Package. This
+        schema takes the class's CURIE or its full IRI, so RDF written from the data types each object
+        with its SPDX class.
+    in_subset:
+      - spdx_core
+
+  algorithm:
+    description: Specifies the algorithm used for calculating the hash value.
+    slot_uri: spdx_core:algorithm
+    range: HashAlgorithm
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/algorithm/
+    in_subset:
+      - spdx_core
+
+  comment:
+    description: Provide consumers with comments by the creator of the Element about the Element.
+    slot_uri: spdx_core:comment
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/
+    in_subset:
+      - spdx_core
+
+  contentType:
+    description: Provides information about the content type of an Element or a Property.
+    slot_uri: spdx_core:contentType
+    range: media_type
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/contentType/
+    in_subset:
+      - spdx_core
+
+  hashValue:
+    description: The result of applying a hash algorithm to an Element.
+    slot_uri: spdx_core:hashValue
+    range: string
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/hashValue/
+    in_subset:
+      - spdx_core
+
+  suppliedBy:
+    description: >-
+      Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
+    slot_uri: spdx_core:suppliedBy
+    range: Agent
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/
+    in_subset:
+      - spdx_core
+
+  verifiedUsing:
+    description: >-
+      Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+    slot_uri: spdx_core:verifiedUsing
+    range: IntegrityMethod
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/
+    in_subset:
+      - spdx_core
+
+classes:
+
+  Agent:
+    is_a: Element
+    class_uri: spdx_core:Agent
+    description: Agent represents anything with the potential to act on a system.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Agent/
+    in_subset:
+      - spdx_core
+
+  Annotation:
+    is_a: Element
+    class_uri: spdx_core:Annotation
+    description: An assertion made in relation to one or more elements.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Annotation/
+    in_subset:
+      - spdx_core
+    slots:
+      - contentType
+    attributes:
+      annotationType:
+        description: Describes the type of annotation.
+        slot_uri: spdx_core:annotationType
+        range: AnnotationType
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/annotationType/
+      statement:
+        description: Commentary on an assertion that an annotator has made.
+        slot_uri: spdx_core:statement
+        range: string
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/statement/
+      subject:
+        description: An Element an annotator has made an assertion about.
+        slot_uri: spdx_core:subject
+        range: Element
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/subject/
+
+  AnyLicenseInfo:
+    is_a: Element
+    abstract: true
+    class_uri: spdx_simple_licensing:AnyLicenseInfo
+    description: >-
+      Abstract class representing a license combination consisting of one or more licenses.
+    comments:
+      - >-
+        Declared in the core module because a Core field ranges over it. Its IRI stays in the SimpleLicensing
+        profile's namespace, and so does its subset.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Classes/AnyLicenseInfo/
+    in_subset:
+      - spdx_simple_licensing
+
+  Artifact:
+    is_a: Element
+    abstract: true
+    class_uri: spdx_core:Artifact
+    description: A distinct article or unit within the digital domain.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Artifact/
+    in_subset:
+      - spdx_core
+    slots:
+      - suppliedBy
+    attributes:
+      builtTime:
+        description: Specifies the time an artifact was built.
+        slot_uri: spdx_core:builtTime
+        range: date_time_stamp
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/
+      originatedBy:
+        description: Identifies from where or whom the Element originally came.
+        slot_uri: spdx_core:originatedBy
+        range: Agent
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/
+      releaseTime:
+        description: Specifies the time an artifact was released.
+        slot_uri: spdx_core:releaseTime
+        range: date_time_stamp
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/
+      standardName:
+        description: The name of a relevant standard that may apply to an artifact.
+        slot_uri: spdx_core:standardName
+        range: string
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/standardName/
+      supportLevel:
+        description: Specifies the level of support associated with an artifact.
+        slot_uri: spdx_core:supportLevel
+        range: SupportType
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/supportLevel/
+      validUntilTime:
+        description: >-
+          Specifies until when the artifact can be used before its usage needs to be reassessed.
+        slot_uri: spdx_core:validUntilTime
+        range: date_time_stamp
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/
+
+  Bom:
+    is_a: Bundle
+    class_uri: spdx_core:Bom
+    description: >-
+      A container for a grouping of SPDX-3.0 content characterizing details (provenence, composition,
+      licensing, etc.) about a product.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Bom/
+    in_subset:
+      - spdx_core
+
+  Bundle:
+    is_a: ElementCollection
+    class_uri: spdx_core:Bundle
+    description: A collection of Elements that have a shared context.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Bundle/
+    in_subset:
+      - spdx_core
+    attributes:
+      context:
+        description: >-
+          Gives information about the circumstances or unifying properties that Elements of the bundle
+          have been assembled under.
+        slot_uri: spdx_core:context
+        range: string
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/context/
+
+  CreationInfo:
+    class_uri: spdx_core:CreationInfo
+    description: Provides information about the creation of the Element.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/CreationInfo/
+    in_subset:
+      - spdx_core
+    slots:
+      - type
+      - comment
+    attributes:
+      created:
+        description: Identifies when the Element was originally created.
+        slot_uri: spdx_core:created
+        range: date_time_stamp
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/created/
+      createdBy:
+        description: Identifies who or what created the Element.
+        slot_uri: spdx_core:createdBy
+        range: Agent
+        required: true
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/createdBy/
+      createdUsing:
+        description: Identifies the tooling that was used during the creation of the Element.
+        slot_uri: spdx_core:createdUsing
+        range: Tool
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/createdUsing/
+      specVersion:
+        description: >-
+          Provides a reference number that can be used to understand how to parse and interpret an Element.
+        slot_uri: spdx_core:specVersion
+        range: semver
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/specVersion/
+
+  DictionaryEntry:
+    class_uri: spdx_core:DictionaryEntry
+    description: A key with an associated value.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/DictionaryEntry/
+    in_subset:
+      - spdx_core
+    slots:
+      - type
+    attributes:
+      key:
+        description: A key used in a generic key-value pair.
+        slot_uri: spdx_core:key
+        range: string
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/key/
+      value:
+        description: A value used in a generic key-value pair.
+        slot_uri: spdx_core:value
+        range: string
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/value/
+
+  Element:
+    abstract: true
+    class_uri: spdx_core:Element
+    description: Base domain class from which all other SPDX-3.0 domain classes derive.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Element/
+    in_subset:
+      - spdx_core
+    slots:
+      - type
+      - comment
+      - verifiedUsing
+    attributes:
+      spdxId:
+        description: >-
+          The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+        identifier: true
+        range: uri
+        comments:
+          - >-
+            SPDX JSON-LD writes an Element's IRI as spdxId. The model has no property for it, so this
+            schema declares the key in its own namespace.
+      creationInfo:
+        description: Provides information about the creation of the Element.
+        slot_uri: spdx_core:creationInfo
+        range: CreationInfo
+        required: true
+        inlined: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/
+      description:
+        description: Provides a detailed description of the Element.
+        slot_uri: spdx_core:description
+        range: string
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/
+      extension:
+        description: Specifies an Extension characterization of some aspect of an Element.
+        slot_uri: spdx_core:extension
+        range: Extension
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/
+      externalIdentifier:
+        description: >-
+          Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies
+          an Element.
+        slot_uri: spdx_core:externalIdentifier
+        range: ExternalIdentifier
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/
+      externalRef:
+        description: >-
+          Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics
+          of an Element.
+        slot_uri: spdx_core:externalRef
+        range: ExternalRef
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/
+      name:
+        description: Identifies the name of an Element as designated by the creator.
+        slot_uri: spdx_core:name
+        range: string
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/
+      summary:
+        description: A short description of an Element.
+        slot_uri: spdx_core:summary
+        range: string
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/
+
+  ElementCollection:
+    is_a: Element
+    abstract: true
+    class_uri: spdx_core:ElementCollection
+    description: A collection of Elements, not necessarily with unifying context.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/ElementCollection/
+    in_subset:
+      - spdx_core
+    attributes:
+      element:
+        description: Refers to one or more Elements that are part of an ElementCollection.
+        slot_uri: spdx_core:element
+        range: Element
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/element/
+      profileConformance:
+        description: >-
+          Describes one a profile which the creator of this ElementCollection intends to conform to.
+        slot_uri: spdx_core:profileConformance
+        range: ProfileIdentifierType
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/profileConformance/
+      rootElement:
+        description: >-
+          This property is used to denote the root Element(s) of a tree of elements contained in a BOM.
+        slot_uri: spdx_core:rootElement
+        range: Element
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/rootElement/
+
+  Extension:
+    abstract: true
+    class_uri: spdx_extension:Extension
+    description: >-
+      A characterization of some aspect of an Element that is associated with the Element in a generalized
+      fashion.
+    comments:
+      - >-
+        Declared in the core module because a Core field ranges over it. Its IRI stays in the Extension
+        profile's namespace, and so does its subset.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Classes/Extension/
+    in_subset:
+      - spdx_extension
+    slots:
+      - type
+
+  ExternalIdentifier:
+    class_uri: spdx_core:ExternalIdentifier
+    description: >-
+      A reference to a resource identifier defined outside the scope of SPDX-3.0 content that uniquely
+      identifies an Element.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/ExternalIdentifier/
+    in_subset:
+      - spdx_core
+    slots:
+      - type
+      - comment
+    attributes:
+      externalIdentifierType:
+        description: Specifies the type of the external identifier.
+        slot_uri: spdx_core:externalIdentifierType
+        range: ExternalIdentifierType
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifierType/
+      identifier:
+        description: Uniquely identifies an external element.
+        slot_uri: spdx_core:identifier
+        range: string
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/identifier/
+      identifierLocator:
+        description: Provides the location for more information regarding an external identifier.
+        slot_uri: spdx_core:identifierLocator
+        range: uri
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/identifierLocator/
+      issuingAuthority:
+        description: An entity that is authorized to issue identification credentials.
+        slot_uri: spdx_core:issuingAuthority
+        range: string
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/issuingAuthority/
+
+  ExternalMap:
+    class_uri: spdx_core:ExternalMap
+    description: >-
+      A map of Element identifiers that are used within an SpdxDocument but defined external to that SpdxDocument.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/ExternalMap/
+    in_subset:
+      - spdx_core
+    slots:
+      - type
+      - verifiedUsing
+    attributes:
+      definingArtifact:
+        description: >-
+          Artifact representing a serialization instance of SPDX data containing the definition of a particular
+          Element.
+        slot_uri: spdx_core:definingArtifact
+        range: Artifact
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/definingArtifact/
+      externalSpdxId:
+        description: >-
+          Identifies an external Element used within an SpdxDocument but defined external to that SpdxDocument.
+        slot_uri: spdx_core:externalSpdxId
+        range: uri
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalSpdxId/
+      locationHint:
+        description: Provides an indication of where to retrieve an external Element.
+        slot_uri: spdx_core:locationHint
+        range: uri
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/locationHint/
+
+  ExternalRef:
+    class_uri: spdx_core:ExternalRef
+    description: >-
+      A reference to a resource outside the scope of SPDX-3.0 content related to an Element.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/ExternalRef/
+    in_subset:
+      - spdx_core
+    slots:
+      - type
+      - comment
+      - contentType
+    attributes:
+      externalRefType:
+        description: Specifies the type of the external reference.
+        slot_uri: spdx_core:externalRefType
+        range: ExternalRefType
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRefType/
+      locator:
+        description: Provides the location of an external reference.
+        slot_uri: spdx_core:locator
+        range: string
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/locator/
+
+  Hash:
+    is_a: IntegrityMethod
+    class_uri: spdx_core:Hash
+    description: A mathematically calculated representation of a grouping of data.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Hash/
+    in_subset:
+      - spdx_core
+    slots:
+      - algorithm
+      - hashValue
+
+  IndividualElement:
+    is_a: Element
+    class_uri: spdx_core:IndividualElement
+    description: A concrete subclass of Element used by Individuals in the Core profile.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/IndividualElement/
+    in_subset:
+      - spdx_core
+
+  IntegrityMethod:
+    abstract: true
+    class_uri: spdx_core:IntegrityMethod
+    description: >-
+      Provides an independently reproducible mechanism that permits verification of a specific Element.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/IntegrityMethod/
+    in_subset:
+      - spdx_core
+    slots:
+      - type
+      - comment
+
+  LifecycleScopedRelationship:
+    is_a: Relationship
+    class_uri: spdx_core:LifecycleScopedRelationship
+    description: Provide context for a relationship that occurs in the lifecycle.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/LifecycleScopedRelationship/
+    in_subset:
+      - spdx_core
+    attributes:
+      scope:
+        description: Capture the scope of information about a specific relationship between elements.
+        slot_uri: spdx_core:scope
+        range: LifecycleScopeType
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/scope/
+
+  NamespaceMap:
+    class_uri: spdx_core:NamespaceMap
+    description: A mapping between prefixes and namespace partial URIs.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/NamespaceMap/
+    in_subset:
+      - spdx_core
+    slots:
+      - type
+    attributes:
+      namespace:
+        description: >-
+          Provides an unambiguous mechanism for conveying a URI fragment portion of an Element ID.
+        slot_uri: spdx_core:namespace
+        range: uri
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/namespace/
+      prefix:
+        description: A substitute for a URI.
+        slot_uri: spdx_core:prefix
+        range: string
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/prefix/
+
+  Organization:
+    is_a: Agent
+    class_uri: spdx_core:Organization
+    description: A group of people who work together in an organized way for a shared purpose.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Organization/
+    in_subset:
+      - spdx_core
+
+  PackageVerificationCode:
+    is_a: IntegrityMethod
+    class_uri: spdx_core:PackageVerificationCode
+    description: An SPDX version 2.X compatible verification method for software packages.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/PackageVerificationCode/
+    in_subset:
+      - spdx_core
+    slots:
+      - algorithm
+      - hashValue
+    attributes:
+      packageVerificationCodeExcludedFile:
+        description: >-
+          The relative file name of a file to be excluded from the `PackageVerificationCode`.
+        slot_uri: spdx_core:packageVerificationCodeExcludedFile
+        range: string
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/packageVerificationCodeExcludedFile/
+
+  Person:
+    is_a: Agent
+    class_uri: spdx_core:Person
+    description: An individual human being.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Person/
+    in_subset:
+      - spdx_core
+
+  PositiveIntegerRange:
+    class_uri: spdx_core:PositiveIntegerRange
+    description: A tuple of two positive integers that define a range.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/PositiveIntegerRange/
+    in_subset:
+      - spdx_core
+    slots:
+      - type
+    attributes:
+      beginIntegerRange:
+        description: Defines the beginning of a range.
+        slot_uri: spdx_core:beginIntegerRange
+        range: positive_integer
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/beginIntegerRange/
+      endIntegerRange:
+        description: Defines the end of a range.
+        slot_uri: spdx_core:endIntegerRange
+        range: positive_integer
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endIntegerRange/
+
+  Relationship:
+    is_a: Element
+    class_uri: spdx_core:Relationship
+    description: Describes a relationship between one or more elements.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Relationship/
+    in_subset:
+      - spdx_core
+    attributes:
+      completeness:
+        description: Provides information about the completeness of relationships.
+        slot_uri: spdx_core:completeness
+        range: RelationshipCompleteness
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/
+      endTime:
+        description: Specifies the time from which an element is no longer applicable / valid.
+        slot_uri: spdx_core:endTime
+        range: date_time_stamp
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/
+      from:
+        description: References the Element on the left-hand side of a relationship.
+        slot_uri: spdx_core:from
+        range: Element
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/from/
+      relationshipType:
+        description: Information about the relationship between two Elements.
+        slot_uri: spdx_core:relationshipType
+        range: RelationshipType
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/
+      startTime:
+        description: Specifies the time from which an element is applicable / valid.
+        slot_uri: spdx_core:startTime
+        range: date_time_stamp
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/
+      to:
+        description: References an Element on the right-hand side of a relationship.
+        slot_uri: spdx_core:to
+        range: Element
+        required: true
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/
+
+  SoftwareAgent:
+    is_a: Agent
+    class_uri: spdx_core:SoftwareAgent
+    description: A software agent.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/SoftwareAgent/
+    in_subset:
+      - spdx_core
+
+  SpdxDocument:
+    is_a: ElementCollection
+    class_uri: spdx_core:SpdxDocument
+    description: A collection of SPDX Elements that could potentially be serialized.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/SpdxDocument/
+    in_subset:
+      - spdx_core
+    attributes:
+      dataLicense:
+        description: >-
+          Provides the license under which the SPDX documentation of the Element can be used.
+        slot_uri: spdx_core:dataLicense
+        range: AnyLicenseInfo
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/dataLicense/
+      import:
+        description: Provides an ExternalMap of Element identifiers.
+        slot_uri: spdx_core:import
+        range: ExternalMap
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/import/
+      namespaceMap:
+        description: >-
+          Provides a NamespaceMap of prefixes and associated namespace partial URIs applicable to an SpdxDocument
+          and independent of any specific serialization format or instance.
+        slot_uri: spdx_core:namespaceMap
+        range: NamespaceMap
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/namespaceMap/
+
+  Tool:
+    is_a: Element
+    class_uri: spdx_core:Tool
+    description: >-
+      An element of hardware and/or software utilized to carry out a particular function.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Tool/
+    in_subset:
+      - spdx_core

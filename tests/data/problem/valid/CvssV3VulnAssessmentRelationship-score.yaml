@@ -1,0 +1,16 @@
+spdxId: https://example.com/spdx/assessments/cve-2024-12345-cvss3
+type: spdx_security:CvssV3VulnAssessmentRelationship
+relationshipType: hasAssessmentFor
+from: https://example.com/spdx/vulnerabilities/CVE-2024-12345
+to:
+  - https://example.com/spdx/packages/hello-1.0.0
+assessedElement: https://example.com/spdx/packages/hello-1.0.0
+score: 7.5
+severity: high
+vectorString: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
+publishedTime: "2024-09-15T10:00:00Z"
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane

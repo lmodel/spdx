@@ -1,7 +1,11 @@
-package None;
+package example;
 
-/* metamodel_version: 1.7.0 */
+/* metamodel_version: 1.12.0 */
 /* version: 3.0.1 */
+import java.net.URI;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
 import java.util.List;
 import lombok.*;
 
@@ -12,20 +16,21 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public class AIPackage extends Package {
 
-  private String informationAboutTraining;
-  private List<String> modelDataPreprocessing;
-  private List<String> typeOfModel;
-  private String safetyRiskAssessment;
-  private List<DictionaryEntry> metricDecisionThreshold;
-  private String useSensitivePersonalInformation;
-  private EnergyConsumption energyConsumption;
-  private String limitation;
-  private List<DictionaryEntry> hyperparameter;
   private String autonomyType;
   private List<String> domain;
-  private List<String> modelExplainability;
+  private EnergyConsumption energyConsumption;
+  private List<DictionaryEntry> hyperparameter;
   private String informationAboutApplication;
+  private String informationAboutTraining;
+  private String limitation;
   private List<DictionaryEntry> metric;
+  private List<DictionaryEntry> metricDecisionThreshold;
+  private List<String> modelDataPreprocessing;
+  private List<String> modelExplainability;
+  private String safetyRiskAssessment;
   private List<String> standardCompliance;
+  private List<String> typeOfModel;
+  private String useSensitivePersonalInformation;
+
 
 }

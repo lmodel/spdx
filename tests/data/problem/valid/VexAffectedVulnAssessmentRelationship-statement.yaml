@@ -1,0 +1,15 @@
+spdxId: https://example.com/spdx/assessments/cve-2024-12345-vex-affected
+type: spdx_security:VexAffectedVulnAssessmentRelationship
+relationshipType: affects
+from: https://example.com/spdx/vulnerabilities/CVE-2024-12345
+to:
+  - https://example.com/spdx/packages/hello-1.0.0
+actionStatement: Upgrade to hello 1.0.1.
+actionStatementTime: "2024-09-16T09:00:00Z"
+vexVersion: 1.0.0
+statusNotes: The fix is in the next release.
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane

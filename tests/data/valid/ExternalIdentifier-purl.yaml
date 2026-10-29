@@ -1,0 +1,5 @@
+externalIdentifierType: packageUrl
+identifier: pkg:generic/hello@1.0.0
+issuingAuthority: https://example.com
+identifierLocator:
+  - https://example.com/downloads/hello-1.0.0.tar.gz

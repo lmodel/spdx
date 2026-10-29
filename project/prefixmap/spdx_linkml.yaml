@@ -1,0 +1,217 @@
+{
+   "linkml": "https://w3id.org/linkml/",
+   "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+   "spdx": "https://spdx.org/rdf/3.0.1/terms/",
+   "spdx_ai": "https://spdx.org/rdf/3.0.1/terms/AI/",
+   "spdx_build": "https://spdx.org/rdf/3.0.1/terms/Build/",
+   "spdx_core": "https://spdx.org/rdf/3.0.1/terms/Core/",
+   "spdx_dataset": "https://spdx.org/rdf/3.0.1/terms/Dataset/",
+   "spdx_expanded_licensing": "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/",
+   "spdx_extension": "https://spdx.org/rdf/3.0.1/terms/Extension/",
+   "spdx_linkml": "https://w3id.org/lmodel/spdx/",
+   "spdx_security": "https://spdx.org/rdf/3.0.1/terms/Security/",
+   "spdx_simple_licensing": "https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/",
+   "spdx_software": "https://spdx.org/rdf/3.0.1/terms/Software/",
+   "xsd": "http://www.w3.org/2001/XMLSchema#",
+   "Agent": {
+      "@id": "spdx_core:Agent"
+   },
+   "AIPackage": {
+      "@id": "spdx_ai:AIPackage"
+   },
+   "Annotation": {
+      "@id": "spdx_core:Annotation"
+   },
+   "AnyLicenseInfo": {
+      "@id": "spdx_simple_licensing:AnyLicenseInfo"
+   },
+   "Artifact": {
+      "@id": "spdx_core:Artifact"
+   },
+   "Bom": {
+      "@id": "spdx_core:Bom"
+   },
+   "Build": {
+      "@id": "spdx_build:Build"
+   },
+   "Bundle": {
+      "@id": "spdx_core:Bundle"
+   },
+   "CdxPropertiesExtension": {
+      "@id": "spdx_extension:CdxPropertiesExtension"
+   },
+   "CdxPropertyEntry": {
+      "@id": "spdx_extension:CdxPropertyEntry"
+   },
+   "ConjunctiveLicenseSet": {
+      "@id": "spdx_expanded_licensing:ConjunctiveLicenseSet"
+   },
+   "ContentIdentifier": {
+      "@id": "spdx_software:ContentIdentifier"
+   },
+   "CreationInfo": {
+      "@id": "spdx_core:CreationInfo"
+   },
+   "CustomLicense": {
+      "@id": "spdx_expanded_licensing:CustomLicense"
+   },
+   "CustomLicenseAddition": {
+      "@id": "spdx_expanded_licensing:CustomLicenseAddition"
+   },
+   "CvssV2VulnAssessmentRelationship": {
+      "@id": "spdx_security:CvssV2VulnAssessmentRelationship"
+   },
+   "CvssV3VulnAssessmentRelationship": {
+      "@id": "spdx_security:CvssV3VulnAssessmentRelationship"
+   },
+   "CvssV4VulnAssessmentRelationship": {
+      "@id": "spdx_security:CvssV4VulnAssessmentRelationship"
+   },
+   "DatasetPackage": {
+      "@id": "spdx_dataset:DatasetPackage"
+   },
+   "DictionaryEntry": {
+      "@id": "spdx_core:DictionaryEntry"
+   },
+   "DisjunctiveLicenseSet": {
+      "@id": "spdx_expanded_licensing:DisjunctiveLicenseSet"
+   },
+   "Element": {
+      "@id": "spdx_core:Element"
+   },
+   "ElementCollection": {
+      "@id": "spdx_core:ElementCollection"
+   },
+   "EnergyConsumption": {
+      "@id": "spdx_ai:EnergyConsumption"
+   },
+   "EnergyConsumptionDescription": {
+      "@id": "spdx_ai:EnergyConsumptionDescription"
+   },
+   "EpssVulnAssessmentRelationship": {
+      "@id": "spdx_security:EpssVulnAssessmentRelationship"
+   },
+   "ExploitCatalogVulnAssessmentRelationship": {
+      "@id": "spdx_security:ExploitCatalogVulnAssessmentRelationship"
+   },
+   "ExtendableLicense": {
+      "@id": "spdx_expanded_licensing:ExtendableLicense"
+   },
+   "Extension": {
+      "@id": "spdx_extension:Extension"
+   },
+   "ExternalIdentifier": {
+      "@id": "spdx_core:ExternalIdentifier"
+   },
+   "ExternalMap": {
+      "@id": "spdx_core:ExternalMap"
+   },
+   "ExternalRef": {
+      "@id": "spdx_core:ExternalRef"
+   },
+   "File": {
+      "@id": "spdx_software:File"
+   },
+   "Hash": {
+      "@id": "spdx_core:Hash"
+   },
+   "IndividualElement": {
+      "@id": "spdx_core:IndividualElement"
+   },
+   "IndividualLicensingInfo": {
+      "@id": "spdx_expanded_licensing:IndividualLicensingInfo"
+   },
+   "IntegrityMethod": {
+      "@id": "spdx_core:IntegrityMethod"
+   },
+   "License": {
+      "@id": "spdx_expanded_licensing:License"
+   },
+   "LicenseAddition": {
+      "@id": "spdx_expanded_licensing:LicenseAddition"
+   },
+   "LicenseExpression": {
+      "@id": "spdx_simple_licensing:LicenseExpression"
+   },
+   "LifecycleScopedRelationship": {
+      "@id": "spdx_core:LifecycleScopedRelationship"
+   },
+   "ListedLicense": {
+      "@id": "spdx_expanded_licensing:ListedLicense"
+   },
+   "ListedLicenseException": {
+      "@id": "spdx_expanded_licensing:ListedLicenseException"
+   },
+   "NamespaceMap": {
+      "@id": "spdx_core:NamespaceMap"
+   },
+   "Organization": {
+      "@id": "spdx_core:Organization"
+   },
+   "OrLaterOperator": {
+      "@id": "spdx_expanded_licensing:OrLaterOperator"
+   },
+   "Package": {
+      "@id": "spdx_software:Package"
+   },
+   "PackageVerificationCode": {
+      "@id": "spdx_core:PackageVerificationCode"
+   },
+   "Person": {
+      "@id": "spdx_core:Person"
+   },
+   "PositiveIntegerRange": {
+      "@id": "spdx_core:PositiveIntegerRange"
+   },
+   "Relationship": {
+      "@id": "spdx_core:Relationship"
+   },
+   "Sbom": {
+      "@id": "spdx_software:Sbom"
+   },
+   "SimpleLicensingText": {
+      "@id": "spdx_simple_licensing:SimpleLicensingText"
+   },
+   "Snippet": {
+      "@id": "spdx_software:Snippet"
+   },
+   "SoftwareAgent": {
+      "@id": "spdx_core:SoftwareAgent"
+   },
+   "SoftwareArtifact": {
+      "@id": "spdx_software:SoftwareArtifact"
+   },
+   "SpdxDocument": {
+      "@id": "spdx_core:SpdxDocument"
+   },
+   "SsvcVulnAssessmentRelationship": {
+      "@id": "spdx_security:SsvcVulnAssessmentRelationship"
+   },
+   "Tool": {
+      "@id": "spdx_core:Tool"
+   },
+   "VexAffectedVulnAssessmentRelationship": {
+      "@id": "spdx_security:VexAffectedVulnAssessmentRelationship"
+   },
+   "VexFixedVulnAssessmentRelationship": {
+      "@id": "spdx_security:VexFixedVulnAssessmentRelationship"
+   },
+   "VexNotAffectedVulnAssessmentRelationship": {
+      "@id": "spdx_security:VexNotAffectedVulnAssessmentRelationship"
+   },
+   "VexUnderInvestigationVulnAssessmentRelationship": {
+      "@id": "spdx_security:VexUnderInvestigationVulnAssessmentRelationship"
+   },
+   "VexVulnAssessmentRelationship": {
+      "@id": "spdx_security:VexVulnAssessmentRelationship"
+   },
+   "VulnAssessmentRelationship": {
+      "@id": "spdx_security:VulnAssessmentRelationship"
+   },
+   "Vulnerability": {
+      "@id": "spdx_security:Vulnerability"
+   },
+   "WithAdditionOperator": {
+      "@id": "spdx_expanded_licensing:WithAdditionOperator"
+   }
+}

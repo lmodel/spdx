@@ -1,0 +1,80 @@
+---
+id: https://w3id.org/lmodel/spdx/spdx_extension
+name: spdx_extension
+title: SPDX Extension profile
+description: >-
+  The Extension profile: the extension hook on every Element and the CycloneDX properties extension.
+version: 3.0.1
+source: https://spdx.org/rdf/3.0.1/spdx-model.ttl
+license: Apache-2.0
+see_also:
+  - https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/
+
+prefixes:
+  spdx_linkml: https://w3id.org/lmodel/spdx/
+  spdx: https://spdx.org/rdf/3.0.1/terms/
+  spdx_core: https://spdx.org/rdf/3.0.1/terms/Core/
+  spdx_software: https://spdx.org/rdf/3.0.1/terms/Software/
+  spdx_security: https://spdx.org/rdf/3.0.1/terms/Security/
+  spdx_simple_licensing: https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/
+  spdx_expanded_licensing: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/
+  spdx_ai: https://spdx.org/rdf/3.0.1/terms/AI/
+  spdx_dataset: https://spdx.org/rdf/3.0.1/terms/Dataset/
+  spdx_build: https://spdx.org/rdf/3.0.1/terms/Build/
+  spdx_extension: https://spdx.org/rdf/3.0.1/terms/Extension/
+  linkml: https://w3id.org/linkml/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  xsd: http://www.w3.org/2001/XMLSchema#
+
+default_prefix: spdx_linkml
+default_range: string
+
+imports:
+  - linkml:types
+  - ./spdx_core
+
+classes:
+
+  CdxPropertiesExtension:
+    is_a: Extension
+    class_uri: spdx_extension:CdxPropertiesExtension
+    description: A type of extension consisting of a list of name value pairs.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Classes/CdxPropertiesExtension/
+    in_subset:
+      - spdx_extension
+    attributes:
+      cdxProperty:
+        description: Provides a map of a property names to a values.
+        slot_uri: spdx_extension:cdxProperty
+        range: CdxPropertyEntry
+        required: true
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Properties/cdxProperty/
+
+  CdxPropertyEntry:
+    class_uri: spdx_extension:CdxPropertyEntry
+    description: A property name with an associated value.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Classes/CdxPropertyEntry/
+    in_subset:
+      - spdx_extension
+    slots:
+      - type
+    attributes:
+      cdxPropName:
+        description: A name used in a CdxPropertyEntry name-value pair.
+        slot_uri: spdx_extension:cdxPropName
+        range: string
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Properties/cdxPropName/
+      cdxPropValue:
+        description: A value used in a CdxPropertyEntry name-value pair.
+        slot_uri: spdx_extension:cdxPropValue
+        range: string
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Properties/cdxPropValue/

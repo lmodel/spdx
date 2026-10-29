@@ -1,0 +1,271 @@
+---
+id: https://w3id.org/lmodel/spdx/spdx_ai
+name: spdx_ai
+title: SPDX AI profile
+description: >-
+  The AI profile: an AI package with its model, training, energy and safety information.
+version: 3.0.1
+source: https://spdx.org/rdf/3.0.1/spdx-model.ttl
+license: Apache-2.0
+see_also:
+  - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/AI/
+
+prefixes:
+  spdx_linkml: https://w3id.org/lmodel/spdx/
+  spdx: https://spdx.org/rdf/3.0.1/terms/
+  spdx_core: https://spdx.org/rdf/3.0.1/terms/Core/
+  spdx_software: https://spdx.org/rdf/3.0.1/terms/Software/
+  spdx_security: https://spdx.org/rdf/3.0.1/terms/Security/
+  spdx_simple_licensing: https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/
+  spdx_expanded_licensing: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/
+  spdx_ai: https://spdx.org/rdf/3.0.1/terms/AI/
+  spdx_dataset: https://spdx.org/rdf/3.0.1/terms/Dataset/
+  spdx_build: https://spdx.org/rdf/3.0.1/terms/Build/
+  spdx_extension: https://spdx.org/rdf/3.0.1/terms/Extension/
+  linkml: https://w3id.org/linkml/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  xsd: http://www.w3.org/2001/XMLSchema#
+
+default_prefix: spdx_linkml
+default_range: string
+
+imports:
+  - linkml:types
+  - ./spdx_core
+  - ./spdx_software
+
+enums:
+
+  EnergyUnitType:
+    enum_uri: spdx_ai:EnergyUnitType
+    description: Specifies the unit of energy consumption.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Vocabularies/EnergyUnitType/
+    in_subset:
+      - spdx_ai
+    permissible_values:
+      kilowattHour:
+        description: Kilowatt-hour.
+        meaning: spdx_ai:EnergyUnitType/kilowattHour
+      megajoule:
+        description: Megajoule.
+        meaning: spdx_ai:EnergyUnitType/megajoule
+      other:
+        description: Any other units of energy measurement.
+        meaning: spdx_ai:EnergyUnitType/other
+
+  SafetyRiskAssessmentType:
+    enum_uri: spdx_ai:SafetyRiskAssessmentType
+    description: Specifies the safety risk level.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Vocabularies/SafetyRiskAssessmentType/
+    in_subset:
+      - spdx_ai
+    permissible_values:
+      high:
+        description: The second-highest level of risk posed by an AI system.
+        meaning: spdx_ai:SafetyRiskAssessmentType/high
+      low:
+        description: Low/no risk is posed by an AI system.
+        meaning: spdx_ai:SafetyRiskAssessmentType/low
+      medium:
+        description: The third-highest level of risk posed by an AI system.
+        meaning: spdx_ai:SafetyRiskAssessmentType/medium
+      serious:
+        description: The highest level of risk posed by an AI system.
+        meaning: spdx_ai:SafetyRiskAssessmentType/serious
+
+classes:
+
+  AIPackage:
+    is_a: Package
+    class_uri: spdx_ai:AIPackage
+    description: Specifies an AI package and its associated information.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/
+    in_subset:
+      - spdx_ai
+    attributes:
+      autonomyType:
+        description: >-
+          Indicates whether the system can perform a decision or action without human involvement or guidance.
+        slot_uri: spdx_ai:autonomyType
+        range: PresenceType
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/autonomyType/
+      domain:
+        description: Captures the domain in which the AI package can be used.
+        slot_uri: spdx_ai:domain
+        range: string
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/domain/
+      energyConsumption:
+        description: Indicates the amount of energy consumption incurred by an AI model.
+        slot_uri: spdx_ai:energyConsumption
+        range: EnergyConsumption
+        inlined: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/energyConsumption/
+      hyperparameter:
+        description: Records a hyperparameter used to build the AI model contained in the AI package.
+        slot_uri: spdx_ai:hyperparameter
+        range: DictionaryEntry
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/hyperparameter/
+      informationAboutApplication:
+        description: >-
+          Provides relevant information about the AI software, not including the model description.
+        slot_uri: spdx_ai:informationAboutApplication
+        range: string
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/informationAboutApplication/
+      informationAboutTraining:
+        description: Describes relevant information about different steps of the training process.
+        slot_uri: spdx_ai:informationAboutTraining
+        range: string
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/informationAboutTraining/
+      limitation:
+        description: Captures a limitation of the AI software.
+        slot_uri: spdx_ai:limitation
+        range: string
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/limitation/
+      metric:
+        description: Records the measurement of prediction quality of the AI model.
+        slot_uri: spdx_ai:metric
+        range: DictionaryEntry
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/metric/
+      metricDecisionThreshold:
+        description: >-
+          Captures the threshold that was used for computation of a metric described in the metric field.
+        slot_uri: spdx_ai:metricDecisionThreshold
+        range: DictionaryEntry
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/metricDecisionThreshold/
+      modelDataPreprocessing:
+        description: >-
+          Describes all the preprocessing steps applied to the training data before the model training.
+        slot_uri: spdx_ai:modelDataPreprocessing
+        range: string
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/modelDataPreprocessing/
+      modelExplainability:
+        description: Describes methods that can be used to explain the results from the AI model.
+        slot_uri: spdx_ai:modelExplainability
+        range: string
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/modelExplainability/
+      safetyRiskAssessment:
+        description: Records the results of general safety risk assessment of the AI system.
+        slot_uri: spdx_ai:safetyRiskAssessment
+        range: SafetyRiskAssessmentType
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/safetyRiskAssessment/
+      standardCompliance:
+        description: Captures a standard that is being complied with.
+        slot_uri: spdx_ai:standardCompliance
+        range: string
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/standardCompliance/
+      typeOfModel:
+        description: Records the type of the model used in the AI software.
+        slot_uri: spdx_ai:typeOfModel
+        range: string
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/typeOfModel/
+      useSensitivePersonalInformation:
+        description: >-
+          Records if sensitive personal information is used during model training or could be used during
+          the inference.
+        slot_uri: spdx_ai:useSensitivePersonalInformation
+        range: PresenceType
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/useSensitivePersonalInformation/
+
+  EnergyConsumption:
+    class_uri: spdx_ai:EnergyConsumption
+    description: >-
+      A class for describing the energy consumption incurred by an AI model in different stages of its
+      lifecycle.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/EnergyConsumption/
+    in_subset:
+      - spdx_ai
+    slots:
+      - type
+    attributes:
+      finetuningEnergyConsumption:
+        description: >-
+          Specifies the amount of energy consumed when finetuning the AI model that is being used in the
+          AI system.
+        slot_uri: spdx_ai:finetuningEnergyConsumption
+        range: EnergyConsumptionDescription
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/finetuningEnergyConsumption/
+      inferenceEnergyConsumption:
+        description: >-
+          Specifies the amount of energy consumed during inference time by an AI model that is being used
+          in the AI system.
+        slot_uri: spdx_ai:inferenceEnergyConsumption
+        range: EnergyConsumptionDescription
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/inferenceEnergyConsumption/
+      trainingEnergyConsumption:
+        description: >-
+          Specifies the amount of energy consumed when training the AI model that is being used in the
+          AI system.
+        slot_uri: spdx_ai:trainingEnergyConsumption
+        range: EnergyConsumptionDescription
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/trainingEnergyConsumption/
+
+  EnergyConsumptionDescription:
+    class_uri: spdx_ai:EnergyConsumptionDescription
+    description: >-
+      The class that helps note down the quantity of energy consumption and the unit used for measurement.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/EnergyConsumptionDescription/
+    in_subset:
+      - spdx_ai
+    slots:
+      - type
+    attributes:
+      energyQuantity:
+        description: Represents the energy quantity.
+        slot_uri: spdx_ai:energyQuantity
+        range: decimal
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/energyQuantity/
+      energyUnit:
+        description: Specifies the unit in which energy is measured.
+        slot_uri: spdx_ai:energyUnit
+        range: EnergyUnitType
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/energyUnit/

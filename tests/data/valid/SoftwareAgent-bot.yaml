@@ -1,0 +1,8 @@
+spdxId: https://example.com/spdx/agents/release-bot
+type: spdx_core:SoftwareAgent
+name: release-bot
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane

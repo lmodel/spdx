@@ -1,0 +1,319 @@
+---
+id: https://w3id.org/lmodel/spdx/spdx_expanded_licensing
+name: spdx_expanded_licensing
+title: SPDX Expanded Licensing profile
+description: >-
+  The Expanded Licensing profile: listed and custom licenses and additions, and the operators that compose
+  them into license sets.
+version: 3.0.1
+source: https://spdx.org/rdf/3.0.1/spdx-model.ttl
+license: Apache-2.0
+see_also:
+  - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/ExpandedLicensing/
+
+prefixes:
+  spdx_linkml: https://w3id.org/lmodel/spdx/
+  spdx: https://spdx.org/rdf/3.0.1/terms/
+  spdx_core: https://spdx.org/rdf/3.0.1/terms/Core/
+  spdx_software: https://spdx.org/rdf/3.0.1/terms/Software/
+  spdx_security: https://spdx.org/rdf/3.0.1/terms/Security/
+  spdx_simple_licensing: https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/
+  spdx_expanded_licensing: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/
+  spdx_ai: https://spdx.org/rdf/3.0.1/terms/AI/
+  spdx_dataset: https://spdx.org/rdf/3.0.1/terms/Dataset/
+  spdx_build: https://spdx.org/rdf/3.0.1/terms/Build/
+  spdx_extension: https://spdx.org/rdf/3.0.1/terms/Extension/
+  linkml: https://w3id.org/linkml/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  xsd: http://www.w3.org/2001/XMLSchema#
+
+default_prefix: spdx_linkml
+default_range: string
+
+imports:
+  - linkml:types
+  - ./spdx_core
+  - ./spdx_simple_licensing
+
+slots:
+
+  deprecatedVersion:
+    description: >-
+      Specifies the SPDX License List version in which this license or exception identifier was deprecated.
+    slot_uri: spdx_expanded_licensing:deprecatedVersion
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/deprecatedVersion/
+    in_subset:
+      - spdx_expanded_licensing
+
+  licenseXml:
+    description: >-
+      Identifies all the text and metadata associated with a license in the license XML format.
+    slot_uri: spdx_expanded_licensing:licenseXml
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/licenseXml/
+    in_subset:
+      - spdx_expanded_licensing
+
+  listVersionAdded:
+    description: >-
+      Specifies the SPDX License List version in which this ListedLicense or ListedLicenseException identifier
+      was first added.
+    slot_uri: spdx_expanded_licensing:listVersionAdded
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/listVersionAdded/
+    in_subset:
+      - spdx_expanded_licensing
+
+  member:
+    description: A license expression participating in a license set.
+    slot_uri: spdx_expanded_licensing:member
+    range: AnyLicenseInfo
+    required: true
+    multivalued: true
+    minimum_cardinality: 2
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/member/
+    in_subset:
+      - spdx_expanded_licensing
+
+  obsoletedBy:
+    description: >-
+      Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
+    slot_uri: spdx_expanded_licensing:obsoletedBy
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/obsoletedBy/
+    in_subset:
+      - spdx_expanded_licensing
+
+  seeAlso:
+    description: Contains a URL where the License or LicenseAddition can be found in use.
+    slot_uri: spdx_expanded_licensing:seeAlso
+    range: uri
+    multivalued: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/seeAlso/
+    in_subset:
+      - spdx_expanded_licensing
+
+classes:
+
+  ConjunctiveLicenseSet:
+    is_a: AnyLicenseInfo
+    class_uri: spdx_expanded_licensing:ConjunctiveLicenseSet
+    description: >-
+      Portion of an AnyLicenseInfo representing a set of licensing information where all elements apply.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Classes/ConjunctiveLicenseSet/
+    in_subset:
+      - spdx_expanded_licensing
+    slots:
+      - member
+
+  CustomLicense:
+    is_a: License
+    class_uri: spdx_expanded_licensing:CustomLicense
+    description: A license that is not listed on the SPDX License List.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Classes/CustomLicense/
+    in_subset:
+      - spdx_expanded_licensing
+
+  CustomLicenseAddition:
+    is_a: LicenseAddition
+    class_uri: spdx_expanded_licensing:CustomLicenseAddition
+    description: A license addition that is not listed on the SPDX Exceptions List.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Classes/CustomLicenseAddition/
+    in_subset:
+      - spdx_expanded_licensing
+
+  DisjunctiveLicenseSet:
+    is_a: AnyLicenseInfo
+    class_uri: spdx_expanded_licensing:DisjunctiveLicenseSet
+    description: >-
+      Portion of an AnyLicenseInfo representing a set of licensing information where only one of the elements
+      applies.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Classes/DisjunctiveLicenseSet/
+    in_subset:
+      - spdx_expanded_licensing
+    slots:
+      - member
+
+  ExtendableLicense:
+    is_a: AnyLicenseInfo
+    abstract: true
+    class_uri: spdx_expanded_licensing:ExtendableLicense
+    description: Abstract class representing a License or an OrLaterOperator.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Classes/ExtendableLicense/
+    in_subset:
+      - spdx_expanded_licensing
+
+  IndividualLicensingInfo:
+    is_a: AnyLicenseInfo
+    class_uri: spdx_expanded_licensing:IndividualLicensingInfo
+    description: >-
+      A concrete subclass of AnyLicenseInfo used by Individuals in the ExpandedLicensing profile.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Classes/IndividualLicensingInfo/
+    in_subset:
+      - spdx_expanded_licensing
+
+  License:
+    is_a: ExtendableLicense
+    abstract: true
+    class_uri: spdx_expanded_licensing:License
+    description: Abstract class for the portion of an AnyLicenseInfo representing a license.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Classes/License/
+    in_subset:
+      - spdx_expanded_licensing
+    slots:
+      - licenseText
+      - licenseXml
+      - obsoletedBy
+      - seeAlso
+    attributes:
+      isDeprecatedLicenseId:
+        description: >-
+          Specifies whether a license or additional text identifier has been marked as deprecated.
+        slot_uri: spdx_expanded_licensing:isDeprecatedLicenseId
+        range: boolean
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isDeprecatedLicenseId/
+      isFsfLibre:
+        description: >-
+          Specifies whether the License is listed as free by the Free Software Foundation (FSF).
+        slot_uri: spdx_expanded_licensing:isFsfLibre
+        range: boolean
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isFsfLibre/
+      isOsiApproved:
+        description: >-
+          Specifies whether the License is listed as approved by the Open Source Initiative (OSI).
+        slot_uri: spdx_expanded_licensing:isOsiApproved
+        range: boolean
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isOsiApproved/
+      standardLicenseHeader:
+        description: >-
+          Provides a License author's preferred text to indicate that a file is covered by the License.
+        slot_uri: spdx_expanded_licensing:standardLicenseHeader
+        range: string
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/standardLicenseHeader/
+      standardLicenseTemplate:
+        description: Identifies the full text of a License, in SPDX templating format.
+        slot_uri: spdx_expanded_licensing:standardLicenseTemplate
+        range: string
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/standardLicenseTemplate/
+
+  LicenseAddition:
+    is_a: Element
+    abstract: true
+    class_uri: spdx_expanded_licensing:LicenseAddition
+    description: >-
+      Abstract class for additional text intended to be added to a License, but which is not itself a
+      standalone License.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Classes/LicenseAddition/
+    in_subset:
+      - spdx_expanded_licensing
+    slots:
+      - licenseXml
+      - obsoletedBy
+      - seeAlso
+    attributes:
+      additionText:
+        description: Identifies the full text of a LicenseAddition.
+        slot_uri: spdx_expanded_licensing:additionText
+        range: string
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/additionText/
+      isDeprecatedAdditionId:
+        description: Specifies whether an additional text identifier has been marked as deprecated.
+        slot_uri: spdx_expanded_licensing:isDeprecatedAdditionId
+        range: boolean
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isDeprecatedAdditionId/
+      standardAdditionTemplate:
+        description: Identifies the full text of a LicenseAddition, in SPDX templating format.
+        slot_uri: spdx_expanded_licensing:standardAdditionTemplate
+        range: string
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/standardAdditionTemplate/
+
+  ListedLicense:
+    is_a: License
+    class_uri: spdx_expanded_licensing:ListedLicense
+    description: A license that is listed on the SPDX License List.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Classes/ListedLicense/
+    in_subset:
+      - spdx_expanded_licensing
+    slots:
+      - deprecatedVersion
+      - listVersionAdded
+
+  ListedLicenseException:
+    is_a: LicenseAddition
+    class_uri: spdx_expanded_licensing:ListedLicenseException
+    description: A license exception that is listed on the SPDX Exceptions list.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Classes/ListedLicenseException/
+    in_subset:
+      - spdx_expanded_licensing
+    slots:
+      - deprecatedVersion
+      - listVersionAdded
+
+  OrLaterOperator:
+    is_a: ExtendableLicense
+    class_uri: spdx_expanded_licensing:OrLaterOperator
+    description: >-
+      Portion of an AnyLicenseInfo representing this version, or any later version, of the indicated License.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Classes/OrLaterOperator/
+    in_subset:
+      - spdx_expanded_licensing
+    attributes:
+      subjectLicense:
+        description: A License participating in an 'or later' model.
+        slot_uri: spdx_expanded_licensing:subjectLicense
+        range: License
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/subjectLicense/
+
+  WithAdditionOperator:
+    is_a: AnyLicenseInfo
+    class_uri: spdx_expanded_licensing:WithAdditionOperator
+    description: >-
+      Portion of an AnyLicenseInfo representing a License which has additional text applied to it.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Classes/WithAdditionOperator/
+    in_subset:
+      - spdx_expanded_licensing
+    attributes:
+      subjectAddition:
+        description: A LicenseAddition participating in a 'with addition' model.
+        slot_uri: spdx_expanded_licensing:subjectAddition
+        range: LicenseAddition
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/subjectAddition/
+      subjectExtendableLicense:
+        description: A License participating in a 'with addition' model.
+        slot_uri: spdx_expanded_licensing:subjectExtendableLicense
+        range: ExtendableLicense
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/subjectExtendableLicense/

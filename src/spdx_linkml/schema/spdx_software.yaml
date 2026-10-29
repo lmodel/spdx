@@ -1,0 +1,426 @@
+---
+id: https://w3id.org/lmodel/spdx/spdx_software
+name: spdx_software
+title: SPDX Software profile
+description: >-
+  The Software profile: packages, files and snippets, their purposes and content identifiers, and the
+  SBOM collection.
+version: 3.0.1
+source: https://spdx.org/rdf/3.0.1/spdx-model.ttl
+license: Apache-2.0
+see_also:
+  - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Software/
+
+prefixes:
+  spdx_linkml: https://w3id.org/lmodel/spdx/
+  spdx: https://spdx.org/rdf/3.0.1/terms/
+  spdx_core: https://spdx.org/rdf/3.0.1/terms/Core/
+  spdx_software: https://spdx.org/rdf/3.0.1/terms/Software/
+  spdx_security: https://spdx.org/rdf/3.0.1/terms/Security/
+  spdx_simple_licensing: https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/
+  spdx_expanded_licensing: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/
+  spdx_ai: https://spdx.org/rdf/3.0.1/terms/AI/
+  spdx_dataset: https://spdx.org/rdf/3.0.1/terms/Dataset/
+  spdx_build: https://spdx.org/rdf/3.0.1/terms/Build/
+  spdx_extension: https://spdx.org/rdf/3.0.1/terms/Extension/
+  linkml: https://w3id.org/linkml/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  xsd: http://www.w3.org/2001/XMLSchema#
+
+default_prefix: spdx_linkml
+default_range: string
+
+imports:
+  - linkml:types
+  - ./spdx_core
+
+enums:
+
+  ContentIdentifierType:
+    enum_uri: spdx_software:ContentIdentifierType
+    description: Specifies the type of a content identifier.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Vocabularies/ContentIdentifierType/
+    in_subset:
+      - spdx_software
+    permissible_values:
+      gitoid:
+        description: >-
+          [Gitoid](https://www.iana.org/assignments/uri-schemes/prov/gitoid), stands for [Git Object ID](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects).
+          A gitoid of type blob is a unique hash of a binary artifact. A gitoid may represent either an
+          [Artifact Identifier](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#artifact-identifier-types)
+          for the software artifact or an [Input Manifest Identifier](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#input-manifest-identifier)
+          for the software artifact's associated [Artifact Input Manifest](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#artifact-input-manifest);
+          this ambiguity exists because the Artifact Input Manifest is itself an artifact, and the gitoid
+          of that artifact is its valid identifier. Gitoids calculated on software artifacts (Snippet,
+          File, or Package Elements) should be recorded in the SPDX 3.0 SoftwareArtifact's contentIdentifier
+          property. Gitoids calculated on the Artifact Input Manifest (Input Manifest Identifier) should
+          be recorded in the SPDX 3.0 Element's externalIdentifier property. See [OmniBOR Specification](https://github.com/omnibor/spec/),
+          a minimalistic specification for describing software [Artifact Dependency Graphs](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#artifact-dependency-graph-adg).
+        meaning: spdx_software:ContentIdentifierType/gitoid
+      swhid:
+        description: >-
+          SoftWare Hash IDentifier, a persistent intrinsic identifier for digital artifacts, such as files,
+          trees (also known as directories or folders), commits, and other objects typically found in
+          version control systems. The format of the identifiers is defined in the [SWHID specification](https://www.swhid.org/specification/v1.1/4.Syntax)
+          (ISO/IEC DIS 18670). They typically look like `swh:1:cnt:94a9ed024d3859793618152ea559a168bbcbb5e2`.
+        meaning: spdx_software:ContentIdentifierType/swhid
+
+  FileKindType:
+    enum_uri: spdx_software:FileKindType
+    description: Enumeration of the different kinds of SPDX file.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Vocabularies/FileKindType/
+    in_subset:
+      - spdx_software
+    permissible_values:
+      directory:
+        description: The file represents a directory and all content stored in that directory.
+        meaning: spdx_software:FileKindType/directory
+      file:
+        description: The file represents a single file (default).
+        meaning: spdx_software:FileKindType/file
+
+  SbomType:
+    enum_uri: spdx_software:SbomType
+    description: >-
+      Provides a set of values to be used to describe the common types of SBOMs that tools may create.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Vocabularies/SbomType/
+    in_subset:
+      - spdx_software
+    permissible_values:
+      analyzed:
+        description: >-
+          SBOM generated through analysis of artifacts (e.g., executables, packages, containers, and virtual
+          machine images) after its build. Such analysis generally requires a variety of heuristics. In
+          some contexts, this may also be referred to as a "3rd party" SBOM.
+        meaning: spdx_software:SbomType/analyzed
+      build:
+        description: >-
+          SBOM generated as part of the process of building the software to create a releasable artifact
+          (e.g., executable or package) from data such as source files, dependencies, built components,
+          build process ephemeral data, and other SBOMs.
+        meaning: spdx_software:SbomType/build
+      deployed:
+        description: >-
+          SBOM provides an inventory of software that is present on a system. This may be an assembly
+          of other SBOMs that combines analysis of configuration options, and examination of execution
+          behavior in a (potentially simulated) deployment environment.
+        meaning: spdx_software:SbomType/deployed
+      design:
+        description: >-
+          SBOM of intended, planned software project or product with included components (some of which
+          may not yet exist) for a new software artifact.
+        meaning: spdx_software:SbomType/design
+      runtime:
+        description: >-
+          SBOM generated through instrumenting the system running the software, to capture only components
+          present in the system, as well as external call-outs or dynamically loaded components. In some
+          contexts, this may also be referred to as an "Instrumented" or "Dynamic" SBOM.
+        meaning: spdx_software:SbomType/runtime
+      source:
+        description: >-
+          SBOM created directly from the development environment, source files, and included dependencies
+          used to build an product artifact.
+        meaning: spdx_software:SbomType/source
+
+  SoftwarePurpose:
+    enum_uri: spdx_software:SoftwarePurpose
+    description: Provides information about the primary purpose of an Element.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Vocabularies/SoftwarePurpose/
+    in_subset:
+      - spdx_software
+    permissible_values:
+      application:
+        description: The Element is a software application.
+        meaning: spdx_software:SoftwarePurpose/application
+      archive:
+        description: The Element is an archived collection of one or more files (.tar, .zip, etc.).
+        meaning: spdx_software:SoftwarePurpose/archive
+      bom:
+        description: The Element is a bill of materials.
+        meaning: spdx_software:SoftwarePurpose/bom
+      configuration:
+        description: The Element is configuration data.
+        meaning: spdx_software:SoftwarePurpose/configuration
+      container:
+        description: >-
+          The Element is a container image which can be used by a container runtime application.
+        meaning: spdx_software:SoftwarePurpose/container
+      data:
+        description: The Element is data.
+        meaning: spdx_software:SoftwarePurpose/data
+      device:
+        description: The Element refers to a chipset, processor, or electronic board.
+        meaning: spdx_software:SoftwarePurpose/device
+      deviceDriver:
+        description: The Element represents software that controls hardware devices.
+        meaning: spdx_software:SoftwarePurpose/deviceDriver
+      diskImage:
+        description: >-
+          The Element refers to a disk image that can be written to a disk, booted in a VM, etc. A disk
+          image typically contains most or all of the components necessary to boot, such as bootloaders,
+          kernels, firmware, userspace, etc.
+        meaning: spdx_software:SoftwarePurpose/diskImage
+      documentation:
+        description: The Element is documentation.
+        meaning: spdx_software:SoftwarePurpose/documentation
+      evidence:
+        description: >-
+          The Element is the evidence that a specification or requirement has been fulfilled.
+        meaning: spdx_software:SoftwarePurpose/evidence
+      executable:
+        description: The Element is an Artifact that can be run on a computer.
+        meaning: spdx_software:SoftwarePurpose/executable
+      file:
+        description: >-
+          The Element is a single file which can be independently distributed (configuration file, statically
+          linked binary, Kubernetes deployment, etc.).
+        meaning: spdx_software:SoftwarePurpose/file
+      filesystemImage:
+        description: >-
+          The Element is a file system image that can be written to a disk (or virtual) partition.
+        meaning: spdx_software:SoftwarePurpose/filesystemImage
+      firmware:
+        description: The Element provides low level control over a device's hardware.
+        meaning: spdx_software:SoftwarePurpose/firmware
+      framework:
+        description: The Element is a software framework.
+        meaning: spdx_software:SoftwarePurpose/framework
+      install:
+        description: The Element is used to install software on disk.
+        meaning: spdx_software:SoftwarePurpose/install
+      library:
+        description: The Element is a software library.
+        meaning: spdx_software:SoftwarePurpose/library
+      manifest:
+        description: The Element is a software manifest.
+        meaning: spdx_software:SoftwarePurpose/manifest
+      model:
+        description: The Element is a machine learning or artificial intelligence model.
+        meaning: spdx_software:SoftwarePurpose/model
+      module:
+        description: The Element is a module of a piece of software.
+        meaning: spdx_software:SoftwarePurpose/module
+      operatingSystem:
+        description: The Element is an operating system.
+        meaning: spdx_software:SoftwarePurpose/operatingSystem
+      other:
+        description: The Element doesn't fit into any of the other categories.
+        meaning: spdx_software:SoftwarePurpose/other
+      patch:
+        description: >-
+          The Element contains a set of changes to update, fix, or improve another Element.
+        meaning: spdx_software:SoftwarePurpose/patch
+      platform:
+        description: The Element represents a runtime environment.
+        meaning: spdx_software:SoftwarePurpose/platform
+      requirement:
+        description: The Element provides a requirement needed as input for another Element.
+        meaning: spdx_software:SoftwarePurpose/requirement
+      source:
+        description: The Element is a single or a collection of source files.
+        meaning: spdx_software:SoftwarePurpose/source
+      specification:
+        description: >-
+          The Element is a plan, guideline or strategy how to create, perform or analyze an application.
+        meaning: spdx_software:SoftwarePurpose/specification
+      test:
+        description: The Element is a test used to verify functionality on an software element.
+        meaning: spdx_software:SoftwarePurpose/test
+
+classes:
+
+  ContentIdentifier:
+    is_a: IntegrityMethod
+    class_uri: spdx_software:ContentIdentifier
+    description: A canonical, unique, immutable identifier
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Classes/ContentIdentifier/
+    in_subset:
+      - spdx_software
+    attributes:
+      contentIdentifierType:
+        description: Specifies the type of the content identifier.
+        slot_uri: spdx_software:contentIdentifierType
+        range: ContentIdentifierType
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/contentIdentifierType/
+      contentIdentifierValue:
+        description: Specifies the value of the content identifier.
+        slot_uri: spdx_software:contentIdentifierValue
+        range: uri
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/contentIdentifierValue/
+
+  File:
+    is_a: SoftwareArtifact
+    class_uri: spdx_software:File
+    description: Refers to any object that stores content on a computer.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Classes/File/
+    in_subset:
+      - spdx_software
+    slots:
+      - contentType
+    attributes:
+      fileKind:
+        description: Describes if a given file is a directory or non-directory kind of file.
+        slot_uri: spdx_software:fileKind
+        range: FileKindType
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/fileKind/
+
+  Package:
+    is_a: SoftwareArtifact
+    class_uri: spdx_software:Package
+    description: >-
+      Refers to any unit of content that can be associated with a distribution of software.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Classes/Package/
+    in_subset:
+      - spdx_software
+    attributes:
+      downloadLocation:
+        description: >-
+          Identifies the download Uniform Resource Identifier for the package at the time that the document
+          was created.
+        slot_uri: spdx_software:downloadLocation
+        range: uri
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/downloadLocation/
+      homePage:
+        description: >-
+          A place for the SPDX document creator to record a website that serves as the package's home
+          page.
+        slot_uri: spdx_software:homePage
+        range: uri
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/homePage/
+      packageUrl:
+        description: >-
+          Provides a place for the SPDX data creator to record the package URL string (in accordance with
+          the Package URL specification) for a software Package.
+        slot_uri: spdx_software:packageUrl
+        range: uri
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/packageUrl/
+      packageVersion:
+        description: Identify the version of a package.
+        slot_uri: spdx_software:packageVersion
+        range: string
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/packageVersion/
+      sourceInfo:
+        description: >-
+          Records any relevant background information or additional comments about the origin of the package.
+        slot_uri: spdx_software:sourceInfo
+        range: string
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/sourceInfo/
+
+  Sbom:
+    is_a: Bom
+    class_uri: spdx_software:Sbom
+    description: A collection of SPDX Elements describing a single package.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Classes/Sbom/
+    in_subset:
+      - spdx_software
+    attributes:
+      sbomType:
+        description: Provides information about the type of an SBOM.
+        slot_uri: spdx_software:sbomType
+        range: SbomType
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/sbomType/
+
+  Snippet:
+    is_a: SoftwareArtifact
+    class_uri: spdx_software:Snippet
+    description: Describes a certain part of a file.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Classes/Snippet/
+    in_subset:
+      - spdx_software
+    attributes:
+      byteRange:
+        description: >-
+          Defines the byte range in the original host file that the snippet information applies to.
+        slot_uri: spdx_software:byteRange
+        range: PositiveIntegerRange
+        inlined: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/byteRange/
+      lineRange:
+        description: >-
+          Defines the line range in the original host file that the snippet information applies to.
+        slot_uri: spdx_software:lineRange
+        range: PositiveIntegerRange
+        inlined: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/lineRange/
+      snippetFromFile:
+        description: Defines the original host file that the snippet information applies to.
+        slot_uri: spdx_software:snippetFromFile
+        range: File
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/snippetFromFile/
+
+  SoftwareArtifact:
+    is_a: Artifact
+    abstract: true
+    class_uri: spdx_software:SoftwareArtifact
+    description: A distinct article or unit related to Software.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Classes/SoftwareArtifact/
+    in_subset:
+      - spdx_software
+    attributes:
+      additionalPurpose:
+        description: Provides additional purpose information of the software artifact.
+        slot_uri: spdx_software:additionalPurpose
+        range: SoftwarePurpose
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/additionalPurpose/
+      attributionText:
+        description: >-
+          Provides a place for the SPDX data creator to record acknowledgement text for a software Package,
+          File or Snippet.
+        slot_uri: spdx_software:attributionText
+        range: string
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/attributionText/
+      contentIdentifier:
+        description: >-
+          A canonical, unique, immutable identifier of the artifact content, that may be used for verifying
+          its identity and/or integrity.
+        slot_uri: spdx_software:contentIdentifier
+        range: ContentIdentifier
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/contentIdentifier/
+      copyrightText:
+        description: >-
+          Identifies the text of one or more copyright notices for a software Package, File or Snippet,
+          if any.
+        slot_uri: spdx_software:copyrightText
+        range: string
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/copyrightText/
+      primaryPurpose:
+        description: Provides information about the primary purpose of the software artifact.
+        slot_uri: spdx_software:primaryPurpose
+        range: SoftwarePurpose
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/primaryPurpose/

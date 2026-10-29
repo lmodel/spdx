@@ -1,0 +1,10 @@
+spdxId: https://example.com/spdx/licenses/mit-and-apache
+type: spdx_expanded_licensing:ConjunctiveLicenseSet
+member:
+  - https://spdx.org/licenses/MIT
+  - https://spdx.org/licenses/Apache-2.0
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane

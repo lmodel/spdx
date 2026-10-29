@@ -1,0 +1,12 @@
+spdxId: https://spdx.org/licenses/Classpath-exception-2.0
+type: spdx_expanded_licensing:ListedLicenseException
+name: Classpath exception 2.0
+additionText: Linking this library statically or dynamically with other modules is making a combined work based on this library.
+listVersionAdded: "2.0"
+seeAlso:
+  - https://www.gnu.org/software/classpath/license.html
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane

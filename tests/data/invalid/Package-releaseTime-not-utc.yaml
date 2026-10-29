@@ -1,0 +1,7 @@
+spdxId: https://example.com/spdx/packages/hello-1.0.0
+releaseTime: "2024-10-01T12:00:00+01:00"
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane

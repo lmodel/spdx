@@ -1,0 +1,93 @@
+---
+id: https://w3id.org/lmodel/spdx/spdx_simple_licensing
+name: spdx_simple_licensing
+title: SPDX Simple Licensing profile
+description: >-
+  The Simple Licensing profile: a license expression string and a block of license text.
+version: 3.0.1
+source: https://spdx.org/rdf/3.0.1/spdx-model.ttl
+license: Apache-2.0
+see_also:
+  - https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/SimpleLicensing/
+
+prefixes:
+  spdx_linkml: https://w3id.org/lmodel/spdx/
+  spdx: https://spdx.org/rdf/3.0.1/terms/
+  spdx_core: https://spdx.org/rdf/3.0.1/terms/Core/
+  spdx_software: https://spdx.org/rdf/3.0.1/terms/Software/
+  spdx_security: https://spdx.org/rdf/3.0.1/terms/Security/
+  spdx_simple_licensing: https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/
+  spdx_expanded_licensing: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/
+  spdx_ai: https://spdx.org/rdf/3.0.1/terms/AI/
+  spdx_dataset: https://spdx.org/rdf/3.0.1/terms/Dataset/
+  spdx_build: https://spdx.org/rdf/3.0.1/terms/Build/
+  spdx_extension: https://spdx.org/rdf/3.0.1/terms/Extension/
+  linkml: https://w3id.org/linkml/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  xsd: http://www.w3.org/2001/XMLSchema#
+
+default_prefix: spdx_linkml
+default_range: string
+
+imports:
+  - linkml:types
+  - ./spdx_core
+
+slots:
+
+  licenseText:
+    description: Identifies the full text of a License or Addition.
+    slot_uri: spdx_simple_licensing:licenseText
+    range: string
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Properties/licenseText/
+    in_subset:
+      - spdx_simple_licensing
+
+classes:
+
+  LicenseExpression:
+    is_a: AnyLicenseInfo
+    class_uri: spdx_simple_licensing:LicenseExpression
+    description: An SPDX Element containing an SPDX license expression string.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Classes/LicenseExpression/
+    in_subset:
+      - spdx_simple_licensing
+    attributes:
+      customIdToUri:
+        description: >-
+          Maps a LicenseRef or AdditionRef string for a Custom License or a Custom License Addition to
+          its URI ID.
+        slot_uri: spdx_simple_licensing:customIdToUri
+        range: DictionaryEntry
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Properties/customIdToUri/
+      licenseExpression:
+        description: A string in the license expression format.
+        slot_uri: spdx_simple_licensing:licenseExpression
+        range: string
+        required: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Properties/licenseExpression/
+      licenseListVersion:
+        description: The version of the SPDX License List used in the license expression.
+        slot_uri: spdx_simple_licensing:licenseListVersion
+        range: semver
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Properties/licenseListVersion/
+
+  SimpleLicensingText:
+    is_a: Element
+    class_uri: spdx_simple_licensing:SimpleLicensingText
+    description: A license or addition that is not listed on the SPDX License List.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Classes/SimpleLicensingText/
+    in_subset:
+      - spdx_simple_licensing
+    slots:
+      - licenseText

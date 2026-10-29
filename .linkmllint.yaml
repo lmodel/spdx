@@ -1,0 +1,16 @@
+# linkml-lint reads this file from the directory `just lint` runs in.
+# The recommended rules apply, with the naming rule fitted to SPDX's names.
+# Slots are SPDX property names, lowerCamelCase (hashValue, packageVersion),
+# and permissible values are SPDX vocabulary entries as the JSON-LD
+# serialisation writes them (kilowattHour, sha3_256), so a document compares
+# with the schema without translation. security_locator is the one slot with
+# an underscore: it is the SPDX JSON-LD key for the Security profile's
+# locator, which Core also defines.
+extends: recommended
+rules:
+  standard_naming:
+    slot_pattern: camel
+    exclude_type:
+      - permissible_value
+    exclude:
+      - security_locator

@@ -1,0 +1,11 @@
+spdxId: https://example.com/spdx/agents/jane
+type: spdx_core:Person
+name: Jane Doe
+externalIdentifier:
+  - externalIdentifierType: email
+    identifier: jane@example.com
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane

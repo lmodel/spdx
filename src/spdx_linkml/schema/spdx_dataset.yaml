@@ -1,0 +1,255 @@
+---
+id: https://w3id.org/lmodel/spdx/spdx_dataset
+name: spdx_dataset
+title: SPDX Dataset profile
+description: >-
+  The Dataset profile: a dataset package with its collection, sensitivity, availability and bias information.
+version: 3.0.1
+source: https://spdx.org/rdf/3.0.1/spdx-model.ttl
+license: Apache-2.0
+see_also:
+  - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Dataset/
+
+prefixes:
+  spdx_linkml: https://w3id.org/lmodel/spdx/
+  spdx: https://spdx.org/rdf/3.0.1/terms/
+  spdx_core: https://spdx.org/rdf/3.0.1/terms/Core/
+  spdx_software: https://spdx.org/rdf/3.0.1/terms/Software/
+  spdx_security: https://spdx.org/rdf/3.0.1/terms/Security/
+  spdx_simple_licensing: https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/
+  spdx_expanded_licensing: https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/
+  spdx_ai: https://spdx.org/rdf/3.0.1/terms/AI/
+  spdx_dataset: https://spdx.org/rdf/3.0.1/terms/Dataset/
+  spdx_build: https://spdx.org/rdf/3.0.1/terms/Build/
+  spdx_extension: https://spdx.org/rdf/3.0.1/terms/Extension/
+  linkml: https://w3id.org/linkml/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  xsd: http://www.w3.org/2001/XMLSchema#
+
+default_prefix: spdx_linkml
+default_range: string
+
+imports:
+  - linkml:types
+  - ./spdx_core
+  - ./spdx_software
+
+enums:
+
+  ConfidentialityLevelType:
+    enum_uri: spdx_dataset:ConfidentialityLevelType
+    description: Categories of confidentiality level.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Vocabularies/ConfidentialityLevelType/
+    in_subset:
+      - spdx_dataset
+    permissible_values:
+      amber:
+        description: >-
+          Data points in the dataset can be shared only with specific organizations and their clients
+          on a need to know basis.
+        meaning: spdx_dataset:ConfidentialityLevelType/amber
+      clear:
+        description: Dataset may be distributed freely, without restriction.
+        meaning: spdx_dataset:ConfidentialityLevelType/clear
+      green:
+        description: Dataset can be shared within a community of peers and partners.
+        meaning: spdx_dataset:ConfidentialityLevelType/green
+      red:
+        description: >-
+          Data points in the dataset are highly confidential and can only be shared with named recipients.
+        meaning: spdx_dataset:ConfidentialityLevelType/red
+
+  DatasetAvailabilityType:
+    enum_uri: spdx_dataset:DatasetAvailabilityType
+    description: Availability of dataset.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Vocabularies/DatasetAvailabilityType/
+    in_subset:
+      - spdx_dataset
+    permissible_values:
+      clickthrough:
+        description: >-
+          the dataset is not publicly available and can only be accessed after affirmatively accepting
+          terms on a clickthrough webpage.
+        meaning: spdx_dataset:DatasetAvailabilityType/clickthrough
+      directDownload:
+        description: the dataset is publicly available and can be downloaded directly.
+        meaning: spdx_dataset:DatasetAvailabilityType/directDownload
+      query:
+        description: >-
+          the dataset is publicly available, but not all at once, and can only be accessed through queries
+          which return parts of the dataset.
+        meaning: spdx_dataset:DatasetAvailabilityType/query
+      registration:
+        description: >-
+          the dataset is not publicly available and an email registration is required before accessing
+          the dataset, although without an affirmative acceptance of terms.
+        meaning: spdx_dataset:DatasetAvailabilityType/registration
+      scrapingScript:
+        description: >-
+          the dataset provider is not making available the underlying data and the dataset must be reassembled,
+          typically using the provided script for scraping the data.
+        meaning: spdx_dataset:DatasetAvailabilityType/scrapingScript
+
+  DatasetType:
+    enum_uri: spdx_dataset:DatasetType
+    description: Enumeration of dataset types.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Vocabularies/DatasetType/
+    in_subset:
+      - spdx_dataset
+    permissible_values:
+      audio:
+        description: data is audio based, such as a collection of music from the 80s.
+        meaning: spdx_dataset:DatasetType/audio
+      categorical:
+        description: >-
+          data that is classified into a discrete number of categories, such as the eye color of a population
+          of people.
+        meaning: spdx_dataset:DatasetType/categorical
+      graph:
+        description: >-
+          data is in the form of a graph where entries are somehow related to each other through edges,
+          such a social network of friends.
+        meaning: spdx_dataset:DatasetType/graph
+      image:
+        description: data is a collection of images such as pictures of animals.
+        meaning: spdx_dataset:DatasetType/image
+      noAssertion:
+        description: data type is not known.
+        meaning: spdx_dataset:DatasetType/noAssertion
+      numeric:
+        description: data consists only of numeric entries.
+        meaning: spdx_dataset:DatasetType/numeric
+      other:
+        description: data is of a type not included in this list.
+        meaning: spdx_dataset:DatasetType/other
+      sensor:
+        description: >-
+          data is recorded from a physical sensor, such as a thermometer reading or biometric device.
+        meaning: spdx_dataset:DatasetType/sensor
+      structured:
+        description: data is stored in tabular format or retrieved from a relational database.
+        meaning: spdx_dataset:DatasetType/structured
+      syntactic:
+        description: >-
+          data describes the syntax or semantics of a language or text, such as a parse tree used for
+          natural language processing.
+        meaning: spdx_dataset:DatasetType/syntactic
+      text:
+        description: >-
+          data consists of unstructured text, such as a book, Wikipedia article (without images), or transcript.
+        meaning: spdx_dataset:DatasetType/text
+      timeseries:
+        description: >-
+          data is recorded in an ordered sequence of timestamped entries, such as the price of a stock
+          over the course of a day.
+        meaning: spdx_dataset:DatasetType/timeseries
+      timestamp:
+        description: >-
+          data is recorded with a timestamp for each entry, but not necessarily ordered or at specific
+          intervals, such as when a taxi ride starts and ends.
+        meaning: spdx_dataset:DatasetType/timestamp
+      video:
+        description: data is video based, such as a collection of movie clips featuring Tom Hanks.
+        meaning: spdx_dataset:DatasetType/video
+
+classes:
+
+  DatasetPackage:
+    is_a: Package
+    class_uri: spdx_dataset:DatasetPackage
+    description: Specifies a data package and its associated information.
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/
+    in_subset:
+      - spdx_dataset
+    attributes:
+      anonymizationMethodUsed:
+        description: Describes the anonymization methods used.
+        slot_uri: spdx_dataset:anonymizationMethodUsed
+        range: string
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/anonymizationMethodUsed/
+      confidentialityLevel:
+        description: Describes the confidentiality level of the data points contained in the dataset.
+        slot_uri: spdx_dataset:confidentialityLevel
+        range: ConfidentialityLevelType
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/confidentialityLevel/
+      dataCollectionProcess:
+        description: Describes how the dataset was collected.
+        slot_uri: spdx_dataset:dataCollectionProcess
+        range: string
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/dataCollectionProcess/
+      dataPreprocessing:
+        description: >-
+          Describes the preprocessing steps that were applied to the raw data to create the given dataset.
+        slot_uri: spdx_dataset:dataPreprocessing
+        range: string
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/dataPreprocessing/
+      datasetAvailability:
+        description: The field describes the availability of a dataset.
+        slot_uri: spdx_dataset:datasetAvailability
+        range: DatasetAvailabilityType
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/datasetAvailability/
+      datasetNoise:
+        description: Describes potentially noisy elements of the dataset.
+        slot_uri: spdx_dataset:datasetNoise
+        range: string
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/datasetNoise/
+      datasetSize:
+        description: Captures the size of the dataset.
+        slot_uri: spdx_dataset:datasetSize
+        range: non_negative_integer
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/datasetSize/
+      datasetType:
+        description: Describes the type of the given dataset.
+        slot_uri: spdx_dataset:datasetType
+        range: DatasetType
+        required: true
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/datasetType/
+      datasetUpdateMechanism:
+        description: Describes a mechanism to update the dataset.
+        slot_uri: spdx_dataset:datasetUpdateMechanism
+        range: string
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/datasetUpdateMechanism/
+      hasSensitivePersonalInformation:
+        description: Describes if any sensitive personal information is present in the dataset.
+        slot_uri: spdx_dataset:hasSensitivePersonalInformation
+        range: PresenceType
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/hasSensitivePersonalInformation/
+      intendedUse:
+        description: Describes what the given dataset should be used for.
+        slot_uri: spdx_dataset:intendedUse
+        range: string
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/intendedUse/
+      knownBias:
+        description: Records the biases that the dataset is known to encompass.
+        slot_uri: spdx_dataset:knownBias
+        range: string
+        multivalued: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/knownBias/
+      sensor:
+        description: Describes a sensor used for collecting the data.
+        slot_uri: spdx_dataset:sensor
+        range: DictionaryEntry
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        see_also:
+          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/sensor/

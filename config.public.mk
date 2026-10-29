@@ -6,10 +6,10 @@
 
 # Note:
 # - just works fine with quoted variables of dot-env files like this one
-LINKML_SCHEMA_NAME="spdx"
+LINKML_SCHEMA_NAME="spdx_linkml"
 LINKML_SCHEMA_AUTHOR="Noel McLoughlin <noel.mcloughlin@gmail.com>"
-LINKML_SCHEMA_DESCRIPTION="System Package Data Exhange (SPDX): LinkML Schema"
-LINKML_SCHEMA_SOURCE_DIR="src/spdx/schema"
+LINKML_SCHEMA_DESCRIPTION="System Package Data Exchange (SPDX): LinkML Schema"
+LINKML_SCHEMA_SOURCE_DIR="src/spdx_linkml/schema"
 
 ###### linkml generator variables, used by justfile
 
@@ -22,7 +22,11 @@ LINKML_GENERATORS_DOC_ARGS=
 ## pass args to workaround genowl rdfs config bug (linkml#1453)
 ##   (i.e. --no-type-objects --no-metaclasses --metadata-profile=rdfs)
 # LINKML_GENERATORS_OWL_ARGS="--no-type-objects --no-metaclasses --metadata-profile=rdfs"
-LINKML_GENERATORS_OWL_ARGS=
+## SPDX leaves its abstract classes open, since another Extension or
+## IntegrityMethod may exist, so the OWL has no covering axiom. The other three
+## flags are the generator's announced future defaults, set now so that the OWL
+## stays the same when they become the defaults.
+LINKML_GENERATORS_OWL_ARGS="--skip-abstract-class-as-unionof-subclasses --skip-vacuous-min-zero-cardinality-axioms --skip-vacuous-local-range-axioms --consolidate-cardinality-axioms"
 
 ## pass args to pydantic generator which isn't supported by gen-project
 ## https://github.com/linkml/linkml/issues/2537

@@ -1,0 +1,5 @@
+externalRefType: vcs
+locator:
+  - https://github.com/example/hello.git
+contentType: text/plain
+comment: The repository the package was built from.

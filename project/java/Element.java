@@ -1,7 +1,11 @@
-package None;
+package example;
 
-/* metamodel_version: 1.7.0 */
+/* metamodel_version: 1.12.0 */
 /* version: 3.0.1 */
+import java.net.URI;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
 import java.util.List;
 import lombok.*;
 
@@ -12,14 +16,17 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public abstract class Element  {
 
-  private List<ExternalIdentifier> externalIdentifier;
-  private List<Extension> extension;
-  private String summary;
-  private String description;
+  private URI type;
   private String comment;
   private List<IntegrityMethod> verifiedUsing;
+  private URI spdxId;
+  private CreationInfo creationInfo;
+  private String description;
+  private List<Extension> extension;
+  private List<ExternalIdentifier> externalIdentifier;
   private List<ExternalRef> externalRef;
   private String name;
-  private CreationInfo creationInfo;
+  private String summary;
+
 
 }

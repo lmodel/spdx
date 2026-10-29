@@ -1,0 +1,22 @@
+spdxId: https://example.com/spdx/packages/hello-1.0.0
+type: spdx_software:Package
+name: hello
+packageVersion: 1.0.0
+downloadLocation: https://example.com/downloads/hello-1.0.0.tar.gz
+homePage: https://example.com/hello
+packageUrl: pkg:generic/hello@1.0.0
+primaryPurpose: application
+additionalPurpose:
+  - library
+releaseTime: "2024-10-01T12:00:00Z"
+copyrightText: Copyright 2024 Example Org
+suppliedBy: https://example.com/spdx/agents/example-org
+verifiedUsing:
+  - type: spdx_core:Hash
+    algorithm: sha256
+    hashValue: 2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane

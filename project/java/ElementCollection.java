@@ -1,7 +1,11 @@
-package None;
+package example;
 
-/* metamodel_version: 1.7.0 */
+/* metamodel_version: 1.12.0 */
 /* version: 3.0.1 */
+import java.net.URI;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
 import java.util.List;
 import lombok.*;
 
@@ -15,5 +19,6 @@ public abstract class ElementCollection extends Element {
   private List<Element> element;
   private List<String> profileConformance;
   private List<Element> rootElement;
+
 
 }

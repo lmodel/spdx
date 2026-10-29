@@ -23,6 +23,13 @@ generator_args:
     type_objects: false
     add_root_classes: true
     mixins_as_expressions: true
+    # gen-project writes the OWL once before the justfile's own gen-owl call,
+    # so these keys repeat the choices of LINKML_GENERATORS_OWL_ARGS in
+    # config.public.mk.
+    skip_abstract_class_as_unionof_subclasses: true
+    skip_vacuous_min_zero_cardinality_axioms: true
+    skip_vacuous_local_range_axioms: true
+    consolidate_cardinality_axioms: true
   markdown:
     mergeimports: true
     directory: "docs/elements"

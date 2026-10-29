@@ -1,0 +1,9 @@
+spdxId: https://example.com/spdx/agents/example-org
+type: spdx_core:Organization
+name: Example Org
+summary: The organisation that supplies the hello package.
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane

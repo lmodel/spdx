@@ -1,0 +1,6 @@
+trainingEnergyConsumption:
+  - energyQuantity: 12.5
+    energyUnit: kilowattHour
+inferenceEnergyConsumption:
+  - energyQuantity: 0.002
+    energyUnit: kilowattHour

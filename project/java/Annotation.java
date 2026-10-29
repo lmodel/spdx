@@ -1,7 +1,11 @@
-package None;
+package example;
 
-/* metamodel_version: 1.7.0 */
+/* metamodel_version: 1.12.0 */
 /* version: 3.0.1 */
+import java.net.URI;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
 import java.util.List;
 import lombok.*;
 
@@ -13,8 +17,9 @@ import lombok.*;
 public class Annotation extends Element {
 
   private String contentType;
+  private String annotationType;
   private String statement;
   private Element subject;
-  private String annotationType;
+
 
 }
