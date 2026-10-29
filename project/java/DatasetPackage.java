@@ -1,7 +1,11 @@
-package None;
+package example;
 
-/* metamodel_version: 1.7.0 */
+/* metamodel_version: 1.12.0 */
 /* version: 3.0.1 */
+import java.net.URI;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
 import java.util.List;
 import lombok.*;
 
@@ -12,18 +16,19 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public class DatasetPackage extends Package {
 
+  private List<String> anonymizationMethodUsed;
+  private String confidentialityLevel;
+  private String dataCollectionProcess;
+  private List<String> dataPreprocessing;
+  private String datasetAvailability;
+  private String datasetNoise;
   private Integer datasetSize;
   private List<String> datasetType;
-  private List<String> anonymizationMethodUsed;
   private String datasetUpdateMechanism;
-  private String dataCollectionProcess;
+  private String hasSensitivePersonalInformation;
+  private String intendedUse;
   private List<String> knownBias;
   private List<DictionaryEntry> sensor;
-  private List<String> dataPreprocessing;
-  private String intendedUse;
-  private String confidentialityLevel;
-  private String datasetAvailability;
-  private String hasSensitivePersonalInformation;
-  private String datasetNoise;
+
 
 }

@@ -3,15 +3,17 @@ requires = ["hatchling", "uv-dynamic-versioning"]
 build-backend = "hatchling.build"
 
 [project]
-name = "spdx"
-description = "System Package Data Exhange (SPDX): LinkML Schema"
+# Named like lmodel/gist's gist-linkml and lmodel/slsa's slsa-linkml, so the PyPI
+# name says what the distribution holds; the import package stays `spdx`.
+name = "spdx-linkml"
+description = "System Package Data Exchange (SPDX): LinkML Schema"
 authors = [
   {name = "Noel McLoughlin", email = "noel.mcloughlin@gmail.com"},
 ]
 license = "Apache-2.0"
 license-files = ["LICENSE"]
 readme = "README.md"
-requires-python = ">=3.9,<4.0"
+requires-python = ">=3.10"
 dynamic = ["version"]
 
 dependencies = [
@@ -27,6 +29,9 @@ dev = [
     "jupyter>=1.0.0",
     "mknotebooks>= 0.8.0",
 ]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/spdx"]
 
 # See https://hatch.pypa.io/latest/config/build/#file-selection for how to
 # explicitly include files other than default into the build distributions.

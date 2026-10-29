@@ -1,0 +1,28 @@
+spdxId: https://example.com/spdx/packages/handwriting-model-2.1.0
+type: AIPackage
+name: handwriting-model
+packageVersion: 2.1.0
+primaryPurpose: model
+typeOfModel:
+  - convolutional neural network
+domain:
+  - handwriting recognition
+autonomyType: "no"
+useSensitivePersonalInformation: "no"
+safetyRiskAssessment: low
+informationAboutTraining: Trained on the IAM handwriting database for 40 epochs.
+hyperparameter:
+  - key: learning_rate
+    value: "0.001"
+metric:
+  - key: accuracy
+    value: "0.94"
+energyConsumption:
+  trainingEnergyConsumption:
+    - energyQuantity: 12.5
+      energyUnit: kilowattHour
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane

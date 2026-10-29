@@ -1,7 +1,11 @@
-package None;
+package example;
 
-/* metamodel_version: 1.7.0 */
+/* metamodel_version: 1.12.0 */
 /* version: 3.0.1 */
+import java.net.URI;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
 import java.util.List;
 import lombok.*;
 
@@ -12,14 +16,15 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public class Build extends Element {
 
-  private String buildType;
   private ZonedDateTime buildEndTime;
   private String buildId;
-  private List<Hash> configSourceDigest;
   private ZonedDateTime buildStartTime;
-  private List<String> configSourceUri;
-  private List<DictionaryEntry> parameter;
+  private URI buildType;
+  private List<Hash> configSourceDigest;
   private List<String> configSourceEntrypoint;
+  private List<URI> configSourceUri;
   private List<DictionaryEntry> environment;
+  private List<DictionaryEntry> parameter;
+
 
 }

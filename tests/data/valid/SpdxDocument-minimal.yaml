@@ -1,0 +1,20 @@
+spdxId: https://example.com/spdx/documents/hello-sbom
+type: SpdxDocument
+name: hello SBOM document
+profileConformance:
+  - core
+  - software
+rootElement:
+  - https://example.com/spdx/sboms/hello
+element:
+  - https://example.com/spdx/sboms/hello
+  - https://example.com/spdx/packages/hello-1.0.0
+dataLicense: https://spdx.org/licenses/CC0-1.0
+namespaceMap:
+  - prefix: hello
+    namespace: https://example.com/spdx/
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane

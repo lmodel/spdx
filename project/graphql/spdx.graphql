@@ -1,4 +1,4 @@
-# metamodel_version: 1.7.0
+# metamodel_version: 1.12.0
 # version: 3.0.1
 enum AnnotationType
   {
@@ -346,125 +346,137 @@ enum VexJustificationType
     vulnerableCodeNotPresent
   }
 
-interface Agent
+type Agent
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
+    summary: String
   }
 
 type AIPackage
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    standardName: [String]
-    builtTime: String
-    validUntilTime: String
-    supportLevel: [SupportType]
+    summary: String
     suppliedBy: Agent
+    builtTime: DateTimeStamp
     originatedBy: [Agent]
-    releaseTime: String
+    releaseTime: DateTimeStamp
+    standardName: [String]
+    supportLevel: [SupportType]
+    validUntilTime: DateTimeStamp
+    additionalPurpose: [SoftwarePurpose]
     attributionText: [String]
-    primaryPurpose: String
-    additionalPurpose: [String]
     contentIdentifier: [ContentIdentifier]
     copyrightText: String
-    sourceInfo: String
-    homePage: String
+    primaryPurpose: SoftwarePurpose
     downloadLocation: String
-    packageVersion: String
+    homePage: String
     packageUrl: String
-    informationAboutTraining: String
-    modelDataPreprocessing: [String]
-    typeOfModel: [String]
-    safetyRiskAssessment: SafetyRiskAssessmentType
-    metricDecisionThreshold: [DictionaryEntry]
-    useSensitivePersonalInformation: PresenceType
-    energyConsumption: EnergyConsumption
-    limitation: String
-    hyperparameter: [DictionaryEntry]
+    packageVersion: String
+    sourceInfo: String
     autonomyType: PresenceType
     domain: [String]
-    modelExplainability: [String]
+    energyConsumption: EnergyConsumption
+    hyperparameter: [DictionaryEntry]
     informationAboutApplication: String
+    informationAboutTraining: String
+    limitation: String
     metric: [DictionaryEntry]
+    metricDecisionThreshold: [DictionaryEntry]
+    modelDataPreprocessing: [String]
+    modelExplainability: [String]
+    safetyRiskAssessment: SafetyRiskAssessmentType
     standardCompliance: [String]
+    typeOfModel: [String]
+    useSensitivePersonalInformation: PresenceType
   }
 
 type Annotation
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    contentType: String
+    summary: String
+    contentType: MediaType
+    annotationType: AnnotationType!
     statement: String
     subject: Element!
-    annotationType: String!
   }
 
 interface AnyLicenseInfo
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
+    summary: String
   }
 
 interface Artifact
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    standardName: [String]
-    builtTime: String
-    validUntilTime: String
-    supportLevel: [SupportType]
+    summary: String
     suppliedBy: Agent
+    builtTime: DateTimeStamp
     originatedBy: [Agent]
-    releaseTime: String
+    releaseTime: DateTimeStamp
+    standardName: [String]
+    supportLevel: [SupportType]
+    validUntilTime: DateTimeStamp
   }
 
-interface Bom
+type Bom
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
+    summary: String
     element: [Element]
     profileConformance: [ProfileIdentifierType]
     rootElement: [Element]
@@ -473,37 +485,41 @@ interface Bom
 
 type Build
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    buildType: String!
-    buildEndTime: String
+    summary: String
+    buildEndTime: DateTimeStamp
     buildId: String
+    buildStartTime: DateTimeStamp
+    buildType: String!
     configSourceDigest: [Hash]
-    buildStartTime: String
-    configSourceUri: [String]
-    parameter: [DictionaryEntry]
     configSourceEntrypoint: [String]
+    configSourceUri: [String]
     environment: [DictionaryEntry]
+    parameter: [DictionaryEntry]
   }
 
 type Bundle
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
+    summary: String
     element: [Element]
     profileConformance: [ProfileIdentifierType]
     rootElement: [Element]
@@ -512,253 +528,278 @@ type Bundle
 
 type CdxPropertiesExtension
   {
+    type: String
     cdxProperty: [CdxPropertyEntry]!
   }
 
 type CdxPropertyEntry
   {
-    cdxPropValue: String
+    type: String
     cdxPropName: String!
+    cdxPropValue: String
   }
 
 type ConjunctiveLicenseSet
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
+    summary: String
     member: [AnyLicenseInfo]!
   }
 
 type ContentIdentifier
   {
+    type: String
     comment: String
-    contentIdentifierValue: String!
     contentIdentifierType: ContentIdentifierType!
+    contentIdentifierValue: String!
   }
 
 type CreationInfo
   {
+    type: String
+    comment: String
+    created: DateTimeStamp!
     createdBy: [Agent]!
     createdUsing: [Tool]
-    created: String!
-    specVersion: String!
-    comment: String
+    specVersion: Semver!
   }
 
 type CustomLicense
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    obsoletedBy: String
-    standardLicenseHeader: String
-    seeAlso: [String]
-    isFsfLibre: Boolean
-    isDeprecatedLicenseId: Boolean
-    isOsiApproved: Boolean
-    licenseXml: String
+    summary: String
     licenseText: String!
+    licenseXml: String
+    obsoletedBy: String
+    seeAlso: [String]
+    isDeprecatedLicenseId: Boolean
+    isFsfLibre: Boolean
+    isOsiApproved: Boolean
+    standardLicenseHeader: String
     standardLicenseTemplate: String
   }
 
 type CustomLicenseAddition
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    standardAdditionTemplate: String
-    seeAlso: [String]
-    obsoletedBy: String
+    summary: String
     licenseXml: String
-    isDeprecatedAdditionId: Boolean
+    obsoletedBy: String
+    seeAlso: [String]
     additionText: String!
+    isDeprecatedAdditionId: Boolean
+    standardAdditionTemplate: String
   }
 
 type CvssV2VulnAssessmentRelationship
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    to: [Element]!
+    summary: String
     completeness: RelationshipCompleteness
-    startTime: String
-    relationshipType: String!
+    endTime: DateTimeStamp
     from: Element!
-    endTime: String
-    withdrawnTime: String
-    publishedTime: String
-    assessedElement: SoftwareArtifact
+    relationshipType: RelationshipType!
+    startTime: DateTimeStamp
+    to: [Element]!
+    modifiedTime: DateTimeStamp
+    publishedTime: DateTimeStamp
     suppliedBy: Agent
-    modifiedTime: String
-    vectorString: String!
+    withdrawnTime: DateTimeStamp
+    assessedElement: SoftwareArtifact
     score: Float!
+    vectorString: String!
   }
 
 type CvssV3VulnAssessmentRelationship
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    to: [Element]!
+    summary: String
     completeness: RelationshipCompleteness
-    startTime: String
-    relationshipType: String!
+    endTime: DateTimeStamp
     from: Element!
-    endTime: String
-    withdrawnTime: String
-    publishedTime: String
-    assessedElement: SoftwareArtifact
+    relationshipType: RelationshipType!
+    startTime: DateTimeStamp
+    to: [Element]!
+    modifiedTime: DateTimeStamp
+    publishedTime: DateTimeStamp
     suppliedBy: Agent
-    modifiedTime: String
+    withdrawnTime: DateTimeStamp
+    assessedElement: SoftwareArtifact
+    score: Float!
     severity: CvssSeverityType!
     vectorString: String!
-    score: Float!
   }
 
 type CvssV4VulnAssessmentRelationship
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    to: [Element]!
+    summary: String
     completeness: RelationshipCompleteness
-    startTime: String
-    relationshipType: String!
+    endTime: DateTimeStamp
     from: Element!
-    endTime: String
-    withdrawnTime: String
-    publishedTime: String
-    assessedElement: SoftwareArtifact
+    relationshipType: RelationshipType!
+    startTime: DateTimeStamp
+    to: [Element]!
+    modifiedTime: DateTimeStamp
+    publishedTime: DateTimeStamp
     suppliedBy: Agent
-    modifiedTime: String
+    withdrawnTime: DateTimeStamp
+    assessedElement: SoftwareArtifact
+    score: Float!
     severity: CvssSeverityType!
     vectorString: String!
-    score: Float!
   }
 
 type DatasetPackage
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    standardName: [String]
-    builtTime: String
-    validUntilTime: String
-    supportLevel: [SupportType]
+    summary: String
     suppliedBy: Agent
+    builtTime: DateTimeStamp
     originatedBy: [Agent]
-    releaseTime: String
+    releaseTime: DateTimeStamp
+    standardName: [String]
+    supportLevel: [SupportType]
+    validUntilTime: DateTimeStamp
+    additionalPurpose: [SoftwarePurpose]
     attributionText: [String]
-    primaryPurpose: String
-    additionalPurpose: [String]
     contentIdentifier: [ContentIdentifier]
     copyrightText: String
-    sourceInfo: String
-    homePage: String
+    primaryPurpose: SoftwarePurpose
     downloadLocation: String
-    packageVersion: String
+    homePage: String
     packageUrl: String
-    datasetSize: Int
-    datasetType: [String]!
+    packageVersion: String
+    sourceInfo: String
     anonymizationMethodUsed: [String]
-    datasetUpdateMechanism: String
+    confidentialityLevel: ConfidentialityLevelType
     dataCollectionProcess: String
+    dataPreprocessing: [String]
+    datasetAvailability: DatasetAvailabilityType
+    datasetNoise: String
+    datasetSize: NonNegativeInteger
+    datasetType: [DatasetType]!
+    datasetUpdateMechanism: String
+    hasSensitivePersonalInformation: PresenceType
+    intendedUse: String
     knownBias: [String]
     sensor: [DictionaryEntry]
-    dataPreprocessing: [String]
-    intendedUse: String
-    confidentialityLevel: ConfidentialityLevelType
-    datasetAvailability: DatasetAvailabilityType
-    hasSensitivePersonalInformation: PresenceType
-    datasetNoise: String
   }
 
 type DictionaryEntry
   {
-    value: String
+    type: String
     key: String!
+    value: String
   }
 
 type DisjunctiveLicenseSet
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
+    summary: String
     member: [AnyLicenseInfo]!
   }
 
 interface Element
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
+    summary: String
   }
 
 interface ElementCollection
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
+    summary: String
     element: [Element]
     profileConformance: [ProfileIdentifierType]
     rootElement: [Element]
@@ -766,6 +807,7 @@ interface ElementCollection
 
 type EnergyConsumption
   {
+    type: String
     finetuningEnergyConsumption: [EnergyConsumptionDescription]
     inferenceEnergyConsumption: [EnergyConsumptionDescription]
     trainingEnergyConsumption: [EnergyConsumptionDescription]
@@ -773,266 +815,295 @@ type EnergyConsumption
 
 type EnergyConsumptionDescription
   {
+    type: String
     energyQuantity: Float!
-    energyUnit: String!
+    energyUnit: EnergyUnitType!
   }
 
 type EpssVulnAssessmentRelationship
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    to: [Element]!
+    summary: String
     completeness: RelationshipCompleteness
-    startTime: String
-    relationshipType: String!
+    endTime: DateTimeStamp
     from: Element!
-    endTime: String
-    withdrawnTime: String
-    publishedTime: String
-    assessedElement: SoftwareArtifact
+    relationshipType: RelationshipType!
+    startTime: DateTimeStamp
+    to: [Element]!
+    modifiedTime: DateTimeStamp
+    publishedTime: DateTimeStamp
     suppliedBy: Agent
-    modifiedTime: String
+    withdrawnTime: DateTimeStamp
+    assessedElement: SoftwareArtifact
     percentile: Float!
     probability: Float!
   }
 
 type ExploitCatalogVulnAssessmentRelationship
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    to: [Element]!
+    summary: String
     completeness: RelationshipCompleteness
-    startTime: String
-    relationshipType: String!
+    endTime: DateTimeStamp
     from: Element!
-    endTime: String
-    withdrawnTime: String
-    publishedTime: String
-    assessedElement: SoftwareArtifact
+    relationshipType: RelationshipType!
+    startTime: DateTimeStamp
+    to: [Element]!
+    modifiedTime: DateTimeStamp
+    publishedTime: DateTimeStamp
     suppliedBy: Agent
-    modifiedTime: String
+    withdrawnTime: DateTimeStamp
+    assessedElement: SoftwareArtifact
+    catalogType: ExploitCatalogType!
     exploited: Boolean!
     securityLocator: String!
-    catalogType: String!
   }
 
 interface ExtendableLicense
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
+    summary: String
   }
 
 interface Extension
   {
+    type: String
   }
 
 type ExternalIdentifier
   {
-    identifierLocator: [String]
-    externalIdentifierType: String!
-    issuingAuthority: String
-    identifier: String!
+    type: String
     comment: String
+    externalIdentifierType: ExternalIdentifierType!
+    identifier: String!
+    identifierLocator: [String]
+    issuingAuthority: String
   }
 
 type ExternalMap
   {
-    definingArtifact: Artifact
-    locationHint: String
-    externalSpdxId: String!
+    type: String
     verifiedUsing: [IntegrityMethod]
+    definingArtifact: Artifact
+    externalSpdxId: String!
+    locationHint: String
   }
 
 type ExternalRef
   {
-    coreLocator: [String]
-    externalRefType: String
+    type: String
     comment: String
-    contentType: String
+    contentType: MediaType
+    externalRefType: ExternalRefType
+    locator: [String]
   }
 
 type File
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    standardName: [String]
-    builtTime: String
-    validUntilTime: String
-    supportLevel: [SupportType]
+    summary: String
     suppliedBy: Agent
+    builtTime: DateTimeStamp
     originatedBy: [Agent]
-    releaseTime: String
+    releaseTime: DateTimeStamp
+    standardName: [String]
+    supportLevel: [SupportType]
+    validUntilTime: DateTimeStamp
+    additionalPurpose: [SoftwarePurpose]
     attributionText: [String]
-    primaryPurpose: String
-    additionalPurpose: [String]
     contentIdentifier: [ContentIdentifier]
     copyrightText: String
+    primaryPurpose: SoftwarePurpose
+    contentType: MediaType
     fileKind: FileKindType
-    contentType: String
   }
 
 type Hash
   {
+    type: String
     comment: String
-    algorithm: String!
+    algorithm: HashAlgorithm!
     hashValue: String!
   }
 
 type IndividualElement
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
+    summary: String
   }
 
 type IndividualLicensingInfo
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
+    summary: String
   }
 
 interface IntegrityMethod
   {
+    type: String
     comment: String
   }
 
 interface License
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    obsoletedBy: String
-    standardLicenseHeader: String
-    seeAlso: [String]
-    isFsfLibre: Boolean
-    isDeprecatedLicenseId: Boolean
-    isOsiApproved: Boolean
-    licenseXml: String
+    summary: String
     licenseText: String!
+    licenseXml: String
+    obsoletedBy: String
+    seeAlso: [String]
+    isDeprecatedLicenseId: Boolean
+    isFsfLibre: Boolean
+    isOsiApproved: Boolean
+    standardLicenseHeader: String
     standardLicenseTemplate: String
   }
 
 interface LicenseAddition
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    standardAdditionTemplate: String
-    seeAlso: [String]
-    obsoletedBy: String
+    summary: String
     licenseXml: String
-    isDeprecatedAdditionId: Boolean
+    obsoletedBy: String
+    seeAlso: [String]
     additionText: String!
+    isDeprecatedAdditionId: Boolean
+    standardAdditionTemplate: String
   }
 
 type LicenseExpression
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
+    summary: String
     customIdToUri: [DictionaryEntry]
     licenseExpression: String!
-    licenseListVersion: String
+    licenseListVersion: Semver
   }
 
 type LifecycleScopedRelationship
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    to: [Element]!
+    summary: String
     completeness: RelationshipCompleteness
-    startTime: String
-    relationshipType: String!
+    endTime: DateTimeStamp
     from: Element!
-    endTime: String
-    scope: String
+    relationshipType: RelationshipType!
+    startTime: DateTimeStamp
+    to: [Element]!
+    scope: LifecycleScopeType
   }
 
 type ListedLicense
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    obsoletedBy: String
-    standardLicenseHeader: String
-    seeAlso: [String]
-    isFsfLibre: Boolean
-    isDeprecatedLicenseId: Boolean
-    isOsiApproved: Boolean
-    licenseXml: String
+    summary: String
     licenseText: String!
+    licenseXml: String
+    obsoletedBy: String
+    seeAlso: [String]
+    isDeprecatedLicenseId: Boolean
+    isFsfLibre: Boolean
+    isOsiApproved: Boolean
+    standardLicenseHeader: String
     standardLicenseTemplate: String
     deprecatedVersion: String
     listVersionAdded: String
@@ -1040,145 +1111,162 @@ type ListedLicense
 
 type ListedLicenseException
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    standardAdditionTemplate: String
-    seeAlso: [String]
-    obsoletedBy: String
+    summary: String
     licenseXml: String
-    isDeprecatedAdditionId: Boolean
+    obsoletedBy: String
+    seeAlso: [String]
     additionText: String!
-    listVersionAdded: String
+    isDeprecatedAdditionId: Boolean
+    standardAdditionTemplate: String
     deprecatedVersion: String
+    listVersionAdded: String
   }
 
 type NamespaceMap
   {
-    prefix: String!
+    type: String
     namespace: String!
+    prefix: String!
   }
 
 type Organization
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
+    summary: String
   }
 
 type OrLaterOperator
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
+    summary: String
     subjectLicense: License!
   }
 
 type Package
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    standardName: [String]
-    builtTime: String
-    validUntilTime: String
-    supportLevel: [SupportType]
+    summary: String
     suppliedBy: Agent
+    builtTime: DateTimeStamp
     originatedBy: [Agent]
-    releaseTime: String
+    releaseTime: DateTimeStamp
+    standardName: [String]
+    supportLevel: [SupportType]
+    validUntilTime: DateTimeStamp
+    additionalPurpose: [SoftwarePurpose]
     attributionText: [String]
-    primaryPurpose: String
-    additionalPurpose: [String]
     contentIdentifier: [ContentIdentifier]
     copyrightText: String
-    sourceInfo: String
-    homePage: String
+    primaryPurpose: SoftwarePurpose
     downloadLocation: String
-    packageVersion: String
+    homePage: String
     packageUrl: String
+    packageVersion: String
+    sourceInfo: String
   }
 
 type PackageVerificationCode
   {
+    type: String
     comment: String
-    packageVerificationCodeExcludedFile: [String]
+    algorithm: HashAlgorithm!
     hashValue: String!
-    algorithm: String!
+    packageVerificationCodeExcludedFile: [String]
   }
 
 type Person
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
+    summary: String
   }
 
 type PositiveIntegerRange
   {
-    endIntegerRange: Int!
-    beginIntegerRange: Int!
+    type: String
+    beginIntegerRange: PositiveInteger!
+    endIntegerRange: PositiveInteger!
   }
 
 type Relationship
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    to: [Element]!
+    summary: String
     completeness: RelationshipCompleteness
-    startTime: String
-    relationshipType: String!
+    endTime: DateTimeStamp
     from: Element!
-    endTime: String
+    relationshipType: RelationshipType!
+    startTime: DateTimeStamp
+    to: [Element]!
   }
 
 type Sbom
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
+    summary: String
     element: [Element]
     profileConformance: [ProfileIdentifierType]
     rootElement: [Element]
@@ -1188,334 +1276,364 @@ type Sbom
 
 type SimpleLicensingText
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
+    summary: String
     licenseText: String!
   }
 
 type Snippet
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    standardName: [String]
-    builtTime: String
-    validUntilTime: String
-    supportLevel: [SupportType]
+    summary: String
     suppliedBy: Agent
+    builtTime: DateTimeStamp
     originatedBy: [Agent]
-    releaseTime: String
+    releaseTime: DateTimeStamp
+    standardName: [String]
+    supportLevel: [SupportType]
+    validUntilTime: DateTimeStamp
+    additionalPurpose: [SoftwarePurpose]
     attributionText: [String]
-    primaryPurpose: String
-    additionalPurpose: [String]
     contentIdentifier: [ContentIdentifier]
     copyrightText: String
+    primaryPurpose: SoftwarePurpose
+    byteRange: PositiveIntegerRange
     lineRange: PositiveIntegerRange
     snippetFromFile: File!
-    byteRange: PositiveIntegerRange
   }
 
 type SoftwareAgent
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
+    summary: String
   }
 
 interface SoftwareArtifact
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    standardName: [String]
-    builtTime: String
-    validUntilTime: String
-    supportLevel: [SupportType]
+    summary: String
     suppliedBy: Agent
+    builtTime: DateTimeStamp
     originatedBy: [Agent]
-    releaseTime: String
+    releaseTime: DateTimeStamp
+    standardName: [String]
+    supportLevel: [SupportType]
+    validUntilTime: DateTimeStamp
+    additionalPurpose: [SoftwarePurpose]
     attributionText: [String]
-    primaryPurpose: String
-    additionalPurpose: [String]
     contentIdentifier: [ContentIdentifier]
     copyrightText: String
+    primaryPurpose: SoftwarePurpose
   }
 
 type SpdxDocument
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
+    summary: String
     element: [Element]
     profileConformance: [ProfileIdentifierType]
     rootElement: [Element]
-    namespaceMap: [NamespaceMap]
     dataLicense: AnyLicenseInfo
     import: [ExternalMap]
+    namespaceMap: [NamespaceMap]
   }
 
 type SsvcVulnAssessmentRelationship
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    to: [Element]!
+    summary: String
     completeness: RelationshipCompleteness
-    startTime: String
-    relationshipType: String!
+    endTime: DateTimeStamp
     from: Element!
-    endTime: String
-    withdrawnTime: String
-    publishedTime: String
-    assessedElement: SoftwareArtifact
+    relationshipType: RelationshipType!
+    startTime: DateTimeStamp
+    to: [Element]!
+    modifiedTime: DateTimeStamp
+    publishedTime: DateTimeStamp
     suppliedBy: Agent
-    modifiedTime: String
+    withdrawnTime: DateTimeStamp
+    assessedElement: SoftwareArtifact
     decisionType: SsvcDecisionType!
   }
 
 type Tool
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
+    summary: String
   }
 
 type VexAffectedVulnAssessmentRelationship
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    to: [Element]!
+    summary: String
     completeness: RelationshipCompleteness
-    startTime: String
-    relationshipType: String!
+    endTime: DateTimeStamp
     from: Element!
-    endTime: String
-    withdrawnTime: String
-    publishedTime: String
-    assessedElement: SoftwareArtifact
+    relationshipType: RelationshipType!
+    startTime: DateTimeStamp
+    to: [Element]!
+    modifiedTime: DateTimeStamp
+    publishedTime: DateTimeStamp
     suppliedBy: Agent
-    modifiedTime: String
-    vexVersion: String
+    withdrawnTime: DateTimeStamp
+    assessedElement: SoftwareArtifact
     statusNotes: String
+    vexVersion: String
     actionStatement: String!
-    actionStatementTime: String
+    actionStatementTime: DateTimeStamp
   }
 
 type VexFixedVulnAssessmentRelationship
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    to: [Element]!
+    summary: String
     completeness: RelationshipCompleteness
-    startTime: String
-    relationshipType: String!
+    endTime: DateTimeStamp
     from: Element!
-    endTime: String
-    withdrawnTime: String
-    publishedTime: String
-    assessedElement: SoftwareArtifact
+    relationshipType: RelationshipType!
+    startTime: DateTimeStamp
+    to: [Element]!
+    modifiedTime: DateTimeStamp
+    publishedTime: DateTimeStamp
     suppliedBy: Agent
-    modifiedTime: String
-    vexVersion: String
+    withdrawnTime: DateTimeStamp
+    assessedElement: SoftwareArtifact
     statusNotes: String
+    vexVersion: String
   }
 
 type VexNotAffectedVulnAssessmentRelationship
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    to: [Element]!
+    summary: String
     completeness: RelationshipCompleteness
-    startTime: String
-    relationshipType: String!
+    endTime: DateTimeStamp
     from: Element!
-    endTime: String
-    withdrawnTime: String
-    publishedTime: String
-    assessedElement: SoftwareArtifact
+    relationshipType: RelationshipType!
+    startTime: DateTimeStamp
+    to: [Element]!
+    modifiedTime: DateTimeStamp
+    publishedTime: DateTimeStamp
     suppliedBy: Agent
-    modifiedTime: String
-    vexVersion: String
+    withdrawnTime: DateTimeStamp
+    assessedElement: SoftwareArtifact
     statusNotes: String
-    impactStatementTime: String
-    justificationType: VexJustificationType
+    vexVersion: String
     impactStatement: String
+    impactStatementTime: DateTimeStamp
+    justificationType: VexJustificationType
   }
 
 type VexUnderInvestigationVulnAssessmentRelationship
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    to: [Element]!
+    summary: String
     completeness: RelationshipCompleteness
-    startTime: String
-    relationshipType: String!
+    endTime: DateTimeStamp
     from: Element!
-    endTime: String
-    withdrawnTime: String
-    publishedTime: String
-    assessedElement: SoftwareArtifact
+    relationshipType: RelationshipType!
+    startTime: DateTimeStamp
+    to: [Element]!
+    modifiedTime: DateTimeStamp
+    publishedTime: DateTimeStamp
     suppliedBy: Agent
-    modifiedTime: String
-    vexVersion: String
+    withdrawnTime: DateTimeStamp
+    assessedElement: SoftwareArtifact
     statusNotes: String
+    vexVersion: String
   }
 
 interface VexVulnAssessmentRelationship
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    to: [Element]!
+    summary: String
     completeness: RelationshipCompleteness
-    startTime: String
-    relationshipType: String!
+    endTime: DateTimeStamp
     from: Element!
-    endTime: String
-    withdrawnTime: String
-    publishedTime: String
-    assessedElement: SoftwareArtifact
+    relationshipType: RelationshipType!
+    startTime: DateTimeStamp
+    to: [Element]!
+    modifiedTime: DateTimeStamp
+    publishedTime: DateTimeStamp
     suppliedBy: Agent
-    modifiedTime: String
-    vexVersion: String
+    withdrawnTime: DateTimeStamp
+    assessedElement: SoftwareArtifact
     statusNotes: String
+    vexVersion: String
   }
 
 interface VulnAssessmentRelationship
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    to: [Element]!
+    summary: String
     completeness: RelationshipCompleteness
-    startTime: String
-    relationshipType: String!
+    endTime: DateTimeStamp
     from: Element!
-    endTime: String
-    withdrawnTime: String
-    publishedTime: String
-    assessedElement: SoftwareArtifact
+    relationshipType: RelationshipType!
+    startTime: DateTimeStamp
+    to: [Element]!
+    modifiedTime: DateTimeStamp
+    publishedTime: DateTimeStamp
     suppliedBy: Agent
-    modifiedTime: String
+    withdrawnTime: DateTimeStamp
+    assessedElement: SoftwareArtifact
   }
 
 type Vulnerability
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    standardName: [String]
-    builtTime: String
-    validUntilTime: String
-    supportLevel: [SupportType]
+    summary: String
     suppliedBy: Agent
+    builtTime: DateTimeStamp
     originatedBy: [Agent]
-    releaseTime: String
-    withdrawnTime: String
-    modifiedTime: String
-    publishedTime: String
+    releaseTime: DateTimeStamp
+    standardName: [String]
+    supportLevel: [SupportType]
+    validUntilTime: DateTimeStamp
+    modifiedTime: DateTimeStamp
+    publishedTime: DateTimeStamp
+    withdrawnTime: DateTimeStamp
   }
 
 type WithAdditionOperator
   {
-    externalIdentifier: [ExternalIdentifier]
-    extension: [Extension]
-    summary: String
-    description: String
+    type: String
     comment: String
     verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    creationInfo: CreationInfo!
+    description: String
+    extension: [Extension]
+    externalIdentifier: [ExternalIdentifier]
     externalRef: [ExternalRef]
     name: String
-    creationInfo: CreationInfo!
-    subjectExtendableLicense: ExtendableLicense!
+    summary: String
     subjectAddition: LicenseAddition!
+    subjectExtendableLicense: ExtendableLicense!
   }

@@ -1,7 +1,11 @@
-package None;
+package example;
 
-/* metamodel_version: 1.7.0 */
+/* metamodel_version: 1.12.0 */
 /* version: 3.0.1 */
+import java.net.URI;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
 import java.util.List;
 import lombok.*;
 
@@ -12,14 +16,15 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public abstract class License extends ExtendableLicense {
 
-  private String obsoletedBy;
-  private String standardLicenseHeader;
-  private List<String> seeAlso;
-  private boolean isFsfLibre;
-  private boolean isDeprecatedLicenseId;
-  private boolean isOsiApproved;
-  private String licenseXml;
   private String licenseText;
+  private String licenseXml;
+  private String obsoletedBy;
+  private List<URI> seeAlso;
+  private Boolean isDeprecatedLicenseId;
+  private Boolean isFsfLibre;
+  private Boolean isOsiApproved;
+  private String standardLicenseHeader;
   private String standardLicenseTemplate;
+
 
 }

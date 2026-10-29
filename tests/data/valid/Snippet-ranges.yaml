@@ -1,0 +1,14 @@
+spdxId: https://example.com/spdx/snippets/main-c-1
+type: Snippet
+snippetFromFile: https://example.com/spdx/files/main.c
+byteRange:
+  beginIntegerRange: 310
+  endIntegerRange: 420
+lineRange:
+  beginIntegerRange: 5
+  endIntegerRange: 23
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane

@@ -1,0 +1,10 @@
+spdxId: https://example.com/spdx/licenses/LicenseRef-Example
+type: CustomLicense
+name: Example Proprietary License
+licenseText: Permission is granted to Example Org employees only.
+isOsiApproved: false
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane

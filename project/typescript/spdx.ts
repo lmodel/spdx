@@ -1,29 +1,54 @@
-/**
-* Specifies the unit of energy consumption.
-*/
-export enum EnergyUnitType {
-    
-    /** Kilowatt-hour. */
-    kilowattHour = "kilowattHour",
-    /** Megajoule. */
-    megajoule = "megajoule",
-    /** Any other units of energy measurement. */
-    other = "other",
-};
-/**
-* Specifies the safety risk level.
-*/
-export enum SafetyRiskAssessmentType {
-    
-    /** The second-highest level of risk posed by an AI system. */
-    high = "high",
-    /** Low/no risk is posed by an AI system. */
-    low = "low",
-    /** The third-highest level of risk posed by an AI system. */
-    medium = "medium",
-    /** The highest level of risk posed by an AI system. */
-    serious = "serious",
-};
+export type AgentSpdxId = string;
+export type AnnotationSpdxId = string;
+export type AnyLicenseInfoSpdxId = string;
+export type ArtifactSpdxId = string;
+export type BomSpdxId = string;
+export type BundleSpdxId = string;
+export type ElementSpdxId = string;
+export type ElementCollectionSpdxId = string;
+export type IndividualElementSpdxId = string;
+export type LifecycleScopedRelationshipSpdxId = string;
+export type OrganizationSpdxId = string;
+export type PersonSpdxId = string;
+export type RelationshipSpdxId = string;
+export type SoftwareAgentSpdxId = string;
+export type SpdxDocumentSpdxId = string;
+export type ToolSpdxId = string;
+export type BuildSpdxId = string;
+export type LicenseExpressionSpdxId = string;
+export type SimpleLicensingTextSpdxId = string;
+export type FileSpdxId = string;
+export type PackageSpdxId = string;
+export type SbomSpdxId = string;
+export type SnippetSpdxId = string;
+export type SoftwareArtifactSpdxId = string;
+export type AIPackageSpdxId = string;
+export type DatasetPackageSpdxId = string;
+export type ConjunctiveLicenseSetSpdxId = string;
+export type CustomLicenseSpdxId = string;
+export type CustomLicenseAdditionSpdxId = string;
+export type DisjunctiveLicenseSetSpdxId = string;
+export type ExtendableLicenseSpdxId = string;
+export type IndividualLicensingInfoSpdxId = string;
+export type LicenseSpdxId = string;
+export type LicenseAdditionSpdxId = string;
+export type ListedLicenseSpdxId = string;
+export type ListedLicenseExceptionSpdxId = string;
+export type OrLaterOperatorSpdxId = string;
+export type WithAdditionOperatorSpdxId = string;
+export type CvssV2VulnAssessmentRelationshipSpdxId = string;
+export type CvssV3VulnAssessmentRelationshipSpdxId = string;
+export type CvssV4VulnAssessmentRelationshipSpdxId = string;
+export type EpssVulnAssessmentRelationshipSpdxId = string;
+export type ExploitCatalogVulnAssessmentRelationshipSpdxId = string;
+export type SsvcVulnAssessmentRelationshipSpdxId = string;
+export type VexAffectedVulnAssessmentRelationshipSpdxId = string;
+export type VexFixedVulnAssessmentRelationshipSpdxId = string;
+export type VexNotAffectedVulnAssessmentRelationshipSpdxId = string;
+export type VexUnderInvestigationVulnAssessmentRelationshipSpdxId = string;
+export type VexVulnAssessmentRelationshipSpdxId = string;
+export type VulnAssessmentRelationshipSpdxId = string;
+export type VulnerabilitySpdxId = string;
 /**
 * Specifies the type of an annotation.
 */
@@ -51,7 +76,7 @@ export enum ExternalIdentifierType {
     gitoid = "gitoid",
     /** Used when the type does not match any of the other options. */
     other = "other",
-    /** Package URL, as defined in the corresponding [Annex](../../../annexes/pkg-url-specification.md) of this specification. */
+    /** Package URL, as defined in the corresponding [Annex](https://spdx.github.io/spdx-spec/v3.0.1/annexes/pkg-url-specification/) of this specification. */
     packageUrl = "packageUrl",
     /** Used when there is a security related identifier of unspecified type. */
     securityOther = "securityOther",
@@ -407,20 +432,148 @@ export enum RelationshipType {
 */
 export enum SupportType {
     
-    /** in addition to being supported by the supplier, the software is known to have been deployed and is in use.  For a software as a service provider, this implies the software is now available as a service. */
+    /** in addition to being supported by the supplier, the software is known to have been deployed and is in use. For a software as a service provider, this implies the software is now available as a service. */
     deployed = "deployed",
     /** the artifact is in active development and is not considered ready for formal support from the supplier. */
     development = "development",
-    /** there is a defined end of support for the artifact from the supplier.  This may also be referred to as end of life. There is a validUntilDate that can be used to signal when support ends for the artifact. */
+    /** there is a defined end of support for the artifact from the supplier. This may also be referred to as end of life. There is a validUntilDate that can be used to signal when support ends for the artifact. */
     endOfSupport = "endOfSupport",
     /** the artifact has been released, and there is limited support available from the supplier. There is a validUntilDate that can provide additional information about the duration of support. */
     limitedSupport = "limitedSupport",
-    /** no assertion about the type of support is made.   This is considered the default if no other support type is used. */
+    /** no assertion about the type of support is made. This is considered the default if no other support type is used. */
     noAssertion = "noAssertion",
     /** there is no support for the artifact from the supplier, consumer assumes any support obligations. */
     noSupport = "noSupport",
-    /** the artifact has been released, and is supported from the supplier.   There is a validUntilDate that can provide additional information about the duration of support. */
+    /** the artifact has been released, and is supported from the supplier. There is a validUntilDate that can provide additional information about the duration of support. */
     support = "support",
+};
+/**
+* Specifies the type of a content identifier.
+*/
+export enum ContentIdentifierType {
+    
+    /** [Gitoid](https://www.iana.org/assignments/uri-schemes/prov/gitoid), stands for [Git Object ID](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects). A gitoid of type blob is a unique hash of a binary artifact. A gitoid may represent either an [Artifact Identifier](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#artifact-identifier-types) for the software artifact or an [Input Manifest Identifier](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#input-manifest-identifier) for the software artifact's associated [Artifact Input Manifest](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#artifact-input-manifest); this ambiguity exists because the Artifact Input Manifest is itself an artifact, and the gitoid of that artifact is its valid identifier. Gitoids calculated on software artifacts (Snippet, File, or Package Elements) should be recorded in the SPDX 3.0 SoftwareArtifact's contentIdentifier property. Gitoids calculated on the Artifact Input Manifest (Input Manifest Identifier) should be recorded in the SPDX 3.0 Element's externalIdentifier property. See [OmniBOR Specification](https://github.com/omnibor/spec/), a minimalistic specification for describing software [Artifact Dependency Graphs](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#artifact-dependency-graph-adg). */
+    gitoid = "gitoid",
+    /** SoftWare Hash IDentifier, a persistent intrinsic identifier for digital artifacts, such as files, trees (also known as directories or folders), commits, and other objects typically found in version control systems. The format of the identifiers is defined in the [SWHID specification](https://www.swhid.org/specification/v1.1/4.Syntax) (ISO/IEC DIS 18670). They typically look like `swh:1:cnt:94a9ed024d3859793618152ea559a168bbcbb5e2`. */
+    swhid = "swhid",
+};
+/**
+* Enumeration of the different kinds of SPDX file.
+*/
+export enum FileKindType {
+    
+    /** The file represents a directory and all content stored in that directory. */
+    directory = "directory",
+    /** The file represents a single file (default). */
+    file = "file",
+};
+/**
+* Provides a set of values to be used to describe the common types of SBOMs that tools may create.
+*/
+export enum SbomType {
+    
+    /** SBOM generated through analysis of artifacts (e.g., executables, packages, containers, and virtual machine images) after its build. Such analysis generally requires a variety of heuristics. In some contexts, this may also be referred to as a "3rd party" SBOM. */
+    analyzed = "analyzed",
+    /** SBOM generated as part of the process of building the software to create a releasable artifact (e.g., executable or package) from data such as source files, dependencies, built components, build process ephemeral data, and other SBOMs. */
+    build = "build",
+    /** SBOM provides an inventory of software that is present on a system. This may be an assembly of other SBOMs that combines analysis of configuration options, and examination of execution behavior in a (potentially simulated) deployment environment. */
+    deployed = "deployed",
+    /** SBOM of intended, planned software project or product with included components (some of which may not yet exist) for a new software artifact. */
+    design = "design",
+    /** SBOM generated through instrumenting the system running the software, to capture only components present in the system, as well as external call-outs or dynamically loaded components. In some contexts, this may also be referred to as an "Instrumented" or "Dynamic" SBOM. */
+    runtime = "runtime",
+    /** SBOM created directly from the development environment, source files, and included dependencies used to build an product artifact. */
+    source = "source",
+};
+/**
+* Provides information about the primary purpose of an Element.
+*/
+export enum SoftwarePurpose {
+    
+    /** The Element is a software application. */
+    application = "application",
+    /** The Element is an archived collection of one or more files (.tar, .zip, etc.). */
+    archive = "archive",
+    /** The Element is a bill of materials. */
+    bom = "bom",
+    /** The Element is configuration data. */
+    configuration = "configuration",
+    /** The Element is a container image which can be used by a container runtime application. */
+    container = "container",
+    /** The Element is data. */
+    data = "data",
+    /** The Element refers to a chipset, processor, or electronic board. */
+    device = "device",
+    /** The Element represents software that controls hardware devices. */
+    deviceDriver = "deviceDriver",
+    /** The Element refers to a disk image that can be written to a disk, booted in a VM, etc. A disk image typically contains most or all of the components necessary to boot, such as bootloaders, kernels, firmware, userspace, etc. */
+    diskImage = "diskImage",
+    /** The Element is documentation. */
+    documentation = "documentation",
+    /** The Element is the evidence that a specification or requirement has been fulfilled. */
+    evidence = "evidence",
+    /** The Element is an Artifact that can be run on a computer. */
+    executable = "executable",
+    /** The Element is a single file which can be independently distributed (configuration file, statically linked binary, Kubernetes deployment, etc.). */
+    file = "file",
+    /** The Element is a file system image that can be written to a disk (or virtual) partition. */
+    filesystemImage = "filesystemImage",
+    /** The Element provides low level control over a device's hardware. */
+    firmware = "firmware",
+    /** The Element is a software framework. */
+    framework = "framework",
+    /** The Element is used to install software on disk. */
+    install = "install",
+    /** The Element is a software library. */
+    library = "library",
+    /** The Element is a software manifest. */
+    manifest = "manifest",
+    /** The Element is a machine learning or artificial intelligence model. */
+    model = "model",
+    /** The Element is a module of a piece of software. */
+    module = "module",
+    /** The Element is an operating system. */
+    operatingSystem = "operatingSystem",
+    /** The Element doesn't fit into any of the other categories. */
+    other = "other",
+    /** The Element contains a set of changes to update, fix, or improve another Element. */
+    patch = "patch",
+    /** The Element represents a runtime environment. */
+    platform = "platform",
+    /** The Element provides a requirement needed as input for another Element. */
+    requirement = "requirement",
+    /** The Element is a single or a collection of source files. */
+    source = "source",
+    /** The Element is a plan, guideline or strategy how to create, perform or analyze an application. */
+    specification = "specification",
+    /** The Element is a test used to verify functionality on an software element. */
+    test = "test",
+};
+/**
+* Specifies the unit of energy consumption.
+*/
+export enum EnergyUnitType {
+    
+    /** Kilowatt-hour. */
+    kilowattHour = "kilowattHour",
+    /** Megajoule. */
+    megajoule = "megajoule",
+    /** Any other units of energy measurement. */
+    other = "other",
+};
+/**
+* Specifies the safety risk level.
+*/
+export enum SafetyRiskAssessmentType {
+    
+    /** The second-highest level of risk posed by an AI system. */
+    high = "high",
+    /** Low/no risk is posed by an AI system. */
+    low = "low",
+    /** The third-highest level of risk posed by an AI system. */
+    medium = "medium",
+    /** The highest level of risk posed by an AI system. */
+    serious = "serious",
 };
 /**
 * Categories of confidentiality level.
@@ -523,7 +676,7 @@ export enum SsvcDecisionType {
     attend = "attend",
     /** The vulnerability does not require action at this time. The organization would continue to track the vulnerability and reassess it if new information becomes available. CISA recommends remediating Track vulnerabilities within standard update timelines. */
     track = "track",
-    /** ("Track\*" in the SSVC spec) The vulnerability contains specific characteristics that may require closer monitoring for changes. CISA recommends remediating Track\* vulnerabilities within standard update timelines. */
+    /** ("Track*" in the SSVC spec) The vulnerability contains specific characteristics that may require closer monitoring for changes. CISA recommends remediating Track* vulnerabilities within standard update timelines. */
     trackStar = "trackStar",
 };
 /**
@@ -542,209 +695,6 @@ export enum VexJustificationType {
     /** The product is not affected because the code underlying the vulnerability is not present in the product. */
     vulnerableCodeNotPresent = "vulnerableCodeNotPresent",
 };
-/**
-* Specifies the type of a content identifier.
-*/
-export enum ContentIdentifierType {
-    
-    /** [Gitoid](https://www.iana.org/assignments/uri-schemes/prov/gitoid), stands for [Git Object ID](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects). A gitoid of type blob is a unique hash of a binary artifact. A gitoid may represent either an [Artifact Identifier](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#artifact-identifier-types) for the software artifact or an [Input Manifest Identifier](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#input-manifest-identifier) for the software artifact's associated [Artifact Input Manifest](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#artifact-input-manifest); this ambiguity exists because the Artifact Input Manifest is itself an artifact, and the gitoid of that artifact is its valid identifier. Gitoids calculated on software artifacts (Snippet, File, or Package Elements) should be recorded in the SPDX 3.0 SoftwareArtifact's contentIdentifier property. Gitoids calculated on the Artifact Input Manifest (Input Manifest Identifier) should be recorded in the SPDX 3.0 Element's externalIdentifier property. See [OmniBOR Specification](https://github.com/omnibor/spec/), a minimalistic specification for describing software [Artifact Dependency Graphs](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#artifact-dependency-graph-adg). */
-    gitoid = "gitoid",
-    /** SoftWare Hash IDentifier, a persistent intrinsic identifier for digital artifacts, such as files, trees (also known as directories or folders), commits, and other objects typically found in version control systems. The format of the identifiers is defined in the [SWHID specification](https://www.swhid.org/specification/v1.1/4.Syntax) (ISO/IEC DIS 18670). They typically look like `swh:1:cnt:94a9ed024d3859793618152ea559a168bbcbb5e2`. */
-    swhid = "swhid",
-};
-/**
-* Enumeration of the different kinds of SPDX file.
-*/
-export enum FileKindType {
-    
-    /** The file represents a directory and all content stored in that directory. */
-    directory = "directory",
-    /** The file represents a single file (default). */
-    file = "file",
-};
-/**
-* Provides a set of values to be used to describe the common types of SBOMs that
-tools may create.
-*/
-export enum SbomType {
-    
-    /** SBOM generated through analysis of artifacts (e.g., executables, packages, containers, and virtual machine images) after its build. Such analysis generally requires a variety of heuristics. In some contexts, this may also be referred to as a "3rd party" SBOM. */
-    analyzed = "analyzed",
-    /** SBOM generated as part of the process of building the software to create a releasable artifact (e.g., executable or package) from data such as source files, dependencies, built components, build process ephemeral data, and other SBOMs. */
-    build = "build",
-    /** SBOM provides an inventory of software that is present on a system. This may be an assembly of other SBOMs that combines analysis of configuration options, and examination of execution behavior in a (potentially simulated) deployment environment. */
-    deployed = "deployed",
-    /** SBOM of intended, planned software project or product with included components (some of which may not yet exist) for a new software artifact. */
-    design = "design",
-    /** SBOM generated through instrumenting the system running the software, to capture only components present in the system, as well as external call-outs or dynamically loaded components. In some contexts, this may also be referred to as an "Instrumented" or "Dynamic" SBOM. */
-    runtime = "runtime",
-    /** SBOM created directly from the development environment, source files, and included dependencies used to build an product artifact. */
-    source = "source",
-};
-/**
-* Provides information about the primary purpose of an Element.
-*/
-export enum SoftwarePurpose {
-    
-    /** The Element is a software application. */
-    application = "application",
-    /** The Element is an archived collection of one or more files (.tar, .zip, etc.). */
-    archive = "archive",
-    /** The Element is a bill of materials. */
-    bom = "bom",
-    /** The Element is configuration data. */
-    configuration = "configuration",
-    /** The Element is a container image which can be used by a container runtime application. */
-    container = "container",
-    /** The Element is data. */
-    data = "data",
-    /** The Element refers to a chipset, processor, or electronic board. */
-    device = "device",
-    /** The Element represents software that controls hardware devices. */
-    deviceDriver = "deviceDriver",
-    /** The Element refers to a disk image that can be written to a disk, booted in a VM, etc. A disk image typically contains most or all of the components necessary to boot, such as bootloaders, kernels, firmware, userspace, etc. */
-    diskImage = "diskImage",
-    /** The Element is documentation. */
-    documentation = "documentation",
-    /** The Element is the evidence that a specification or requirement has been fulfilled. */
-    evidence = "evidence",
-    /** The Element is an Artifact that can be run on a computer. */
-    executable = "executable",
-    /** The Element is a single file which can be independently distributed (configuration file, statically linked binary, Kubernetes deployment, etc.). */
-    file = "file",
-    /** The Element is a file system image that can be written to a disk (or virtual) partition. */
-    filesystemImage = "filesystemImage",
-    /** The Element provides low level control over a device's hardware. */
-    firmware = "firmware",
-    /** The Element is a software framework. */
-    framework = "framework",
-    /** The Element is used to install software on disk. */
-    install = "install",
-    /** The Element is a software library. */
-    library = "library",
-    /** The Element is a software manifest. */
-    manifest = "manifest",
-    /** The Element is a machine learning or artificial intelligence model. */
-    model = "model",
-    /** The Element is a module of a piece of software. */
-    module = "module",
-    /** The Element is an operating system. */
-    operatingSystem = "operatingSystem",
-    /** The Element doesn't fit into any of the other categories. */
-    other = "other",
-    /** The Element contains a set of changes to update, fix, or improve another Element. */
-    patch = "patch",
-    /** The Element represents a runtime environment. */
-    platform = "platform",
-    /** The Element provides a requirement needed as input for another Element. */
-    requirement = "requirement",
-    /** The Element is a single or a collection of source files. */
-    source = "source",
-    /** The Element is a plan, guideline or strategy how to create, perform or analyze an application. */
-    specification = "specification",
-    /** The Element is a test used to verify functionality on an software element. */
-    test = "test",
-};
-
-
-/**
- * Specifies an AI package and its associated information.
- */
-export interface AIPackage extends Package {
-    /** Describes relevant information about different steps of the training process. */
-    informationAboutTraining?: string,
-    /** Describes all the preprocessing steps applied to the training data before the
-model training. */
-    modelDataPreprocessing?: string[],
-    /** Records the type of the model used in the AI software. */
-    typeOfModel?: string[],
-    /** Records the results of general safety risk assessment of the AI system. */
-    safetyRiskAssessment?: string,
-    /** Captures the threshold that was used for computation of a metric described in
-the metric field. */
-    metricDecisionThreshold?: DictionaryEntry[],
-    /** Records if sensitive personal information is used during model training or
-could be used during the inference. */
-    useSensitivePersonalInformation?: string,
-    /** Indicates the amount of energy consumption incurred by an AI model. */
-    energyConsumption?: EnergyConsumption,
-    /** Captures a limitation of the AI software. */
-    limitation?: string,
-    /** Records a hyperparameter used to build the AI model contained in the AI
-package. */
-    hyperparameter?: DictionaryEntry[],
-    /** Indicates whether the system can perform a decision or action without human
-involvement or guidance. */
-    autonomyType?: string,
-    /** Captures the domain in which the AI package can be used. */
-    domain?: string[],
-    /** Describes methods that can be used to explain the results from the AI model. */
-    modelExplainability?: string[],
-    /** Provides relevant information about the AI software, not including the model
-description. */
-    informationAboutApplication?: string,
-    /** Records the measurement of prediction quality of the AI model. */
-    metric?: DictionaryEntry[],
-    /** Captures a standard that is being complied with. */
-    standardCompliance?: string[],
-}
-
-
-/**
- * A class for describing the energy consumption incurred by an AI model in
-different stages of its lifecycle.
- */
-export interface EnergyConsumption {
-    /** Specifies the amount of energy consumed when finetuning the AI model that is
-being used in the AI system. */
-    finetuningEnergyConsumption?: EnergyConsumptionDescription[],
-    /** Specifies the amount of energy consumed during inference time by an AI model
-that is being used in the AI system. */
-    inferenceEnergyConsumption?: EnergyConsumptionDescription[],
-    /** Specifies the amount of energy consumed when training the AI model that is
-being used in the AI system. */
-    trainingEnergyConsumption?: EnergyConsumptionDescription[],
-}
-
-
-/**
- * The class that helps note down the quantity of energy consumption and the unit
-used for measurement.
- */
-export interface EnergyConsumptionDescription {
-    /** Represents the energy quantity. */
-    energyQuantity: string,
-    /** Specifies the unit in which energy is measured. */
-    energyUnit: string,
-}
-
-
-/**
- * Class that describes a build instance of software/artifacts.
- */
-export interface Build extends Element {
-    /** A buildType is a hint that is used to indicate the toolchain, platform, or
-infrastructure that the build was invoked on. */
-    buildType: string,
-    /** Property that describes the time at which a build stops. */
-    buildEndTime?: string,
-    /** A buildId is a locally unique identifier used by a builder to identify a unique
-instance of a build produced by it. */
-    buildId?: string,
-    /** Property that describes the digest of the build configuration file used to
-invoke a build. */
-    configSourceDigest?: Hash[],
-    /** Property describing the start time of a build. */
-    buildStartTime?: string,
-    /** Property that describes the URI of the build configuration source file. */
-    configSourceUri?: string[],
-    /** Property describing a parameter used in an instance of a build. */
-    parameter?: DictionaryEntry[],
-    /** Property describes the invocation entrypoint of a build. */
-    configSourceEntrypoint?: string[],
-    /** Property describing the session in which a build is invoked. */
-    environment?: DictionaryEntry[],
-}
 
 
 /**
@@ -760,12 +710,19 @@ export interface Agent extends Element {
 export interface Annotation extends Element {
     /** Provides information about the content type of an Element or a Property. */
     contentType?: string,
+    /** Describes the type of annotation. */
+    annotationType: string,
     /** Commentary on an assertion that an annotator has made. */
     statement?: string,
     /** An Element an annotator has made an assertion about. */
-    subject: Element,
-    /** Describes the type of annotation. */
-    annotationType: string,
+    subject: ElementSpdxId,
+}
+
+
+/**
+ * Abstract class representing a license combination consisting of one or more licenses.
+ */
+export interface AnyLicenseInfo extends Element {
 }
 
 
@@ -773,28 +730,25 @@ export interface Annotation extends Element {
  * A distinct article or unit within the digital domain.
  */
 export interface Artifact extends Element {
-    /** The name of a relevant standard that may apply to an artifact. */
-    standardName?: string[],
+    /** Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element. */
+    suppliedBy?: AgentSpdxId,
     /** Specifies the time an artifact was built. */
     builtTime?: string,
-    /** Specifies until when the artifact can be used before its usage needs to be
-reassessed. */
-    validUntilTime?: string,
-    /** Specifies the level of support associated with an artifact. */
-    supportLevel?: string,
-    /** Identifies who or what supplied the artifact or VulnAssessmentRelationship
-referenced by the Element. */
-    suppliedBy?: Agent,
     /** Identifies from where or whom the Element originally came. */
-    originatedBy?: Agent[],
+    originatedBy?: AgentSpdxId[],
     /** Specifies the time an artifact was released. */
     releaseTime?: string,
+    /** The name of a relevant standard that may apply to an artifact. */
+    standardName?: string[],
+    /** Specifies the level of support associated with an artifact. */
+    supportLevel?: string,
+    /** Specifies until when the artifact can be used before its usage needs to be reassessed. */
+    validUntilTime?: string,
 }
 
 
 /**
- * A container for a grouping of SPDX-3.0 content characterizing details
-(provenence, composition, licensing, etc.) about a product.
+ * A container for a grouping of SPDX-3.0 content characterizing details (provenence, composition, licensing, etc.) about a product.
  */
 export interface Bom extends Bundle {
 }
@@ -804,8 +758,7 @@ export interface Bom extends Bundle {
  * A collection of Elements that have a shared context.
  */
 export interface Bundle extends ElementCollection {
-    /** Gives information about the circumstances or unifying properties
-that Elements of the bundle have been assembled under. */
+    /** Gives information about the circumstances or unifying properties that Elements of the bundle have been assembled under. */
     context?: string,
 }
 
@@ -814,18 +767,18 @@ that Elements of the bundle have been assembled under. */
  * Provides information about the creation of the Element.
  */
 export interface CreationInfo {
-    /** Identifies who or what created the Element. */
-    createdBy: Agent[],
-    /** Identifies the tooling that was used during the creation of the Element. */
-    createdUsing?: Tool[],
+    /** The name of the class an object is an instance of, such as Package or Hash. */
+    type?: string,
+    /** Provide consumers with comments by the creator of the Element about the Element. */
+    comment?: string,
     /** Identifies when the Element was originally created. */
     created: string,
-    /** Provides a reference number that can be used to understand how to parse and
-interpret an Element. */
+    /** Identifies who or what created the Element. */
+    createdBy: AgentSpdxId[],
+    /** Identifies the tooling that was used during the creation of the Element. */
+    createdUsing?: ToolSpdxId[],
+    /** Provides a reference number that can be used to understand how to parse and interpret an Element. */
     specVersion: string,
-    /** Provide consumers with comments by the creator of the Element about the
-Element. */
-    comment?: string,
 }
 
 
@@ -833,10 +786,12 @@ Element. */
  * A key with an associated value.
  */
 export interface DictionaryEntry {
-    /** A value used in a generic key-value pair. */
-    value?: string,
+    /** The name of the class an object is an instance of, such as Package or Hash. */
+    type?: string,
     /** A key used in a generic key-value pair. */
     key: string,
+    /** A value used in a generic key-value pair. */
+    value?: string,
 }
 
 
@@ -844,28 +799,28 @@ export interface DictionaryEntry {
  * Base domain class from which all other SPDX-3.0 domain classes derive.
  */
 export interface Element {
-    /** Provides a reference to a resource outside the scope of SPDX-3.0 content
-that uniquely identifies an Element. */
-    externalIdentifier?: ExternalIdentifier[],
-    /** Specifies an Extension characterization of some aspect of an Element. */
-    extension?: Extension[],
-    /** A short description of an Element. */
-    summary?: string,
+    /** The name of the class an object is an instance of, such as Package or Hash. */
+    type?: string,
+    /** Provide consumers with comments by the creator of the Element about the Element. */
+    comment?: string,
+    /** Provides an IntegrityMethod with which the integrity of an Element can be asserted. */
+    verifiedUsing?: IntegrityMethod[],
+    /** The IRI that identifies this Element. A reference to an Element from any field is this IRI. */
+    spdxId: string,
+    /** Provides information about the creation of the Element. */
+    creationInfo: CreationInfo,
     /** Provides a detailed description of the Element. */
     description?: string,
-    /** Provide consumers with comments by the creator of the Element about the
-Element. */
-    comment?: string,
-    /** Provides an IntegrityMethod with which the integrity of an Element can be
-asserted. */
-    verifiedUsing?: IntegrityMethod[],
-    /** Points to a resource outside the scope of the SPDX-3.0 content
-that provides additional characteristics of an Element. */
+    /** Specifies an Extension characterization of some aspect of an Element. */
+    extension?: Extension[],
+    /** Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element. */
+    externalIdentifier?: ExternalIdentifier[],
+    /** Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element. */
     externalRef?: ExternalRef[],
     /** Identifies the name of an Element as designated by the creator. */
     name?: string,
-    /** Provides information about the creation of the Element. */
-    creationInfo: CreationInfo,
+    /** A short description of an Element. */
+    summary?: string,
 }
 
 
@@ -874,12 +829,20 @@ that provides additional characteristics of an Element. */
  */
 export interface ElementCollection extends Element {
     /** Refers to one or more Elements that are part of an ElementCollection. */
-    element?: Element[],
-    /** Describes one a profile which the creator of this ElementCollection intends to
-conform to. */
+    element?: ElementSpdxId[],
+    /** Describes one a profile which the creator of this ElementCollection intends to conform to. */
     profileConformance?: string,
     /** This property is used to denote the root Element(s) of a tree of elements contained in a BOM. */
-    rootElement?: Element[],
+    rootElement?: ElementSpdxId[],
+}
+
+
+/**
+ * A characterization of some aspect of an Element that is associated with the Element in a generalized fashion.
+ */
+export interface Extension {
+    /** The name of the class an object is an instance of, such as Package or Hash. */
+    type?: string,
 }
 
 
@@ -887,36 +850,35 @@ conform to. */
  * A reference to a resource identifier defined outside the scope of SPDX-3.0 content that uniquely identifies an Element.
  */
 export interface ExternalIdentifier {
-    /** Provides the location for more information regarding an external identifier. */
-    identifierLocator?: string[],
+    /** The name of the class an object is an instance of, such as Package or Hash. */
+    type?: string,
+    /** Provide consumers with comments by the creator of the Element about the Element. */
+    comment?: string,
     /** Specifies the type of the external identifier. */
     externalIdentifierType: string,
-    /** An entity that is authorized to issue identification credentials. */
-    issuingAuthority?: string,
     /** Uniquely identifies an external element. */
     identifier: string,
-    /** Provide consumers with comments by the creator of the Element about the
-Element. */
-    comment?: string,
+    /** Provides the location for more information regarding an external identifier. */
+    identifierLocator?: string[],
+    /** An entity that is authorized to issue identification credentials. */
+    issuingAuthority?: string,
 }
 
 
 /**
- * A map of Element identifiers that are used within an SpdxDocument but defined
-external to that SpdxDocument.
+ * A map of Element identifiers that are used within an SpdxDocument but defined external to that SpdxDocument.
  */
 export interface ExternalMap {
-    /** Artifact representing a serialization instance of SPDX data containing the
-definition of a particular Element. */
-    definingArtifact?: Artifact,
+    /** The name of the class an object is an instance of, such as Package or Hash. */
+    type?: string,
+    /** Provides an IntegrityMethod with which the integrity of an Element can be asserted. */
+    verifiedUsing?: IntegrityMethod[],
+    /** Artifact representing a serialization instance of SPDX data containing the definition of a particular Element. */
+    definingArtifact?: ArtifactSpdxId,
+    /** Identifies an external Element used within an SpdxDocument but defined external to that SpdxDocument. */
+    externalSpdxId: string,
     /** Provides an indication of where to retrieve an external Element. */
     locationHint?: string,
-    /** Identifies an external Element used within an SpdxDocument but defined
-external to that SpdxDocument. */
-    externalSpdxId: string,
-    /** Provides an IntegrityMethod with which the integrity of an Element can be
-asserted. */
-    verifiedUsing?: IntegrityMethod[],
 }
 
 
@@ -924,15 +886,16 @@ asserted. */
  * A reference to a resource outside the scope of SPDX-3.0 content related to an Element.
  */
 export interface ExternalRef {
-    /** Provides the location of an external reference. */
-    core_locator?: string[],
-    /** Specifies the type of the external reference. */
-    externalRefType?: string,
-    /** Provide consumers with comments by the creator of the Element about the
-Element. */
+    /** The name of the class an object is an instance of, such as Package or Hash. */
+    type?: string,
+    /** Provide consumers with comments by the creator of the Element about the Element. */
     comment?: string,
     /** Provides information about the content type of an Element or a Property. */
     contentType?: string,
+    /** Specifies the type of the external reference. */
+    externalRefType?: string,
+    /** Provides the location of an external reference. */
+    locator?: string[],
 }
 
 
@@ -948,8 +911,7 @@ export interface Hash extends IntegrityMethod {
 
 
 /**
- * A concrete subclass of Element used by Individuals in the
-Core profile.
+ * A concrete subclass of Element used by Individuals in the Core profile.
  */
 export interface IndividualElement extends Element {
 }
@@ -959,8 +921,9 @@ export interface IndividualElement extends Element {
  * Provides an independently reproducible mechanism that permits verification of a specific Element.
  */
 export interface IntegrityMethod {
-    /** Provide consumers with comments by the creator of the Element about the
-Element. */
+    /** The name of the class an object is an instance of, such as Package or Hash. */
+    type?: string,
+    /** Provide consumers with comments by the creator of the Element about the Element. */
     comment?: string,
 }
 
@@ -978,11 +941,12 @@ export interface LifecycleScopedRelationship extends Relationship {
  * A mapping between prefixes and namespace partial URIs.
  */
 export interface NamespaceMap {
+    /** The name of the class an object is an instance of, such as Package or Hash. */
+    type?: string,
+    /** Provides an unambiguous mechanism for conveying a URI fragment portion of an Element ID. */
+    namespace: string,
     /** A substitute for a URI. */
     prefix: string,
-    /** Provides an unambiguous mechanism for conveying a URI fragment portion of an
-Element ID. */
-    namespace: string,
 }
 
 
@@ -997,13 +961,12 @@ export interface Organization extends Agent {
  * An SPDX version 2.X compatible verification method for software packages.
  */
 export interface PackageVerificationCode extends IntegrityMethod {
-    /** The relative file name of a file to be excluded from the
-`PackageVerificationCode`. */
-    packageVerificationCodeExcludedFile?: string[],
-    /** The result of applying a hash algorithm to an Element. */
-    hashValue: string,
     /** Specifies the algorithm used for calculating the hash value. */
     algorithm: string,
+    /** The result of applying a hash algorithm to an Element. */
+    hashValue: string,
+    /** The relative file name of a file to be excluded from the `PackageVerificationCode`. */
+    packageVerificationCodeExcludedFile?: string[],
 }
 
 
@@ -1018,10 +981,12 @@ export interface Person extends Agent {
  * A tuple of two positive integers that define a range.
  */
 export interface PositiveIntegerRange {
-    /** Defines the end of a range. */
-    endIntegerRange: number,
+    /** The name of the class an object is an instance of, such as Package or Hash. */
+    type?: string,
     /** Defines the beginning of a range. */
     beginIntegerRange: number,
+    /** Defines the end of a range. */
+    endIntegerRange: number,
 }
 
 
@@ -1029,18 +994,18 @@ export interface PositiveIntegerRange {
  * Describes a relationship between one or more elements.
  */
 export interface Relationship extends Element {
-    /** References an Element on the right-hand side of a relationship. */
-    to: Element[],
     /** Provides information about the completeness of relationships. */
     completeness?: string,
-    /** Specifies the time from which an element is applicable / valid. */
-    startTime?: string,
-    /** Information about the relationship between two Elements. */
-    relationshipType: string,
-    /** References the Element on the left-hand side of a relationship. */
-    from: Element,
     /** Specifies the time from which an element is no longer applicable / valid. */
     endTime?: string,
+    /** References the Element on the left-hand side of a relationship. */
+    from: ElementSpdxId,
+    /** Information about the relationship between two Elements. */
+    relationshipType: string,
+    /** Specifies the time from which an element is applicable / valid. */
+    startTime?: string,
+    /** References an Element on the right-hand side of a relationship. */
+    to: ElementSpdxId[],
 }
 
 
@@ -1055,13 +1020,12 @@ export interface SoftwareAgent extends Agent {
  * A collection of SPDX Elements that could potentially be serialized.
  */
 export interface SpdxDocument extends ElementCollection {
-    /** Provides a NamespaceMap of prefixes and associated namespace partial URIs applicable to an SpdxDocument and independent of any specific serialization format or instance. */
-    namespaceMap?: NamespaceMap[],
-    /** Provides the license under which the SPDX documentation of the Element can be
-used. */
-    dataLicense?: AnyLicenseInfo,
+    /** Provides the license under which the SPDX documentation of the Element can be used. */
+    dataLicense?: AnyLicenseInfoSpdxId,
     /** Provides an ExternalMap of Element identifiers. */
     import?: ExternalMap[],
+    /** Provides a NamespaceMap of prefixes and associated namespace partial URIs applicable to an SpdxDocument and independent of any specific serialization format or instance. */
+    namespaceMap?: NamespaceMap[],
 }
 
 
@@ -1073,185 +1037,27 @@ export interface Tool extends Element {
 
 
 /**
- * Specifies a data package and its associated information.
+ * Class that describes a build instance of software/artifacts.
  */
-export interface DatasetPackage extends Package {
-    /** Captures the size of the dataset. */
-    datasetSize?: number,
-    /** Describes the type of the given dataset. */
-    datasetType: string[],
-    /** Describes the anonymization methods used. */
-    anonymizationMethodUsed?: string[],
-    /** Describes a mechanism to update the dataset. */
-    datasetUpdateMechanism?: string,
-    /** Describes how the dataset was collected. */
-    dataCollectionProcess?: string,
-    /** Records the biases that the dataset is known to encompass. */
-    knownBias?: string[],
-    /** Describes a sensor used for collecting the data. */
-    sensor?: DictionaryEntry[],
-    /** Describes the preprocessing steps that were applied to the raw data to create the given dataset. */
-    dataPreprocessing?: string[],
-    /** Describes what the given dataset should be used for. */
-    intendedUse?: string,
-    /** Describes the confidentiality level of the data points contained in the dataset. */
-    confidentialityLevel?: string,
-    /** The field describes the availability of a dataset. */
-    datasetAvailability?: string,
-    /** Describes if any sensitive personal information is present in the dataset. */
-    hasSensitivePersonalInformation?: string,
-    /** Describes potentially noisy elements of the dataset. */
-    datasetNoise?: string,
-}
-
-
-/**
- * Portion of an AnyLicenseInfo representing a set of licensing information
-where all elements apply.
- */
-export interface ConjunctiveLicenseSet extends AnyLicenseInfo {
-    /** A license expression participating in a license set. */
-    member: AnyLicenseInfo[],
-}
-
-
-/**
- * A license that is not listed on the SPDX License List.
- */
-export interface CustomLicense extends License {
-}
-
-
-/**
- * A license addition that is not listed on the SPDX Exceptions List.
- */
-export interface CustomLicenseAddition extends LicenseAddition {
-}
-
-
-/**
- * Portion of an AnyLicenseInfo representing a set of licensing information where
-only one of the elements applies.
- */
-export interface DisjunctiveLicenseSet extends AnyLicenseInfo {
-    /** A license expression participating in a license set. */
-    member: AnyLicenseInfo[],
-}
-
-
-/**
- * Abstract class representing a License or an OrLaterOperator.
- */
-export interface ExtendableLicense extends AnyLicenseInfo {
-}
-
-
-/**
- * A concrete subclass of AnyLicenseInfo used by Individuals in the
-ExpandedLicensing profile.
- */
-export interface IndividualLicensingInfo extends AnyLicenseInfo {
-}
-
-
-/**
- * Abstract class for the portion of an AnyLicenseInfo representing a license.
- */
-export interface License extends ExtendableLicense {
-    /** Specifies the licenseId that is preferred to be used in place of a deprecated
-License or LicenseAddition. */
-    obsoletedBy?: string,
-    /** Provides a License author's preferred text to indicate that a file is covered
-by the License. */
-    standardLicenseHeader?: string,
-    /** Contains a URL where the License or LicenseAddition can be found in use. */
-    seeAlso?: string[],
-    /** Specifies whether the License is listed as free by the
-Free Software Foundation (FSF). */
-    isFsfLibre?: boolean,
-    /** Specifies whether a license or additional text identifier has been marked as
-deprecated. */
-    isDeprecatedLicenseId?: boolean,
-    /** Specifies whether the License is listed as approved by the
-Open Source Initiative (OSI). */
-    isOsiApproved?: boolean,
-    /** Identifies all the text and metadata associated with a license in the license
-XML format. */
-    licenseXml?: string,
-    /** Identifies the full text of a License or Addition. */
-    licenseText: string,
-    /** Identifies the full text of a License, in SPDX templating format. */
-    standardLicenseTemplate?: string,
-}
-
-
-/**
- * Abstract class for additional text intended to be added to a License, but
-which is not itself a standalone License.
- */
-export interface LicenseAddition extends Element {
-    /** Identifies the full text of a LicenseAddition, in SPDX templating format. */
-    standardAdditionTemplate?: string,
-    /** Contains a URL where the License or LicenseAddition can be found in use. */
-    seeAlso?: string[],
-    /** Specifies the licenseId that is preferred to be used in place of a deprecated
-License or LicenseAddition. */
-    obsoletedBy?: string,
-    /** Identifies all the text and metadata associated with a license in the license
-XML format. */
-    licenseXml?: string,
-    /** Specifies whether an additional text identifier has been marked as deprecated. */
-    isDeprecatedAdditionId?: boolean,
-    /** Identifies the full text of a LicenseAddition. */
-    additionText: string,
-}
-
-
-/**
- * A license that is listed on the SPDX License List.
- */
-export interface ListedLicense extends License {
-    /** Specifies the SPDX License List version in which this license or exception
-identifier was deprecated. */
-    deprecatedVersion?: string,
-    /** Specifies the SPDX License List version in which this ListedLicense or
-ListedLicenseException identifier was first added. */
-    listVersionAdded?: string,
-}
-
-
-/**
- * A license exception that is listed on the SPDX Exceptions list.
- */
-export interface ListedLicenseException extends LicenseAddition {
-    /** Specifies the SPDX License List version in which this ListedLicense or
-ListedLicenseException identifier was first added. */
-    listVersionAdded?: string,
-    /** Specifies the SPDX License List version in which this license or exception
-identifier was deprecated. */
-    deprecatedVersion?: string,
-}
-
-
-/**
- * Portion of an AnyLicenseInfo representing this version, or any later version,
-of the indicated License.
- */
-export interface OrLaterOperator extends ExtendableLicense {
-    /** A License participating in an 'or later' model. */
-    subjectLicense: License,
-}
-
-
-/**
- * Portion of an AnyLicenseInfo representing a License which has additional
-text applied to it.
- */
-export interface WithAdditionOperator extends AnyLicenseInfo {
-    /** A License participating in a 'with addition' model. */
-    subjectExtendableLicense: ExtendableLicense,
-    /** A LicenseAddition participating in a 'with addition' model. */
-    subjectAddition: LicenseAddition,
+export interface Build extends Element {
+    /** Property that describes the time at which a build stops. */
+    buildEndTime?: string,
+    /** A buildId is a locally unique identifier used by a builder to identify a unique instance of a build produced by it. */
+    buildId?: string,
+    /** Property describing the start time of a build. */
+    buildStartTime?: string,
+    /** A buildType is a hint that is used to indicate the toolchain, platform, or infrastructure that the build was invoked on. */
+    buildType: string,
+    /** Property that describes the digest of the build configuration file used to invoke a build. */
+    configSourceDigest?: Hash[],
+    /** Property describes the invocation entrypoint of a build. */
+    configSourceEntrypoint?: string[],
+    /** Property that describes the URI of the build configuration source file. */
+    configSourceUri?: string[],
+    /** Property describing the session in which a build is invoked. */
+    environment?: DictionaryEntry[],
+    /** Property describing a parameter used in an instance of a build. */
+    parameter?: DictionaryEntry[],
 }
 
 
@@ -1268,186 +1074,12 @@ export interface CdxPropertiesExtension extends Extension {
  * A property name with an associated value.
  */
 export interface CdxPropertyEntry {
-    /** A value used in a CdxPropertyEntry name-value pair. */
-    cdxPropValue?: string,
+    /** The name of the class an object is an instance of, such as Package or Hash. */
+    type?: string,
     /** A name used in a CdxPropertyEntry name-value pair. */
     cdxPropName: string,
-}
-
-
-/**
- * A characterization of some aspect of an Element that is associated with the Element in a generalized fashion.
- */
-export interface Extension {
-}
-
-
-/**
- * Provides a CVSS version 2.0 assessment for a vulnerability.
- */
-export interface CvssV2VulnAssessmentRelationship extends VulnAssessmentRelationship {
-    /** Specifies the CVSS vector string for a vulnerability. */
-    vectorString: string,
-    /** Provides a numerical (0-10) representation of the severity of a vulnerability. */
-    score: string,
-}
-
-
-/**
- * Provides a CVSS version 3 assessment for a vulnerability.
- */
-export interface CvssV3VulnAssessmentRelationship extends VulnAssessmentRelationship {
-    /** Specifies the CVSS qualitative severity rating of a vulnerability in relation to a piece of software. */
-    severity: string,
-    /** Specifies the CVSS vector string for a vulnerability. */
-    vectorString: string,
-    /** Provides a numerical (0-10) representation of the severity of a vulnerability. */
-    score: string,
-}
-
-
-/**
- * Provides a CVSS version 4 assessment for a vulnerability.
- */
-export interface CvssV4VulnAssessmentRelationship extends VulnAssessmentRelationship {
-    /** Specifies the CVSS qualitative severity rating of a vulnerability in relation to a piece of software. */
-    severity: string,
-    /** Specifies the CVSS vector string for a vulnerability. */
-    vectorString: string,
-    /** Provides a numerical (0-10) representation of the severity of a vulnerability. */
-    score: string,
-}
-
-
-/**
- * Provides an EPSS assessment for a vulnerability.
- */
-export interface EpssVulnAssessmentRelationship extends VulnAssessmentRelationship {
-    /** The percentile of the current probability score. */
-    percentile: string,
-    /** A probability score between 0 and 1 of a vulnerability being exploited. */
-    probability: string,
-}
-
-
-/**
- * Provides an exploit assessment of a vulnerability.
- */
-export interface ExploitCatalogVulnAssessmentRelationship extends VulnAssessmentRelationship {
-    /** Describe that a CVE is known to have an exploit because it's been listed in an exploit catalog. */
-    exploited: boolean,
-    /** Provides the location of an exploit catalog. */
-    security_locator: string,
-    /** Specifies the exploit catalog type. */
-    catalogType: string,
-}
-
-
-/**
- * Provides an SSVC assessment for a vulnerability.
- */
-export interface SsvcVulnAssessmentRelationship extends VulnAssessmentRelationship {
-    /** Provide the enumeration of possible decisions in the
-[Stakeholder-Specific Vulnerability Categorization (SSVC) decision tree](https://www.cisa.gov/stakeholder-specific-vulnerability-categorization-ssvc). */
-    decisionType: string,
-}
-
-
-/**
- * Connects a vulnerability and an element designating the element as a product
-affected by the vulnerability.
- */
-export interface VexAffectedVulnAssessmentRelationship extends VexVulnAssessmentRelationship {
-    /** Provides advise on how to mitigate or remediate a vulnerability when a VEX product
-is affected by it. */
-    actionStatement: string,
-    /** Records the time when a recommended action was communicated in a VEX statement
-to mitigate a vulnerability. */
-    actionStatementTime?: string,
-}
-
-
-/**
- * Links a vulnerability and elements representing products (in the VEX sense) where
-a fix has been applied and are no longer affected.
- */
-export interface VexFixedVulnAssessmentRelationship extends VexVulnAssessmentRelationship {
-}
-
-
-/**
- * Links a vulnerability and one or more elements designating the latter as products
-not affected by the vulnerability.
- */
-export interface VexNotAffectedVulnAssessmentRelationship extends VexVulnAssessmentRelationship {
-    /** Timestamp of impact statement. */
-    impactStatementTime?: string,
-    /** Impact justification label to be used when linking a vulnerability to an element
-representing a VEX product with a VexNotAffectedVulnAssessmentRelationship
-relationship. */
-    justificationType?: string,
-    /** Explains why a VEX product is not affected by a vulnerability. It is an
-alternative in VexNotAffectedVulnAssessmentRelationship to the machine-readable
-justification label. */
-    impactStatement?: string,
-}
-
-
-/**
- * Designates elements as products where the impact of a vulnerability is being
-investigated.
- */
-export interface VexUnderInvestigationVulnAssessmentRelationship extends VexVulnAssessmentRelationship {
-}
-
-
-/**
- * Abstract ancestor class for all VEX relationships
- */
-export interface VexVulnAssessmentRelationship extends VulnAssessmentRelationship {
-    /** Specifies the version of a VEX statement. */
-    vexVersion?: string,
-    /** Conveys information about how VEX status was determined. */
-    statusNotes?: string,
-}
-
-
-/**
- * Abstract ancestor class for all vulnerability assessments
- */
-export interface VulnAssessmentRelationship extends Relationship {
-    /** Specified the time and date when a vulnerability was withdrawn. */
-    withdrawnTime?: string,
-    /** Specifies the time when a vulnerability was published. */
-    publishedTime?: string,
-    /** Specifies an Element contained in a piece of software where a vulnerability was
-found. */
-    assessedElement?: SoftwareArtifact,
-    /** Identifies who or what supplied the artifact or VulnAssessmentRelationship
-referenced by the Element. */
-    suppliedBy?: Agent,
-    /** Specifies a time when a vulnerability assessment was modified */
-    modifiedTime?: string,
-}
-
-
-/**
- * Specifies a vulnerability and its associated information.
- */
-export interface Vulnerability extends Artifact {
-    /** Specified the time and date when a vulnerability was withdrawn. */
-    withdrawnTime?: string,
-    /** Specifies a time when a vulnerability assessment was modified */
-    modifiedTime?: string,
-    /** Specifies the time when a vulnerability was published. */
-    publishedTime?: string,
-}
-
-
-/**
- * Abstract class representing a license combination consisting of one or more licenses.
- */
-export interface AnyLicenseInfo extends Element {
+    /** A value used in a CdxPropertyEntry name-value pair. */
+    cdxPropValue?: string,
 }
 
 
@@ -1455,8 +1087,7 @@ export interface AnyLicenseInfo extends Element {
  * An SPDX Element containing an SPDX license expression string.
  */
 export interface LicenseExpression extends AnyLicenseInfo {
-    /** Maps a LicenseRef or AdditionRef string for a Custom License or a Custom
-License Addition to its URI ID. */
+    /** Maps a LicenseRef or AdditionRef string for a Custom License or a Custom License Addition to its URI ID. */
     customIdToUri?: DictionaryEntry[],
     /** A string in the license expression format. */
     licenseExpression: string,
@@ -1478,10 +1109,10 @@ export interface SimpleLicensingText extends Element {
  * A canonical, unique, immutable identifier
  */
 export interface ContentIdentifier extends IntegrityMethod {
-    /** Specifies the value of the content identifier. */
-    contentIdentifierValue: string,
     /** Specifies the type of the content identifier. */
     contentIdentifierType: string,
+    /** Specifies the value of the content identifier. */
+    contentIdentifierValue: string,
 }
 
 
@@ -1489,32 +1120,27 @@ export interface ContentIdentifier extends IntegrityMethod {
  * Refers to any object that stores content on a computer.
  */
 export interface File extends SoftwareArtifact {
-    /** Describes if a given file is a directory or non-directory kind of file. */
-    fileKind?: string,
     /** Provides information about the content type of an Element or a Property. */
     contentType?: string,
+    /** Describes if a given file is a directory or non-directory kind of file. */
+    fileKind?: string,
 }
 
 
 /**
- * Refers to any unit of content that can be associated with a distribution of
-software.
+ * Refers to any unit of content that can be associated with a distribution of software.
  */
 export interface Package extends SoftwareArtifact {
-    /** Records any relevant background information or additional comments
-about the origin of the package. */
-    sourceInfo?: string,
-    /** A place for the SPDX document creator to record a website that serves as the
-package's home page. */
-    homePage?: string,
-    /** Identifies the download Uniform Resource Identifier for the package at the time
-that the document was created. */
+    /** Identifies the download Uniform Resource Identifier for the package at the time that the document was created. */
     downloadLocation?: string,
+    /** A place for the SPDX document creator to record a website that serves as the package's home page. */
+    homePage?: string,
+    /** Provides a place for the SPDX data creator to record the package URL string (in accordance with the Package URL specification) for a software Package. */
+    packageUrl?: string,
     /** Identify the version of a package. */
     packageVersion?: string,
-    /** Provides a place for the SPDX data creator to record the package URL string
-(in accordance with the Package URL specification) for a software Package. */
-    packageUrl?: string,
+    /** Records any relevant background information or additional comments about the origin of the package. */
+    sourceInfo?: string,
 }
 
 
@@ -1531,14 +1157,12 @@ export interface Sbom extends Bom {
  * Describes a certain part of a file.
  */
 export interface Snippet extends SoftwareArtifact {
-    /** Defines the line range in the original host file that the snippet information
-applies to. */
+    /** Defines the byte range in the original host file that the snippet information applies to. */
+    byteRange?: PositiveIntegerRange,
+    /** Defines the line range in the original host file that the snippet information applies to. */
     lineRange?: PositiveIntegerRange,
     /** Defines the original host file that the snippet information applies to. */
-    snippetFromFile: File,
-    /** Defines the byte range in the original host file that the snippet information
-applies to. */
-    byteRange?: PositiveIntegerRange,
+    snippetFromFile: FileSpdxId,
 }
 
 
@@ -1546,19 +1170,395 @@ applies to. */
  * A distinct article or unit related to Software.
  */
 export interface SoftwareArtifact extends Artifact {
-    /** Provides a place for the SPDX data creator to record acknowledgement text for
-a software Package, File or Snippet. */
+    /** Provides additional purpose information of the software artifact. */
+    additionalPurpose?: string,
+    /** Provides a place for the SPDX data creator to record acknowledgement text for a software Package, File or Snippet. */
     attributionText?: string[],
+    /** A canonical, unique, immutable identifier of the artifact content, that may be used for verifying its identity and/or integrity. */
+    contentIdentifier?: ContentIdentifier[],
+    /** Identifies the text of one or more copyright notices for a software Package, File or Snippet, if any. */
+    copyrightText?: string,
     /** Provides information about the primary purpose of the software artifact. */
     primaryPurpose?: string,
-    /** Provides additional purpose information of the software artifact. */
-    additionalPurpose?: string[],
-    /** A canonical, unique, immutable identifier of the artifact content, that may be
-used for verifying its identity and/or integrity. */
-    contentIdentifier?: ContentIdentifier[],
-    /** Identifies the text of one or more copyright notices for a software Package,
-File or Snippet, if any. */
-    copyrightText?: string,
+}
+
+
+/**
+ * Specifies an AI package and its associated information.
+ */
+export interface AIPackage extends Package {
+    /** Indicates whether the system can perform a decision or action without human involvement or guidance. */
+    autonomyType?: string,
+    /** Captures the domain in which the AI package can be used. */
+    domain?: string[],
+    /** Indicates the amount of energy consumption incurred by an AI model. */
+    energyConsumption?: EnergyConsumption,
+    /** Records a hyperparameter used to build the AI model contained in the AI package. */
+    hyperparameter?: DictionaryEntry[],
+    /** Provides relevant information about the AI software, not including the model description. */
+    informationAboutApplication?: string,
+    /** Describes relevant information about different steps of the training process. */
+    informationAboutTraining?: string,
+    /** Captures a limitation of the AI software. */
+    limitation?: string,
+    /** Records the measurement of prediction quality of the AI model. */
+    metric?: DictionaryEntry[],
+    /** Captures the threshold that was used for computation of a metric described in the metric field. */
+    metricDecisionThreshold?: DictionaryEntry[],
+    /** Describes all the preprocessing steps applied to the training data before the model training. */
+    modelDataPreprocessing?: string[],
+    /** Describes methods that can be used to explain the results from the AI model. */
+    modelExplainability?: string[],
+    /** Records the results of general safety risk assessment of the AI system. */
+    safetyRiskAssessment?: string,
+    /** Captures a standard that is being complied with. */
+    standardCompliance?: string[],
+    /** Records the type of the model used in the AI software. */
+    typeOfModel?: string[],
+    /** Records if sensitive personal information is used during model training or could be used during the inference. */
+    useSensitivePersonalInformation?: string,
+}
+
+
+/**
+ * A class for describing the energy consumption incurred by an AI model in different stages of its lifecycle.
+ */
+export interface EnergyConsumption {
+    /** The name of the class an object is an instance of, such as Package or Hash. */
+    type?: string,
+    /** Specifies the amount of energy consumed when finetuning the AI model that is being used in the AI system. */
+    finetuningEnergyConsumption?: EnergyConsumptionDescription[],
+    /** Specifies the amount of energy consumed during inference time by an AI model that is being used in the AI system. */
+    inferenceEnergyConsumption?: EnergyConsumptionDescription[],
+    /** Specifies the amount of energy consumed when training the AI model that is being used in the AI system. */
+    trainingEnergyConsumption?: EnergyConsumptionDescription[],
+}
+
+
+/**
+ * The class that helps note down the quantity of energy consumption and the unit used for measurement.
+ */
+export interface EnergyConsumptionDescription {
+    /** The name of the class an object is an instance of, such as Package or Hash. */
+    type?: string,
+    /** Represents the energy quantity. */
+    energyQuantity: string,
+    /** Specifies the unit in which energy is measured. */
+    energyUnit: string,
+}
+
+
+/**
+ * Specifies a data package and its associated information.
+ */
+export interface DatasetPackage extends Package {
+    /** Describes the anonymization methods used. */
+    anonymizationMethodUsed?: string[],
+    /** Describes the confidentiality level of the data points contained in the dataset. */
+    confidentialityLevel?: string,
+    /** Describes how the dataset was collected. */
+    dataCollectionProcess?: string,
+    /** Describes the preprocessing steps that were applied to the raw data to create the given dataset. */
+    dataPreprocessing?: string[],
+    /** The field describes the availability of a dataset. */
+    datasetAvailability?: string,
+    /** Describes potentially noisy elements of the dataset. */
+    datasetNoise?: string,
+    /** Captures the size of the dataset. */
+    datasetSize?: number,
+    /** Describes the type of the given dataset. */
+    datasetType: string,
+    /** Describes a mechanism to update the dataset. */
+    datasetUpdateMechanism?: string,
+    /** Describes if any sensitive personal information is present in the dataset. */
+    hasSensitivePersonalInformation?: string,
+    /** Describes what the given dataset should be used for. */
+    intendedUse?: string,
+    /** Records the biases that the dataset is known to encompass. */
+    knownBias?: string[],
+    /** Describes a sensor used for collecting the data. */
+    sensor?: DictionaryEntry[],
+}
+
+
+/**
+ * Portion of an AnyLicenseInfo representing a set of licensing information where all elements apply.
+ */
+export interface ConjunctiveLicenseSet extends AnyLicenseInfo {
+    /** A license expression participating in a license set. */
+    member: AnyLicenseInfoSpdxId[],
+}
+
+
+/**
+ * A license that is not listed on the SPDX License List.
+ */
+export interface CustomLicense extends License {
+}
+
+
+/**
+ * A license addition that is not listed on the SPDX Exceptions List.
+ */
+export interface CustomLicenseAddition extends LicenseAddition {
+}
+
+
+/**
+ * Portion of an AnyLicenseInfo representing a set of licensing information where only one of the elements applies.
+ */
+export interface DisjunctiveLicenseSet extends AnyLicenseInfo {
+    /** A license expression participating in a license set. */
+    member: AnyLicenseInfoSpdxId[],
+}
+
+
+/**
+ * Abstract class representing a License or an OrLaterOperator.
+ */
+export interface ExtendableLicense extends AnyLicenseInfo {
+}
+
+
+/**
+ * A concrete subclass of AnyLicenseInfo used by Individuals in the ExpandedLicensing profile.
+ */
+export interface IndividualLicensingInfo extends AnyLicenseInfo {
+}
+
+
+/**
+ * Abstract class for the portion of an AnyLicenseInfo representing a license.
+ */
+export interface License extends ExtendableLicense {
+    /** Identifies the full text of a License or Addition. */
+    licenseText: string,
+    /** Identifies all the text and metadata associated with a license in the license XML format. */
+    licenseXml?: string,
+    /** Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition. */
+    obsoletedBy?: string,
+    /** Contains a URL where the License or LicenseAddition can be found in use. */
+    seeAlso?: string[],
+    /** Specifies whether a license or additional text identifier has been marked as deprecated. */
+    isDeprecatedLicenseId?: boolean,
+    /** Specifies whether the License is listed as free by the Free Software Foundation (FSF). */
+    isFsfLibre?: boolean,
+    /** Specifies whether the License is listed as approved by the Open Source Initiative (OSI). */
+    isOsiApproved?: boolean,
+    /** Provides a License author's preferred text to indicate that a file is covered by the License. */
+    standardLicenseHeader?: string,
+    /** Identifies the full text of a License, in SPDX templating format. */
+    standardLicenseTemplate?: string,
+}
+
+
+/**
+ * Abstract class for additional text intended to be added to a License, but which is not itself a standalone License.
+ */
+export interface LicenseAddition extends Element {
+    /** Identifies all the text and metadata associated with a license in the license XML format. */
+    licenseXml?: string,
+    /** Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition. */
+    obsoletedBy?: string,
+    /** Contains a URL where the License or LicenseAddition can be found in use. */
+    seeAlso?: string[],
+    /** Identifies the full text of a LicenseAddition. */
+    additionText: string,
+    /** Specifies whether an additional text identifier has been marked as deprecated. */
+    isDeprecatedAdditionId?: boolean,
+    /** Identifies the full text of a LicenseAddition, in SPDX templating format. */
+    standardAdditionTemplate?: string,
+}
+
+
+/**
+ * A license that is listed on the SPDX License List.
+ */
+export interface ListedLicense extends License {
+    /** Specifies the SPDX License List version in which this license or exception identifier was deprecated. */
+    deprecatedVersion?: string,
+    /** Specifies the SPDX License List version in which this ListedLicense or ListedLicenseException identifier was first added. */
+    listVersionAdded?: string,
+}
+
+
+/**
+ * A license exception that is listed on the SPDX Exceptions list.
+ */
+export interface ListedLicenseException extends LicenseAddition {
+    /** Specifies the SPDX License List version in which this license or exception identifier was deprecated. */
+    deprecatedVersion?: string,
+    /** Specifies the SPDX License List version in which this ListedLicense or ListedLicenseException identifier was first added. */
+    listVersionAdded?: string,
+}
+
+
+/**
+ * Portion of an AnyLicenseInfo representing this version, or any later version, of the indicated License.
+ */
+export interface OrLaterOperator extends ExtendableLicense {
+    /** A License participating in an 'or later' model. */
+    subjectLicense: LicenseSpdxId,
+}
+
+
+/**
+ * Portion of an AnyLicenseInfo representing a License which has additional text applied to it.
+ */
+export interface WithAdditionOperator extends AnyLicenseInfo {
+    /** A LicenseAddition participating in a 'with addition' model. */
+    subjectAddition: LicenseAdditionSpdxId,
+    /** A License participating in a 'with addition' model. */
+    subjectExtendableLicense: ExtendableLicenseSpdxId,
+}
+
+
+/**
+ * Provides a CVSS version 2.0 assessment for a vulnerability.
+ */
+export interface CvssV2VulnAssessmentRelationship extends VulnAssessmentRelationship {
+    /** Provides a numerical (0-10) representation of the severity of a vulnerability. */
+    score: string,
+    /** Specifies the CVSS vector string for a vulnerability. */
+    vectorString: string,
+}
+
+
+/**
+ * Provides a CVSS version 3 assessment for a vulnerability.
+ */
+export interface CvssV3VulnAssessmentRelationship extends VulnAssessmentRelationship {
+    /** Provides a numerical (0-10) representation of the severity of a vulnerability. */
+    score: string,
+    /** Specifies the CVSS qualitative severity rating of a vulnerability in relation to a piece of software. */
+    severity: string,
+    /** Specifies the CVSS vector string for a vulnerability. */
+    vectorString: string,
+}
+
+
+/**
+ * Provides a CVSS version 4 assessment for a vulnerability.
+ */
+export interface CvssV4VulnAssessmentRelationship extends VulnAssessmentRelationship {
+    /** Provides a numerical (0-10) representation of the severity of a vulnerability. */
+    score: string,
+    /** Specifies the CVSS qualitative severity rating of a vulnerability in relation to a piece of software. */
+    severity: string,
+    /** Specifies the CVSS vector string for a vulnerability. */
+    vectorString: string,
+}
+
+
+/**
+ * Provides an EPSS assessment for a vulnerability.
+ */
+export interface EpssVulnAssessmentRelationship extends VulnAssessmentRelationship {
+    /** The percentile of the current probability score. */
+    percentile: string,
+    /** A probability score between 0 and 1 of a vulnerability being exploited. */
+    probability: string,
+}
+
+
+/**
+ * Provides an exploit assessment of a vulnerability.
+ */
+export interface ExploitCatalogVulnAssessmentRelationship extends VulnAssessmentRelationship {
+    /** Specifies the exploit catalog type. */
+    catalogType: string,
+    /** Describe that a CVE is known to have an exploit because it's been listed in an exploit catalog. */
+    exploited: boolean,
+    /** Provides the location of an exploit catalog. */
+    security_locator: string,
+}
+
+
+/**
+ * Provides an SSVC assessment for a vulnerability.
+ */
+export interface SsvcVulnAssessmentRelationship extends VulnAssessmentRelationship {
+    /** Provide the enumeration of possible decisions in the [Stakeholder-Specific Vulnerability Categorization (SSVC) decision tree](https://www.cisa.gov/stakeholder-specific-vulnerability-categorization-ssvc). */
+    decisionType: string,
+}
+
+
+/**
+ * Connects a vulnerability and an element designating the element as a product affected by the vulnerability.
+ */
+export interface VexAffectedVulnAssessmentRelationship extends VexVulnAssessmentRelationship {
+    /** Provides advise on how to mitigate or remediate a vulnerability when a VEX product is affected by it. */
+    actionStatement: string,
+    /** Records the time when a recommended action was communicated in a VEX statement to mitigate a vulnerability. */
+    actionStatementTime?: string,
+}
+
+
+/**
+ * Links a vulnerability and elements representing products (in the VEX sense) where a fix has been applied and are no longer affected.
+ */
+export interface VexFixedVulnAssessmentRelationship extends VexVulnAssessmentRelationship {
+}
+
+
+/**
+ * Links a vulnerability and one or more elements designating the latter as products not affected by the vulnerability.
+ */
+export interface VexNotAffectedVulnAssessmentRelationship extends VexVulnAssessmentRelationship {
+    /** Explains why a VEX product is not affected by a vulnerability. It is an alternative in VexNotAffectedVulnAssessmentRelationship to the machine-readable justification label. */
+    impactStatement?: string,
+    /** Timestamp of impact statement. */
+    impactStatementTime?: string,
+    /** Impact justification label to be used when linking a vulnerability to an element representing a VEX product with a VexNotAffectedVulnAssessmentRelationship relationship. */
+    justificationType?: string,
+}
+
+
+/**
+ * Designates elements as products where the impact of a vulnerability is being investigated.
+ */
+export interface VexUnderInvestigationVulnAssessmentRelationship extends VexVulnAssessmentRelationship {
+}
+
+
+/**
+ * Abstract ancestor class for all VEX relationships
+ */
+export interface VexVulnAssessmentRelationship extends VulnAssessmentRelationship {
+    /** Conveys information about how VEX status was determined. */
+    statusNotes?: string,
+    /** Specifies the version of a VEX statement. */
+    vexVersion?: string,
+}
+
+
+/**
+ * Abstract ancestor class for all vulnerability assessments
+ */
+export interface VulnAssessmentRelationship extends Relationship {
+    /** Specifies a time when a vulnerability assessment was modified */
+    modifiedTime?: string,
+    /** Specifies the time when a vulnerability was published. */
+    publishedTime?: string,
+    /** Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element. */
+    suppliedBy?: AgentSpdxId,
+    /** Specified the time and date when a vulnerability was withdrawn. */
+    withdrawnTime?: string,
+    /** Specifies an Element contained in a piece of software where a vulnerability was found. */
+    assessedElement?: SoftwareArtifactSpdxId,
+}
+
+
+/**
+ * Specifies a vulnerability and its associated information.
+ */
+export interface Vulnerability extends Artifact {
+    /** Specifies a time when a vulnerability assessment was modified */
+    modifiedTime?: string,
+    /** Specifies the time when a vulnerability was published. */
+    publishedTime?: string,
+    /** Specified the time and date when a vulnerability was withdrawn. */
+    withdrawnTime?: string,
 }
 
 

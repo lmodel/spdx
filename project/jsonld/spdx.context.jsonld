@@ -1,497 +1,62 @@
 {
    "@context": {
       "xsd": "http://www.w3.org/2001/XMLSchema#",
-      "ai": "https://spdx.org/rdf/3.0.1/terms/AI/",
-      "build": "https://spdx.org/rdf/3.0.1/terms/Build/",
-      "core": "https://spdx.org/rdf/3.0.1/terms/Core/",
-      "dataset": "https://spdx.org/rdf/3.0.1/terms/Dataset/",
-      "expandedlicensing": "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/",
-      "extension": {
-         "@type": "@id",
-         "@id": "core:extension"
-      },
       "linkml": "https://w3id.org/linkml/",
-      "security": "https://spdx.org/rdf/3.0.1/terms/Security/",
-      "simplelicensing": "https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "skos": "http://www.w3.org/2004/02/skos/core#",
-      "software": "https://spdx.org/rdf/3.0.1/terms/Software/",
       "spdx": "https://spdx.org/rdf/3.0.1/terms/",
-      "@vocab": "https://spdx.org/rdf/3.0.1/terms/",
-      "actionStatement": {
-         "@id": "security:actionStatement"
-      },
-      "actionStatementTime": {
-         "@type": "xsd:dateTime",
-         "@id": "security:actionStatementTime"
-      },
-      "additionalPurpose": {
-         "@id": "software:additionalPurpose"
-      },
-      "additionText": {
-         "@id": "expandedlicensing:additionText"
-      },
-      "algorithm": {
-         "@id": "core:algorithm"
-      },
-      "annotationType": {
-         "@id": "core:annotationType"
-      },
-      "anonymizationMethodUsed": {
-         "@id": "dataset:anonymizationMethodUsed"
-      },
-      "assessedElement": {
-         "@type": "@id",
-         "@id": "security:assessedElement"
-      },
-      "attributionText": {
-         "@id": "software:attributionText"
-      },
+      "spdx_ai": "https://spdx.org/rdf/3.0.1/terms/AI/",
+      "spdx_build": "https://spdx.org/rdf/3.0.1/terms/Build/",
+      "spdx_core": "https://spdx.org/rdf/3.0.1/terms/Core/",
+      "spdx_dataset": "https://spdx.org/rdf/3.0.1/terms/Dataset/",
+      "spdx_expanded_licensing": "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/",
+      "spdx_extension": "https://spdx.org/rdf/3.0.1/terms/Extension/",
+      "spdx_linkml": "https://w3id.org/lmodel/spdx/",
+      "spdx_security": "https://spdx.org/rdf/3.0.1/terms/Security/",
+      "spdx_simple_licensing": "https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/",
+      "spdx_software": "https://spdx.org/rdf/3.0.1/terms/Software/",
+      "@vocab": "https://w3id.org/lmodel/spdx/",
       "autonomyType": {
          "@context": {
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "ai:autonomyType"
-      },
-      "beginIntegerRange": {
-         "@type": "xsd:integer",
-         "@id": "core:beginIntegerRange"
-      },
-      "buildEndTime": {
-         "@type": "xsd:dateTime",
-         "@id": "build:buildEndTime"
-      },
-      "buildId": {
-         "@id": "build:buildId"
-      },
-      "buildStartTime": {
-         "@type": "xsd:dateTime",
-         "@id": "build:buildStartTime"
-      },
-      "buildType": {
-         "@type": "xsd:anyURI",
-         "@id": "build:buildType"
-      },
-      "builtTime": {
-         "@type": "xsd:dateTime",
-         "@id": "core:builtTime"
-      },
-      "byteRange": {
-         "@type": "@id",
-         "@id": "software:byteRange"
-      },
-      "catalogType": {
-         "@id": "security:catalogType"
-      },
-      "cdxProperty": {
-         "@type": "@id",
-         "@id": "extension:cdxProperty"
-      },
-      "cdxPropName": {
-         "@id": "extension:cdxPropName"
-      },
-      "cdxPropValue": {
-         "@id": "extension:cdxPropValue"
-      },
-      "comment": {
-         "@id": "core:comment"
-      },
-      "completeness": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "core:completeness"
-      },
-      "confidentialityLevel": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "dataset:confidentialityLevel"
-      },
-      "configSourceDigest": {
-         "@type": "@id",
-         "@id": "build:configSourceDigest"
-      },
-      "configSourceEntrypoint": {
-         "@id": "build:configSourceEntrypoint"
-      },
-      "configSourceUri": {
-         "@type": "xsd:anyURI",
-         "@id": "build:configSourceUri"
-      },
-      "contentIdentifier": {
-         "@type": "@id",
-         "@id": "software:contentIdentifier"
-      },
-      "contentIdentifierType": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "software:contentIdentifierType"
-      },
-      "contentIdentifierValue": {
-         "@type": "xsd:anyURI",
-         "@id": "software:contentIdentifierValue"
-      },
-      "contentType": {
-         "@id": "core:contentType"
-      },
-      "context": {
-         "@id": "core:context"
-      },
-      "copyrightText": {
-         "@id": "software:copyrightText"
-      },
-      "core_locator": {
-         "@id": "core:locator"
-      },
-      "created": {
-         "@type": "xsd:dateTime",
-         "@id": "core:created"
-      },
-      "createdBy": {
-         "@type": "@id",
-         "@id": "core:createdBy"
-      },
-      "createdUsing": {
-         "@type": "@id",
-         "@id": "core:createdUsing"
-      },
-      "creationInfo": {
-         "@type": "@id",
-         "@id": "core:creationInfo"
-      },
-      "customIdToUri": {
-         "@type": "@id",
-         "@id": "simplelicensing:customIdToUri"
-      },
-      "dataCollectionProcess": {
-         "@id": "dataset:dataCollectionProcess"
-      },
-      "dataLicense": {
-         "@type": "@id",
-         "@id": "core:dataLicense"
-      },
-      "dataPreprocessing": {
-         "@id": "dataset:dataPreprocessing"
-      },
-      "datasetAvailability": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "dataset:datasetAvailability"
-      },
-      "datasetNoise": {
-         "@id": "dataset:datasetNoise"
-      },
-      "datasetSize": {
-         "@type": "xsd:integer",
-         "@id": "dataset:datasetSize"
-      },
-      "datasetType": {
-         "@id": "dataset:datasetType"
-      },
-      "datasetUpdateMechanism": {
-         "@id": "dataset:datasetUpdateMechanism"
-      },
-      "decisionType": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "security:decisionType"
-      },
-      "definingArtifact": {
-         "@type": "@id",
-         "@id": "core:definingArtifact"
-      },
-      "deprecatedVersion": {
-         "@id": "expandedlicensing:deprecatedVersion"
-      },
-      "description": {
-         "@id": "core:description"
+         "@id": "spdx_ai:autonomyType"
       },
       "domain": {
-         "@id": "ai:domain"
-      },
-      "downloadLocation": {
-         "@type": "xsd:anyURI",
-         "@id": "software:downloadLocation"
-      },
-      "element": {
-         "@type": "@id",
-         "@id": "core:element"
-      },
-      "endIntegerRange": {
-         "@type": "xsd:integer",
-         "@id": "core:endIntegerRange"
-      },
-      "endTime": {
-         "@type": "xsd:dateTime",
-         "@id": "core:endTime"
+         "@id": "spdx_ai:domain"
       },
       "energyConsumption": {
          "@type": "@id",
-         "@id": "ai:energyConsumption"
-      },
-      "energyQuantity": {
-         "@type": "xsd:decimal",
-         "@id": "ai:energyQuantity"
-      },
-      "energyUnit": {
-         "@id": "ai:energyUnit"
-      },
-      "environment": {
-         "@type": "@id",
-         "@id": "build:environment"
-      },
-      "exploited": {
-         "@type": "xsd:boolean",
-         "@id": "security:exploited"
-      },
-      "externalIdentifier": {
-         "@type": "@id",
-         "@id": "core:externalIdentifier"
-      },
-      "externalIdentifierType": {
-         "@id": "core:externalIdentifierType"
-      },
-      "externalRef": {
-         "@type": "@id",
-         "@id": "core:externalRef"
-      },
-      "externalRefType": {
-         "@id": "core:externalRefType"
-      },
-      "externalSpdxId": {
-         "@type": "xsd:anyURI",
-         "@id": "core:externalSpdxId"
-      },
-      "fileKind": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "software:fileKind"
-      },
-      "finetuningEnergyConsumption": {
-         "@type": "@id",
-         "@id": "ai:finetuningEnergyConsumption"
-      },
-      "from": {
-         "@type": "@id",
-         "@id": "core:from"
-      },
-      "hashValue": {
-         "@id": "core:hashValue"
-      },
-      "hasSensitivePersonalInformation": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "dataset:hasSensitivePersonalInformation"
-      },
-      "homePage": {
-         "@type": "xsd:anyURI",
-         "@id": "software:homePage"
+         "@id": "spdx_ai:energyConsumption"
       },
       "hyperparameter": {
          "@type": "@id",
-         "@id": "ai:hyperparameter"
-      },
-      "identifier": {
-         "@id": "core:identifier"
-      },
-      "identifierLocator": {
-         "@type": "xsd:anyURI",
-         "@id": "core:identifierLocator"
-      },
-      "impactStatement": {
-         "@id": "security:impactStatement"
-      },
-      "impactStatementTime": {
-         "@type": "xsd:dateTime",
-         "@id": "security:impactStatementTime"
-      },
-      "import": {
-         "@type": "@id",
-         "@id": "core:import"
-      },
-      "inferenceEnergyConsumption": {
-         "@type": "@id",
-         "@id": "ai:inferenceEnergyConsumption"
+         "@id": "spdx_ai:hyperparameter"
       },
       "informationAboutApplication": {
-         "@id": "ai:informationAboutApplication"
+         "@id": "spdx_ai:informationAboutApplication"
       },
       "informationAboutTraining": {
-         "@id": "ai:informationAboutTraining"
-      },
-      "intendedUse": {
-         "@id": "dataset:intendedUse"
-      },
-      "isDeprecatedAdditionId": {
-         "@type": "xsd:boolean",
-         "@id": "expandedlicensing:isDeprecatedAdditionId"
-      },
-      "isDeprecatedLicenseId": {
-         "@type": "xsd:boolean",
-         "@id": "expandedlicensing:isDeprecatedLicenseId"
-      },
-      "isFsfLibre": {
-         "@type": "xsd:boolean",
-         "@id": "expandedlicensing:isFsfLibre"
-      },
-      "isOsiApproved": {
-         "@type": "xsd:boolean",
-         "@id": "expandedlicensing:isOsiApproved"
-      },
-      "issuingAuthority": {
-         "@id": "core:issuingAuthority"
-      },
-      "justificationType": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "security:justificationType"
-      },
-      "key": {
-         "@id": "core:key"
-      },
-      "knownBias": {
-         "@id": "dataset:knownBias"
-      },
-      "licenseExpression": {
-         "@id": "simplelicensing:licenseExpression"
-      },
-      "licenseListVersion": {
-         "@id": "simplelicensing:licenseListVersion"
-      },
-      "licenseText": {
-         "@id": "simplelicensing:licenseText"
-      },
-      "licenseXml": {
-         "@id": "expandedlicensing:licenseXml"
+         "@id": "spdx_ai:informationAboutTraining"
       },
       "limitation": {
-         "@id": "ai:limitation"
-      },
-      "lineRange": {
-         "@type": "@id",
-         "@id": "software:lineRange"
-      },
-      "listVersionAdded": {
-         "@id": "expandedlicensing:listVersionAdded"
-      },
-      "locationHint": {
-         "@type": "xsd:anyURI",
-         "@id": "core:locationHint"
-      },
-      "member": {
-         "@type": "@id",
-         "@id": "expandedlicensing:member"
+         "@id": "spdx_ai:limitation"
       },
       "metric": {
          "@type": "@id",
-         "@id": "ai:metric"
+         "@id": "spdx_ai:metric"
       },
       "metricDecisionThreshold": {
          "@type": "@id",
-         "@id": "ai:metricDecisionThreshold"
+         "@id": "spdx_ai:metricDecisionThreshold"
       },
       "modelDataPreprocessing": {
-         "@id": "ai:modelDataPreprocessing"
+         "@id": "spdx_ai:modelDataPreprocessing"
       },
       "modelExplainability": {
-         "@id": "ai:modelExplainability"
-      },
-      "modifiedTime": {
-         "@type": "xsd:dateTime",
-         "@id": "security:modifiedTime"
-      },
-      "name": {
-         "@id": "core:name"
-      },
-      "namespace": {
-         "@type": "xsd:anyURI",
-         "@id": "core:namespace"
-      },
-      "namespaceMap": {
-         "@type": "@id",
-         "@id": "core:namespaceMap"
-      },
-      "obsoletedBy": {
-         "@id": "expandedlicensing:obsoletedBy"
-      },
-      "originatedBy": {
-         "@type": "@id",
-         "@id": "core:originatedBy"
-      },
-      "packageUrl": {
-         "@type": "xsd:anyURI",
-         "@id": "software:packageUrl"
-      },
-      "packageVerificationCodeExcludedFile": {
-         "@id": "core:packageVerificationCodeExcludedFile"
-      },
-      "packageVersion": {
-         "@id": "software:packageVersion"
-      },
-      "parameter": {
-         "@type": "@id",
-         "@id": "build:parameter"
-      },
-      "percentile": {
-         "@type": "xsd:decimal",
-         "@id": "security:percentile"
-      },
-      "prefix": {
-         "@id": "core:prefix"
-      },
-      "primaryPurpose": {
-         "@id": "software:primaryPurpose"
-      },
-      "probability": {
-         "@type": "xsd:decimal",
-         "@id": "security:probability"
-      },
-      "profileConformance": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "core:profileConformance"
-      },
-      "publishedTime": {
-         "@type": "xsd:dateTime",
-         "@id": "security:publishedTime"
-      },
-      "relationshipType": {
-         "@id": "core:relationshipType"
-      },
-      "releaseTime": {
-         "@type": "xsd:dateTime",
-         "@id": "core:releaseTime"
-      },
-      "rootElement": {
-         "@type": "@id",
-         "@id": "core:rootElement"
+         "@id": "spdx_ai:modelExplainability"
       },
       "safetyRiskAssessment": {
          "@context": {
@@ -499,119 +64,13 @@
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "ai:safetyRiskAssessment"
-      },
-      "sbomType": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "software:sbomType"
-      },
-      "scope": {
-         "@id": "core:scope"
-      },
-      "score": {
-         "@type": "xsd:decimal",
-         "@id": "security:score"
-      },
-      "security_locator": {
-         "@type": "xsd:anyURI",
-         "@id": "security:locator"
-      },
-      "seeAlso": {
-         "@type": "xsd:anyURI",
-         "@id": "expandedlicensing:seeAlso"
-      },
-      "sensor": {
-         "@type": "@id",
-         "@id": "dataset:sensor"
-      },
-      "severity": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "security:severity"
-      },
-      "snippetFromFile": {
-         "@type": "@id",
-         "@id": "software:snippetFromFile"
-      },
-      "sourceInfo": {
-         "@id": "software:sourceInfo"
-      },
-      "specVersion": {
-         "@id": "core:specVersion"
-      },
-      "standardAdditionTemplate": {
-         "@id": "expandedlicensing:standardAdditionTemplate"
+         "@id": "spdx_ai:safetyRiskAssessment"
       },
       "standardCompliance": {
-         "@id": "ai:standardCompliance"
-      },
-      "standardLicenseHeader": {
-         "@id": "expandedlicensing:standardLicenseHeader"
-      },
-      "standardLicenseTemplate": {
-         "@id": "expandedlicensing:standardLicenseTemplate"
-      },
-      "standardName": {
-         "@id": "core:standardName"
-      },
-      "startTime": {
-         "@type": "xsd:dateTime",
-         "@id": "core:startTime"
-      },
-      "statement": {
-         "@id": "core:statement"
-      },
-      "statusNotes": {
-         "@id": "security:statusNotes"
-      },
-      "subject": {
-         "@type": "@id",
-         "@id": "core:subject"
-      },
-      "subjectAddition": {
-         "@type": "@id",
-         "@id": "expandedlicensing:subjectAddition"
-      },
-      "subjectExtendableLicense": {
-         "@type": "@id",
-         "@id": "expandedlicensing:subjectExtendableLicense"
-      },
-      "subjectLicense": {
-         "@type": "@id",
-         "@id": "expandedlicensing:subjectLicense"
-      },
-      "summary": {
-         "@id": "core:summary"
-      },
-      "suppliedBy": {
-         "@type": "@id",
-         "@id": "core:suppliedBy"
-      },
-      "supportLevel": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "core:supportLevel"
-      },
-      "to": {
-         "@type": "@id",
-         "@id": "core:to"
-      },
-      "trainingEnergyConsumption": {
-         "@type": "@id",
-         "@id": "ai:trainingEnergyConsumption"
+         "@id": "spdx_ai:standardCompliance"
       },
       "typeOfModel": {
-         "@id": "ai:typeOfModel"
+         "@id": "spdx_ai:typeOfModel"
       },
       "useSensitivePersonalInformation": {
          "@context": {
@@ -619,229 +78,832 @@
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "ai:useSensitivePersonalInformation"
+         "@id": "spdx_ai:useSensitivePersonalInformation"
+      },
+      "algorithm": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_core:algorithm"
+      },
+      "annotationType": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_core:annotationType"
+      },
+      "statement": {
+         "@id": "spdx_core:statement"
+      },
+      "subject": {
+         "@type": "@id",
+         "@id": "spdx_core:subject"
+      },
+      "builtTime": {
+         "@type": "xsd:dateTimeStamp",
+         "@id": "spdx_core:builtTime"
+      },
+      "originatedBy": {
+         "@type": "@id",
+         "@id": "spdx_core:originatedBy"
+      },
+      "releaseTime": {
+         "@type": "xsd:dateTimeStamp",
+         "@id": "spdx_core:releaseTime"
+      },
+      "standardName": {
+         "@id": "spdx_core:standardName"
+      },
+      "supportLevel": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_core:supportLevel"
       },
       "validUntilTime": {
-         "@type": "xsd:dateTime",
-         "@id": "core:validUntilTime"
+         "@type": "xsd:dateTimeStamp",
+         "@id": "spdx_core:validUntilTime"
+      },
+      "buildEndTime": {
+         "@type": "xsd:dateTimeStamp",
+         "@id": "spdx_build:buildEndTime"
+      },
+      "buildId": {
+         "@id": "spdx_build:buildId"
+      },
+      "buildStartTime": {
+         "@type": "xsd:dateTimeStamp",
+         "@id": "spdx_build:buildStartTime"
+      },
+      "buildType": {
+         "@type": "xsd:anyURI",
+         "@id": "spdx_build:buildType"
+      },
+      "configSourceDigest": {
+         "@type": "@id",
+         "@id": "spdx_build:configSourceDigest"
+      },
+      "configSourceEntrypoint": {
+         "@id": "spdx_build:configSourceEntrypoint"
+      },
+      "configSourceUri": {
+         "@type": "xsd:anyURI",
+         "@id": "spdx_build:configSourceUri"
+      },
+      "environment": {
+         "@type": "@id",
+         "@id": "spdx_build:environment"
+      },
+      "parameter": {
+         "@type": "@id",
+         "@id": "spdx_build:parameter"
+      },
+      "context": {
+         "@id": "spdx_core:context"
+      },
+      "cdxProperty": {
+         "@type": "@id",
+         "@id": "spdx_extension:cdxProperty"
+      },
+      "cdxPropName": {
+         "@id": "spdx_extension:cdxPropName"
+      },
+      "cdxPropValue": {
+         "@id": "spdx_extension:cdxPropValue"
+      },
+      "comment": {
+         "@id": "spdx_core:comment"
+      },
+      "contentIdentifierType": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_software:contentIdentifierType"
+      },
+      "contentIdentifierValue": {
+         "@type": "xsd:anyURI",
+         "@id": "spdx_software:contentIdentifierValue"
+      },
+      "contentType": {
+         "@id": "spdx_core:contentType"
+      },
+      "created": {
+         "@type": "xsd:dateTimeStamp",
+         "@id": "spdx_core:created"
+      },
+      "createdBy": {
+         "@type": "@id",
+         "@id": "spdx_core:createdBy"
+      },
+      "createdUsing": {
+         "@type": "@id",
+         "@id": "spdx_core:createdUsing"
+      },
+      "specVersion": {
+         "@id": "spdx_core:specVersion"
+      },
+      "anonymizationMethodUsed": {
+         "@id": "spdx_dataset:anonymizationMethodUsed"
+      },
+      "confidentialityLevel": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_dataset:confidentialityLevel"
+      },
+      "dataCollectionProcess": {
+         "@id": "spdx_dataset:dataCollectionProcess"
+      },
+      "dataPreprocessing": {
+         "@id": "spdx_dataset:dataPreprocessing"
+      },
+      "datasetAvailability": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_dataset:datasetAvailability"
+      },
+      "datasetNoise": {
+         "@id": "spdx_dataset:datasetNoise"
+      },
+      "datasetSize": {
+         "@type": "xsd:nonNegativeInteger",
+         "@id": "spdx_dataset:datasetSize"
+      },
+      "datasetType": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_dataset:datasetType"
+      },
+      "datasetUpdateMechanism": {
+         "@id": "spdx_dataset:datasetUpdateMechanism"
+      },
+      "hasSensitivePersonalInformation": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_dataset:hasSensitivePersonalInformation"
+      },
+      "intendedUse": {
+         "@id": "spdx_dataset:intendedUse"
+      },
+      "knownBias": {
+         "@id": "spdx_dataset:knownBias"
+      },
+      "sensor": {
+         "@type": "@id",
+         "@id": "spdx_dataset:sensor"
+      },
+      "deprecatedVersion": {
+         "@id": "spdx_expanded_licensing:deprecatedVersion"
+      },
+      "key": {
+         "@id": "spdx_core:key"
       },
       "value": {
-         "@id": "core:value"
+         "@id": "spdx_core:value"
+      },
+      "creationInfo": {
+         "@type": "@id",
+         "@id": "spdx_core:creationInfo"
+      },
+      "description": {
+         "@id": "spdx_core:description"
+      },
+      "extension": {
+         "@type": "@id",
+         "@id": "spdx_core:extension"
+      },
+      "externalIdentifier": {
+         "@type": "@id",
+         "@id": "spdx_core:externalIdentifier"
+      },
+      "externalRef": {
+         "@type": "@id",
+         "@id": "spdx_core:externalRef"
+      },
+      "name": {
+         "@id": "spdx_core:name"
+      },
+      "spdxId": "@id",
+      "summary": {
+         "@id": "spdx_core:summary"
+      },
+      "element": {
+         "@type": "@id",
+         "@id": "spdx_core:element"
+      },
+      "profileConformance": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_core:profileConformance"
+      },
+      "rootElement": {
+         "@type": "@id",
+         "@id": "spdx_core:rootElement"
+      },
+      "finetuningEnergyConsumption": {
+         "@type": "@id",
+         "@id": "spdx_ai:finetuningEnergyConsumption"
+      },
+      "inferenceEnergyConsumption": {
+         "@type": "@id",
+         "@id": "spdx_ai:inferenceEnergyConsumption"
+      },
+      "trainingEnergyConsumption": {
+         "@type": "@id",
+         "@id": "spdx_ai:trainingEnergyConsumption"
+      },
+      "energyQuantity": {
+         "@type": "xsd:decimal",
+         "@id": "spdx_ai:energyQuantity"
+      },
+      "energyUnit": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_ai:energyUnit"
+      },
+      "percentile": {
+         "@type": "xsd:decimal",
+         "@id": "spdx_security:percentile"
+      },
+      "probability": {
+         "@type": "xsd:decimal",
+         "@id": "spdx_security:probability"
+      },
+      "catalogType": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_security:catalogType"
+      },
+      "exploited": {
+         "@type": "xsd:boolean",
+         "@id": "spdx_security:exploited"
+      },
+      "security_locator": {
+         "@type": "xsd:anyURI",
+         "@id": "spdx_security:locator"
+      },
+      "externalIdentifierType": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_core:externalIdentifierType"
+      },
+      "identifier": {
+         "@id": "spdx_core:identifier"
+      },
+      "identifierLocator": {
+         "@type": "xsd:anyURI",
+         "@id": "spdx_core:identifierLocator"
+      },
+      "issuingAuthority": {
+         "@id": "spdx_core:issuingAuthority"
+      },
+      "definingArtifact": {
+         "@type": "@id",
+         "@id": "spdx_core:definingArtifact"
+      },
+      "externalSpdxId": {
+         "@type": "xsd:anyURI",
+         "@id": "spdx_core:externalSpdxId"
+      },
+      "locationHint": {
+         "@type": "xsd:anyURI",
+         "@id": "spdx_core:locationHint"
+      },
+      "externalRefType": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_core:externalRefType"
+      },
+      "locator": {
+         "@id": "spdx_core:locator"
+      },
+      "fileKind": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_software:fileKind"
+      },
+      "hashValue": {
+         "@id": "spdx_core:hashValue"
+      },
+      "isDeprecatedLicenseId": {
+         "@type": "xsd:boolean",
+         "@id": "spdx_expanded_licensing:isDeprecatedLicenseId"
+      },
+      "isFsfLibre": {
+         "@type": "xsd:boolean",
+         "@id": "spdx_expanded_licensing:isFsfLibre"
+      },
+      "isOsiApproved": {
+         "@type": "xsd:boolean",
+         "@id": "spdx_expanded_licensing:isOsiApproved"
+      },
+      "standardLicenseHeader": {
+         "@id": "spdx_expanded_licensing:standardLicenseHeader"
+      },
+      "standardLicenseTemplate": {
+         "@id": "spdx_expanded_licensing:standardLicenseTemplate"
+      },
+      "additionText": {
+         "@id": "spdx_expanded_licensing:additionText"
+      },
+      "isDeprecatedAdditionId": {
+         "@type": "xsd:boolean",
+         "@id": "spdx_expanded_licensing:isDeprecatedAdditionId"
+      },
+      "standardAdditionTemplate": {
+         "@id": "spdx_expanded_licensing:standardAdditionTemplate"
+      },
+      "customIdToUri": {
+         "@type": "@id",
+         "@id": "spdx_simple_licensing:customIdToUri"
+      },
+      "licenseExpression": {
+         "@id": "spdx_simple_licensing:licenseExpression"
+      },
+      "licenseListVersion": {
+         "@id": "spdx_simple_licensing:licenseListVersion"
+      },
+      "licenseText": {
+         "@id": "spdx_simple_licensing:licenseText"
+      },
+      "licenseXml": {
+         "@id": "spdx_expanded_licensing:licenseXml"
+      },
+      "scope": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_core:scope"
+      },
+      "listVersionAdded": {
+         "@id": "spdx_expanded_licensing:listVersionAdded"
+      },
+      "member": {
+         "@type": "@id",
+         "@id": "spdx_expanded_licensing:member"
+      },
+      "modifiedTime": {
+         "@type": "xsd:dateTimeStamp",
+         "@id": "spdx_security:modifiedTime"
+      },
+      "namespace": {
+         "@type": "xsd:anyURI",
+         "@id": "spdx_core:namespace"
+      },
+      "prefix": {
+         "@id": "spdx_core:prefix"
+      },
+      "obsoletedBy": {
+         "@id": "spdx_expanded_licensing:obsoletedBy"
+      },
+      "subjectLicense": {
+         "@type": "@id",
+         "@id": "spdx_expanded_licensing:subjectLicense"
+      },
+      "downloadLocation": {
+         "@type": "xsd:anyURI",
+         "@id": "spdx_software:downloadLocation"
+      },
+      "homePage": {
+         "@type": "xsd:anyURI",
+         "@id": "spdx_software:homePage"
+      },
+      "packageUrl": {
+         "@type": "xsd:anyURI",
+         "@id": "spdx_software:packageUrl"
+      },
+      "packageVersion": {
+         "@id": "spdx_software:packageVersion"
+      },
+      "sourceInfo": {
+         "@id": "spdx_software:sourceInfo"
+      },
+      "packageVerificationCodeExcludedFile": {
+         "@id": "spdx_core:packageVerificationCodeExcludedFile"
+      },
+      "beginIntegerRange": {
+         "@type": "xsd:positiveInteger",
+         "@id": "spdx_core:beginIntegerRange"
+      },
+      "endIntegerRange": {
+         "@type": "xsd:positiveInteger",
+         "@id": "spdx_core:endIntegerRange"
+      },
+      "publishedTime": {
+         "@type": "xsd:dateTimeStamp",
+         "@id": "spdx_security:publishedTime"
+      },
+      "completeness": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_core:completeness"
+      },
+      "endTime": {
+         "@type": "xsd:dateTimeStamp",
+         "@id": "spdx_core:endTime"
+      },
+      "from": {
+         "@type": "@id",
+         "@id": "spdx_core:from"
+      },
+      "relationshipType": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_core:relationshipType"
+      },
+      "startTime": {
+         "@type": "xsd:dateTimeStamp",
+         "@id": "spdx_core:startTime"
+      },
+      "to": {
+         "@type": "@id",
+         "@id": "spdx_core:to"
+      },
+      "sbomType": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_software:sbomType"
+      },
+      "score": {
+         "@type": "xsd:decimal",
+         "@id": "spdx_security:score"
+      },
+      "seeAlso": {
+         "@type": "xsd:anyURI",
+         "@id": "spdx_expanded_licensing:seeAlso"
+      },
+      "severity": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_security:severity"
+      },
+      "byteRange": {
+         "@type": "@id",
+         "@id": "spdx_software:byteRange"
+      },
+      "lineRange": {
+         "@type": "@id",
+         "@id": "spdx_software:lineRange"
+      },
+      "snippetFromFile": {
+         "@type": "@id",
+         "@id": "spdx_software:snippetFromFile"
+      },
+      "additionalPurpose": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_software:additionalPurpose"
+      },
+      "attributionText": {
+         "@id": "spdx_software:attributionText"
+      },
+      "contentIdentifier": {
+         "@type": "@id",
+         "@id": "spdx_software:contentIdentifier"
+      },
+      "copyrightText": {
+         "@id": "spdx_software:copyrightText"
+      },
+      "primaryPurpose": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_software:primaryPurpose"
+      },
+      "dataLicense": {
+         "@type": "@id",
+         "@id": "spdx_core:dataLicense"
+      },
+      "import": {
+         "@type": "@id",
+         "@id": "spdx_core:import"
+      },
+      "namespaceMap": {
+         "@type": "@id",
+         "@id": "spdx_core:namespaceMap"
+      },
+      "decisionType": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_security:decisionType"
+      },
+      "suppliedBy": {
+         "@type": "@id",
+         "@id": "spdx_core:suppliedBy"
+      },
+      "type": {
+         "@id": "rdf:type"
       },
       "vectorString": {
-         "@id": "security:vectorString"
+         "@id": "spdx_security:vectorString"
       },
       "verifiedUsing": {
          "@type": "@id",
-         "@id": "core:verifiedUsing"
+         "@id": "spdx_core:verifiedUsing"
+      },
+      "actionStatement": {
+         "@id": "spdx_security:actionStatement"
+      },
+      "actionStatementTime": {
+         "@type": "xsd:dateTimeStamp",
+         "@id": "spdx_security:actionStatementTime"
+      },
+      "impactStatement": {
+         "@id": "spdx_security:impactStatement"
+      },
+      "impactStatementTime": {
+         "@type": "xsd:dateTimeStamp",
+         "@id": "spdx_security:impactStatementTime"
+      },
+      "justificationType": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "spdx_security:justificationType"
+      },
+      "statusNotes": {
+         "@id": "spdx_security:statusNotes"
       },
       "vexVersion": {
-         "@id": "security:vexVersion"
+         "@id": "spdx_security:vexVersion"
+      },
+      "assessedElement": {
+         "@type": "@id",
+         "@id": "spdx_security:assessedElement"
+      },
+      "subjectAddition": {
+         "@type": "@id",
+         "@id": "spdx_expanded_licensing:subjectAddition"
+      },
+      "subjectExtendableLicense": {
+         "@type": "@id",
+         "@id": "spdx_expanded_licensing:subjectExtendableLicense"
       },
       "withdrawnTime": {
-         "@type": "xsd:dateTime",
-         "@id": "security:withdrawnTime"
+         "@type": "xsd:dateTimeStamp",
+         "@id": "spdx_security:withdrawnTime"
       },
       "Agent": {
-         "@id": "core:Agent"
+         "@id": "spdx_core:Agent"
       },
       "AIPackage": {
-         "@id": "ai:AIPackage"
+         "@id": "spdx_ai:AIPackage"
       },
       "Annotation": {
-         "@id": "core:Annotation"
+         "@id": "spdx_core:Annotation"
       },
       "AnyLicenseInfo": {
-         "@id": "simplelicensing:AnyLicenseInfo"
+         "@id": "spdx_simple_licensing:AnyLicenseInfo"
       },
       "Artifact": {
-         "@id": "core:Artifact"
+         "@id": "spdx_core:Artifact"
       },
       "Bom": {
-         "@id": "core:Bom"
+         "@id": "spdx_core:Bom"
       },
       "Build": {
-         "@id": "build:Build"
+         "@id": "spdx_build:Build"
       },
       "Bundle": {
-         "@id": "core:Bundle"
+         "@id": "spdx_core:Bundle"
       },
       "CdxPropertiesExtension": {
-         "@id": "extension:CdxPropertiesExtension"
+         "@id": "spdx_extension:CdxPropertiesExtension"
       },
       "CdxPropertyEntry": {
-         "@id": "extension:CdxPropertyEntry"
+         "@id": "spdx_extension:CdxPropertyEntry"
       },
       "ConjunctiveLicenseSet": {
-         "@id": "expandedlicensing:ConjunctiveLicenseSet"
+         "@id": "spdx_expanded_licensing:ConjunctiveLicenseSet"
       },
       "ContentIdentifier": {
-         "@id": "software:ContentIdentifier"
+         "@id": "spdx_software:ContentIdentifier"
       },
       "CreationInfo": {
-         "@id": "core:CreationInfo"
+         "@id": "spdx_core:CreationInfo"
       },
       "CustomLicense": {
-         "@id": "expandedlicensing:CustomLicense"
+         "@id": "spdx_expanded_licensing:CustomLicense"
       },
       "CustomLicenseAddition": {
-         "@id": "expandedlicensing:CustomLicenseAddition"
+         "@id": "spdx_expanded_licensing:CustomLicenseAddition"
       },
       "CvssV2VulnAssessmentRelationship": {
-         "@id": "security:CvssV2VulnAssessmentRelationship"
+         "@id": "spdx_security:CvssV2VulnAssessmentRelationship"
       },
       "CvssV3VulnAssessmentRelationship": {
-         "@id": "security:CvssV3VulnAssessmentRelationship"
+         "@id": "spdx_security:CvssV3VulnAssessmentRelationship"
       },
       "CvssV4VulnAssessmentRelationship": {
-         "@id": "security:CvssV4VulnAssessmentRelationship"
+         "@id": "spdx_security:CvssV4VulnAssessmentRelationship"
       },
       "DatasetPackage": {
-         "@id": "dataset:DatasetPackage"
+         "@id": "spdx_dataset:DatasetPackage"
       },
       "DictionaryEntry": {
-         "@id": "core:DictionaryEntry"
+         "@id": "spdx_core:DictionaryEntry"
       },
       "DisjunctiveLicenseSet": {
-         "@id": "expandedlicensing:DisjunctiveLicenseSet"
+         "@id": "spdx_expanded_licensing:DisjunctiveLicenseSet"
       },
       "Element": {
-         "@id": "core:Element"
+         "@id": "spdx_core:Element"
       },
       "ElementCollection": {
-         "@id": "core:ElementCollection"
+         "@id": "spdx_core:ElementCollection"
       },
       "EnergyConsumption": {
-         "@id": "ai:EnergyConsumption"
+         "@id": "spdx_ai:EnergyConsumption"
       },
       "EnergyConsumptionDescription": {
-         "@id": "ai:EnergyConsumptionDescription"
+         "@id": "spdx_ai:EnergyConsumptionDescription"
       },
       "EpssVulnAssessmentRelationship": {
-         "@id": "security:EpssVulnAssessmentRelationship"
+         "@id": "spdx_security:EpssVulnAssessmentRelationship"
       },
       "ExploitCatalogVulnAssessmentRelationship": {
-         "@id": "security:ExploitCatalogVulnAssessmentRelationship"
+         "@id": "spdx_security:ExploitCatalogVulnAssessmentRelationship"
       },
       "ExtendableLicense": {
-         "@id": "expandedlicensing:ExtendableLicense"
+         "@id": "spdx_expanded_licensing:ExtendableLicense"
       },
       "Extension": {
-         "@id": "extension:Extension"
+         "@id": "spdx_extension:Extension"
       },
       "ExternalIdentifier": {
-         "@id": "core:ExternalIdentifier"
+         "@id": "spdx_core:ExternalIdentifier"
       },
       "ExternalMap": {
-         "@id": "core:ExternalMap"
+         "@id": "spdx_core:ExternalMap"
       },
       "ExternalRef": {
-         "@id": "core:ExternalRef"
+         "@id": "spdx_core:ExternalRef"
       },
       "File": {
-         "@id": "software:File"
+         "@id": "spdx_software:File"
       },
       "Hash": {
-         "@id": "core:Hash"
+         "@id": "spdx_core:Hash"
       },
       "IndividualElement": {
-         "@id": "core:IndividualElement"
+         "@id": "spdx_core:IndividualElement"
       },
       "IndividualLicensingInfo": {
-         "@id": "expandedlicensing:IndividualLicensingInfo"
+         "@id": "spdx_expanded_licensing:IndividualLicensingInfo"
       },
       "IntegrityMethod": {
-         "@id": "core:IntegrityMethod"
+         "@id": "spdx_core:IntegrityMethod"
       },
       "License": {
-         "@id": "expandedlicensing:License"
+         "@id": "spdx_expanded_licensing:License"
       },
       "LicenseAddition": {
-         "@id": "expandedlicensing:LicenseAddition"
+         "@id": "spdx_expanded_licensing:LicenseAddition"
       },
       "LicenseExpression": {
-         "@id": "simplelicensing:LicenseExpression"
+         "@id": "spdx_simple_licensing:LicenseExpression"
       },
       "LifecycleScopedRelationship": {
-         "@id": "core:LifecycleScopedRelationship"
+         "@id": "spdx_core:LifecycleScopedRelationship"
       },
       "ListedLicense": {
-         "@id": "expandedlicensing:ListedLicense"
+         "@id": "spdx_expanded_licensing:ListedLicense"
       },
       "ListedLicenseException": {
-         "@id": "expandedlicensing:ListedLicenseException"
+         "@id": "spdx_expanded_licensing:ListedLicenseException"
       },
       "NamespaceMap": {
-         "@id": "core:NamespaceMap"
+         "@id": "spdx_core:NamespaceMap"
       },
       "Organization": {
-         "@id": "core:Organization"
+         "@id": "spdx_core:Organization"
       },
       "OrLaterOperator": {
-         "@id": "expandedlicensing:OrLaterOperator"
+         "@id": "spdx_expanded_licensing:OrLaterOperator"
       },
       "Package": {
-         "@id": "software:Package"
+         "@id": "spdx_software:Package"
       },
       "PackageVerificationCode": {
-         "@id": "core:PackageVerificationCode"
+         "@id": "spdx_core:PackageVerificationCode"
       },
       "Person": {
-         "@id": "core:Person"
+         "@id": "spdx_core:Person"
       },
       "PositiveIntegerRange": {
-         "@id": "core:PositiveIntegerRange"
+         "@id": "spdx_core:PositiveIntegerRange"
       },
       "Relationship": {
-         "@id": "core:Relationship"
+         "@id": "spdx_core:Relationship"
       },
       "Sbom": {
-         "@id": "software:Sbom"
+         "@id": "spdx_software:Sbom"
       },
       "SimpleLicensingText": {
-         "@id": "simplelicensing:SimpleLicensingText"
+         "@id": "spdx_simple_licensing:SimpleLicensingText"
       },
       "Snippet": {
-         "@id": "software:Snippet"
+         "@id": "spdx_software:Snippet"
       },
       "SoftwareAgent": {
-         "@id": "core:SoftwareAgent"
+         "@id": "spdx_core:SoftwareAgent"
       },
       "SoftwareArtifact": {
-         "@id": "software:SoftwareArtifact"
+         "@id": "spdx_software:SoftwareArtifact"
       },
       "SpdxDocument": {
-         "@id": "core:SpdxDocument"
+         "@id": "spdx_core:SpdxDocument"
       },
       "SsvcVulnAssessmentRelationship": {
-         "@id": "security:SsvcVulnAssessmentRelationship"
+         "@id": "spdx_security:SsvcVulnAssessmentRelationship"
       },
       "Tool": {
-         "@id": "core:Tool"
+         "@id": "spdx_core:Tool"
       },
       "VexAffectedVulnAssessmentRelationship": {
-         "@id": "security:VexAffectedVulnAssessmentRelationship"
+         "@id": "spdx_security:VexAffectedVulnAssessmentRelationship"
       },
       "VexFixedVulnAssessmentRelationship": {
-         "@id": "security:VexFixedVulnAssessmentRelationship"
+         "@id": "spdx_security:VexFixedVulnAssessmentRelationship"
       },
       "VexNotAffectedVulnAssessmentRelationship": {
-         "@id": "security:VexNotAffectedVulnAssessmentRelationship"
+         "@id": "spdx_security:VexNotAffectedVulnAssessmentRelationship"
       },
       "VexUnderInvestigationVulnAssessmentRelationship": {
-         "@id": "security:VexUnderInvestigationVulnAssessmentRelationship"
+         "@id": "spdx_security:VexUnderInvestigationVulnAssessmentRelationship"
       },
       "VexVulnAssessmentRelationship": {
-         "@id": "security:VexVulnAssessmentRelationship"
+         "@id": "spdx_security:VexVulnAssessmentRelationship"
       },
       "VulnAssessmentRelationship": {
-         "@id": "security:VulnAssessmentRelationship"
+         "@id": "spdx_security:VulnAssessmentRelationship"
       },
       "Vulnerability": {
-         "@id": "security:Vulnerability"
+         "@id": "spdx_security:Vulnerability"
       },
       "WithAdditionOperator": {
-         "@id": "expandedlicensing:WithAdditionOperator"
+         "@id": "spdx_expanded_licensing:WithAdditionOperator"
       }
    }
 }

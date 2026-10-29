@@ -87,11 +87,6 @@ deploy: site
 [group('model development')]
 test: _test-schema _test-python _test-examples
 
-# Run local fixture + upstream SPDX example data tests
-[group('model development')]
-test-data-upstream:
-  uv run python -m pytest tests/test_data.py
-
 # Run linting
 [group('model development')]
 lint:
@@ -197,7 +192,15 @@ _test-python: gen-python
 
 # Run example tests
 _test-examples: _ensure_examples_output
-  uv run python -m pytest tests/test_data.py
+  uv run linkml-run-examples \
+    --input-formats json \
+    --input-formats yaml \
+    --output-formats json \
+    --output-formats yaml \
+    --counter-example-input-directory tests/data/invalid \
+    --input-directory tests/data/valid \
+    --output-directory examples/output \
+    --schema {{source_schema_path}} > examples/output/README.md
 
 # Add the merged model to docs/schema.
 _gen-yaml:

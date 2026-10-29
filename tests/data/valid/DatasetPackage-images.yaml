@@ -1,0 +1,21 @@
+spdxId: https://example.com/spdx/packages/handwriting-images-1.0
+type: DatasetPackage
+name: handwriting-images
+packageVersion: "1.0"
+primaryPurpose: data
+downloadLocation: https://example.com/datasets/handwriting-images-1.0.zip
+datasetType:
+  - image
+datasetSize: 1200000
+confidentialityLevel: green
+datasetAvailability: directDownload
+hasSensitivePersonalInformation: "no"
+intendedUse: Training handwriting recognition models.
+dataCollectionProcess: Scanned forms filled in by volunteers.
+knownBias:
+  - Mostly right-handed writers.
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane
