@@ -33,6 +33,106 @@ imports:
   - linkml:types
   - ./spdx_core
 
+slots:
+
+  buildEndTime:
+    description: Property that describes the time at which a build stops.
+    slot_uri: spdx_build:buildEndTime
+    range: date_time_stamp
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/buildEndTime/
+    in_subset:
+      - spdx_build
+
+  buildId:
+    description: >-
+      A buildId is a locally unique identifier used by a builder to identify a unique instance of a build
+      produced by it.
+    slot_uri: spdx_build:buildId
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/buildId/
+    in_subset:
+      - spdx_build
+
+  buildStartTime:
+    description: Property describing the start time of a build.
+    slot_uri: spdx_build:buildStartTime
+    range: date_time_stamp
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/buildStartTime/
+    in_subset:
+      - spdx_build
+
+  buildType:
+    description: >-
+      A buildType is a hint that is used to indicate the toolchain, platform, or infrastructure that the
+      build was invoked on.
+    slot_uri: spdx_build:buildType
+    range: uri
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/buildType/
+    in_subset:
+      - spdx_build
+
+  configSourceDigest:
+    description: >-
+      Property that describes the digest of the build configuration file used to invoke a build.
+    slot_uri: spdx_build:configSourceDigest
+    range: Hash
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/configSourceDigest/
+    in_subset:
+      - spdx_build
+
+  configSourceEntrypoint:
+    description: Property describes the invocation entrypoint of a build.
+    slot_uri: spdx_build:configSourceEntrypoint
+    range: string
+    multivalued: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/configSourceEntrypoint/
+    in_subset:
+      - spdx_build
+
+  configSourceUri:
+    description: Property that describes the URI of the build configuration source file.
+    slot_uri: spdx_build:configSourceUri
+    range: uri
+    multivalued: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/configSourceUri/
+    in_subset:
+      - spdx_build
+
+  environment:
+    description: Property describing the session in which a build is invoked.
+    slot_uri: spdx_build:environment
+    range: DictionaryEntry
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/environment/
+    in_subset:
+      - spdx_build
+
+  parameter:
+    description: Property describing a parameter used in an instance of a build.
+    slot_uri: spdx_build:parameter
+    range: DictionaryEntry
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/parameter/
+    in_subset:
+      - spdx_build
+
 classes:
 
   Build:
@@ -43,75 +143,13 @@ classes:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Classes/Build/
     in_subset:
       - spdx_build
-    attributes:
-      buildEndTime:
-        description: Property that describes the time at which a build stops.
-        slot_uri: spdx_build:buildEndTime
-        range: date_time_stamp
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/buildEndTime/
-      buildId:
-        description: >-
-          A buildId is a locally unique identifier used by a builder to identify a unique instance of
-          a build produced by it.
-        slot_uri: spdx_build:buildId
-        range: string
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/buildId/
-      buildStartTime:
-        description: Property describing the start time of a build.
-        slot_uri: spdx_build:buildStartTime
-        range: date_time_stamp
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/buildStartTime/
-      buildType:
-        description: >-
-          A buildType is a hint that is used to indicate the toolchain, platform, or infrastructure that
-          the build was invoked on.
-        slot_uri: spdx_build:buildType
-        range: uri
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/buildType/
-      configSourceDigest:
-        description: >-
-          Property that describes the digest of the build configuration file used to invoke a build.
-        slot_uri: spdx_build:configSourceDigest
-        range: Hash
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/configSourceDigest/
-      configSourceEntrypoint:
-        description: Property describes the invocation entrypoint of a build.
-        slot_uri: spdx_build:configSourceEntrypoint
-        range: string
-        multivalued: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/configSourceEntrypoint/
-      configSourceUri:
-        description: Property that describes the URI of the build configuration source file.
-        slot_uri: spdx_build:configSourceUri
-        range: uri
-        multivalued: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/configSourceUri/
-      environment:
-        description: Property describing the session in which a build is invoked.
-        slot_uri: spdx_build:environment
-        range: DictionaryEntry
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/environment/
-      parameter:
-        description: Property describing a parameter used in an instance of a build.
-        slot_uri: spdx_build:parameter
-        range: DictionaryEntry
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/parameter/
+    slots:
+      - buildEndTime
+      - buildId
+      - buildStartTime
+      - buildType
+      - configSourceDigest
+      - configSourceEntrypoint
+      - configSourceUri
+      - environment
+      - parameter

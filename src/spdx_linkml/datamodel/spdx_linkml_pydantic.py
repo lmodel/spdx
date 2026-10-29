@@ -1325,15 +1325,19 @@ class CreationInfo(ConfiguredBaseModel):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
     created: str = Field(default=..., description="""Identifies when the Element was originally created.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CreationInfo'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/created/'],
          'slot_uri': 'spdx_core:created'} })
     createdBy: list[str] = Field(default=..., description="""Identifies who or what created the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CreationInfo'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/createdBy/'],
          'slot_uri': 'spdx_core:createdBy'} })
     createdUsing: Optional[list[str]] = Field(default=None, description="""Identifies the tooling that was used during the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CreationInfo'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/createdUsing/'],
          'slot_uri': 'spdx_core:createdUsing'} })
     specVersion: str = Field(default=..., description="""Provides a reference number that can be used to understand how to parse and interpret an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CreationInfo'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/specVersion/'],
          'slot_uri': 'spdx_core:specVersion'} })
 
@@ -1368,9 +1372,11 @@ class DictionaryEntry(ConfiguredBaseModel):
          'in_subset': ['spdx_core'],
          'slot_uri': 'rdf:type'} })
     key: str = Field(default=..., description="""A key used in a generic key-value pair.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DictionaryEntry'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/key/'],
          'slot_uri': 'spdx_core:key'} })
     value: Optional[str] = Field(default=None, description="""A value used in a generic key-value pair.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DictionaryEntry'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/value/'],
          'slot_uri': 'spdx_core:value'} })
 
@@ -1413,6 +1419,34 @@ class Element(ConfiguredBaseModel):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -1421,27 +1455,6 @@ class Element(ConfiguredBaseModel):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class Agent(Element):
@@ -1481,6 +1494,34 @@ class Agent(Element):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -1489,27 +1530,6 @@ class Agent(Element):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class Annotation(Element):
@@ -1521,17 +1541,20 @@ class Annotation(Element):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Annotation/']})
 
+    annotationType: AnnotationType = Field(default=..., description="""Describes the type of annotation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Annotation'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/annotationType/'],
+         'slot_uri': 'spdx_core:annotationType'} })
     contentType: Optional[str] = Field(default=None, description="""Provides information about the content type of an Element or a Property.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Annotation', 'ExternalRef', 'File'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/contentType/'],
          'slot_uri': 'spdx_core:contentType'} })
-    annotationType: AnnotationType = Field(default=..., description="""Describes the type of annotation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Annotation'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/annotationType/'],
-         'slot_uri': 'spdx_core:annotationType'} })
     statement: Optional[str] = Field(default=None, description="""Commentary on an assertion that an annotator has made.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Annotation'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/statement/'],
          'slot_uri': 'spdx_core:statement'} })
     subject: str = Field(default=..., description="""An Element an annotator has made an assertion about.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Annotation'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/subject/'],
          'slot_uri': 'spdx_core:subject'} })
     type: Literal["https://w3id.org/lmodel/spdx/Annotation","https://spdx.org/rdf/3.0.1/terms/Core/Annotation","spdx_linkml:Annotation","spdx_core:Annotation"] = Field(default="spdx_core:Annotation", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -1562,6 +1585,34 @@ class Annotation(Element):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -1570,27 +1621,6 @@ class Annotation(Element):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class AnyLicenseInfo(Element):
@@ -1634,6 +1664,34 @@ class AnyLicenseInfo(Element):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -1642,27 +1700,6 @@ class AnyLicenseInfo(Element):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class Artifact(Element):
@@ -1675,26 +1712,32 @@ class Artifact(Element):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Artifact/']})
 
+    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
+         'slot_uri': 'spdx_core:builtTime'} })
+    originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
+         'slot_uri': 'spdx_core:originatedBy'} })
+    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
+         'slot_uri': 'spdx_core:releaseTime'} })
+    standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/standardName/'],
+         'slot_uri': 'spdx_core:standardName'} })
     suppliedBy: Optional[str] = Field(default=None, description="""Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact', 'VulnAssessmentRelationship'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
-         'slot_uri': 'spdx_core:builtTime'} })
-    originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
-         'slot_uri': 'spdx_core:originatedBy'} })
-    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
-         'slot_uri': 'spdx_core:releaseTime'} })
-    standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/standardName/'],
-         'slot_uri': 'spdx_core:standardName'} })
     supportLevel: Optional[list[SupportType]] = Field(default=None, description="""Specifies the level of support associated with an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/supportLevel/'],
          'slot_uri': 'spdx_core:supportLevel'} })
     validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
     type: Literal["https://w3id.org/lmodel/spdx/Artifact","https://spdx.org/rdf/3.0.1/terms/Core/Artifact","spdx_linkml:Artifact","spdx_core:Artifact"] = Field(default="spdx_core:Artifact", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -1725,6 +1768,34 @@ class Artifact(Element):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -1733,27 +1804,6 @@ class Artifact(Element):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class ElementCollection(Element):
@@ -1767,12 +1817,15 @@ class ElementCollection(Element):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/ElementCollection/']})
 
     element: Optional[list[str]] = Field(default=None, description="""Refers to one or more Elements that are part of an ElementCollection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElementCollection'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/element/'],
          'slot_uri': 'spdx_core:element'} })
     profileConformance: Optional[list[ProfileIdentifierType]] = Field(default=None, description="""Describes one a profile which the creator of this ElementCollection intends to conform to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElementCollection'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/profileConformance/'],
          'slot_uri': 'spdx_core:profileConformance'} })
     rootElement: Optional[list[str]] = Field(default=None, description="""This property is used to denote the root Element(s) of a tree of elements contained in a BOM.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElementCollection'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/rootElement/'],
          'slot_uri': 'spdx_core:rootElement'} })
     type: Literal["https://w3id.org/lmodel/spdx/ElementCollection","https://spdx.org/rdf/3.0.1/terms/Core/ElementCollection","spdx_linkml:ElementCollection","spdx_core:ElementCollection"] = Field(default="spdx_core:ElementCollection", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -1803,6 +1856,34 @@ class ElementCollection(Element):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -1811,27 +1892,6 @@ class ElementCollection(Element):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class Bundle(ElementCollection):
@@ -1844,15 +1904,19 @@ class Bundle(ElementCollection):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Bundle/']})
 
     context: Optional[str] = Field(default=None, description="""Gives information about the circumstances or unifying properties that Elements of the bundle have been assembled under.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Bundle'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/context/'],
          'slot_uri': 'spdx_core:context'} })
     element: Optional[list[str]] = Field(default=None, description="""Refers to one or more Elements that are part of an ElementCollection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElementCollection'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/element/'],
          'slot_uri': 'spdx_core:element'} })
     profileConformance: Optional[list[ProfileIdentifierType]] = Field(default=None, description="""Describes one a profile which the creator of this ElementCollection intends to conform to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElementCollection'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/profileConformance/'],
          'slot_uri': 'spdx_core:profileConformance'} })
     rootElement: Optional[list[str]] = Field(default=None, description="""This property is used to denote the root Element(s) of a tree of elements contained in a BOM.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElementCollection'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/rootElement/'],
          'slot_uri': 'spdx_core:rootElement'} })
     type: Literal["https://w3id.org/lmodel/spdx/Bundle","https://spdx.org/rdf/3.0.1/terms/Core/Bundle","spdx_linkml:Bundle","spdx_core:Bundle"] = Field(default="spdx_core:Bundle", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -1883,6 +1947,34 @@ class Bundle(ElementCollection):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -1891,27 +1983,6 @@ class Bundle(ElementCollection):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class Bom(Bundle):
@@ -1924,15 +1995,19 @@ class Bom(Bundle):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Bom/']})
 
     context: Optional[str] = Field(default=None, description="""Gives information about the circumstances or unifying properties that Elements of the bundle have been assembled under.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Bundle'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/context/'],
          'slot_uri': 'spdx_core:context'} })
     element: Optional[list[str]] = Field(default=None, description="""Refers to one or more Elements that are part of an ElementCollection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElementCollection'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/element/'],
          'slot_uri': 'spdx_core:element'} })
     profileConformance: Optional[list[ProfileIdentifierType]] = Field(default=None, description="""Describes one a profile which the creator of this ElementCollection intends to conform to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElementCollection'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/profileConformance/'],
          'slot_uri': 'spdx_core:profileConformance'} })
     rootElement: Optional[list[str]] = Field(default=None, description="""This property is used to denote the root Element(s) of a tree of elements contained in a BOM.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElementCollection'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/rootElement/'],
          'slot_uri': 'spdx_core:rootElement'} })
     type: Literal["https://w3id.org/lmodel/spdx/Bom","https://spdx.org/rdf/3.0.1/terms/Core/Bom","spdx_linkml:Bom","spdx_core:Bom"] = Field(default="spdx_core:Bom", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -1963,6 +2038,34 @@ class Bom(Bundle):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -1971,27 +2074,6 @@ class Bom(Bundle):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class Extension(ConfiguredBaseModel):
@@ -2067,15 +2149,19 @@ class ExternalIdentifier(ConfiguredBaseModel):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
     externalIdentifierType: ExternalIdentifierType = Field(default=..., description="""Specifies the type of the external identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExternalIdentifier'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifierType/'],
          'slot_uri': 'spdx_core:externalIdentifierType'} })
     identifier: str = Field(default=..., description="""Uniquely identifies an external element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExternalIdentifier'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/identifier/'],
          'slot_uri': 'spdx_core:identifier'} })
     identifierLocator: Optional[list[str]] = Field(default=None, description="""Provides the location for more information regarding an external identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExternalIdentifier'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/identifierLocator/'],
          'slot_uri': 'spdx_core:identifierLocator'} })
     issuingAuthority: Optional[str] = Field(default=None, description="""An entity that is authorized to issue identification credentials.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExternalIdentifier'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/issuingAuthority/'],
          'slot_uri': 'spdx_core:issuingAuthority'} })
 
@@ -2109,19 +2195,22 @@ class ExternalMap(ConfiguredBaseModel):
                        'EnergyConsumptionDescription'],
          'in_subset': ['spdx_core'],
          'slot_uri': 'rdf:type'} })
+    definingArtifact: Optional[str] = Field(default=None, description="""Artifact representing a serialization instance of SPDX data containing the definition of a particular Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExternalMap'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/definingArtifact/'],
+         'slot_uri': 'spdx_core:definingArtifact'} })
+    externalSpdxId: str = Field(default=..., description="""Identifies an external Element used within an SpdxDocument but defined external to that SpdxDocument.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExternalMap'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalSpdxId/'],
+         'slot_uri': 'spdx_core:externalSpdxId'} })
+    locationHint: Optional[str] = Field(default=None, description="""Provides an indication of where to retrieve an external Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExternalMap'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/locationHint/'],
+         'slot_uri': 'spdx_core:locationHint'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
-    definingArtifact: Optional[str] = Field(default=None, description="""Artifact representing a serialization instance of SPDX data containing the definition of a particular Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExternalMap'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/definingArtifact/'],
-         'slot_uri': 'spdx_core:definingArtifact'} })
-    externalSpdxId: str = Field(default=..., description="""Identifies an external Element used within an SpdxDocument but defined external to that SpdxDocument.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExternalMap'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalSpdxId/'],
-         'slot_uri': 'spdx_core:externalSpdxId'} })
-    locationHint: Optional[str] = Field(default=None, description="""Provides an indication of where to retrieve an external Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExternalMap'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/locationHint/'],
-         'slot_uri': 'spdx_core:locationHint'} })
 
 
 class ExternalRef(ConfiguredBaseModel):
@@ -2166,9 +2255,11 @@ class ExternalRef(ConfiguredBaseModel):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/contentType/'],
          'slot_uri': 'spdx_core:contentType'} })
     externalRefType: Optional[ExternalRefType] = Field(default=None, description="""Specifies the type of the external reference.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExternalRef'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRefType/'],
          'slot_uri': 'spdx_core:externalRefType'} })
     locator: Optional[list[str]] = Field(default=None, description="""Provides the location of an external reference.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExternalRef'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/locator/'],
          'slot_uri': 'spdx_core:locator'} })
 
@@ -2210,6 +2301,34 @@ class IndividualElement(Element):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -2218,27 +2337,6 @@ class IndividualElement(Element):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class IntegrityMethod(ConfiguredBaseModel):
@@ -2358,9 +2456,11 @@ class NamespaceMap(ConfiguredBaseModel):
          'in_subset': ['spdx_core'],
          'slot_uri': 'rdf:type'} })
     namespace: str = Field(default=..., description="""Provides an unambiguous mechanism for conveying a URI fragment portion of an Element ID.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamespaceMap'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/namespace/'],
          'slot_uri': 'spdx_core:namespace'} })
     prefix: str = Field(default=..., description="""A substitute for a URI.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamespaceMap'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/prefix/'],
          'slot_uri': 'spdx_core:prefix'} })
 
@@ -2402,6 +2502,34 @@ class Organization(Agent):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -2410,27 +2538,6 @@ class Organization(Agent):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class PackageVerificationCode(IntegrityMethod):
@@ -2451,6 +2558,7 @@ class PackageVerificationCode(IntegrityMethod):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/hashValue/'],
          'slot_uri': 'spdx_core:hashValue'} })
     packageVerificationCodeExcludedFile: Optional[list[str]] = Field(default=None, description="""The relative file name of a file to be excluded from the `PackageVerificationCode`.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PackageVerificationCode'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/packageVerificationCodeExcludedFile/'],
          'slot_uri': 'spdx_core:packageVerificationCodeExcludedFile'} })
     type: Literal["https://w3id.org/lmodel/spdx/PackageVerificationCode","https://spdx.org/rdf/3.0.1/terms/Core/PackageVerificationCode","spdx_linkml:PackageVerificationCode","spdx_core:PackageVerificationCode"] = Field(default="spdx_core:PackageVerificationCode", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -2520,6 +2628,34 @@ class Person(Agent):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -2528,27 +2664,6 @@ class Person(Agent):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class PositiveIntegerRange(ConfiguredBaseModel):
@@ -2581,9 +2696,11 @@ class PositiveIntegerRange(ConfiguredBaseModel):
          'in_subset': ['spdx_core'],
          'slot_uri': 'rdf:type'} })
     beginIntegerRange: int = Field(default=..., description="""Defines the beginning of a range.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PositiveIntegerRange'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/beginIntegerRange/'],
          'slot_uri': 'spdx_core:beginIntegerRange'} })
     endIntegerRange: int = Field(default=..., description="""Defines the end of a range.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PositiveIntegerRange'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endIntegerRange/'],
          'slot_uri': 'spdx_core:endIntegerRange'} })
 
@@ -2598,21 +2715,27 @@ class Relationship(Element):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Relationship/']})
 
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
     endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/from/'],
          'slot_uri': 'spdx_core:from'} })
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
     startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
     type: Literal["https://w3id.org/lmodel/spdx/Relationship","https://spdx.org/rdf/3.0.1/terms/Core/Relationship","spdx_linkml:Relationship","spdx_core:Relationship"] = Field(default="spdx_core:Relationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -2643,6 +2766,34 @@ class Relationship(Element):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -2651,27 +2802,6 @@ class Relationship(Element):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class LifecycleScopedRelationship(Relationship):
@@ -2684,24 +2814,31 @@ class LifecycleScopedRelationship(Relationship):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/LifecycleScopedRelationship/']})
 
     scope: Optional[LifecycleScopeType] = Field(default=None, description="""Capture the scope of information about a specific relationship between elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LifecycleScopedRelationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/scope/'],
          'slot_uri': 'spdx_core:scope'} })
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
     endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/from/'],
          'slot_uri': 'spdx_core:from'} })
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
     startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
     type: Literal["https://w3id.org/lmodel/spdx/LifecycleScopedRelationship","https://spdx.org/rdf/3.0.1/terms/Core/LifecycleScopedRelationship","spdx_linkml:LifecycleScopedRelationship","spdx_core:LifecycleScopedRelationship"] = Field(default="spdx_core:LifecycleScopedRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -2732,6 +2869,34 @@ class LifecycleScopedRelationship(Relationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -2740,27 +2905,6 @@ class LifecycleScopedRelationship(Relationship):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class SoftwareAgent(Agent):
@@ -2800,6 +2944,34 @@ class SoftwareAgent(Agent):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -2808,27 +2980,6 @@ class SoftwareAgent(Agent):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class SpdxDocument(ElementCollection):
@@ -2841,21 +2992,27 @@ class SpdxDocument(ElementCollection):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/SpdxDocument/']})
 
     dataLicense: Optional[str] = Field(default=None, description="""Provides the license under which the SPDX documentation of the Element can be used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpdxDocument'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/dataLicense/'],
          'slot_uri': 'spdx_core:dataLicense'} })
     import_: Optional[list[ExternalMap]] = Field(default=None, alias="import", description="""Provides an ExternalMap of Element identifiers.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpdxDocument'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/import/'],
          'slot_uri': 'spdx_core:import'} })
     namespaceMap: Optional[list[NamespaceMap]] = Field(default=None, description="""Provides a NamespaceMap of prefixes and associated namespace partial URIs applicable to an SpdxDocument and independent of any specific serialization format or instance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpdxDocument'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/namespaceMap/'],
          'slot_uri': 'spdx_core:namespaceMap'} })
     element: Optional[list[str]] = Field(default=None, description="""Refers to one or more Elements that are part of an ElementCollection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElementCollection'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/element/'],
          'slot_uri': 'spdx_core:element'} })
     profileConformance: Optional[list[ProfileIdentifierType]] = Field(default=None, description="""Describes one a profile which the creator of this ElementCollection intends to conform to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElementCollection'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/profileConformance/'],
          'slot_uri': 'spdx_core:profileConformance'} })
     rootElement: Optional[list[str]] = Field(default=None, description="""This property is used to denote the root Element(s) of a tree of elements contained in a BOM.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElementCollection'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/rootElement/'],
          'slot_uri': 'spdx_core:rootElement'} })
     type: Literal["https://w3id.org/lmodel/spdx/SpdxDocument","https://spdx.org/rdf/3.0.1/terms/Core/SpdxDocument","spdx_linkml:SpdxDocument","spdx_core:SpdxDocument"] = Field(default="spdx_core:SpdxDocument", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -2886,6 +3043,34 @@ class SpdxDocument(ElementCollection):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -2894,27 +3079,6 @@ class SpdxDocument(ElementCollection):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class Tool(Element):
@@ -2954,6 +3118,34 @@ class Tool(Element):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -2962,27 +3154,6 @@ class Tool(Element):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class Build(Element):
@@ -2995,30 +3166,39 @@ class Build(Element):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Classes/Build/']})
 
     buildEndTime: Optional[str] = Field(default=None, description="""Property that describes the time at which a build stops.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Build'],
+         'in_subset': ['spdx_build'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/buildEndTime/'],
          'slot_uri': 'spdx_build:buildEndTime'} })
     buildId: Optional[str] = Field(default=None, description="""A buildId is a locally unique identifier used by a builder to identify a unique instance of a build produced by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Build'],
+         'in_subset': ['spdx_build'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/buildId/'],
          'slot_uri': 'spdx_build:buildId'} })
     buildStartTime: Optional[str] = Field(default=None, description="""Property describing the start time of a build.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Build'],
+         'in_subset': ['spdx_build'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/buildStartTime/'],
          'slot_uri': 'spdx_build:buildStartTime'} })
     buildType: str = Field(default=..., description="""A buildType is a hint that is used to indicate the toolchain, platform, or infrastructure that the build was invoked on.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Build'],
+         'in_subset': ['spdx_build'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/buildType/'],
          'slot_uri': 'spdx_build:buildType'} })
     configSourceDigest: Optional[list[Hash]] = Field(default=None, description="""Property that describes the digest of the build configuration file used to invoke a build.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Build'],
+         'in_subset': ['spdx_build'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/configSourceDigest/'],
          'slot_uri': 'spdx_build:configSourceDigest'} })
     configSourceEntrypoint: Optional[list[str]] = Field(default=None, description="""Property describes the invocation entrypoint of a build.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Build'],
+         'in_subset': ['spdx_build'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/configSourceEntrypoint/'],
          'slot_uri': 'spdx_build:configSourceEntrypoint'} })
     configSourceUri: Optional[list[str]] = Field(default=None, description="""Property that describes the URI of the build configuration source file.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Build'],
+         'in_subset': ['spdx_build'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/configSourceUri/'],
          'slot_uri': 'spdx_build:configSourceUri'} })
     environment: Optional[list[DictionaryEntry]] = Field(default=None, description="""Property describing the session in which a build is invoked.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Build'],
+         'in_subset': ['spdx_build'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/environment/'],
          'slot_uri': 'spdx_build:environment'} })
     parameter: Optional[list[DictionaryEntry]] = Field(default=None, description="""Property describing a parameter used in an instance of a build.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Build'],
+         'in_subset': ['spdx_build'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/parameter/'],
          'slot_uri': 'spdx_build:parameter'} })
     type: Literal["https://w3id.org/lmodel/spdx/Build","https://spdx.org/rdf/3.0.1/terms/Build/Build","spdx_linkml:Build","spdx_build:Build"] = Field(default="spdx_build:Build", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -3049,6 +3229,34 @@ class Build(Element):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -3057,27 +3265,6 @@ class Build(Element):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class CdxPropertiesExtension(Extension):
@@ -3090,6 +3277,7 @@ class CdxPropertiesExtension(Extension):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Classes/CdxPropertiesExtension/']})
 
     cdxProperty: list[CdxPropertyEntry] = Field(default=..., description="""Provides a map of a property names to a values.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CdxPropertiesExtension'],
+         'in_subset': ['spdx_extension'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Properties/cdxProperty/'],
          'slot_uri': 'spdx_extension:cdxProperty'} })
     type: Literal["https://w3id.org/lmodel/spdx/CdxPropertiesExtension","https://spdx.org/rdf/3.0.1/terms/Extension/CdxPropertiesExtension","spdx_linkml:CdxPropertiesExtension","spdx_extension:CdxPropertiesExtension"] = Field(default="spdx_extension:CdxPropertiesExtension", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -3144,9 +3332,11 @@ class CdxPropertyEntry(ConfiguredBaseModel):
          'in_subset': ['spdx_core'],
          'slot_uri': 'rdf:type'} })
     cdxPropName: str = Field(default=..., description="""A name used in a CdxPropertyEntry name-value pair.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CdxPropertyEntry'],
+         'in_subset': ['spdx_extension'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Properties/cdxPropName/'],
          'slot_uri': 'spdx_extension:cdxPropName'} })
     cdxPropValue: Optional[str] = Field(default=None, description="""A value used in a CdxPropertyEntry name-value pair.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CdxPropertyEntry'],
+         'in_subset': ['spdx_extension'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Properties/cdxPropValue/'],
          'slot_uri': 'spdx_extension:cdxPropValue'} })
 
@@ -3161,12 +3351,15 @@ class LicenseExpression(AnyLicenseInfo):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Classes/LicenseExpression/']})
 
     customIdToUri: Optional[list[DictionaryEntry]] = Field(default=None, description="""Maps a LicenseRef or AdditionRef string for a Custom License or a Custom License Addition to its URI ID.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LicenseExpression'],
+         'in_subset': ['spdx_simple_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Properties/customIdToUri/'],
          'slot_uri': 'spdx_simple_licensing:customIdToUri'} })
     licenseExpression: str = Field(default=..., description="""A string in the license expression format.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LicenseExpression'],
+         'in_subset': ['spdx_simple_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Properties/licenseExpression/'],
          'slot_uri': 'spdx_simple_licensing:licenseExpression'} })
     licenseListVersion: Optional[str] = Field(default=None, description="""The version of the SPDX License List used in the license expression.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LicenseExpression'],
+         'in_subset': ['spdx_simple_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Properties/licenseListVersion/'],
          'slot_uri': 'spdx_simple_licensing:licenseListVersion'} })
     type: Literal["https://w3id.org/lmodel/spdx/LicenseExpression","https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/LicenseExpression","spdx_linkml:LicenseExpression","spdx_simple_licensing:LicenseExpression"] = Field(default="spdx_simple_licensing:LicenseExpression", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -3197,6 +3390,34 @@ class LicenseExpression(AnyLicenseInfo):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -3205,27 +3426,6 @@ class LicenseExpression(AnyLicenseInfo):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class SimpleLicensingText(Element):
@@ -3269,6 +3469,34 @@ class SimpleLicensingText(Element):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -3277,27 +3505,6 @@ class SimpleLicensingText(Element):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class ContentIdentifier(IntegrityMethod):
@@ -3310,9 +3517,11 @@ class ContentIdentifier(IntegrityMethod):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Classes/ContentIdentifier/']})
 
     contentIdentifierType: ContentIdentifierType = Field(default=..., description="""Specifies the type of the content identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContentIdentifier'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/contentIdentifierType/'],
          'slot_uri': 'spdx_software:contentIdentifierType'} })
     contentIdentifierValue: str = Field(default=..., description="""Specifies the value of the content identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContentIdentifier'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/contentIdentifierValue/'],
          'slot_uri': 'spdx_software:contentIdentifierValue'} })
     type: Literal["https://w3id.org/lmodel/spdx/ContentIdentifier","https://spdx.org/rdf/3.0.1/terms/Software/ContentIdentifier","spdx_linkml:ContentIdentifier","spdx_software:ContentIdentifier"] = Field(default="spdx_software:ContentIdentifier", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -3355,18 +3564,23 @@ class Sbom(Bom):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Classes/Sbom/']})
 
     sbomType: Optional[list[SbomType]] = Field(default=None, description="""Provides information about the type of an SBOM.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Sbom'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/sbomType/'],
          'slot_uri': 'spdx_software:sbomType'} })
     context: Optional[str] = Field(default=None, description="""Gives information about the circumstances or unifying properties that Elements of the bundle have been assembled under.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Bundle'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/context/'],
          'slot_uri': 'spdx_core:context'} })
     element: Optional[list[str]] = Field(default=None, description="""Refers to one or more Elements that are part of an ElementCollection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElementCollection'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/element/'],
          'slot_uri': 'spdx_core:element'} })
     profileConformance: Optional[list[ProfileIdentifierType]] = Field(default=None, description="""Describes one a profile which the creator of this ElementCollection intends to conform to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElementCollection'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/profileConformance/'],
          'slot_uri': 'spdx_core:profileConformance'} })
     rootElement: Optional[list[str]] = Field(default=None, description="""This property is used to denote the root Element(s) of a tree of elements contained in a BOM.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElementCollection'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/rootElement/'],
          'slot_uri': 'spdx_core:rootElement'} })
     type: Literal["https://w3id.org/lmodel/spdx/Sbom","https://spdx.org/rdf/3.0.1/terms/Software/Sbom","spdx_linkml:Sbom","spdx_software:Sbom"] = Field(default="spdx_software:Sbom", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -3397,6 +3611,34 @@ class Sbom(Bom):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -3405,27 +3647,6 @@ class Sbom(Bom):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class SoftwareArtifact(Artifact):
@@ -3439,40 +3660,51 @@ class SoftwareArtifact(Artifact):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Classes/SoftwareArtifact/']})
 
     additionalPurpose: Optional[list[SoftwarePurpose]] = Field(default=None, description="""Provides additional purpose information of the software artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/additionalPurpose/'],
          'slot_uri': 'spdx_software:additionalPurpose'} })
     attributionText: Optional[list[str]] = Field(default=None, description="""Provides a place for the SPDX data creator to record acknowledgement text for a software Package, File or Snippet.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/attributionText/'],
          'slot_uri': 'spdx_software:attributionText'} })
     contentIdentifier: Optional[list[ContentIdentifier]] = Field(default=None, description="""A canonical, unique, immutable identifier of the artifact content, that may be used for verifying its identity and/or integrity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/contentIdentifier/'],
          'slot_uri': 'spdx_software:contentIdentifier'} })
     copyrightText: Optional[str] = Field(default=None, description="""Identifies the text of one or more copyright notices for a software Package, File or Snippet, if any.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/copyrightText/'],
          'slot_uri': 'spdx_software:copyrightText'} })
     primaryPurpose: Optional[SoftwarePurpose] = Field(default=None, description="""Provides information about the primary purpose of the software artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/primaryPurpose/'],
          'slot_uri': 'spdx_software:primaryPurpose'} })
+    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
+         'slot_uri': 'spdx_core:builtTime'} })
+    originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
+         'slot_uri': 'spdx_core:originatedBy'} })
+    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
+         'slot_uri': 'spdx_core:releaseTime'} })
+    standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/standardName/'],
+         'slot_uri': 'spdx_core:standardName'} })
     suppliedBy: Optional[str] = Field(default=None, description="""Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact', 'VulnAssessmentRelationship'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
-         'slot_uri': 'spdx_core:builtTime'} })
-    originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
-         'slot_uri': 'spdx_core:originatedBy'} })
-    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
-         'slot_uri': 'spdx_core:releaseTime'} })
-    standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/standardName/'],
-         'slot_uri': 'spdx_core:standardName'} })
     supportLevel: Optional[list[SupportType]] = Field(default=None, description="""Specifies the level of support associated with an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/supportLevel/'],
          'slot_uri': 'spdx_core:supportLevel'} })
     validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
     type: Literal["https://w3id.org/lmodel/spdx/SoftwareArtifact","https://spdx.org/rdf/3.0.1/terms/Software/SoftwareArtifact","spdx_linkml:SoftwareArtifact","spdx_software:SoftwareArtifact"] = Field(default="spdx_software:SoftwareArtifact", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -3503,6 +3735,34 @@ class SoftwareArtifact(Artifact):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -3511,27 +3771,6 @@ class SoftwareArtifact(Artifact):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class File(SoftwareArtifact):
@@ -3548,43 +3787,55 @@ class File(SoftwareArtifact):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/contentType/'],
          'slot_uri': 'spdx_core:contentType'} })
     fileKind: Optional[FileKindType] = Field(default=None, description="""Describes if a given file is a directory or non-directory kind of file.""", json_schema_extra = { "linkml_meta": {'domain_of': ['File'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/fileKind/'],
          'slot_uri': 'spdx_software:fileKind'} })
     additionalPurpose: Optional[list[SoftwarePurpose]] = Field(default=None, description="""Provides additional purpose information of the software artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/additionalPurpose/'],
          'slot_uri': 'spdx_software:additionalPurpose'} })
     attributionText: Optional[list[str]] = Field(default=None, description="""Provides a place for the SPDX data creator to record acknowledgement text for a software Package, File or Snippet.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/attributionText/'],
          'slot_uri': 'spdx_software:attributionText'} })
     contentIdentifier: Optional[list[ContentIdentifier]] = Field(default=None, description="""A canonical, unique, immutable identifier of the artifact content, that may be used for verifying its identity and/or integrity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/contentIdentifier/'],
          'slot_uri': 'spdx_software:contentIdentifier'} })
     copyrightText: Optional[str] = Field(default=None, description="""Identifies the text of one or more copyright notices for a software Package, File or Snippet, if any.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/copyrightText/'],
          'slot_uri': 'spdx_software:copyrightText'} })
     primaryPurpose: Optional[SoftwarePurpose] = Field(default=None, description="""Provides information about the primary purpose of the software artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/primaryPurpose/'],
          'slot_uri': 'spdx_software:primaryPurpose'} })
+    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
+         'slot_uri': 'spdx_core:builtTime'} })
+    originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
+         'slot_uri': 'spdx_core:originatedBy'} })
+    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
+         'slot_uri': 'spdx_core:releaseTime'} })
+    standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/standardName/'],
+         'slot_uri': 'spdx_core:standardName'} })
     suppliedBy: Optional[str] = Field(default=None, description="""Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact', 'VulnAssessmentRelationship'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
-         'slot_uri': 'spdx_core:builtTime'} })
-    originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
-         'slot_uri': 'spdx_core:originatedBy'} })
-    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
-         'slot_uri': 'spdx_core:releaseTime'} })
-    standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/standardName/'],
-         'slot_uri': 'spdx_core:standardName'} })
     supportLevel: Optional[list[SupportType]] = Field(default=None, description="""Specifies the level of support associated with an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/supportLevel/'],
          'slot_uri': 'spdx_core:supportLevel'} })
     validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
     type: Literal["https://w3id.org/lmodel/spdx/File","https://spdx.org/rdf/3.0.1/terms/Software/File","spdx_linkml:File","spdx_software:File"] = Field(default="spdx_software:File", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -3615,6 +3866,34 @@ class File(SoftwareArtifact):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -3623,27 +3902,6 @@ class File(SoftwareArtifact):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class Package(SoftwareArtifact):
@@ -3656,55 +3914,71 @@ class Package(SoftwareArtifact):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Classes/Package/']})
 
     downloadLocation: Optional[str] = Field(default=None, description="""Identifies the download Uniform Resource Identifier for the package at the time that the document was created.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Package'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/downloadLocation/'],
          'slot_uri': 'spdx_software:downloadLocation'} })
     homePage: Optional[str] = Field(default=None, description="""A place for the SPDX document creator to record a website that serves as the package's home page.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Package'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/homePage/'],
          'slot_uri': 'spdx_software:homePage'} })
     packageUrl: Optional[str] = Field(default=None, description="""Provides a place for the SPDX data creator to record the package URL string (in accordance with the Package URL specification) for a software Package.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Package'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/packageUrl/'],
          'slot_uri': 'spdx_software:packageUrl'} })
     packageVersion: Optional[str] = Field(default=None, description="""Identify the version of a package.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Package'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/packageVersion/'],
          'slot_uri': 'spdx_software:packageVersion'} })
     sourceInfo: Optional[str] = Field(default=None, description="""Records any relevant background information or additional comments about the origin of the package.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Package'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/sourceInfo/'],
          'slot_uri': 'spdx_software:sourceInfo'} })
     additionalPurpose: Optional[list[SoftwarePurpose]] = Field(default=None, description="""Provides additional purpose information of the software artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/additionalPurpose/'],
          'slot_uri': 'spdx_software:additionalPurpose'} })
     attributionText: Optional[list[str]] = Field(default=None, description="""Provides a place for the SPDX data creator to record acknowledgement text for a software Package, File or Snippet.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/attributionText/'],
          'slot_uri': 'spdx_software:attributionText'} })
     contentIdentifier: Optional[list[ContentIdentifier]] = Field(default=None, description="""A canonical, unique, immutable identifier of the artifact content, that may be used for verifying its identity and/or integrity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/contentIdentifier/'],
          'slot_uri': 'spdx_software:contentIdentifier'} })
     copyrightText: Optional[str] = Field(default=None, description="""Identifies the text of one or more copyright notices for a software Package, File or Snippet, if any.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/copyrightText/'],
          'slot_uri': 'spdx_software:copyrightText'} })
     primaryPurpose: Optional[SoftwarePurpose] = Field(default=None, description="""Provides information about the primary purpose of the software artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/primaryPurpose/'],
          'slot_uri': 'spdx_software:primaryPurpose'} })
+    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
+         'slot_uri': 'spdx_core:builtTime'} })
+    originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
+         'slot_uri': 'spdx_core:originatedBy'} })
+    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
+         'slot_uri': 'spdx_core:releaseTime'} })
+    standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/standardName/'],
+         'slot_uri': 'spdx_core:standardName'} })
     suppliedBy: Optional[str] = Field(default=None, description="""Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact', 'VulnAssessmentRelationship'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
-         'slot_uri': 'spdx_core:builtTime'} })
-    originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
-         'slot_uri': 'spdx_core:originatedBy'} })
-    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
-         'slot_uri': 'spdx_core:releaseTime'} })
-    standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/standardName/'],
-         'slot_uri': 'spdx_core:standardName'} })
     supportLevel: Optional[list[SupportType]] = Field(default=None, description="""Specifies the level of support associated with an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/supportLevel/'],
          'slot_uri': 'spdx_core:supportLevel'} })
     validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
     type: Literal["https://w3id.org/lmodel/spdx/Package","https://spdx.org/rdf/3.0.1/terms/Software/Package","spdx_linkml:Package","spdx_software:Package"] = Field(default="spdx_software:Package", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -3735,6 +4009,34 @@ class Package(SoftwareArtifact):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -3743,27 +4045,6 @@ class Package(SoftwareArtifact):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class Snippet(SoftwareArtifact):
@@ -3776,49 +4057,63 @@ class Snippet(SoftwareArtifact):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Classes/Snippet/']})
 
     byteRange: Optional[PositiveIntegerRange] = Field(default=None, description="""Defines the byte range in the original host file that the snippet information applies to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Snippet'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/byteRange/'],
          'slot_uri': 'spdx_software:byteRange'} })
     lineRange: Optional[PositiveIntegerRange] = Field(default=None, description="""Defines the line range in the original host file that the snippet information applies to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Snippet'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/lineRange/'],
          'slot_uri': 'spdx_software:lineRange'} })
     snippetFromFile: str = Field(default=..., description="""Defines the original host file that the snippet information applies to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Snippet'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/snippetFromFile/'],
          'slot_uri': 'spdx_software:snippetFromFile'} })
     additionalPurpose: Optional[list[SoftwarePurpose]] = Field(default=None, description="""Provides additional purpose information of the software artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/additionalPurpose/'],
          'slot_uri': 'spdx_software:additionalPurpose'} })
     attributionText: Optional[list[str]] = Field(default=None, description="""Provides a place for the SPDX data creator to record acknowledgement text for a software Package, File or Snippet.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/attributionText/'],
          'slot_uri': 'spdx_software:attributionText'} })
     contentIdentifier: Optional[list[ContentIdentifier]] = Field(default=None, description="""A canonical, unique, immutable identifier of the artifact content, that may be used for verifying its identity and/or integrity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/contentIdentifier/'],
          'slot_uri': 'spdx_software:contentIdentifier'} })
     copyrightText: Optional[str] = Field(default=None, description="""Identifies the text of one or more copyright notices for a software Package, File or Snippet, if any.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/copyrightText/'],
          'slot_uri': 'spdx_software:copyrightText'} })
     primaryPurpose: Optional[SoftwarePurpose] = Field(default=None, description="""Provides information about the primary purpose of the software artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/primaryPurpose/'],
          'slot_uri': 'spdx_software:primaryPurpose'} })
+    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
+         'slot_uri': 'spdx_core:builtTime'} })
+    originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
+         'slot_uri': 'spdx_core:originatedBy'} })
+    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
+         'slot_uri': 'spdx_core:releaseTime'} })
+    standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/standardName/'],
+         'slot_uri': 'spdx_core:standardName'} })
     suppliedBy: Optional[str] = Field(default=None, description="""Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact', 'VulnAssessmentRelationship'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
-         'slot_uri': 'spdx_core:builtTime'} })
-    originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
-         'slot_uri': 'spdx_core:originatedBy'} })
-    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
-         'slot_uri': 'spdx_core:releaseTime'} })
-    standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/standardName/'],
-         'slot_uri': 'spdx_core:standardName'} })
     supportLevel: Optional[list[SupportType]] = Field(default=None, description="""Specifies the level of support associated with an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/supportLevel/'],
          'slot_uri': 'spdx_core:supportLevel'} })
     validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
     type: Literal["https://w3id.org/lmodel/spdx/Snippet","https://spdx.org/rdf/3.0.1/terms/Software/Snippet","spdx_linkml:Snippet","spdx_software:Snippet"] = Field(default="spdx_software:Snippet", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -3849,6 +4144,34 @@ class Snippet(SoftwareArtifact):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -3857,27 +4180,6 @@ class Snippet(SoftwareArtifact):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class AIPackage(Package):
@@ -3890,100 +4192,131 @@ class AIPackage(Package):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/']})
 
     autonomyType: Optional[PresenceType] = Field(default=None, description="""Indicates whether the system can perform a decision or action without human involvement or guidance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIPackage'],
+         'in_subset': ['spdx_ai'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/autonomyType/'],
          'slot_uri': 'spdx_ai:autonomyType'} })
     domain: Optional[list[str]] = Field(default=None, description="""Captures the domain in which the AI package can be used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIPackage'],
+         'in_subset': ['spdx_ai'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/domain/'],
          'slot_uri': 'spdx_ai:domain'} })
     energyConsumption: Optional[EnergyConsumption] = Field(default=None, description="""Indicates the amount of energy consumption incurred by an AI model.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIPackage'],
+         'in_subset': ['spdx_ai'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/energyConsumption/'],
          'slot_uri': 'spdx_ai:energyConsumption'} })
     hyperparameter: Optional[list[DictionaryEntry]] = Field(default=None, description="""Records a hyperparameter used to build the AI model contained in the AI package.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIPackage'],
+         'in_subset': ['spdx_ai'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/hyperparameter/'],
          'slot_uri': 'spdx_ai:hyperparameter'} })
     informationAboutApplication: Optional[str] = Field(default=None, description="""Provides relevant information about the AI software, not including the model description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIPackage'],
+         'in_subset': ['spdx_ai'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/informationAboutApplication/'],
          'slot_uri': 'spdx_ai:informationAboutApplication'} })
     informationAboutTraining: Optional[str] = Field(default=None, description="""Describes relevant information about different steps of the training process.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIPackage'],
+         'in_subset': ['spdx_ai'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/informationAboutTraining/'],
          'slot_uri': 'spdx_ai:informationAboutTraining'} })
     limitation: Optional[str] = Field(default=None, description="""Captures a limitation of the AI software.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIPackage'],
+         'in_subset': ['spdx_ai'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/limitation/'],
          'slot_uri': 'spdx_ai:limitation'} })
     metric: Optional[list[DictionaryEntry]] = Field(default=None, description="""Records the measurement of prediction quality of the AI model.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIPackage'],
+         'in_subset': ['spdx_ai'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/metric/'],
          'slot_uri': 'spdx_ai:metric'} })
     metricDecisionThreshold: Optional[list[DictionaryEntry]] = Field(default=None, description="""Captures the threshold that was used for computation of a metric described in the metric field.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIPackage'],
+         'in_subset': ['spdx_ai'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/metricDecisionThreshold/'],
          'slot_uri': 'spdx_ai:metricDecisionThreshold'} })
     modelDataPreprocessing: Optional[list[str]] = Field(default=None, description="""Describes all the preprocessing steps applied to the training data before the model training.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIPackage'],
+         'in_subset': ['spdx_ai'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/modelDataPreprocessing/'],
          'slot_uri': 'spdx_ai:modelDataPreprocessing'} })
     modelExplainability: Optional[list[str]] = Field(default=None, description="""Describes methods that can be used to explain the results from the AI model.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIPackage'],
+         'in_subset': ['spdx_ai'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/modelExplainability/'],
          'slot_uri': 'spdx_ai:modelExplainability'} })
     safetyRiskAssessment: Optional[SafetyRiskAssessmentType] = Field(default=None, description="""Records the results of general safety risk assessment of the AI system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIPackage'],
+         'in_subset': ['spdx_ai'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/safetyRiskAssessment/'],
          'slot_uri': 'spdx_ai:safetyRiskAssessment'} })
     standardCompliance: Optional[list[str]] = Field(default=None, description="""Captures a standard that is being complied with.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIPackage'],
+         'in_subset': ['spdx_ai'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/standardCompliance/'],
          'slot_uri': 'spdx_ai:standardCompliance'} })
     typeOfModel: Optional[list[str]] = Field(default=None, description="""Records the type of the model used in the AI software.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIPackage'],
+         'in_subset': ['spdx_ai'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/typeOfModel/'],
          'slot_uri': 'spdx_ai:typeOfModel'} })
     useSensitivePersonalInformation: Optional[PresenceType] = Field(default=None, description="""Records if sensitive personal information is used during model training or could be used during the inference.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIPackage'],
+         'in_subset': ['spdx_ai'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/useSensitivePersonalInformation/'],
          'slot_uri': 'spdx_ai:useSensitivePersonalInformation'} })
     downloadLocation: Optional[str] = Field(default=None, description="""Identifies the download Uniform Resource Identifier for the package at the time that the document was created.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Package'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/downloadLocation/'],
          'slot_uri': 'spdx_software:downloadLocation'} })
     homePage: Optional[str] = Field(default=None, description="""A place for the SPDX document creator to record a website that serves as the package's home page.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Package'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/homePage/'],
          'slot_uri': 'spdx_software:homePage'} })
     packageUrl: Optional[str] = Field(default=None, description="""Provides a place for the SPDX data creator to record the package URL string (in accordance with the Package URL specification) for a software Package.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Package'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/packageUrl/'],
          'slot_uri': 'spdx_software:packageUrl'} })
     packageVersion: Optional[str] = Field(default=None, description="""Identify the version of a package.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Package'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/packageVersion/'],
          'slot_uri': 'spdx_software:packageVersion'} })
     sourceInfo: Optional[str] = Field(default=None, description="""Records any relevant background information or additional comments about the origin of the package.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Package'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/sourceInfo/'],
          'slot_uri': 'spdx_software:sourceInfo'} })
     additionalPurpose: Optional[list[SoftwarePurpose]] = Field(default=None, description="""Provides additional purpose information of the software artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/additionalPurpose/'],
          'slot_uri': 'spdx_software:additionalPurpose'} })
     attributionText: Optional[list[str]] = Field(default=None, description="""Provides a place for the SPDX data creator to record acknowledgement text for a software Package, File or Snippet.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/attributionText/'],
          'slot_uri': 'spdx_software:attributionText'} })
     contentIdentifier: Optional[list[ContentIdentifier]] = Field(default=None, description="""A canonical, unique, immutable identifier of the artifact content, that may be used for verifying its identity and/or integrity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/contentIdentifier/'],
          'slot_uri': 'spdx_software:contentIdentifier'} })
     copyrightText: Optional[str] = Field(default=None, description="""Identifies the text of one or more copyright notices for a software Package, File or Snippet, if any.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/copyrightText/'],
          'slot_uri': 'spdx_software:copyrightText'} })
     primaryPurpose: Optional[SoftwarePurpose] = Field(default=None, description="""Provides information about the primary purpose of the software artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/primaryPurpose/'],
          'slot_uri': 'spdx_software:primaryPurpose'} })
+    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
+         'slot_uri': 'spdx_core:builtTime'} })
+    originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
+         'slot_uri': 'spdx_core:originatedBy'} })
+    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
+         'slot_uri': 'spdx_core:releaseTime'} })
+    standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/standardName/'],
+         'slot_uri': 'spdx_core:standardName'} })
     suppliedBy: Optional[str] = Field(default=None, description="""Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact', 'VulnAssessmentRelationship'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
-         'slot_uri': 'spdx_core:builtTime'} })
-    originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
-         'slot_uri': 'spdx_core:originatedBy'} })
-    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
-         'slot_uri': 'spdx_core:releaseTime'} })
-    standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/standardName/'],
-         'slot_uri': 'spdx_core:standardName'} })
     supportLevel: Optional[list[SupportType]] = Field(default=None, description="""Specifies the level of support associated with an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/supportLevel/'],
          'slot_uri': 'spdx_core:supportLevel'} })
     validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
     type: Literal["https://w3id.org/lmodel/spdx/AIPackage","https://spdx.org/rdf/3.0.1/terms/AI/AIPackage","spdx_linkml:AIPackage","spdx_ai:AIPackage"] = Field(default="spdx_ai:AIPackage", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -4014,6 +4347,34 @@ class AIPackage(Package):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -4022,27 +4383,6 @@ class AIPackage(Package):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class EnergyConsumption(ConfiguredBaseModel):
@@ -4075,12 +4415,15 @@ class EnergyConsumption(ConfiguredBaseModel):
          'in_subset': ['spdx_core'],
          'slot_uri': 'rdf:type'} })
     finetuningEnergyConsumption: Optional[list[EnergyConsumptionDescription]] = Field(default=None, description="""Specifies the amount of energy consumed when finetuning the AI model that is being used in the AI system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['EnergyConsumption'],
+         'in_subset': ['spdx_ai'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/finetuningEnergyConsumption/'],
          'slot_uri': 'spdx_ai:finetuningEnergyConsumption'} })
     inferenceEnergyConsumption: Optional[list[EnergyConsumptionDescription]] = Field(default=None, description="""Specifies the amount of energy consumed during inference time by an AI model that is being used in the AI system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['EnergyConsumption'],
+         'in_subset': ['spdx_ai'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/inferenceEnergyConsumption/'],
          'slot_uri': 'spdx_ai:inferenceEnergyConsumption'} })
     trainingEnergyConsumption: Optional[list[EnergyConsumptionDescription]] = Field(default=None, description="""Specifies the amount of energy consumed when training the AI model that is being used in the AI system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['EnergyConsumption'],
+         'in_subset': ['spdx_ai'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/trainingEnergyConsumption/'],
          'slot_uri': 'spdx_ai:trainingEnergyConsumption'} })
 
@@ -4115,9 +4458,11 @@ class EnergyConsumptionDescription(ConfiguredBaseModel):
          'in_subset': ['spdx_core'],
          'slot_uri': 'rdf:type'} })
     energyQuantity: Decimal = Field(default=..., description="""Represents the energy quantity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['EnergyConsumptionDescription'],
+         'in_subset': ['spdx_ai'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/energyQuantity/'],
          'slot_uri': 'spdx_ai:energyQuantity'} })
     energyUnit: EnergyUnitType = Field(default=..., description="""Specifies the unit in which energy is measured.""", json_schema_extra = { "linkml_meta": {'domain_of': ['EnergyConsumptionDescription'],
+         'in_subset': ['spdx_ai'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/energyUnit/'],
          'slot_uri': 'spdx_ai:energyUnit'} })
 
@@ -4132,94 +4477,123 @@ class DatasetPackage(Package):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/']})
 
     anonymizationMethodUsed: Optional[list[str]] = Field(default=None, description="""Describes the anonymization methods used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DatasetPackage'],
+         'in_subset': ['spdx_dataset'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/anonymizationMethodUsed/'],
          'slot_uri': 'spdx_dataset:anonymizationMethodUsed'} })
     confidentialityLevel: Optional[ConfidentialityLevelType] = Field(default=None, description="""Describes the confidentiality level of the data points contained in the dataset.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DatasetPackage'],
+         'in_subset': ['spdx_dataset'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/confidentialityLevel/'],
          'slot_uri': 'spdx_dataset:confidentialityLevel'} })
     dataCollectionProcess: Optional[str] = Field(default=None, description="""Describes how the dataset was collected.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DatasetPackage'],
+         'in_subset': ['spdx_dataset'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/dataCollectionProcess/'],
          'slot_uri': 'spdx_dataset:dataCollectionProcess'} })
     dataPreprocessing: Optional[list[str]] = Field(default=None, description="""Describes the preprocessing steps that were applied to the raw data to create the given dataset.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DatasetPackage'],
+         'in_subset': ['spdx_dataset'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/dataPreprocessing/'],
          'slot_uri': 'spdx_dataset:dataPreprocessing'} })
     datasetAvailability: Optional[DatasetAvailabilityType] = Field(default=None, description="""The field describes the availability of a dataset.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DatasetPackage'],
+         'in_subset': ['spdx_dataset'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/datasetAvailability/'],
          'slot_uri': 'spdx_dataset:datasetAvailability'} })
     datasetNoise: Optional[str] = Field(default=None, description="""Describes potentially noisy elements of the dataset.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DatasetPackage'],
+         'in_subset': ['spdx_dataset'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/datasetNoise/'],
          'slot_uri': 'spdx_dataset:datasetNoise'} })
     datasetSize: Optional[int] = Field(default=None, description="""Captures the size of the dataset.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DatasetPackage'],
+         'in_subset': ['spdx_dataset'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/datasetSize/'],
          'slot_uri': 'spdx_dataset:datasetSize'} })
     datasetType: list[DatasetType] = Field(default=..., description="""Describes the type of the given dataset.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DatasetPackage'],
+         'in_subset': ['spdx_dataset'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/datasetType/'],
          'slot_uri': 'spdx_dataset:datasetType'} })
     datasetUpdateMechanism: Optional[str] = Field(default=None, description="""Describes a mechanism to update the dataset.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DatasetPackage'],
+         'in_subset': ['spdx_dataset'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/datasetUpdateMechanism/'],
          'slot_uri': 'spdx_dataset:datasetUpdateMechanism'} })
     hasSensitivePersonalInformation: Optional[PresenceType] = Field(default=None, description="""Describes if any sensitive personal information is present in the dataset.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DatasetPackage'],
+         'in_subset': ['spdx_dataset'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/hasSensitivePersonalInformation/'],
          'slot_uri': 'spdx_dataset:hasSensitivePersonalInformation'} })
     intendedUse: Optional[str] = Field(default=None, description="""Describes what the given dataset should be used for.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DatasetPackage'],
+         'in_subset': ['spdx_dataset'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/intendedUse/'],
          'slot_uri': 'spdx_dataset:intendedUse'} })
     knownBias: Optional[list[str]] = Field(default=None, description="""Records the biases that the dataset is known to encompass.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DatasetPackage'],
+         'in_subset': ['spdx_dataset'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/knownBias/'],
          'slot_uri': 'spdx_dataset:knownBias'} })
     sensor: Optional[list[DictionaryEntry]] = Field(default=None, description="""Describes a sensor used for collecting the data.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DatasetPackage'],
+         'in_subset': ['spdx_dataset'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/sensor/'],
          'slot_uri': 'spdx_dataset:sensor'} })
     downloadLocation: Optional[str] = Field(default=None, description="""Identifies the download Uniform Resource Identifier for the package at the time that the document was created.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Package'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/downloadLocation/'],
          'slot_uri': 'spdx_software:downloadLocation'} })
     homePage: Optional[str] = Field(default=None, description="""A place for the SPDX document creator to record a website that serves as the package's home page.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Package'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/homePage/'],
          'slot_uri': 'spdx_software:homePage'} })
     packageUrl: Optional[str] = Field(default=None, description="""Provides a place for the SPDX data creator to record the package URL string (in accordance with the Package URL specification) for a software Package.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Package'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/packageUrl/'],
          'slot_uri': 'spdx_software:packageUrl'} })
     packageVersion: Optional[str] = Field(default=None, description="""Identify the version of a package.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Package'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/packageVersion/'],
          'slot_uri': 'spdx_software:packageVersion'} })
     sourceInfo: Optional[str] = Field(default=None, description="""Records any relevant background information or additional comments about the origin of the package.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Package'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/sourceInfo/'],
          'slot_uri': 'spdx_software:sourceInfo'} })
     additionalPurpose: Optional[list[SoftwarePurpose]] = Field(default=None, description="""Provides additional purpose information of the software artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/additionalPurpose/'],
          'slot_uri': 'spdx_software:additionalPurpose'} })
     attributionText: Optional[list[str]] = Field(default=None, description="""Provides a place for the SPDX data creator to record acknowledgement text for a software Package, File or Snippet.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/attributionText/'],
          'slot_uri': 'spdx_software:attributionText'} })
     contentIdentifier: Optional[list[ContentIdentifier]] = Field(default=None, description="""A canonical, unique, immutable identifier of the artifact content, that may be used for verifying its identity and/or integrity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/contentIdentifier/'],
          'slot_uri': 'spdx_software:contentIdentifier'} })
     copyrightText: Optional[str] = Field(default=None, description="""Identifies the text of one or more copyright notices for a software Package, File or Snippet, if any.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/copyrightText/'],
          'slot_uri': 'spdx_software:copyrightText'} })
     primaryPurpose: Optional[SoftwarePurpose] = Field(default=None, description="""Provides information about the primary purpose of the software artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftwareArtifact'],
+         'in_subset': ['spdx_software'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/primaryPurpose/'],
          'slot_uri': 'spdx_software:primaryPurpose'} })
+    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
+         'slot_uri': 'spdx_core:builtTime'} })
+    originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
+         'slot_uri': 'spdx_core:originatedBy'} })
+    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
+         'slot_uri': 'spdx_core:releaseTime'} })
+    standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/standardName/'],
+         'slot_uri': 'spdx_core:standardName'} })
     suppliedBy: Optional[str] = Field(default=None, description="""Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact', 'VulnAssessmentRelationship'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
-         'slot_uri': 'spdx_core:builtTime'} })
-    originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
-         'slot_uri': 'spdx_core:originatedBy'} })
-    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
-         'slot_uri': 'spdx_core:releaseTime'} })
-    standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/standardName/'],
-         'slot_uri': 'spdx_core:standardName'} })
     supportLevel: Optional[list[SupportType]] = Field(default=None, description="""Specifies the level of support associated with an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/supportLevel/'],
          'slot_uri': 'spdx_core:supportLevel'} })
     validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
     type: Literal["https://w3id.org/lmodel/spdx/DatasetPackage","https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetPackage","spdx_linkml:DatasetPackage","spdx_dataset:DatasetPackage"] = Field(default="spdx_dataset:DatasetPackage", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -4250,6 +4624,34 @@ class DatasetPackage(Package):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -4258,27 +4660,6 @@ class DatasetPackage(Package):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class ConjunctiveLicenseSet(AnyLicenseInfo):
@@ -4322,6 +4703,34 @@ class ConjunctiveLicenseSet(AnyLicenseInfo):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -4330,27 +4739,6 @@ class ConjunctiveLicenseSet(AnyLicenseInfo):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class DisjunctiveLicenseSet(AnyLicenseInfo):
@@ -4394,6 +4782,34 @@ class DisjunctiveLicenseSet(AnyLicenseInfo):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -4402,27 +4818,6 @@ class DisjunctiveLicenseSet(AnyLicenseInfo):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class ExtendableLicense(AnyLicenseInfo):
@@ -4463,6 +4858,34 @@ class ExtendableLicense(AnyLicenseInfo):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -4471,27 +4894,6 @@ class ExtendableLicense(AnyLicenseInfo):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class IndividualLicensingInfo(AnyLicenseInfo):
@@ -4531,6 +4933,34 @@ class IndividualLicensingInfo(AnyLicenseInfo):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -4539,27 +4969,6 @@ class IndividualLicensingInfo(AnyLicenseInfo):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class License(ExtendableLicense):
@@ -4572,6 +4981,18 @@ class License(ExtendableLicense):
          'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Classes/License/']})
 
+    isDeprecatedLicenseId: Optional[bool] = Field(default=None, description="""Specifies whether a license or additional text identifier has been marked as deprecated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
+         'in_subset': ['spdx_expanded_licensing'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isDeprecatedLicenseId/'],
+         'slot_uri': 'spdx_expanded_licensing:isDeprecatedLicenseId'} })
+    isFsfLibre: Optional[bool] = Field(default=None, description="""Specifies whether the License is listed as free by the Free Software Foundation (FSF).""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
+         'in_subset': ['spdx_expanded_licensing'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isFsfLibre/'],
+         'slot_uri': 'spdx_expanded_licensing:isFsfLibre'} })
+    isOsiApproved: Optional[bool] = Field(default=None, description="""Specifies whether the License is listed as approved by the Open Source Initiative (OSI).""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
+         'in_subset': ['spdx_expanded_licensing'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isOsiApproved/'],
+         'slot_uri': 'spdx_expanded_licensing:isOsiApproved'} })
     licenseText: str = Field(default=..., description="""Identifies the full text of a License or Addition.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SimpleLicensingText', 'License'],
          'in_subset': ['spdx_simple_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Properties/licenseText/'],
@@ -4588,19 +5009,12 @@ class License(ExtendableLicense):
          'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/seeAlso/'],
          'slot_uri': 'spdx_expanded_licensing:seeAlso'} })
-    isDeprecatedLicenseId: Optional[bool] = Field(default=None, description="""Specifies whether a license or additional text identifier has been marked as deprecated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isDeprecatedLicenseId/'],
-         'slot_uri': 'spdx_expanded_licensing:isDeprecatedLicenseId'} })
-    isFsfLibre: Optional[bool] = Field(default=None, description="""Specifies whether the License is listed as free by the Free Software Foundation (FSF).""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isFsfLibre/'],
-         'slot_uri': 'spdx_expanded_licensing:isFsfLibre'} })
-    isOsiApproved: Optional[bool] = Field(default=None, description="""Specifies whether the License is listed as approved by the Open Source Initiative (OSI).""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isOsiApproved/'],
-         'slot_uri': 'spdx_expanded_licensing:isOsiApproved'} })
     standardLicenseHeader: Optional[str] = Field(default=None, description="""Provides a License author's preferred text to indicate that a file is covered by the License.""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
+         'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/standardLicenseHeader/'],
          'slot_uri': 'spdx_expanded_licensing:standardLicenseHeader'} })
     standardLicenseTemplate: Optional[str] = Field(default=None, description="""Identifies the full text of a License, in SPDX templating format.""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
+         'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/standardLicenseTemplate/'],
          'slot_uri': 'spdx_expanded_licensing:standardLicenseTemplate'} })
     type: Literal["https://w3id.org/lmodel/spdx/License","https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/License","spdx_linkml:License","spdx_expanded_licensing:License"] = Field(default="spdx_expanded_licensing:License", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -4631,6 +5045,34 @@ class License(ExtendableLicense):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -4639,27 +5081,6 @@ class License(ExtendableLicense):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class CustomLicense(License):
@@ -4671,6 +5092,18 @@ class CustomLicense(License):
          'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Classes/CustomLicense/']})
 
+    isDeprecatedLicenseId: Optional[bool] = Field(default=None, description="""Specifies whether a license or additional text identifier has been marked as deprecated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
+         'in_subset': ['spdx_expanded_licensing'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isDeprecatedLicenseId/'],
+         'slot_uri': 'spdx_expanded_licensing:isDeprecatedLicenseId'} })
+    isFsfLibre: Optional[bool] = Field(default=None, description="""Specifies whether the License is listed as free by the Free Software Foundation (FSF).""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
+         'in_subset': ['spdx_expanded_licensing'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isFsfLibre/'],
+         'slot_uri': 'spdx_expanded_licensing:isFsfLibre'} })
+    isOsiApproved: Optional[bool] = Field(default=None, description="""Specifies whether the License is listed as approved by the Open Source Initiative (OSI).""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
+         'in_subset': ['spdx_expanded_licensing'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isOsiApproved/'],
+         'slot_uri': 'spdx_expanded_licensing:isOsiApproved'} })
     licenseText: str = Field(default=..., description="""Identifies the full text of a License or Addition.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SimpleLicensingText', 'License'],
          'in_subset': ['spdx_simple_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Properties/licenseText/'],
@@ -4687,19 +5120,12 @@ class CustomLicense(License):
          'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/seeAlso/'],
          'slot_uri': 'spdx_expanded_licensing:seeAlso'} })
-    isDeprecatedLicenseId: Optional[bool] = Field(default=None, description="""Specifies whether a license or additional text identifier has been marked as deprecated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isDeprecatedLicenseId/'],
-         'slot_uri': 'spdx_expanded_licensing:isDeprecatedLicenseId'} })
-    isFsfLibre: Optional[bool] = Field(default=None, description="""Specifies whether the License is listed as free by the Free Software Foundation (FSF).""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isFsfLibre/'],
-         'slot_uri': 'spdx_expanded_licensing:isFsfLibre'} })
-    isOsiApproved: Optional[bool] = Field(default=None, description="""Specifies whether the License is listed as approved by the Open Source Initiative (OSI).""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isOsiApproved/'],
-         'slot_uri': 'spdx_expanded_licensing:isOsiApproved'} })
     standardLicenseHeader: Optional[str] = Field(default=None, description="""Provides a License author's preferred text to indicate that a file is covered by the License.""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
+         'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/standardLicenseHeader/'],
          'slot_uri': 'spdx_expanded_licensing:standardLicenseHeader'} })
     standardLicenseTemplate: Optional[str] = Field(default=None, description="""Identifies the full text of a License, in SPDX templating format.""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
+         'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/standardLicenseTemplate/'],
          'slot_uri': 'spdx_expanded_licensing:standardLicenseTemplate'} })
     type: Literal["https://w3id.org/lmodel/spdx/CustomLicense","https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/CustomLicense","spdx_linkml:CustomLicense","spdx_expanded_licensing:CustomLicense"] = Field(default="spdx_expanded_licensing:CustomLicense", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -4730,6 +5156,34 @@ class CustomLicense(License):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -4738,27 +5192,6 @@ class CustomLicense(License):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class LicenseAddition(Element):
@@ -4771,6 +5204,14 @@ class LicenseAddition(Element):
          'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Classes/LicenseAddition/']})
 
+    additionText: str = Field(default=..., description="""Identifies the full text of a LicenseAddition.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LicenseAddition'],
+         'in_subset': ['spdx_expanded_licensing'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/additionText/'],
+         'slot_uri': 'spdx_expanded_licensing:additionText'} })
+    isDeprecatedAdditionId: Optional[bool] = Field(default=None, description="""Specifies whether an additional text identifier has been marked as deprecated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LicenseAddition'],
+         'in_subset': ['spdx_expanded_licensing'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isDeprecatedAdditionId/'],
+         'slot_uri': 'spdx_expanded_licensing:isDeprecatedAdditionId'} })
     licenseXml: Optional[str] = Field(default=None, description="""Identifies all the text and metadata associated with a license in the license XML format.""", json_schema_extra = { "linkml_meta": {'domain_of': ['License', 'LicenseAddition'],
          'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/licenseXml/'],
@@ -4783,13 +5224,8 @@ class LicenseAddition(Element):
          'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/seeAlso/'],
          'slot_uri': 'spdx_expanded_licensing:seeAlso'} })
-    additionText: str = Field(default=..., description="""Identifies the full text of a LicenseAddition.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LicenseAddition'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/additionText/'],
-         'slot_uri': 'spdx_expanded_licensing:additionText'} })
-    isDeprecatedAdditionId: Optional[bool] = Field(default=None, description="""Specifies whether an additional text identifier has been marked as deprecated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LicenseAddition'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isDeprecatedAdditionId/'],
-         'slot_uri': 'spdx_expanded_licensing:isDeprecatedAdditionId'} })
     standardAdditionTemplate: Optional[str] = Field(default=None, description="""Identifies the full text of a LicenseAddition, in SPDX templating format.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LicenseAddition'],
+         'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/standardAdditionTemplate/'],
          'slot_uri': 'spdx_expanded_licensing:standardAdditionTemplate'} })
     type: Literal["https://w3id.org/lmodel/spdx/LicenseAddition","https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/LicenseAddition","spdx_linkml:LicenseAddition","spdx_expanded_licensing:LicenseAddition"] = Field(default="spdx_expanded_licensing:LicenseAddition", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -4820,6 +5256,34 @@ class LicenseAddition(Element):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -4828,27 +5292,6 @@ class LicenseAddition(Element):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class CustomLicenseAddition(LicenseAddition):
@@ -4860,6 +5303,14 @@ class CustomLicenseAddition(LicenseAddition):
          'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Classes/CustomLicenseAddition/']})
 
+    additionText: str = Field(default=..., description="""Identifies the full text of a LicenseAddition.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LicenseAddition'],
+         'in_subset': ['spdx_expanded_licensing'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/additionText/'],
+         'slot_uri': 'spdx_expanded_licensing:additionText'} })
+    isDeprecatedAdditionId: Optional[bool] = Field(default=None, description="""Specifies whether an additional text identifier has been marked as deprecated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LicenseAddition'],
+         'in_subset': ['spdx_expanded_licensing'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isDeprecatedAdditionId/'],
+         'slot_uri': 'spdx_expanded_licensing:isDeprecatedAdditionId'} })
     licenseXml: Optional[str] = Field(default=None, description="""Identifies all the text and metadata associated with a license in the license XML format.""", json_schema_extra = { "linkml_meta": {'domain_of': ['License', 'LicenseAddition'],
          'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/licenseXml/'],
@@ -4872,13 +5323,8 @@ class CustomLicenseAddition(LicenseAddition):
          'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/seeAlso/'],
          'slot_uri': 'spdx_expanded_licensing:seeAlso'} })
-    additionText: str = Field(default=..., description="""Identifies the full text of a LicenseAddition.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LicenseAddition'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/additionText/'],
-         'slot_uri': 'spdx_expanded_licensing:additionText'} })
-    isDeprecatedAdditionId: Optional[bool] = Field(default=None, description="""Specifies whether an additional text identifier has been marked as deprecated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LicenseAddition'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isDeprecatedAdditionId/'],
-         'slot_uri': 'spdx_expanded_licensing:isDeprecatedAdditionId'} })
     standardAdditionTemplate: Optional[str] = Field(default=None, description="""Identifies the full text of a LicenseAddition, in SPDX templating format.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LicenseAddition'],
+         'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/standardAdditionTemplate/'],
          'slot_uri': 'spdx_expanded_licensing:standardAdditionTemplate'} })
     type: Literal["https://w3id.org/lmodel/spdx/CustomLicenseAddition","https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/CustomLicenseAddition","spdx_linkml:CustomLicenseAddition","spdx_expanded_licensing:CustomLicenseAddition"] = Field(default="spdx_expanded_licensing:CustomLicenseAddition", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -4909,6 +5355,34 @@ class CustomLicenseAddition(LicenseAddition):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -4917,27 +5391,6 @@ class CustomLicenseAddition(LicenseAddition):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class ListedLicense(License):
@@ -4957,6 +5410,18 @@ class ListedLicense(License):
          'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/listVersionAdded/'],
          'slot_uri': 'spdx_expanded_licensing:listVersionAdded'} })
+    isDeprecatedLicenseId: Optional[bool] = Field(default=None, description="""Specifies whether a license or additional text identifier has been marked as deprecated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
+         'in_subset': ['spdx_expanded_licensing'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isDeprecatedLicenseId/'],
+         'slot_uri': 'spdx_expanded_licensing:isDeprecatedLicenseId'} })
+    isFsfLibre: Optional[bool] = Field(default=None, description="""Specifies whether the License is listed as free by the Free Software Foundation (FSF).""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
+         'in_subset': ['spdx_expanded_licensing'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isFsfLibre/'],
+         'slot_uri': 'spdx_expanded_licensing:isFsfLibre'} })
+    isOsiApproved: Optional[bool] = Field(default=None, description="""Specifies whether the License is listed as approved by the Open Source Initiative (OSI).""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
+         'in_subset': ['spdx_expanded_licensing'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isOsiApproved/'],
+         'slot_uri': 'spdx_expanded_licensing:isOsiApproved'} })
     licenseText: str = Field(default=..., description="""Identifies the full text of a License or Addition.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SimpleLicensingText', 'License'],
          'in_subset': ['spdx_simple_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Properties/licenseText/'],
@@ -4973,19 +5438,12 @@ class ListedLicense(License):
          'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/seeAlso/'],
          'slot_uri': 'spdx_expanded_licensing:seeAlso'} })
-    isDeprecatedLicenseId: Optional[bool] = Field(default=None, description="""Specifies whether a license or additional text identifier has been marked as deprecated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isDeprecatedLicenseId/'],
-         'slot_uri': 'spdx_expanded_licensing:isDeprecatedLicenseId'} })
-    isFsfLibre: Optional[bool] = Field(default=None, description="""Specifies whether the License is listed as free by the Free Software Foundation (FSF).""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isFsfLibre/'],
-         'slot_uri': 'spdx_expanded_licensing:isFsfLibre'} })
-    isOsiApproved: Optional[bool] = Field(default=None, description="""Specifies whether the License is listed as approved by the Open Source Initiative (OSI).""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isOsiApproved/'],
-         'slot_uri': 'spdx_expanded_licensing:isOsiApproved'} })
     standardLicenseHeader: Optional[str] = Field(default=None, description="""Provides a License author's preferred text to indicate that a file is covered by the License.""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
+         'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/standardLicenseHeader/'],
          'slot_uri': 'spdx_expanded_licensing:standardLicenseHeader'} })
     standardLicenseTemplate: Optional[str] = Field(default=None, description="""Identifies the full text of a License, in SPDX templating format.""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
+         'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/standardLicenseTemplate/'],
          'slot_uri': 'spdx_expanded_licensing:standardLicenseTemplate'} })
     type: Literal["https://w3id.org/lmodel/spdx/ListedLicense","https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/ListedLicense","spdx_linkml:ListedLicense","spdx_expanded_licensing:ListedLicense"] = Field(default="spdx_expanded_licensing:ListedLicense", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -5016,6 +5474,34 @@ class ListedLicense(License):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -5024,27 +5510,6 @@ class ListedLicense(License):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class ListedLicenseException(LicenseAddition):
@@ -5064,6 +5529,14 @@ class ListedLicenseException(LicenseAddition):
          'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/listVersionAdded/'],
          'slot_uri': 'spdx_expanded_licensing:listVersionAdded'} })
+    additionText: str = Field(default=..., description="""Identifies the full text of a LicenseAddition.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LicenseAddition'],
+         'in_subset': ['spdx_expanded_licensing'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/additionText/'],
+         'slot_uri': 'spdx_expanded_licensing:additionText'} })
+    isDeprecatedAdditionId: Optional[bool] = Field(default=None, description="""Specifies whether an additional text identifier has been marked as deprecated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LicenseAddition'],
+         'in_subset': ['spdx_expanded_licensing'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isDeprecatedAdditionId/'],
+         'slot_uri': 'spdx_expanded_licensing:isDeprecatedAdditionId'} })
     licenseXml: Optional[str] = Field(default=None, description="""Identifies all the text and metadata associated with a license in the license XML format.""", json_schema_extra = { "linkml_meta": {'domain_of': ['License', 'LicenseAddition'],
          'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/licenseXml/'],
@@ -5076,13 +5549,8 @@ class ListedLicenseException(LicenseAddition):
          'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/seeAlso/'],
          'slot_uri': 'spdx_expanded_licensing:seeAlso'} })
-    additionText: str = Field(default=..., description="""Identifies the full text of a LicenseAddition.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LicenseAddition'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/additionText/'],
-         'slot_uri': 'spdx_expanded_licensing:additionText'} })
-    isDeprecatedAdditionId: Optional[bool] = Field(default=None, description="""Specifies whether an additional text identifier has been marked as deprecated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LicenseAddition'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/isDeprecatedAdditionId/'],
-         'slot_uri': 'spdx_expanded_licensing:isDeprecatedAdditionId'} })
     standardAdditionTemplate: Optional[str] = Field(default=None, description="""Identifies the full text of a LicenseAddition, in SPDX templating format.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LicenseAddition'],
+         'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/standardAdditionTemplate/'],
          'slot_uri': 'spdx_expanded_licensing:standardAdditionTemplate'} })
     type: Literal["https://w3id.org/lmodel/spdx/ListedLicenseException","https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/ListedLicenseException","spdx_linkml:ListedLicenseException","spdx_expanded_licensing:ListedLicenseException"] = Field(default="spdx_expanded_licensing:ListedLicenseException", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -5113,6 +5581,34 @@ class ListedLicenseException(LicenseAddition):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -5121,27 +5617,6 @@ class ListedLicenseException(LicenseAddition):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class OrLaterOperator(ExtendableLicense):
@@ -5154,6 +5629,7 @@ class OrLaterOperator(ExtendableLicense):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Classes/OrLaterOperator/']})
 
     subjectLicense: str = Field(default=..., description="""A License participating in an 'or later' model.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OrLaterOperator'],
+         'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/subjectLicense/'],
          'slot_uri': 'spdx_expanded_licensing:subjectLicense'} })
     type: Literal["https://w3id.org/lmodel/spdx/OrLaterOperator","https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/OrLaterOperator","spdx_linkml:OrLaterOperator","spdx_expanded_licensing:OrLaterOperator"] = Field(default="spdx_expanded_licensing:OrLaterOperator", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -5184,6 +5660,34 @@ class OrLaterOperator(ExtendableLicense):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -5192,27 +5696,6 @@ class OrLaterOperator(ExtendableLicense):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class WithAdditionOperator(AnyLicenseInfo):
@@ -5225,9 +5708,11 @@ class WithAdditionOperator(AnyLicenseInfo):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Classes/WithAdditionOperator/']})
 
     subjectAddition: str = Field(default=..., description="""A LicenseAddition participating in a 'with addition' model.""", json_schema_extra = { "linkml_meta": {'domain_of': ['WithAdditionOperator'],
+         'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/subjectAddition/'],
          'slot_uri': 'spdx_expanded_licensing:subjectAddition'} })
     subjectExtendableLicense: str = Field(default=..., description="""A License participating in a 'with addition' model.""", json_schema_extra = { "linkml_meta": {'domain_of': ['WithAdditionOperator'],
+         'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/subjectExtendableLicense/'],
          'slot_uri': 'spdx_expanded_licensing:subjectExtendableLicense'} })
     type: Literal["https://w3id.org/lmodel/spdx/WithAdditionOperator","https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/WithAdditionOperator","spdx_linkml:WithAdditionOperator","spdx_expanded_licensing:WithAdditionOperator"] = Field(default="spdx_expanded_licensing:WithAdditionOperator", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -5258,6 +5743,34 @@ class WithAdditionOperator(AnyLicenseInfo):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -5266,27 +5779,6 @@ class WithAdditionOperator(AnyLicenseInfo):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class VulnAssessmentRelationship(Relationship):
@@ -5299,6 +5791,10 @@ class VulnAssessmentRelationship(Relationship):
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Classes/VulnAssessmentRelationship/']})
 
+    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
+         'slot_uri': 'spdx_security:assessedElement'} })
     modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
@@ -5315,25 +5811,28 @@ class VulnAssessmentRelationship(Relationship):
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
-    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
-         'slot_uri': 'spdx_security:assessedElement'} })
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
     endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/from/'],
          'slot_uri': 'spdx_core:from'} })
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
     startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
     type: Literal["https://w3id.org/lmodel/spdx/VulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/VulnAssessmentRelationship","spdx_linkml:VulnAssessmentRelationship","spdx_security:VulnAssessmentRelationship"] = Field(default="spdx_security:VulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -5364,6 +5863,34 @@ class VulnAssessmentRelationship(Relationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -5372,27 +5899,6 @@ class VulnAssessmentRelationship(Relationship):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class CvssV2VulnAssessmentRelationship(VulnAssessmentRelationship):
@@ -5416,6 +5922,10 @@ class CvssV2VulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/vectorString/'],
          'slot_uri': 'spdx_security:vectorString'} })
+    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
+         'slot_uri': 'spdx_security:assessedElement'} })
     modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
@@ -5432,25 +5942,28 @@ class CvssV2VulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
-    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
-         'slot_uri': 'spdx_security:assessedElement'} })
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
     endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/from/'],
          'slot_uri': 'spdx_core:from'} })
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
     startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
     type: Literal["https://w3id.org/lmodel/spdx/CvssV2VulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/CvssV2VulnAssessmentRelationship","spdx_linkml:CvssV2VulnAssessmentRelationship","spdx_security:CvssV2VulnAssessmentRelationship"] = Field(default="spdx_security:CvssV2VulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -5481,6 +5994,34 @@ class CvssV2VulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -5489,27 +6030,6 @@ class CvssV2VulnAssessmentRelationship(VulnAssessmentRelationship):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class CvssV3VulnAssessmentRelationship(VulnAssessmentRelationship):
@@ -5538,6 +6058,10 @@ class CvssV3VulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/vectorString/'],
          'slot_uri': 'spdx_security:vectorString'} })
+    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
+         'slot_uri': 'spdx_security:assessedElement'} })
     modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
@@ -5554,25 +6078,28 @@ class CvssV3VulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
-    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
-         'slot_uri': 'spdx_security:assessedElement'} })
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
     endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/from/'],
          'slot_uri': 'spdx_core:from'} })
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
     startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
     type: Literal["https://w3id.org/lmodel/spdx/CvssV3VulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/CvssV3VulnAssessmentRelationship","spdx_linkml:CvssV3VulnAssessmentRelationship","spdx_security:CvssV3VulnAssessmentRelationship"] = Field(default="spdx_security:CvssV3VulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -5603,6 +6130,34 @@ class CvssV3VulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -5611,27 +6166,6 @@ class CvssV3VulnAssessmentRelationship(VulnAssessmentRelationship):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class CvssV4VulnAssessmentRelationship(VulnAssessmentRelationship):
@@ -5660,6 +6194,10 @@ class CvssV4VulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/vectorString/'],
          'slot_uri': 'spdx_security:vectorString'} })
+    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
+         'slot_uri': 'spdx_security:assessedElement'} })
     modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
@@ -5676,25 +6214,28 @@ class CvssV4VulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
-    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
-         'slot_uri': 'spdx_security:assessedElement'} })
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
     endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/from/'],
          'slot_uri': 'spdx_core:from'} })
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
     startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
     type: Literal["https://w3id.org/lmodel/spdx/CvssV4VulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/CvssV4VulnAssessmentRelationship","spdx_linkml:CvssV4VulnAssessmentRelationship","spdx_security:CvssV4VulnAssessmentRelationship"] = Field(default="spdx_security:CvssV4VulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -5725,6 +6266,34 @@ class CvssV4VulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -5733,27 +6302,6 @@ class CvssV4VulnAssessmentRelationship(VulnAssessmentRelationship):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class EpssVulnAssessmentRelationship(VulnAssessmentRelationship):
@@ -5766,11 +6314,17 @@ class EpssVulnAssessmentRelationship(VulnAssessmentRelationship):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Classes/EpssVulnAssessmentRelationship/']})
 
     percentile: Decimal = Field(default=..., description="""The percentile of the current probability score.""", json_schema_extra = { "linkml_meta": {'domain_of': ['EpssVulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/percentile/'],
          'slot_uri': 'spdx_security:percentile'} })
     probability: Decimal = Field(default=..., description="""A probability score between 0 and 1 of a vulnerability being exploited.""", json_schema_extra = { "linkml_meta": {'domain_of': ['EpssVulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/probability/'],
          'slot_uri': 'spdx_security:probability'} })
+    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
+         'slot_uri': 'spdx_security:assessedElement'} })
     modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
@@ -5787,25 +6341,28 @@ class EpssVulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
-    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
-         'slot_uri': 'spdx_security:assessedElement'} })
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
     endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/from/'],
          'slot_uri': 'spdx_core:from'} })
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
     startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
     type: Literal["https://w3id.org/lmodel/spdx/EpssVulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/EpssVulnAssessmentRelationship","spdx_linkml:EpssVulnAssessmentRelationship","spdx_security:EpssVulnAssessmentRelationship"] = Field(default="spdx_security:EpssVulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -5836,6 +6393,34 @@ class EpssVulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -5844,27 +6429,6 @@ class EpssVulnAssessmentRelationship(VulnAssessmentRelationship):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class ExploitCatalogVulnAssessmentRelationship(VulnAssessmentRelationship):
@@ -5877,14 +6441,21 @@ class ExploitCatalogVulnAssessmentRelationship(VulnAssessmentRelationship):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Classes/ExploitCatalogVulnAssessmentRelationship/']})
 
     catalogType: ExploitCatalogType = Field(default=..., description="""Specifies the exploit catalog type.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExploitCatalogVulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/catalogType/'],
          'slot_uri': 'spdx_security:catalogType'} })
     exploited: bool = Field(default=..., description="""Describe that a CVE is known to have an exploit because it's been listed in an exploit catalog.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExploitCatalogVulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/exploited/'],
          'slot_uri': 'spdx_security:exploited'} })
     security_locator: str = Field(default=..., description="""Provides the location of an exploit catalog.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExploitCatalogVulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/locator/'],
          'slot_uri': 'spdx_security:locator'} })
+    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
+         'slot_uri': 'spdx_security:assessedElement'} })
     modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
@@ -5901,25 +6472,28 @@ class ExploitCatalogVulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
-    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
-         'slot_uri': 'spdx_security:assessedElement'} })
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
     endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/from/'],
          'slot_uri': 'spdx_core:from'} })
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
     startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
     type: Literal["https://w3id.org/lmodel/spdx/ExploitCatalogVulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/ExploitCatalogVulnAssessmentRelationship","spdx_linkml:ExploitCatalogVulnAssessmentRelationship","spdx_security:ExploitCatalogVulnAssessmentRelationship"] = Field(default="spdx_security:ExploitCatalogVulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -5950,6 +6524,34 @@ class ExploitCatalogVulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -5958,27 +6560,6 @@ class ExploitCatalogVulnAssessmentRelationship(VulnAssessmentRelationship):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class SsvcVulnAssessmentRelationship(VulnAssessmentRelationship):
@@ -5991,8 +6572,13 @@ class SsvcVulnAssessmentRelationship(VulnAssessmentRelationship):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Classes/SsvcVulnAssessmentRelationship/']})
 
     decisionType: SsvcDecisionType = Field(default=..., description="""Provide the enumeration of possible decisions in the [Stakeholder-Specific Vulnerability Categorization (SSVC) decision tree](https://www.cisa.gov/stakeholder-specific-vulnerability-categorization-ssvc).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SsvcVulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/decisionType/'],
          'slot_uri': 'spdx_security:decisionType'} })
+    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
+         'slot_uri': 'spdx_security:assessedElement'} })
     modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
@@ -6009,25 +6595,28 @@ class SsvcVulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
-    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
-         'slot_uri': 'spdx_security:assessedElement'} })
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
     endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/from/'],
          'slot_uri': 'spdx_core:from'} })
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
     startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
     type: Literal["https://w3id.org/lmodel/spdx/SsvcVulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/SsvcVulnAssessmentRelationship","spdx_linkml:SsvcVulnAssessmentRelationship","spdx_security:SsvcVulnAssessmentRelationship"] = Field(default="spdx_security:SsvcVulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -6058,6 +6647,34 @@ class SsvcVulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -6066,27 +6683,6 @@ class SsvcVulnAssessmentRelationship(VulnAssessmentRelationship):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class VexVulnAssessmentRelationship(VulnAssessmentRelationship):
@@ -6100,11 +6696,17 @@ class VexVulnAssessmentRelationship(VulnAssessmentRelationship):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Classes/VexVulnAssessmentRelationship/']})
 
     statusNotes: Optional[str] = Field(default=None, description="""Conveys information about how VEX status was determined.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexVulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/statusNotes/'],
          'slot_uri': 'spdx_security:statusNotes'} })
     vexVersion: Optional[str] = Field(default=None, description="""Specifies the version of a VEX statement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexVulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/vexVersion/'],
          'slot_uri': 'spdx_security:vexVersion'} })
+    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
+         'slot_uri': 'spdx_security:assessedElement'} })
     modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
@@ -6121,25 +6723,28 @@ class VexVulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
-    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
-         'slot_uri': 'spdx_security:assessedElement'} })
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
     endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/from/'],
          'slot_uri': 'spdx_core:from'} })
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
     startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
     type: Literal["https://w3id.org/lmodel/spdx/VexVulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/VexVulnAssessmentRelationship","spdx_linkml:VexVulnAssessmentRelationship","spdx_security:VexVulnAssessmentRelationship"] = Field(default="spdx_security:VexVulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -6170,6 +6775,34 @@ class VexVulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -6178,27 +6811,6 @@ class VexVulnAssessmentRelationship(VulnAssessmentRelationship):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class VexAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
@@ -6211,17 +6823,25 @@ class VexAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Classes/VexAffectedVulnAssessmentRelationship/']})
 
     actionStatement: str = Field(default=..., description="""Provides advise on how to mitigate or remediate a vulnerability when a VEX product is affected by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexAffectedVulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/actionStatement/'],
          'slot_uri': 'spdx_security:actionStatement'} })
     actionStatementTime: Optional[str] = Field(default=None, description="""Records the time when a recommended action was communicated in a VEX statement to mitigate a vulnerability.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexAffectedVulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/actionStatementTime/'],
          'slot_uri': 'spdx_security:actionStatementTime'} })
     statusNotes: Optional[str] = Field(default=None, description="""Conveys information about how VEX status was determined.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexVulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/statusNotes/'],
          'slot_uri': 'spdx_security:statusNotes'} })
     vexVersion: Optional[str] = Field(default=None, description="""Specifies the version of a VEX statement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexVulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/vexVersion/'],
          'slot_uri': 'spdx_security:vexVersion'} })
+    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
+         'slot_uri': 'spdx_security:assessedElement'} })
     modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
@@ -6238,25 +6858,28 @@ class VexAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
-    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
-         'slot_uri': 'spdx_security:assessedElement'} })
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
     endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/from/'],
          'slot_uri': 'spdx_core:from'} })
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
     startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
     type: Literal["https://w3id.org/lmodel/spdx/VexAffectedVulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/VexAffectedVulnAssessmentRelationship","spdx_linkml:VexAffectedVulnAssessmentRelationship","spdx_security:VexAffectedVulnAssessmentRelationship"] = Field(default="spdx_security:VexAffectedVulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -6287,6 +6910,34 @@ class VexAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -6295,27 +6946,6 @@ class VexAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class VexFixedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
@@ -6328,11 +6958,17 @@ class VexFixedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Classes/VexFixedVulnAssessmentRelationship/']})
 
     statusNotes: Optional[str] = Field(default=None, description="""Conveys information about how VEX status was determined.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexVulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/statusNotes/'],
          'slot_uri': 'spdx_security:statusNotes'} })
     vexVersion: Optional[str] = Field(default=None, description="""Specifies the version of a VEX statement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexVulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/vexVersion/'],
          'slot_uri': 'spdx_security:vexVersion'} })
+    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
+         'slot_uri': 'spdx_security:assessedElement'} })
     modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
@@ -6349,25 +6985,28 @@ class VexFixedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
-    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
-         'slot_uri': 'spdx_security:assessedElement'} })
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
     endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/from/'],
          'slot_uri': 'spdx_core:from'} })
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
     startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
     type: Literal["https://w3id.org/lmodel/spdx/VexFixedVulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/VexFixedVulnAssessmentRelationship","spdx_linkml:VexFixedVulnAssessmentRelationship","spdx_security:VexFixedVulnAssessmentRelationship"] = Field(default="spdx_security:VexFixedVulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -6398,6 +7037,34 @@ class VexFixedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -6406,27 +7073,6 @@ class VexFixedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class VexNotAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
@@ -6439,20 +7085,29 @@ class VexNotAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Classes/VexNotAffectedVulnAssessmentRelationship/']})
 
     impactStatement: Optional[str] = Field(default=None, description="""Explains why a VEX product is not affected by a vulnerability. It is an alternative in VexNotAffectedVulnAssessmentRelationship to the machine-readable justification label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexNotAffectedVulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/impactStatement/'],
          'slot_uri': 'spdx_security:impactStatement'} })
     impactStatementTime: Optional[str] = Field(default=None, description="""Timestamp of impact statement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexNotAffectedVulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/impactStatementTime/'],
          'slot_uri': 'spdx_security:impactStatementTime'} })
     justificationType: Optional[VexJustificationType] = Field(default=None, description="""Impact justification label to be used when linking a vulnerability to an element representing a VEX product with a VexNotAffectedVulnAssessmentRelationship relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexNotAffectedVulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/justificationType/'],
          'slot_uri': 'spdx_security:justificationType'} })
     statusNotes: Optional[str] = Field(default=None, description="""Conveys information about how VEX status was determined.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexVulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/statusNotes/'],
          'slot_uri': 'spdx_security:statusNotes'} })
     vexVersion: Optional[str] = Field(default=None, description="""Specifies the version of a VEX statement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexVulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/vexVersion/'],
          'slot_uri': 'spdx_security:vexVersion'} })
+    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
+         'slot_uri': 'spdx_security:assessedElement'} })
     modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
@@ -6469,25 +7124,28 @@ class VexNotAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
-    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
-         'slot_uri': 'spdx_security:assessedElement'} })
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
     endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/from/'],
          'slot_uri': 'spdx_core:from'} })
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
     startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
     type: Literal["https://w3id.org/lmodel/spdx/VexNotAffectedVulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/VexNotAffectedVulnAssessmentRelationship","spdx_linkml:VexNotAffectedVulnAssessmentRelationship","spdx_security:VexNotAffectedVulnAssessmentRelationship"] = Field(default="spdx_security:VexNotAffectedVulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -6518,6 +7176,34 @@ class VexNotAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -6526,27 +7212,6 @@ class VexNotAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class VexUnderInvestigationVulnAssessmentRelationship(VexVulnAssessmentRelationship):
@@ -6559,11 +7224,17 @@ class VexUnderInvestigationVulnAssessmentRelationship(VexVulnAssessmentRelations
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Classes/VexUnderInvestigationVulnAssessmentRelationship/']})
 
     statusNotes: Optional[str] = Field(default=None, description="""Conveys information about how VEX status was determined.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexVulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/statusNotes/'],
          'slot_uri': 'spdx_security:statusNotes'} })
     vexVersion: Optional[str] = Field(default=None, description="""Specifies the version of a VEX statement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexVulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/vexVersion/'],
          'slot_uri': 'spdx_security:vexVersion'} })
+    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
+         'in_subset': ['spdx_security'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
+         'slot_uri': 'spdx_security:assessedElement'} })
     modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
@@ -6580,25 +7251,28 @@ class VexUnderInvestigationVulnAssessmentRelationship(VexVulnAssessmentRelations
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
-    assessedElement: Optional[str] = Field(default=None, description="""Specifies an Element contained in a piece of software where a vulnerability was found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/'],
-         'slot_uri': 'spdx_security:assessedElement'} })
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
     endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/from/'],
          'slot_uri': 'spdx_core:from'} })
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
     startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
     type: Literal["https://w3id.org/lmodel/spdx/VexUnderInvestigationVulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/VexUnderInvestigationVulnAssessmentRelationship","spdx_linkml:VexUnderInvestigationVulnAssessmentRelationship","spdx_security:VexUnderInvestigationVulnAssessmentRelationship"] = Field(default="spdx_security:VexUnderInvestigationVulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -6629,6 +7303,34 @@ class VexUnderInvestigationVulnAssessmentRelationship(VexVulnAssessmentRelations
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -6637,27 +7339,6 @@ class VexUnderInvestigationVulnAssessmentRelationship(VexVulnAssessmentRelations
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 class Vulnerability(Artifact):
@@ -6681,26 +7362,32 @@ class Vulnerability(Artifact):
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
+    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
+         'slot_uri': 'spdx_core:builtTime'} })
+    originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
+         'slot_uri': 'spdx_core:originatedBy'} })
+    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
+         'slot_uri': 'spdx_core:releaseTime'} })
+    standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/standardName/'],
+         'slot_uri': 'spdx_core:standardName'} })
     suppliedBy: Optional[str] = Field(default=None, description="""Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact', 'VulnAssessmentRelationship'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
-         'slot_uri': 'spdx_core:builtTime'} })
-    originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
-         'slot_uri': 'spdx_core:originatedBy'} })
-    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
-         'slot_uri': 'spdx_core:releaseTime'} })
-    standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/standardName/'],
-         'slot_uri': 'spdx_core:standardName'} })
     supportLevel: Optional[list[SupportType]] = Field(default=None, description="""Specifies the level of support associated with an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/supportLevel/'],
          'slot_uri': 'spdx_core:supportLevel'} })
     validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+         'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
     type: Literal["https://w3id.org/lmodel/spdx/Vulnerability","https://spdx.org/rdf/3.0.1/terms/Security/Vulnerability","spdx_linkml:Vulnerability","spdx_security:Vulnerability"] = Field(default="spdx_security:Vulnerability", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
@@ -6731,6 +7418,34 @@ class Vulnerability(Artifact):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
+    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
+         'slot_uri': 'spdx_core:creationInfo'} })
+    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
+         'slot_uri': 'spdx_core:description'} })
+    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
+         'slot_uri': 'spdx_core:extension'} })
+    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
+         'slot_uri': 'spdx_core:externalIdentifier'} })
+    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
+         'slot_uri': 'spdx_core:externalRef'} })
+    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
+         'slot_uri': 'spdx_core:name'} })
+    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
+         'in_subset': ['spdx_core'],
+         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
+         'slot_uri': 'spdx_core:summary'} })
     verifiedUsing: Optional[list[Union[Hash,PackageVerificationCode,ContentIdentifier]]] = Field(default=None, description="""Provides an IntegrityMethod with which the integrity of an Element can be asserted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element', 'ExternalMap'],
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
@@ -6739,27 +7454,6 @@ class Vulnerability(Artifact):
                       'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
-    creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/'],
-         'slot_uri': 'spdx_core:creationInfo'} })
-    description: Optional[str] = Field(default=None, description="""Provides a detailed description of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/'],
-         'slot_uri': 'spdx_core:description'} })
-    extension: Optional[list[Union[CdxPropertiesExtension]]] = Field(default=None, description="""Specifies an Extension characterization of some aspect of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/'],
-         'slot_uri': 'spdx_core:extension'} })
-    externalIdentifier: Optional[list[ExternalIdentifier]] = Field(default=None, description="""Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/'],
-         'slot_uri': 'spdx_core:externalIdentifier'} })
-    externalRef: Optional[list[ExternalRef]] = Field(default=None, description="""Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/'],
-         'slot_uri': 'spdx_core:externalRef'} })
-    name: Optional[str] = Field(default=None, description="""Identifies the name of an Element as designated by the creator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/'],
-         'slot_uri': 'spdx_core:name'} })
-    summary: Optional[str] = Field(default=None, description="""A short description of an Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
-         'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/'],
-         'slot_uri': 'spdx_core:summary'} })
 
 
 # Model rebuild

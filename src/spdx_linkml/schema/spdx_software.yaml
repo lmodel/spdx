@@ -231,6 +231,186 @@ enums:
         description: The Element is a test used to verify functionality on an software element.
         meaning: spdx_software:SoftwarePurpose/test
 
+slots:
+
+  additionalPurpose:
+    description: Provides additional purpose information of the software artifact.
+    slot_uri: spdx_software:additionalPurpose
+    range: SoftwarePurpose
+    multivalued: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/additionalPurpose/
+    in_subset:
+      - spdx_software
+
+  attributionText:
+    description: >-
+      Provides a place for the SPDX data creator to record acknowledgement text for a software Package,
+      File or Snippet.
+    slot_uri: spdx_software:attributionText
+    range: string
+    multivalued: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/attributionText/
+    in_subset:
+      - spdx_software
+
+  byteRange:
+    description: >-
+      Defines the byte range in the original host file that the snippet information applies to.
+    slot_uri: spdx_software:byteRange
+    range: PositiveIntegerRange
+    inlined: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/byteRange/
+    in_subset:
+      - spdx_software
+
+  contentIdentifier:
+    description: >-
+      A canonical, unique, immutable identifier of the artifact content, that may be used for verifying
+      its identity and/or integrity.
+    slot_uri: spdx_software:contentIdentifier
+    range: ContentIdentifier
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/contentIdentifier/
+    in_subset:
+      - spdx_software
+
+  contentIdentifierType:
+    description: Specifies the type of the content identifier.
+    slot_uri: spdx_software:contentIdentifierType
+    range: ContentIdentifierType
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/contentIdentifierType/
+    in_subset:
+      - spdx_software
+
+  contentIdentifierValue:
+    description: Specifies the value of the content identifier.
+    slot_uri: spdx_software:contentIdentifierValue
+    range: uri
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/contentIdentifierValue/
+    in_subset:
+      - spdx_software
+
+  copyrightText:
+    description: >-
+      Identifies the text of one or more copyright notices for a software Package, File or Snippet, if
+      any.
+    slot_uri: spdx_software:copyrightText
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/copyrightText/
+    in_subset:
+      - spdx_software
+
+  downloadLocation:
+    description: >-
+      Identifies the download Uniform Resource Identifier for the package at the time that the document
+      was created.
+    slot_uri: spdx_software:downloadLocation
+    range: uri
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/downloadLocation/
+    in_subset:
+      - spdx_software
+
+  fileKind:
+    description: Describes if a given file is a directory or non-directory kind of file.
+    slot_uri: spdx_software:fileKind
+    range: FileKindType
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/fileKind/
+    in_subset:
+      - spdx_software
+
+  homePage:
+    description: >-
+      A place for the SPDX document creator to record a website that serves as the package's home page.
+    slot_uri: spdx_software:homePage
+    range: uri
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/homePage/
+    in_subset:
+      - spdx_software
+
+  lineRange:
+    description: >-
+      Defines the line range in the original host file that the snippet information applies to.
+    slot_uri: spdx_software:lineRange
+    range: PositiveIntegerRange
+    inlined: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/lineRange/
+    in_subset:
+      - spdx_software
+
+  packageUrl:
+    description: >-
+      Provides a place for the SPDX data creator to record the package URL string (in accordance with
+      the Package URL specification) for a software Package.
+    slot_uri: spdx_software:packageUrl
+    range: uri
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/packageUrl/
+    in_subset:
+      - spdx_software
+
+  packageVersion:
+    description: Identify the version of a package.
+    slot_uri: spdx_software:packageVersion
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/packageVersion/
+    in_subset:
+      - spdx_software
+
+  primaryPurpose:
+    description: Provides information about the primary purpose of the software artifact.
+    slot_uri: spdx_software:primaryPurpose
+    range: SoftwarePurpose
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/primaryPurpose/
+    in_subset:
+      - spdx_software
+
+  sbomType:
+    description: Provides information about the type of an SBOM.
+    slot_uri: spdx_software:sbomType
+    range: SbomType
+    multivalued: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/sbomType/
+    in_subset:
+      - spdx_software
+
+  snippetFromFile:
+    description: Defines the original host file that the snippet information applies to.
+    slot_uri: spdx_software:snippetFromFile
+    range: File
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/snippetFromFile/
+    in_subset:
+      - spdx_software
+
+  sourceInfo:
+    description: >-
+      Records any relevant background information or additional comments about the origin of the package.
+    slot_uri: spdx_software:sourceInfo
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/sourceInfo/
+    in_subset:
+      - spdx_software
+
 classes:
 
   ContentIdentifier:
@@ -241,21 +421,9 @@ classes:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Classes/ContentIdentifier/
     in_subset:
       - spdx_software
-    attributes:
-      contentIdentifierType:
-        description: Specifies the type of the content identifier.
-        slot_uri: spdx_software:contentIdentifierType
-        range: ContentIdentifierType
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/contentIdentifierType/
-      contentIdentifierValue:
-        description: Specifies the value of the content identifier.
-        slot_uri: spdx_software:contentIdentifierValue
-        range: uri
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/contentIdentifierValue/
+    slots:
+      - contentIdentifierType
+      - contentIdentifierValue
 
   File:
     is_a: SoftwareArtifact
@@ -267,13 +435,7 @@ classes:
       - spdx_software
     slots:
       - contentType
-    attributes:
-      fileKind:
-        description: Describes if a given file is a directory or non-directory kind of file.
-        slot_uri: spdx_software:fileKind
-        range: FileKindType
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/fileKind/
+      - fileKind
 
   Package:
     is_a: SoftwareArtifact
@@ -284,44 +446,12 @@ classes:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Classes/Package/
     in_subset:
       - spdx_software
-    attributes:
-      downloadLocation:
-        description: >-
-          Identifies the download Uniform Resource Identifier for the package at the time that the document
-          was created.
-        slot_uri: spdx_software:downloadLocation
-        range: uri
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/downloadLocation/
-      homePage:
-        description: >-
-          A place for the SPDX document creator to record a website that serves as the package's home
-          page.
-        slot_uri: spdx_software:homePage
-        range: uri
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/homePage/
-      packageUrl:
-        description: >-
-          Provides a place for the SPDX data creator to record the package URL string (in accordance with
-          the Package URL specification) for a software Package.
-        slot_uri: spdx_software:packageUrl
-        range: uri
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/packageUrl/
-      packageVersion:
-        description: Identify the version of a package.
-        slot_uri: spdx_software:packageVersion
-        range: string
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/packageVersion/
-      sourceInfo:
-        description: >-
-          Records any relevant background information or additional comments about the origin of the package.
-        slot_uri: spdx_software:sourceInfo
-        range: string
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/sourceInfo/
+    slots:
+      - downloadLocation
+      - homePage
+      - packageUrl
+      - packageVersion
+      - sourceInfo
 
   Sbom:
     is_a: Bom
@@ -331,14 +461,8 @@ classes:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Classes/Sbom/
     in_subset:
       - spdx_software
-    attributes:
-      sbomType:
-        description: Provides information about the type of an SBOM.
-        slot_uri: spdx_software:sbomType
-        range: SbomType
-        multivalued: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/sbomType/
+    slots:
+      - sbomType
 
   Snippet:
     is_a: SoftwareArtifact
@@ -348,30 +472,10 @@ classes:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Classes/Snippet/
     in_subset:
       - spdx_software
-    attributes:
-      byteRange:
-        description: >-
-          Defines the byte range in the original host file that the snippet information applies to.
-        slot_uri: spdx_software:byteRange
-        range: PositiveIntegerRange
-        inlined: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/byteRange/
-      lineRange:
-        description: >-
-          Defines the line range in the original host file that the snippet information applies to.
-        slot_uri: spdx_software:lineRange
-        range: PositiveIntegerRange
-        inlined: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/lineRange/
-      snippetFromFile:
-        description: Defines the original host file that the snippet information applies to.
-        slot_uri: spdx_software:snippetFromFile
-        range: File
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/snippetFromFile/
+    slots:
+      - byteRange
+      - lineRange
+      - snippetFromFile
 
   SoftwareArtifact:
     is_a: Artifact
@@ -382,45 +486,9 @@ classes:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Classes/SoftwareArtifact/
     in_subset:
       - spdx_software
-    attributes:
-      additionalPurpose:
-        description: Provides additional purpose information of the software artifact.
-        slot_uri: spdx_software:additionalPurpose
-        range: SoftwarePurpose
-        multivalued: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/additionalPurpose/
-      attributionText:
-        description: >-
-          Provides a place for the SPDX data creator to record acknowledgement text for a software Package,
-          File or Snippet.
-        slot_uri: spdx_software:attributionText
-        range: string
-        multivalued: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/attributionText/
-      contentIdentifier:
-        description: >-
-          A canonical, unique, immutable identifier of the artifact content, that may be used for verifying
-          its identity and/or integrity.
-        slot_uri: spdx_software:contentIdentifier
-        range: ContentIdentifier
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/contentIdentifier/
-      copyrightText:
-        description: >-
-          Identifies the text of one or more copyright notices for a software Package, File or Snippet,
-          if any.
-        slot_uri: spdx_software:copyrightText
-        range: string
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/copyrightText/
-      primaryPurpose:
-        description: Provides information about the primary purpose of the software artifact.
-        slot_uri: spdx_software:primaryPurpose
-        range: SoftwarePurpose
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/primaryPurpose/
+    slots:
+      - additionalPurpose
+      - attributionText
+      - contentIdentifier
+      - copyrightText
+      - primaryPurpose

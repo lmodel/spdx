@@ -33,6 +33,40 @@ imports:
   - linkml:types
   - ./spdx_core
 
+slots:
+
+  cdxPropName:
+    description: A name used in a CdxPropertyEntry name-value pair.
+    slot_uri: spdx_extension:cdxPropName
+    range: string
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Properties/cdxPropName/
+    in_subset:
+      - spdx_extension
+
+  cdxPropValue:
+    description: A value used in a CdxPropertyEntry name-value pair.
+    slot_uri: spdx_extension:cdxPropValue
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Properties/cdxPropValue/
+    in_subset:
+      - spdx_extension
+
+  cdxProperty:
+    description: Provides a map of a property names to a values.
+    slot_uri: spdx_extension:cdxProperty
+    range: CdxPropertyEntry
+    required: true
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Properties/cdxProperty/
+    in_subset:
+      - spdx_extension
+
 classes:
 
   CdxPropertiesExtension:
@@ -43,17 +77,8 @@ classes:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Classes/CdxPropertiesExtension/
     in_subset:
       - spdx_extension
-    attributes:
-      cdxProperty:
-        description: Provides a map of a property names to a values.
-        slot_uri: spdx_extension:cdxProperty
-        range: CdxPropertyEntry
-        required: true
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Properties/cdxProperty/
+    slots:
+      - cdxProperty
 
   CdxPropertyEntry:
     class_uri: spdx_extension:CdxPropertyEntry
@@ -64,17 +89,5 @@ classes:
       - spdx_extension
     slots:
       - type
-    attributes:
-      cdxPropName:
-        description: A name used in a CdxPropertyEntry name-value pair.
-        slot_uri: spdx_extension:cdxPropName
-        range: string
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Properties/cdxPropName/
-      cdxPropValue:
-        description: A value used in a CdxPropertyEntry name-value pair.
-        slot_uri: spdx_extension:cdxPropValue
-        range: string
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Properties/cdxPropValue/
+      - cdxPropName
+      - cdxPropValue

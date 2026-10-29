@@ -419,33 +419,29 @@ class Element(YAMLRoot):
     creationInfo: Union[dict, CreationInfo] = None
     type: Optional[Union[str, URIorCURIE]] = None
     comment: Optional[str] = None
-    verifiedUsing: Optional[Union[Union[dict, "IntegrityMethod"], list[Union[dict, "IntegrityMethod"]]]] = empty_list()
     description: Optional[str] = None
     extension: Optional[Union[Union[dict, "Extension"], list[Union[dict, "Extension"]]]] = empty_list()
     externalIdentifier: Optional[Union[Union[dict, "ExternalIdentifier"], list[Union[dict, "ExternalIdentifier"]]]] = empty_list()
     externalRef: Optional[Union[Union[dict, "ExternalRef"], list[Union[dict, "ExternalRef"]]]] = empty_list()
     name: Optional[str] = None
     summary: Optional[str] = None
+    verifiedUsing: Optional[Union[Union[dict, "IntegrityMethod"], list[Union[dict, "IntegrityMethod"]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.spdxId):
-            self.MissingRequiredField("spdxId")
-        if not isinstance(self.spdxId, ElementSpdxId):
-            self.spdxId = ElementSpdxId(self.spdxId)
-
         if self._is_empty(self.creationInfo):
             self.MissingRequiredField("creationInfo")
         if not isinstance(self.creationInfo, CreationInfo):
             self.creationInfo = CreationInfo(**as_dict(self.creationInfo))
 
+        if self._is_empty(self.spdxId):
+            self.MissingRequiredField("spdxId")
+        if not isinstance(self.spdxId, ElementSpdxId):
+            self.spdxId = ElementSpdxId(self.spdxId)
+
         self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
         if self.comment is not None and not isinstance(self.comment, str):
             self.comment = str(self.comment)
-
-        if not isinstance(self.verifiedUsing, list):
-            self.verifiedUsing = [self.verifiedUsing] if self.verifiedUsing is not None else []
-        self.verifiedUsing = [v if isinstance(v, IntegrityMethod) else IntegrityMethod(**as_dict(v)) for v in self.verifiedUsing]
 
         if self.description is not None and not isinstance(self.description, str):
             self.description = str(self.description)
@@ -465,6 +461,10 @@ class Element(YAMLRoot):
 
         if self.summary is not None and not isinstance(self.summary, str):
             self.summary = str(self.summary)
+
+        if not isinstance(self.verifiedUsing, list):
+            self.verifiedUsing = [self.verifiedUsing] if self.verifiedUsing is not None else []
+        self.verifiedUsing = [v if isinstance(v, IntegrityMethod) else IntegrityMethod(**as_dict(v)) for v in self.verifiedUsing]
 
         super().__post_init__(**kwargs)
 
@@ -599,18 +599,15 @@ class Artifact(Element):
 
     spdxId: Union[str, ArtifactSpdxId] = None
     creationInfo: Union[dict, CreationInfo] = None
-    suppliedBy: Optional[Union[str, AgentSpdxId]] = None
     builtTime: Optional[Union[str, DateTimeStamp]] = None
     originatedBy: Optional[Union[Union[str, AgentSpdxId], list[Union[str, AgentSpdxId]]]] = empty_list()
     releaseTime: Optional[Union[str, DateTimeStamp]] = None
     standardName: Optional[Union[str, list[str]]] = empty_list()
+    suppliedBy: Optional[Union[str, AgentSpdxId]] = None
     supportLevel: Optional[Union[Union[str, "SupportType"], list[Union[str, "SupportType"]]]] = empty_list()
     validUntilTime: Optional[Union[str, DateTimeStamp]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.suppliedBy is not None and not isinstance(self.suppliedBy, AgentSpdxId):
-            self.suppliedBy = AgentSpdxId(self.suppliedBy)
-
         if self.builtTime is not None and not isinstance(self.builtTime, DateTimeStamp):
             self.builtTime = DateTimeStamp(self.builtTime)
 
@@ -624,6 +621,9 @@ class Artifact(Element):
         if not isinstance(self.standardName, list):
             self.standardName = [self.standardName] if self.standardName is not None else []
         self.standardName = [v if isinstance(v, str) else str(v) for v in self.standardName]
+
+        if self.suppliedBy is not None and not isinstance(self.suppliedBy, AgentSpdxId):
+            self.suppliedBy = AgentSpdxId(self.suppliedBy)
 
         if not isinstance(self.supportLevel, list):
             self.supportLevel = [self.supportLevel] if self.supportLevel is not None else []
@@ -831,9 +831,9 @@ class ExternalMap(YAMLRoot):
 
     externalSpdxId: Union[str, URI] = None
     type: Optional[Union[str, URIorCURIE]] = None
-    verifiedUsing: Optional[Union[Union[dict, "IntegrityMethod"], list[Union[dict, "IntegrityMethod"]]]] = empty_list()
     definingArtifact: Optional[Union[str, ArtifactSpdxId]] = None
     locationHint: Optional[Union[str, URI]] = None
+    verifiedUsing: Optional[Union[Union[dict, "IntegrityMethod"], list[Union[dict, "IntegrityMethod"]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.externalSpdxId):
@@ -843,15 +843,15 @@ class ExternalMap(YAMLRoot):
 
         self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
-        if not isinstance(self.verifiedUsing, list):
-            self.verifiedUsing = [self.verifiedUsing] if self.verifiedUsing is not None else []
-        self.verifiedUsing = [v if isinstance(v, IntegrityMethod) else IntegrityMethod(**as_dict(v)) for v in self.verifiedUsing]
-
         if self.definingArtifact is not None and not isinstance(self.definingArtifact, ArtifactSpdxId):
             self.definingArtifact = ArtifactSpdxId(self.definingArtifact)
 
         if self.locationHint is not None and not isinstance(self.locationHint, URI):
             self.locationHint = URI(self.locationHint)
+
+        if not isinstance(self.verifiedUsing, list):
+            self.verifiedUsing = [self.verifiedUsing] if self.verifiedUsing is not None else []
+        self.verifiedUsing = [v if isinstance(v, IntegrityMethod) else IntegrityMethod(**as_dict(v)) for v in self.verifiedUsing]
 
         super().__post_init__(**kwargs)
 
@@ -2076,12 +2076,12 @@ class License(ExtendableLicense):
     spdxId: Union[str, LicenseSpdxId] = None
     creationInfo: Union[dict, CreationInfo] = None
     licenseText: str = None
-    licenseXml: Optional[str] = None
-    obsoletedBy: Optional[str] = None
-    seeAlso: Optional[Union[Union[str, URI], list[Union[str, URI]]]] = empty_list()
     isDeprecatedLicenseId: Optional[Union[bool, Bool]] = None
     isFsfLibre: Optional[Union[bool, Bool]] = None
     isOsiApproved: Optional[Union[bool, Bool]] = None
+    licenseXml: Optional[str] = None
+    obsoletedBy: Optional[str] = None
+    seeAlso: Optional[Union[Union[str, URI], list[Union[str, URI]]]] = empty_list()
     standardLicenseHeader: Optional[str] = None
     standardLicenseTemplate: Optional[str] = None
 
@@ -2090,6 +2090,15 @@ class License(ExtendableLicense):
             self.MissingRequiredField("licenseText")
         if not isinstance(self.licenseText, str):
             self.licenseText = str(self.licenseText)
+
+        if self.isDeprecatedLicenseId is not None and not isinstance(self.isDeprecatedLicenseId, Bool):
+            self.isDeprecatedLicenseId = Bool(self.isDeprecatedLicenseId)
+
+        if self.isFsfLibre is not None and not isinstance(self.isFsfLibre, Bool):
+            self.isFsfLibre = Bool(self.isFsfLibre)
+
+        if self.isOsiApproved is not None and not isinstance(self.isOsiApproved, Bool):
+            self.isOsiApproved = Bool(self.isOsiApproved)
 
         if self.licenseXml is not None and not isinstance(self.licenseXml, str):
             self.licenseXml = str(self.licenseXml)
@@ -2100,15 +2109,6 @@ class License(ExtendableLicense):
         if not isinstance(self.seeAlso, list):
             self.seeAlso = [self.seeAlso] if self.seeAlso is not None else []
         self.seeAlso = [v if isinstance(v, URI) else URI(v) for v in self.seeAlso]
-
-        if self.isDeprecatedLicenseId is not None and not isinstance(self.isDeprecatedLicenseId, Bool):
-            self.isDeprecatedLicenseId = Bool(self.isDeprecatedLicenseId)
-
-        if self.isFsfLibre is not None and not isinstance(self.isFsfLibre, Bool):
-            self.isFsfLibre = Bool(self.isFsfLibre)
-
-        if self.isOsiApproved is not None and not isinstance(self.isOsiApproved, Bool):
-            self.isOsiApproved = Bool(self.isOsiApproved)
 
         if self.standardLicenseHeader is not None and not isinstance(self.standardLicenseHeader, str):
             self.standardLicenseHeader = str(self.standardLicenseHeader)
@@ -2161,10 +2161,10 @@ class LicenseAddition(Element):
     spdxId: Union[str, LicenseAdditionSpdxId] = None
     creationInfo: Union[dict, CreationInfo] = None
     additionText: str = None
+    isDeprecatedAdditionId: Optional[Union[bool, Bool]] = None
     licenseXml: Optional[str] = None
     obsoletedBy: Optional[str] = None
     seeAlso: Optional[Union[Union[str, URI], list[Union[str, URI]]]] = empty_list()
-    isDeprecatedAdditionId: Optional[Union[bool, Bool]] = None
     standardAdditionTemplate: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -2172,6 +2172,9 @@ class LicenseAddition(Element):
             self.MissingRequiredField("additionText")
         if not isinstance(self.additionText, str):
             self.additionText = str(self.additionText)
+
+        if self.isDeprecatedAdditionId is not None and not isinstance(self.isDeprecatedAdditionId, Bool):
+            self.isDeprecatedAdditionId = Bool(self.isDeprecatedAdditionId)
 
         if self.licenseXml is not None and not isinstance(self.licenseXml, str):
             self.licenseXml = str(self.licenseXml)
@@ -2182,9 +2185,6 @@ class LicenseAddition(Element):
         if not isinstance(self.seeAlso, list):
             self.seeAlso = [self.seeAlso] if self.seeAlso is not None else []
         self.seeAlso = [v if isinstance(v, URI) else URI(v) for v in self.seeAlso]
-
-        if self.isDeprecatedAdditionId is not None and not isinstance(self.isDeprecatedAdditionId, Bool):
-            self.isDeprecatedAdditionId = Bool(self.isDeprecatedAdditionId)
 
         if self.standardAdditionTemplate is not None and not isinstance(self.standardAdditionTemplate, str):
             self.standardAdditionTemplate = str(self.standardAdditionTemplate)
@@ -2372,13 +2372,16 @@ class VulnAssessmentRelationship(Relationship):
     from_: Union[str, ElementSpdxId] = None
     relationshipType: Union[str, "RelationshipType"] = None
     to: Union[Union[str, ElementSpdxId], list[Union[str, ElementSpdxId]]] = None
+    assessedElement: Optional[Union[str, SoftwareArtifactSpdxId]] = None
     modifiedTime: Optional[Union[str, DateTimeStamp]] = None
     publishedTime: Optional[Union[str, DateTimeStamp]] = None
     suppliedBy: Optional[Union[str, AgentSpdxId]] = None
     withdrawnTime: Optional[Union[str, DateTimeStamp]] = None
-    assessedElement: Optional[Union[str, SoftwareArtifactSpdxId]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
+        if self.assessedElement is not None and not isinstance(self.assessedElement, SoftwareArtifactSpdxId):
+            self.assessedElement = SoftwareArtifactSpdxId(self.assessedElement)
+
         if self.modifiedTime is not None and not isinstance(self.modifiedTime, DateTimeStamp):
             self.modifiedTime = DateTimeStamp(self.modifiedTime)
 
@@ -2390,9 +2393,6 @@ class VulnAssessmentRelationship(Relationship):
 
         if self.withdrawnTime is not None and not isinstance(self.withdrawnTime, DateTimeStamp):
             self.withdrawnTime = DateTimeStamp(self.withdrawnTime)
-
-        if self.assessedElement is not None and not isinstance(self.assessedElement, SoftwareArtifactSpdxId):
-            self.assessedElement = SoftwareArtifactSpdxId(self.assessedElement)
 
         super().__post_init__(**kwargs)
         self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
@@ -4112,26 +4112,386 @@ slots.type = Slot(uri=RDF.type, name="type", curie=RDF.curie('type'),
 slots.algorithm = Slot(uri=SPDX_CORE.algorithm, name="algorithm", curie=SPDX_CORE.curie('algorithm'),
                    model_uri=SPDX_LINKML.algorithm, domain=None, range=Union[str, "HashAlgorithm"])
 
+slots.annotationType = Slot(uri=SPDX_CORE.annotationType, name="annotationType", curie=SPDX_CORE.curie('annotationType'),
+                   model_uri=SPDX_LINKML.annotationType, domain=None, range=Union[str, "AnnotationType"])
+
+slots.beginIntegerRange = Slot(uri=SPDX_CORE.beginIntegerRange, name="beginIntegerRange", curie=SPDX_CORE.curie('beginIntegerRange'),
+                   model_uri=SPDX_LINKML.beginIntegerRange, domain=None, range=Union[int, PositiveInteger])
+
+slots.builtTime = Slot(uri=SPDX_CORE.builtTime, name="builtTime", curie=SPDX_CORE.curie('builtTime'),
+                   model_uri=SPDX_LINKML.builtTime, domain=None, range=Optional[Union[str, DateTimeStamp]])
+
 slots.comment = Slot(uri=SPDX_CORE.comment, name="comment", curie=SPDX_CORE.curie('comment'),
                    model_uri=SPDX_LINKML.comment, domain=None, range=Optional[str])
+
+slots.completeness = Slot(uri=SPDX_CORE.completeness, name="completeness", curie=SPDX_CORE.curie('completeness'),
+                   model_uri=SPDX_LINKML.completeness, domain=None, range=Optional[Union[str, "RelationshipCompleteness"]])
 
 slots.contentType = Slot(uri=SPDX_CORE.contentType, name="contentType", curie=SPDX_CORE.curie('contentType'),
                    model_uri=SPDX_LINKML.contentType, domain=None, range=Optional[Union[str, MediaType]])
 
+slots.context = Slot(uri=SPDX_CORE.context, name="context", curie=SPDX_CORE.curie('context'),
+                   model_uri=SPDX_LINKML.context, domain=None, range=Optional[str])
+
+slots.created = Slot(uri=SPDX_CORE.created, name="created", curie=SPDX_CORE.curie('created'),
+                   model_uri=SPDX_LINKML.created, domain=None, range=Union[str, DateTimeStamp])
+
+slots.createdBy = Slot(uri=SPDX_CORE.createdBy, name="createdBy", curie=SPDX_CORE.curie('createdBy'),
+                   model_uri=SPDX_LINKML.createdBy, domain=None, range=Union[Union[str, AgentSpdxId], list[Union[str, AgentSpdxId]]])
+
+slots.createdUsing = Slot(uri=SPDX_CORE.createdUsing, name="createdUsing", curie=SPDX_CORE.curie('createdUsing'),
+                   model_uri=SPDX_LINKML.createdUsing, domain=None, range=Optional[Union[Union[str, ToolSpdxId], list[Union[str, ToolSpdxId]]]])
+
+slots.creationInfo = Slot(uri=SPDX_CORE.creationInfo, name="creationInfo", curie=SPDX_CORE.curie('creationInfo'),
+                   model_uri=SPDX_LINKML.creationInfo, domain=None, range=Union[dict, CreationInfo])
+
+slots.dataLicense = Slot(uri=SPDX_CORE.dataLicense, name="dataLicense", curie=SPDX_CORE.curie('dataLicense'),
+                   model_uri=SPDX_LINKML.dataLicense, domain=None, range=Optional[Union[str, AnyLicenseInfoSpdxId]])
+
+slots.definingArtifact = Slot(uri=SPDX_CORE.definingArtifact, name="definingArtifact", curie=SPDX_CORE.curie('definingArtifact'),
+                   model_uri=SPDX_LINKML.definingArtifact, domain=None, range=Optional[Union[str, ArtifactSpdxId]])
+
+slots.description = Slot(uri=SPDX_CORE.description, name="description", curie=SPDX_CORE.curie('description'),
+                   model_uri=SPDX_LINKML.description, domain=None, range=Optional[str])
+
+slots.element = Slot(uri=SPDX_CORE.element, name="element", curie=SPDX_CORE.curie('element'),
+                   model_uri=SPDX_LINKML.element, domain=None, range=Optional[Union[Union[str, ElementSpdxId], list[Union[str, ElementSpdxId]]]])
+
+slots.endIntegerRange = Slot(uri=SPDX_CORE.endIntegerRange, name="endIntegerRange", curie=SPDX_CORE.curie('endIntegerRange'),
+                   model_uri=SPDX_LINKML.endIntegerRange, domain=None, range=Union[int, PositiveInteger])
+
+slots.endTime = Slot(uri=SPDX_CORE.endTime, name="endTime", curie=SPDX_CORE.curie('endTime'),
+                   model_uri=SPDX_LINKML.endTime, domain=None, range=Optional[Union[str, DateTimeStamp]])
+
+slots.extension = Slot(uri=SPDX_CORE.extension, name="extension", curie=SPDX_CORE.curie('extension'),
+                   model_uri=SPDX_LINKML.extension, domain=None, range=Optional[Union[Union[dict, Extension], list[Union[dict, Extension]]]])
+
+slots.externalIdentifier = Slot(uri=SPDX_CORE.externalIdentifier, name="externalIdentifier", curie=SPDX_CORE.curie('externalIdentifier'),
+                   model_uri=SPDX_LINKML.externalIdentifier, domain=None, range=Optional[Union[Union[dict, ExternalIdentifier], list[Union[dict, ExternalIdentifier]]]])
+
+slots.externalIdentifierType = Slot(uri=SPDX_CORE.externalIdentifierType, name="externalIdentifierType", curie=SPDX_CORE.curie('externalIdentifierType'),
+                   model_uri=SPDX_LINKML.externalIdentifierType, domain=None, range=Union[str, "ExternalIdentifierType"])
+
+slots.externalRef = Slot(uri=SPDX_CORE.externalRef, name="externalRef", curie=SPDX_CORE.curie('externalRef'),
+                   model_uri=SPDX_LINKML.externalRef, domain=None, range=Optional[Union[Union[dict, ExternalRef], list[Union[dict, ExternalRef]]]])
+
+slots.externalRefType = Slot(uri=SPDX_CORE.externalRefType, name="externalRefType", curie=SPDX_CORE.curie('externalRefType'),
+                   model_uri=SPDX_LINKML.externalRefType, domain=None, range=Optional[Union[str, "ExternalRefType"]])
+
+slots.externalSpdxId = Slot(uri=SPDX_CORE.externalSpdxId, name="externalSpdxId", curie=SPDX_CORE.curie('externalSpdxId'),
+                   model_uri=SPDX_LINKML.externalSpdxId, domain=None, range=Union[str, URI])
+
+slots.from_ = Slot(uri=SPDX_CORE['from'], name="from", curie=SPDX_CORE.curie('from'),
+                   model_uri=SPDX_LINKML.from_, domain=None, range=Union[str, ElementSpdxId])
+
 slots.hashValue = Slot(uri=SPDX_CORE.hashValue, name="hashValue", curie=SPDX_CORE.curie('hashValue'),
                    model_uri=SPDX_LINKML.hashValue, domain=None, range=str)
+
+slots.identifier = Slot(uri=SPDX_CORE.identifier, name="identifier", curie=SPDX_CORE.curie('identifier'),
+                   model_uri=SPDX_LINKML.identifier, domain=None, range=str)
+
+slots.identifierLocator = Slot(uri=SPDX_CORE.identifierLocator, name="identifierLocator", curie=SPDX_CORE.curie('identifierLocator'),
+                   model_uri=SPDX_LINKML.identifierLocator, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
+
+slots.import_ = Slot(uri=SPDX_CORE['import'], name="import", curie=SPDX_CORE.curie('import'),
+                   model_uri=SPDX_LINKML.import_, domain=None, range=Optional[Union[Union[dict, ExternalMap], list[Union[dict, ExternalMap]]]])
+
+slots.issuingAuthority = Slot(uri=SPDX_CORE.issuingAuthority, name="issuingAuthority", curie=SPDX_CORE.curie('issuingAuthority'),
+                   model_uri=SPDX_LINKML.issuingAuthority, domain=None, range=Optional[str])
+
+slots.key = Slot(uri=SPDX_CORE.key, name="key", curie=SPDX_CORE.curie('key'),
+                   model_uri=SPDX_LINKML.key, domain=None, range=str)
+
+slots.locationHint = Slot(uri=SPDX_CORE.locationHint, name="locationHint", curie=SPDX_CORE.curie('locationHint'),
+                   model_uri=SPDX_LINKML.locationHint, domain=None, range=Optional[Union[str, URI]])
+
+slots.locator = Slot(uri=SPDX_CORE.locator, name="locator", curie=SPDX_CORE.curie('locator'),
+                   model_uri=SPDX_LINKML.locator, domain=None, range=Optional[Union[str, list[str]]])
+
+slots.name = Slot(uri=SPDX_CORE.name, name="name", curie=SPDX_CORE.curie('name'),
+                   model_uri=SPDX_LINKML.name, domain=None, range=Optional[str])
+
+slots.namespace = Slot(uri=SPDX_CORE.namespace, name="namespace", curie=SPDX_CORE.curie('namespace'),
+                   model_uri=SPDX_LINKML.namespace, domain=None, range=Union[str, URI])
+
+slots.namespaceMap = Slot(uri=SPDX_CORE.namespaceMap, name="namespaceMap", curie=SPDX_CORE.curie('namespaceMap'),
+                   model_uri=SPDX_LINKML.namespaceMap, domain=None, range=Optional[Union[Union[dict, NamespaceMap], list[Union[dict, NamespaceMap]]]])
+
+slots.originatedBy = Slot(uri=SPDX_CORE.originatedBy, name="originatedBy", curie=SPDX_CORE.curie('originatedBy'),
+                   model_uri=SPDX_LINKML.originatedBy, domain=None, range=Optional[Union[Union[str, AgentSpdxId], list[Union[str, AgentSpdxId]]]])
+
+slots.packageVerificationCodeExcludedFile = Slot(uri=SPDX_CORE.packageVerificationCodeExcludedFile, name="packageVerificationCodeExcludedFile", curie=SPDX_CORE.curie('packageVerificationCodeExcludedFile'),
+                   model_uri=SPDX_LINKML.packageVerificationCodeExcludedFile, domain=None, range=Optional[Union[str, list[str]]])
+
+slots.prefix = Slot(uri=SPDX_CORE.prefix, name="prefix", curie=SPDX_CORE.curie('prefix'),
+                   model_uri=SPDX_LINKML.prefix, domain=None, range=str)
+
+slots.profileConformance = Slot(uri=SPDX_CORE.profileConformance, name="profileConformance", curie=SPDX_CORE.curie('profileConformance'),
+                   model_uri=SPDX_LINKML.profileConformance, domain=None, range=Optional[Union[Union[str, "ProfileIdentifierType"], list[Union[str, "ProfileIdentifierType"]]]])
+
+slots.relationshipType = Slot(uri=SPDX_CORE.relationshipType, name="relationshipType", curie=SPDX_CORE.curie('relationshipType'),
+                   model_uri=SPDX_LINKML.relationshipType, domain=None, range=Union[str, "RelationshipType"])
+
+slots.releaseTime = Slot(uri=SPDX_CORE.releaseTime, name="releaseTime", curie=SPDX_CORE.curie('releaseTime'),
+                   model_uri=SPDX_LINKML.releaseTime, domain=None, range=Optional[Union[str, DateTimeStamp]])
+
+slots.rootElement = Slot(uri=SPDX_CORE.rootElement, name="rootElement", curie=SPDX_CORE.curie('rootElement'),
+                   model_uri=SPDX_LINKML.rootElement, domain=None, range=Optional[Union[Union[str, ElementSpdxId], list[Union[str, ElementSpdxId]]]])
+
+slots.scope = Slot(uri=SPDX_CORE.scope, name="scope", curie=SPDX_CORE.curie('scope'),
+                   model_uri=SPDX_LINKML.scope, domain=None, range=Optional[Union[str, "LifecycleScopeType"]])
+
+slots.specVersion = Slot(uri=SPDX_CORE.specVersion, name="specVersion", curie=SPDX_CORE.curie('specVersion'),
+                   model_uri=SPDX_LINKML.specVersion, domain=None, range=Union[str, Semver])
+
+slots.standardName = Slot(uri=SPDX_CORE.standardName, name="standardName", curie=SPDX_CORE.curie('standardName'),
+                   model_uri=SPDX_LINKML.standardName, domain=None, range=Optional[Union[str, list[str]]])
+
+slots.startTime = Slot(uri=SPDX_CORE.startTime, name="startTime", curie=SPDX_CORE.curie('startTime'),
+                   model_uri=SPDX_LINKML.startTime, domain=None, range=Optional[Union[str, DateTimeStamp]])
+
+slots.statement = Slot(uri=SPDX_CORE.statement, name="statement", curie=SPDX_CORE.curie('statement'),
+                   model_uri=SPDX_LINKML.statement, domain=None, range=Optional[str])
+
+slots.subject = Slot(uri=SPDX_CORE.subject, name="subject", curie=SPDX_CORE.curie('subject'),
+                   model_uri=SPDX_LINKML.subject, domain=None, range=Union[str, ElementSpdxId])
+
+slots.summary = Slot(uri=SPDX_CORE.summary, name="summary", curie=SPDX_CORE.curie('summary'),
+                   model_uri=SPDX_LINKML.summary, domain=None, range=Optional[str])
 
 slots.suppliedBy = Slot(uri=SPDX_CORE.suppliedBy, name="suppliedBy", curie=SPDX_CORE.curie('suppliedBy'),
                    model_uri=SPDX_LINKML.suppliedBy, domain=None, range=Optional[Union[str, AgentSpdxId]])
 
+slots.supportLevel = Slot(uri=SPDX_CORE.supportLevel, name="supportLevel", curie=SPDX_CORE.curie('supportLevel'),
+                   model_uri=SPDX_LINKML.supportLevel, domain=None, range=Optional[Union[Union[str, "SupportType"], list[Union[str, "SupportType"]]]])
+
+slots.to = Slot(uri=SPDX_CORE.to, name="to", curie=SPDX_CORE.curie('to'),
+                   model_uri=SPDX_LINKML.to, domain=None, range=Union[Union[str, ElementSpdxId], list[Union[str, ElementSpdxId]]])
+
+slots.validUntilTime = Slot(uri=SPDX_CORE.validUntilTime, name="validUntilTime", curie=SPDX_CORE.curie('validUntilTime'),
+                   model_uri=SPDX_LINKML.validUntilTime, domain=None, range=Optional[Union[str, DateTimeStamp]])
+
+slots.value = Slot(uri=SPDX_CORE.value, name="value", curie=SPDX_CORE.curie('value'),
+                   model_uri=SPDX_LINKML.value, domain=None, range=Optional[str])
+
 slots.verifiedUsing = Slot(uri=SPDX_CORE.verifiedUsing, name="verifiedUsing", curie=SPDX_CORE.curie('verifiedUsing'),
                    model_uri=SPDX_LINKML.verifiedUsing, domain=None, range=Optional[Union[Union[dict, IntegrityMethod], list[Union[dict, IntegrityMethod]]]])
+
+slots.buildEndTime = Slot(uri=SPDX_BUILD.buildEndTime, name="buildEndTime", curie=SPDX_BUILD.curie('buildEndTime'),
+                   model_uri=SPDX_LINKML.buildEndTime, domain=None, range=Optional[Union[str, DateTimeStamp]])
+
+slots.buildId = Slot(uri=SPDX_BUILD.buildId, name="buildId", curie=SPDX_BUILD.curie('buildId'),
+                   model_uri=SPDX_LINKML.buildId, domain=None, range=Optional[str])
+
+slots.buildStartTime = Slot(uri=SPDX_BUILD.buildStartTime, name="buildStartTime", curie=SPDX_BUILD.curie('buildStartTime'),
+                   model_uri=SPDX_LINKML.buildStartTime, domain=None, range=Optional[Union[str, DateTimeStamp]])
+
+slots.buildType = Slot(uri=SPDX_BUILD.buildType, name="buildType", curie=SPDX_BUILD.curie('buildType'),
+                   model_uri=SPDX_LINKML.buildType, domain=None, range=Union[str, URI])
+
+slots.configSourceDigest = Slot(uri=SPDX_BUILD.configSourceDigest, name="configSourceDigest", curie=SPDX_BUILD.curie('configSourceDigest'),
+                   model_uri=SPDX_LINKML.configSourceDigest, domain=None, range=Optional[Union[Union[dict, Hash], list[Union[dict, Hash]]]])
+
+slots.configSourceEntrypoint = Slot(uri=SPDX_BUILD.configSourceEntrypoint, name="configSourceEntrypoint", curie=SPDX_BUILD.curie('configSourceEntrypoint'),
+                   model_uri=SPDX_LINKML.configSourceEntrypoint, domain=None, range=Optional[Union[str, list[str]]])
+
+slots.configSourceUri = Slot(uri=SPDX_BUILD.configSourceUri, name="configSourceUri", curie=SPDX_BUILD.curie('configSourceUri'),
+                   model_uri=SPDX_LINKML.configSourceUri, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
+
+slots.environment = Slot(uri=SPDX_BUILD.environment, name="environment", curie=SPDX_BUILD.curie('environment'),
+                   model_uri=SPDX_LINKML.environment, domain=None, range=Optional[Union[Union[dict, DictionaryEntry], list[Union[dict, DictionaryEntry]]]])
+
+slots.parameter = Slot(uri=SPDX_BUILD.parameter, name="parameter", curie=SPDX_BUILD.curie('parameter'),
+                   model_uri=SPDX_LINKML.parameter, domain=None, range=Optional[Union[Union[dict, DictionaryEntry], list[Union[dict, DictionaryEntry]]]])
+
+slots.cdxPropName = Slot(uri=SPDX_EXTENSION.cdxPropName, name="cdxPropName", curie=SPDX_EXTENSION.curie('cdxPropName'),
+                   model_uri=SPDX_LINKML.cdxPropName, domain=None, range=str)
+
+slots.cdxPropValue = Slot(uri=SPDX_EXTENSION.cdxPropValue, name="cdxPropValue", curie=SPDX_EXTENSION.curie('cdxPropValue'),
+                   model_uri=SPDX_LINKML.cdxPropValue, domain=None, range=Optional[str])
+
+slots.cdxProperty = Slot(uri=SPDX_EXTENSION.cdxProperty, name="cdxProperty", curie=SPDX_EXTENSION.curie('cdxProperty'),
+                   model_uri=SPDX_LINKML.cdxProperty, domain=None, range=Union[Union[dict, CdxPropertyEntry], list[Union[dict, CdxPropertyEntry]]])
+
+slots.customIdToUri = Slot(uri=SPDX_SIMPLE_LICENSING.customIdToUri, name="customIdToUri", curie=SPDX_SIMPLE_LICENSING.curie('customIdToUri'),
+                   model_uri=SPDX_LINKML.customIdToUri, domain=None, range=Optional[Union[Union[dict, DictionaryEntry], list[Union[dict, DictionaryEntry]]]])
+
+slots.licenseExpression = Slot(uri=SPDX_SIMPLE_LICENSING.licenseExpression, name="licenseExpression", curie=SPDX_SIMPLE_LICENSING.curie('licenseExpression'),
+                   model_uri=SPDX_LINKML.licenseExpression, domain=None, range=str)
+
+slots.licenseListVersion = Slot(uri=SPDX_SIMPLE_LICENSING.licenseListVersion, name="licenseListVersion", curie=SPDX_SIMPLE_LICENSING.curie('licenseListVersion'),
+                   model_uri=SPDX_LINKML.licenseListVersion, domain=None, range=Optional[Union[str, Semver]])
 
 slots.licenseText = Slot(uri=SPDX_SIMPLE_LICENSING.licenseText, name="licenseText", curie=SPDX_SIMPLE_LICENSING.curie('licenseText'),
                    model_uri=SPDX_LINKML.licenseText, domain=None, range=str)
 
+slots.additionalPurpose = Slot(uri=SPDX_SOFTWARE.additionalPurpose, name="additionalPurpose", curie=SPDX_SOFTWARE.curie('additionalPurpose'),
+                   model_uri=SPDX_LINKML.additionalPurpose, domain=None, range=Optional[Union[Union[str, "SoftwarePurpose"], list[Union[str, "SoftwarePurpose"]]]])
+
+slots.attributionText = Slot(uri=SPDX_SOFTWARE.attributionText, name="attributionText", curie=SPDX_SOFTWARE.curie('attributionText'),
+                   model_uri=SPDX_LINKML.attributionText, domain=None, range=Optional[Union[str, list[str]]])
+
+slots.byteRange = Slot(uri=SPDX_SOFTWARE.byteRange, name="byteRange", curie=SPDX_SOFTWARE.curie('byteRange'),
+                   model_uri=SPDX_LINKML.byteRange, domain=None, range=Optional[Union[dict, PositiveIntegerRange]])
+
+slots.contentIdentifier = Slot(uri=SPDX_SOFTWARE.contentIdentifier, name="contentIdentifier", curie=SPDX_SOFTWARE.curie('contentIdentifier'),
+                   model_uri=SPDX_LINKML.contentIdentifier, domain=None, range=Optional[Union[Union[dict, ContentIdentifier], list[Union[dict, ContentIdentifier]]]])
+
+slots.contentIdentifierType = Slot(uri=SPDX_SOFTWARE.contentIdentifierType, name="contentIdentifierType", curie=SPDX_SOFTWARE.curie('contentIdentifierType'),
+                   model_uri=SPDX_LINKML.contentIdentifierType, domain=None, range=Union[str, "ContentIdentifierType"])
+
+slots.contentIdentifierValue = Slot(uri=SPDX_SOFTWARE.contentIdentifierValue, name="contentIdentifierValue", curie=SPDX_SOFTWARE.curie('contentIdentifierValue'),
+                   model_uri=SPDX_LINKML.contentIdentifierValue, domain=None, range=Union[str, URI])
+
+slots.copyrightText = Slot(uri=SPDX_SOFTWARE.copyrightText, name="copyrightText", curie=SPDX_SOFTWARE.curie('copyrightText'),
+                   model_uri=SPDX_LINKML.copyrightText, domain=None, range=Optional[str])
+
+slots.downloadLocation = Slot(uri=SPDX_SOFTWARE.downloadLocation, name="downloadLocation", curie=SPDX_SOFTWARE.curie('downloadLocation'),
+                   model_uri=SPDX_LINKML.downloadLocation, domain=None, range=Optional[Union[str, URI]])
+
+slots.fileKind = Slot(uri=SPDX_SOFTWARE.fileKind, name="fileKind", curie=SPDX_SOFTWARE.curie('fileKind'),
+                   model_uri=SPDX_LINKML.fileKind, domain=None, range=Optional[Union[str, "FileKindType"]])
+
+slots.homePage = Slot(uri=SPDX_SOFTWARE.homePage, name="homePage", curie=SPDX_SOFTWARE.curie('homePage'),
+                   model_uri=SPDX_LINKML.homePage, domain=None, range=Optional[Union[str, URI]])
+
+slots.lineRange = Slot(uri=SPDX_SOFTWARE.lineRange, name="lineRange", curie=SPDX_SOFTWARE.curie('lineRange'),
+                   model_uri=SPDX_LINKML.lineRange, domain=None, range=Optional[Union[dict, PositiveIntegerRange]])
+
+slots.packageUrl = Slot(uri=SPDX_SOFTWARE.packageUrl, name="packageUrl", curie=SPDX_SOFTWARE.curie('packageUrl'),
+                   model_uri=SPDX_LINKML.packageUrl, domain=None, range=Optional[Union[str, URI]])
+
+slots.packageVersion = Slot(uri=SPDX_SOFTWARE.packageVersion, name="packageVersion", curie=SPDX_SOFTWARE.curie('packageVersion'),
+                   model_uri=SPDX_LINKML.packageVersion, domain=None, range=Optional[str])
+
+slots.primaryPurpose = Slot(uri=SPDX_SOFTWARE.primaryPurpose, name="primaryPurpose", curie=SPDX_SOFTWARE.curie('primaryPurpose'),
+                   model_uri=SPDX_LINKML.primaryPurpose, domain=None, range=Optional[Union[str, "SoftwarePurpose"]])
+
+slots.sbomType = Slot(uri=SPDX_SOFTWARE.sbomType, name="sbomType", curie=SPDX_SOFTWARE.curie('sbomType'),
+                   model_uri=SPDX_LINKML.sbomType, domain=None, range=Optional[Union[Union[str, "SbomType"], list[Union[str, "SbomType"]]]])
+
+slots.snippetFromFile = Slot(uri=SPDX_SOFTWARE.snippetFromFile, name="snippetFromFile", curie=SPDX_SOFTWARE.curie('snippetFromFile'),
+                   model_uri=SPDX_LINKML.snippetFromFile, domain=None, range=Union[str, FileSpdxId])
+
+slots.sourceInfo = Slot(uri=SPDX_SOFTWARE.sourceInfo, name="sourceInfo", curie=SPDX_SOFTWARE.curie('sourceInfo'),
+                   model_uri=SPDX_LINKML.sourceInfo, domain=None, range=Optional[str])
+
+slots.autonomyType = Slot(uri=SPDX_AI.autonomyType, name="autonomyType", curie=SPDX_AI.curie('autonomyType'),
+                   model_uri=SPDX_LINKML.autonomyType, domain=None, range=Optional[Union[str, "PresenceType"]])
+
+slots.domain = Slot(uri=SPDX_AI.domain, name="domain", curie=SPDX_AI.curie('domain'),
+                   model_uri=SPDX_LINKML.domain, domain=None, range=Optional[Union[str, list[str]]])
+
+slots.energyConsumption = Slot(uri=SPDX_AI.energyConsumption, name="energyConsumption", curie=SPDX_AI.curie('energyConsumption'),
+                   model_uri=SPDX_LINKML.energyConsumption, domain=None, range=Optional[Union[dict, EnergyConsumption]])
+
+slots.energyQuantity = Slot(uri=SPDX_AI.energyQuantity, name="energyQuantity", curie=SPDX_AI.curie('energyQuantity'),
+                   model_uri=SPDX_LINKML.energyQuantity, domain=None, range=Decimal)
+
+slots.energyUnit = Slot(uri=SPDX_AI.energyUnit, name="energyUnit", curie=SPDX_AI.curie('energyUnit'),
+                   model_uri=SPDX_LINKML.energyUnit, domain=None, range=Union[str, "EnergyUnitType"])
+
+slots.finetuningEnergyConsumption = Slot(uri=SPDX_AI.finetuningEnergyConsumption, name="finetuningEnergyConsumption", curie=SPDX_AI.curie('finetuningEnergyConsumption'),
+                   model_uri=SPDX_LINKML.finetuningEnergyConsumption, domain=None, range=Optional[Union[Union[dict, EnergyConsumptionDescription], list[Union[dict, EnergyConsumptionDescription]]]])
+
+slots.hyperparameter = Slot(uri=SPDX_AI.hyperparameter, name="hyperparameter", curie=SPDX_AI.curie('hyperparameter'),
+                   model_uri=SPDX_LINKML.hyperparameter, domain=None, range=Optional[Union[Union[dict, DictionaryEntry], list[Union[dict, DictionaryEntry]]]])
+
+slots.inferenceEnergyConsumption = Slot(uri=SPDX_AI.inferenceEnergyConsumption, name="inferenceEnergyConsumption", curie=SPDX_AI.curie('inferenceEnergyConsumption'),
+                   model_uri=SPDX_LINKML.inferenceEnergyConsumption, domain=None, range=Optional[Union[Union[dict, EnergyConsumptionDescription], list[Union[dict, EnergyConsumptionDescription]]]])
+
+slots.informationAboutApplication = Slot(uri=SPDX_AI.informationAboutApplication, name="informationAboutApplication", curie=SPDX_AI.curie('informationAboutApplication'),
+                   model_uri=SPDX_LINKML.informationAboutApplication, domain=None, range=Optional[str])
+
+slots.informationAboutTraining = Slot(uri=SPDX_AI.informationAboutTraining, name="informationAboutTraining", curie=SPDX_AI.curie('informationAboutTraining'),
+                   model_uri=SPDX_LINKML.informationAboutTraining, domain=None, range=Optional[str])
+
+slots.limitation = Slot(uri=SPDX_AI.limitation, name="limitation", curie=SPDX_AI.curie('limitation'),
+                   model_uri=SPDX_LINKML.limitation, domain=None, range=Optional[str])
+
+slots.metric = Slot(uri=SPDX_AI.metric, name="metric", curie=SPDX_AI.curie('metric'),
+                   model_uri=SPDX_LINKML.metric, domain=None, range=Optional[Union[Union[dict, DictionaryEntry], list[Union[dict, DictionaryEntry]]]])
+
+slots.metricDecisionThreshold = Slot(uri=SPDX_AI.metricDecisionThreshold, name="metricDecisionThreshold", curie=SPDX_AI.curie('metricDecisionThreshold'),
+                   model_uri=SPDX_LINKML.metricDecisionThreshold, domain=None, range=Optional[Union[Union[dict, DictionaryEntry], list[Union[dict, DictionaryEntry]]]])
+
+slots.modelDataPreprocessing = Slot(uri=SPDX_AI.modelDataPreprocessing, name="modelDataPreprocessing", curie=SPDX_AI.curie('modelDataPreprocessing'),
+                   model_uri=SPDX_LINKML.modelDataPreprocessing, domain=None, range=Optional[Union[str, list[str]]])
+
+slots.modelExplainability = Slot(uri=SPDX_AI.modelExplainability, name="modelExplainability", curie=SPDX_AI.curie('modelExplainability'),
+                   model_uri=SPDX_LINKML.modelExplainability, domain=None, range=Optional[Union[str, list[str]]])
+
+slots.safetyRiskAssessment = Slot(uri=SPDX_AI.safetyRiskAssessment, name="safetyRiskAssessment", curie=SPDX_AI.curie('safetyRiskAssessment'),
+                   model_uri=SPDX_LINKML.safetyRiskAssessment, domain=None, range=Optional[Union[str, "SafetyRiskAssessmentType"]])
+
+slots.standardCompliance = Slot(uri=SPDX_AI.standardCompliance, name="standardCompliance", curie=SPDX_AI.curie('standardCompliance'),
+                   model_uri=SPDX_LINKML.standardCompliance, domain=None, range=Optional[Union[str, list[str]]])
+
+slots.trainingEnergyConsumption = Slot(uri=SPDX_AI.trainingEnergyConsumption, name="trainingEnergyConsumption", curie=SPDX_AI.curie('trainingEnergyConsumption'),
+                   model_uri=SPDX_LINKML.trainingEnergyConsumption, domain=None, range=Optional[Union[Union[dict, EnergyConsumptionDescription], list[Union[dict, EnergyConsumptionDescription]]]])
+
+slots.typeOfModel = Slot(uri=SPDX_AI.typeOfModel, name="typeOfModel", curie=SPDX_AI.curie('typeOfModel'),
+                   model_uri=SPDX_LINKML.typeOfModel, domain=None, range=Optional[Union[str, list[str]]])
+
+slots.useSensitivePersonalInformation = Slot(uri=SPDX_AI.useSensitivePersonalInformation, name="useSensitivePersonalInformation", curie=SPDX_AI.curie('useSensitivePersonalInformation'),
+                   model_uri=SPDX_LINKML.useSensitivePersonalInformation, domain=None, range=Optional[Union[str, "PresenceType"]])
+
+slots.anonymizationMethodUsed = Slot(uri=SPDX_DATASET.anonymizationMethodUsed, name="anonymizationMethodUsed", curie=SPDX_DATASET.curie('anonymizationMethodUsed'),
+                   model_uri=SPDX_LINKML.anonymizationMethodUsed, domain=None, range=Optional[Union[str, list[str]]])
+
+slots.confidentialityLevel = Slot(uri=SPDX_DATASET.confidentialityLevel, name="confidentialityLevel", curie=SPDX_DATASET.curie('confidentialityLevel'),
+                   model_uri=SPDX_LINKML.confidentialityLevel, domain=None, range=Optional[Union[str, "ConfidentialityLevelType"]])
+
+slots.dataCollectionProcess = Slot(uri=SPDX_DATASET.dataCollectionProcess, name="dataCollectionProcess", curie=SPDX_DATASET.curie('dataCollectionProcess'),
+                   model_uri=SPDX_LINKML.dataCollectionProcess, domain=None, range=Optional[str])
+
+slots.dataPreprocessing = Slot(uri=SPDX_DATASET.dataPreprocessing, name="dataPreprocessing", curie=SPDX_DATASET.curie('dataPreprocessing'),
+                   model_uri=SPDX_LINKML.dataPreprocessing, domain=None, range=Optional[Union[str, list[str]]])
+
+slots.datasetAvailability = Slot(uri=SPDX_DATASET.datasetAvailability, name="datasetAvailability", curie=SPDX_DATASET.curie('datasetAvailability'),
+                   model_uri=SPDX_LINKML.datasetAvailability, domain=None, range=Optional[Union[str, "DatasetAvailabilityType"]])
+
+slots.datasetNoise = Slot(uri=SPDX_DATASET.datasetNoise, name="datasetNoise", curie=SPDX_DATASET.curie('datasetNoise'),
+                   model_uri=SPDX_LINKML.datasetNoise, domain=None, range=Optional[str])
+
+slots.datasetSize = Slot(uri=SPDX_DATASET.datasetSize, name="datasetSize", curie=SPDX_DATASET.curie('datasetSize'),
+                   model_uri=SPDX_LINKML.datasetSize, domain=None, range=Optional[Union[int, NonNegativeInteger]])
+
+slots.datasetType = Slot(uri=SPDX_DATASET.datasetType, name="datasetType", curie=SPDX_DATASET.curie('datasetType'),
+                   model_uri=SPDX_LINKML.datasetType, domain=None, range=Union[Union[str, "DatasetType"], list[Union[str, "DatasetType"]]])
+
+slots.datasetUpdateMechanism = Slot(uri=SPDX_DATASET.datasetUpdateMechanism, name="datasetUpdateMechanism", curie=SPDX_DATASET.curie('datasetUpdateMechanism'),
+                   model_uri=SPDX_LINKML.datasetUpdateMechanism, domain=None, range=Optional[str])
+
+slots.hasSensitivePersonalInformation = Slot(uri=SPDX_DATASET.hasSensitivePersonalInformation, name="hasSensitivePersonalInformation", curie=SPDX_DATASET.curie('hasSensitivePersonalInformation'),
+                   model_uri=SPDX_LINKML.hasSensitivePersonalInformation, domain=None, range=Optional[Union[str, "PresenceType"]])
+
+slots.intendedUse = Slot(uri=SPDX_DATASET.intendedUse, name="intendedUse", curie=SPDX_DATASET.curie('intendedUse'),
+                   model_uri=SPDX_LINKML.intendedUse, domain=None, range=Optional[str])
+
+slots.knownBias = Slot(uri=SPDX_DATASET.knownBias, name="knownBias", curie=SPDX_DATASET.curie('knownBias'),
+                   model_uri=SPDX_LINKML.knownBias, domain=None, range=Optional[Union[str, list[str]]])
+
+slots.sensor = Slot(uri=SPDX_DATASET.sensor, name="sensor", curie=SPDX_DATASET.curie('sensor'),
+                   model_uri=SPDX_LINKML.sensor, domain=None, range=Optional[Union[Union[dict, DictionaryEntry], list[Union[dict, DictionaryEntry]]]])
+
+slots.additionText = Slot(uri=SPDX_EXPANDED_LICENSING.additionText, name="additionText", curie=SPDX_EXPANDED_LICENSING.curie('additionText'),
+                   model_uri=SPDX_LINKML.additionText, domain=None, range=str)
+
 slots.deprecatedVersion = Slot(uri=SPDX_EXPANDED_LICENSING.deprecatedVersion, name="deprecatedVersion", curie=SPDX_EXPANDED_LICENSING.curie('deprecatedVersion'),
                    model_uri=SPDX_LINKML.deprecatedVersion, domain=None, range=Optional[str])
+
+slots.isDeprecatedAdditionId = Slot(uri=SPDX_EXPANDED_LICENSING.isDeprecatedAdditionId, name="isDeprecatedAdditionId", curie=SPDX_EXPANDED_LICENSING.curie('isDeprecatedAdditionId'),
+                   model_uri=SPDX_LINKML.isDeprecatedAdditionId, domain=None, range=Optional[Union[bool, Bool]])
+
+slots.isDeprecatedLicenseId = Slot(uri=SPDX_EXPANDED_LICENSING.isDeprecatedLicenseId, name="isDeprecatedLicenseId", curie=SPDX_EXPANDED_LICENSING.curie('isDeprecatedLicenseId'),
+                   model_uri=SPDX_LINKML.isDeprecatedLicenseId, domain=None, range=Optional[Union[bool, Bool]])
+
+slots.isFsfLibre = Slot(uri=SPDX_EXPANDED_LICENSING.isFsfLibre, name="isFsfLibre", curie=SPDX_EXPANDED_LICENSING.curie('isFsfLibre'),
+                   model_uri=SPDX_LINKML.isFsfLibre, domain=None, range=Optional[Union[bool, Bool]])
+
+slots.isOsiApproved = Slot(uri=SPDX_EXPANDED_LICENSING.isOsiApproved, name="isOsiApproved", curie=SPDX_EXPANDED_LICENSING.curie('isOsiApproved'),
+                   model_uri=SPDX_LINKML.isOsiApproved, domain=None, range=Optional[Union[bool, Bool]])
 
 slots.licenseXml = Slot(uri=SPDX_EXPANDED_LICENSING.licenseXml, name="licenseXml", curie=SPDX_EXPANDED_LICENSING.curie('licenseXml'),
                    model_uri=SPDX_LINKML.licenseXml, domain=None, range=Optional[str])
@@ -4148,8 +4508,59 @@ slots.obsoletedBy = Slot(uri=SPDX_EXPANDED_LICENSING.obsoletedBy, name="obsolete
 slots.seeAlso = Slot(uri=SPDX_EXPANDED_LICENSING.seeAlso, name="seeAlso", curie=SPDX_EXPANDED_LICENSING.curie('seeAlso'),
                    model_uri=SPDX_LINKML.seeAlso, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
 
+slots.standardAdditionTemplate = Slot(uri=SPDX_EXPANDED_LICENSING.standardAdditionTemplate, name="standardAdditionTemplate", curie=SPDX_EXPANDED_LICENSING.curie('standardAdditionTemplate'),
+                   model_uri=SPDX_LINKML.standardAdditionTemplate, domain=None, range=Optional[str])
+
+slots.standardLicenseHeader = Slot(uri=SPDX_EXPANDED_LICENSING.standardLicenseHeader, name="standardLicenseHeader", curie=SPDX_EXPANDED_LICENSING.curie('standardLicenseHeader'),
+                   model_uri=SPDX_LINKML.standardLicenseHeader, domain=None, range=Optional[str])
+
+slots.standardLicenseTemplate = Slot(uri=SPDX_EXPANDED_LICENSING.standardLicenseTemplate, name="standardLicenseTemplate", curie=SPDX_EXPANDED_LICENSING.curie('standardLicenseTemplate'),
+                   model_uri=SPDX_LINKML.standardLicenseTemplate, domain=None, range=Optional[str])
+
+slots.subjectAddition = Slot(uri=SPDX_EXPANDED_LICENSING.subjectAddition, name="subjectAddition", curie=SPDX_EXPANDED_LICENSING.curie('subjectAddition'),
+                   model_uri=SPDX_LINKML.subjectAddition, domain=None, range=Union[str, LicenseAdditionSpdxId])
+
+slots.subjectExtendableLicense = Slot(uri=SPDX_EXPANDED_LICENSING.subjectExtendableLicense, name="subjectExtendableLicense", curie=SPDX_EXPANDED_LICENSING.curie('subjectExtendableLicense'),
+                   model_uri=SPDX_LINKML.subjectExtendableLicense, domain=None, range=Union[str, ExtendableLicenseSpdxId])
+
+slots.subjectLicense = Slot(uri=SPDX_EXPANDED_LICENSING.subjectLicense, name="subjectLicense", curie=SPDX_EXPANDED_LICENSING.curie('subjectLicense'),
+                   model_uri=SPDX_LINKML.subjectLicense, domain=None, range=Union[str, LicenseSpdxId])
+
+slots.actionStatement = Slot(uri=SPDX_SECURITY.actionStatement, name="actionStatement", curie=SPDX_SECURITY.curie('actionStatement'),
+                   model_uri=SPDX_LINKML.actionStatement, domain=None, range=str)
+
+slots.actionStatementTime = Slot(uri=SPDX_SECURITY.actionStatementTime, name="actionStatementTime", curie=SPDX_SECURITY.curie('actionStatementTime'),
+                   model_uri=SPDX_LINKML.actionStatementTime, domain=None, range=Optional[Union[str, DateTimeStamp]])
+
+slots.assessedElement = Slot(uri=SPDX_SECURITY.assessedElement, name="assessedElement", curie=SPDX_SECURITY.curie('assessedElement'),
+                   model_uri=SPDX_LINKML.assessedElement, domain=None, range=Optional[Union[str, SoftwareArtifactSpdxId]])
+
+slots.catalogType = Slot(uri=SPDX_SECURITY.catalogType, name="catalogType", curie=SPDX_SECURITY.curie('catalogType'),
+                   model_uri=SPDX_LINKML.catalogType, domain=None, range=Union[str, "ExploitCatalogType"])
+
+slots.decisionType = Slot(uri=SPDX_SECURITY.decisionType, name="decisionType", curie=SPDX_SECURITY.curie('decisionType'),
+                   model_uri=SPDX_LINKML.decisionType, domain=None, range=Union[str, "SsvcDecisionType"])
+
+slots.exploited = Slot(uri=SPDX_SECURITY.exploited, name="exploited", curie=SPDX_SECURITY.curie('exploited'),
+                   model_uri=SPDX_LINKML.exploited, domain=None, range=Union[bool, Bool])
+
+slots.impactStatement = Slot(uri=SPDX_SECURITY.impactStatement, name="impactStatement", curie=SPDX_SECURITY.curie('impactStatement'),
+                   model_uri=SPDX_LINKML.impactStatement, domain=None, range=Optional[str])
+
+slots.impactStatementTime = Slot(uri=SPDX_SECURITY.impactStatementTime, name="impactStatementTime", curie=SPDX_SECURITY.curie('impactStatementTime'),
+                   model_uri=SPDX_LINKML.impactStatementTime, domain=None, range=Optional[Union[str, DateTimeStamp]])
+
+slots.justificationType = Slot(uri=SPDX_SECURITY.justificationType, name="justificationType", curie=SPDX_SECURITY.curie('justificationType'),
+                   model_uri=SPDX_LINKML.justificationType, domain=None, range=Optional[Union[str, "VexJustificationType"]])
+
 slots.modifiedTime = Slot(uri=SPDX_SECURITY.modifiedTime, name="modifiedTime", curie=SPDX_SECURITY.curie('modifiedTime'),
                    model_uri=SPDX_LINKML.modifiedTime, domain=None, range=Optional[Union[str, DateTimeStamp]])
+
+slots.percentile = Slot(uri=SPDX_SECURITY.percentile, name="percentile", curie=SPDX_SECURITY.curie('percentile'),
+                   model_uri=SPDX_LINKML.percentile, domain=None, range=Decimal)
+
+slots.probability = Slot(uri=SPDX_SECURITY.probability, name="probability", curie=SPDX_SECURITY.curie('probability'),
+                   model_uri=SPDX_LINKML.probability, domain=None, range=Decimal)
 
 slots.publishedTime = Slot(uri=SPDX_SECURITY.publishedTime, name="publishedTime", curie=SPDX_SECURITY.curie('publishedTime'),
                    model_uri=SPDX_LINKML.publishedTime, domain=None, range=Optional[Union[str, DateTimeStamp]])
@@ -4157,434 +4568,23 @@ slots.publishedTime = Slot(uri=SPDX_SECURITY.publishedTime, name="publishedTime"
 slots.score = Slot(uri=SPDX_SECURITY.score, name="score", curie=SPDX_SECURITY.curie('score'),
                    model_uri=SPDX_LINKML.score, domain=None, range=Decimal)
 
+slots.security_locator = Slot(uri=SPDX_SECURITY.locator, name="security_locator", curie=SPDX_SECURITY.curie('locator'),
+                   model_uri=SPDX_LINKML.security_locator, domain=None, range=Union[str, URI])
+
 slots.severity = Slot(uri=SPDX_SECURITY.severity, name="severity", curie=SPDX_SECURITY.curie('severity'),
                    model_uri=SPDX_LINKML.severity, domain=None, range=Union[str, "CvssSeverityType"])
+
+slots.statusNotes = Slot(uri=SPDX_SECURITY.statusNotes, name="statusNotes", curie=SPDX_SECURITY.curie('statusNotes'),
+                   model_uri=SPDX_LINKML.statusNotes, domain=None, range=Optional[str])
 
 slots.vectorString = Slot(uri=SPDX_SECURITY.vectorString, name="vectorString", curie=SPDX_SECURITY.curie('vectorString'),
                    model_uri=SPDX_LINKML.vectorString, domain=None, range=str)
 
+slots.vexVersion = Slot(uri=SPDX_SECURITY.vexVersion, name="vexVersion", curie=SPDX_SECURITY.curie('vexVersion'),
+                   model_uri=SPDX_LINKML.vexVersion, domain=None, range=Optional[str])
+
 slots.withdrawnTime = Slot(uri=SPDX_SECURITY.withdrawnTime, name="withdrawnTime", curie=SPDX_SECURITY.curie('withdrawnTime'),
                    model_uri=SPDX_LINKML.withdrawnTime, domain=None, range=Optional[Union[str, DateTimeStamp]])
 
-slots.annotation__annotationType = Slot(uri=SPDX_CORE.annotationType, name="annotation__annotationType", curie=SPDX_CORE.curie('annotationType'),
-                   model_uri=SPDX_LINKML.annotation__annotationType, domain=None, range=Union[str, "AnnotationType"])
-
-slots.annotation__statement = Slot(uri=SPDX_CORE.statement, name="annotation__statement", curie=SPDX_CORE.curie('statement'),
-                   model_uri=SPDX_LINKML.annotation__statement, domain=None, range=Optional[str])
-
-slots.annotation__subject = Slot(uri=SPDX_CORE.subject, name="annotation__subject", curie=SPDX_CORE.curie('subject'),
-                   model_uri=SPDX_LINKML.annotation__subject, domain=None, range=Union[str, ElementSpdxId])
-
-slots.artifact__builtTime = Slot(uri=SPDX_CORE.builtTime, name="artifact__builtTime", curie=SPDX_CORE.curie('builtTime'),
-                   model_uri=SPDX_LINKML.artifact__builtTime, domain=None, range=Optional[Union[str, DateTimeStamp]])
-
-slots.artifact__originatedBy = Slot(uri=SPDX_CORE.originatedBy, name="artifact__originatedBy", curie=SPDX_CORE.curie('originatedBy'),
-                   model_uri=SPDX_LINKML.artifact__originatedBy, domain=None, range=Optional[Union[Union[str, AgentSpdxId], list[Union[str, AgentSpdxId]]]])
-
-slots.artifact__releaseTime = Slot(uri=SPDX_CORE.releaseTime, name="artifact__releaseTime", curie=SPDX_CORE.curie('releaseTime'),
-                   model_uri=SPDX_LINKML.artifact__releaseTime, domain=None, range=Optional[Union[str, DateTimeStamp]])
-
-slots.artifact__standardName = Slot(uri=SPDX_CORE.standardName, name="artifact__standardName", curie=SPDX_CORE.curie('standardName'),
-                   model_uri=SPDX_LINKML.artifact__standardName, domain=None, range=Optional[Union[str, list[str]]])
-
-slots.artifact__supportLevel = Slot(uri=SPDX_CORE.supportLevel, name="artifact__supportLevel", curie=SPDX_CORE.curie('supportLevel'),
-                   model_uri=SPDX_LINKML.artifact__supportLevel, domain=None, range=Optional[Union[Union[str, "SupportType"], list[Union[str, "SupportType"]]]])
-
-slots.artifact__validUntilTime = Slot(uri=SPDX_CORE.validUntilTime, name="artifact__validUntilTime", curie=SPDX_CORE.curie('validUntilTime'),
-                   model_uri=SPDX_LINKML.artifact__validUntilTime, domain=None, range=Optional[Union[str, DateTimeStamp]])
-
-slots.bundle__context = Slot(uri=SPDX_CORE.context, name="bundle__context", curie=SPDX_CORE.curie('context'),
-                   model_uri=SPDX_LINKML.bundle__context, domain=None, range=Optional[str])
-
-slots.creationInfo__created = Slot(uri=SPDX_CORE.created, name="creationInfo__created", curie=SPDX_CORE.curie('created'),
-                   model_uri=SPDX_LINKML.creationInfo__created, domain=None, range=Union[str, DateTimeStamp])
-
-slots.creationInfo__createdBy = Slot(uri=SPDX_CORE.createdBy, name="creationInfo__createdBy", curie=SPDX_CORE.curie('createdBy'),
-                   model_uri=SPDX_LINKML.creationInfo__createdBy, domain=None, range=Union[Union[str, AgentSpdxId], list[Union[str, AgentSpdxId]]])
-
-slots.creationInfo__createdUsing = Slot(uri=SPDX_CORE.createdUsing, name="creationInfo__createdUsing", curie=SPDX_CORE.curie('createdUsing'),
-                   model_uri=SPDX_LINKML.creationInfo__createdUsing, domain=None, range=Optional[Union[Union[str, ToolSpdxId], list[Union[str, ToolSpdxId]]]])
-
-slots.creationInfo__specVersion = Slot(uri=SPDX_CORE.specVersion, name="creationInfo__specVersion", curie=SPDX_CORE.curie('specVersion'),
-                   model_uri=SPDX_LINKML.creationInfo__specVersion, domain=None, range=Union[str, Semver])
-
-slots.dictionaryEntry__key = Slot(uri=SPDX_CORE.key, name="dictionaryEntry__key", curie=SPDX_CORE.curie('key'),
-                   model_uri=SPDX_LINKML.dictionaryEntry__key, domain=None, range=str)
-
-slots.dictionaryEntry__value = Slot(uri=SPDX_CORE.value, name="dictionaryEntry__value", curie=SPDX_CORE.curie('value'),
-                   model_uri=SPDX_LINKML.dictionaryEntry__value, domain=None, range=Optional[str])
-
 slots.element__spdxId = Slot(uri=SPDX_LINKML.spdxId, name="element__spdxId", curie=SPDX_LINKML.curie('spdxId'),
                    model_uri=SPDX_LINKML.element__spdxId, domain=None, range=URIRef)
-
-slots.element__creationInfo = Slot(uri=SPDX_CORE.creationInfo, name="element__creationInfo", curie=SPDX_CORE.curie('creationInfo'),
-                   model_uri=SPDX_LINKML.element__creationInfo, domain=None, range=Union[dict, CreationInfo])
-
-slots.element__description = Slot(uri=SPDX_CORE.description, name="element__description", curie=SPDX_CORE.curie('description'),
-                   model_uri=SPDX_LINKML.element__description, domain=None, range=Optional[str])
-
-slots.element__extension = Slot(uri=SPDX_CORE.extension, name="element__extension", curie=SPDX_CORE.curie('extension'),
-                   model_uri=SPDX_LINKML.element__extension, domain=None, range=Optional[Union[Union[dict, Extension], list[Union[dict, Extension]]]])
-
-slots.element__externalIdentifier = Slot(uri=SPDX_CORE.externalIdentifier, name="element__externalIdentifier", curie=SPDX_CORE.curie('externalIdentifier'),
-                   model_uri=SPDX_LINKML.element__externalIdentifier, domain=None, range=Optional[Union[Union[dict, ExternalIdentifier], list[Union[dict, ExternalIdentifier]]]])
-
-slots.element__externalRef = Slot(uri=SPDX_CORE.externalRef, name="element__externalRef", curie=SPDX_CORE.curie('externalRef'),
-                   model_uri=SPDX_LINKML.element__externalRef, domain=None, range=Optional[Union[Union[dict, ExternalRef], list[Union[dict, ExternalRef]]]])
-
-slots.element__name = Slot(uri=SPDX_CORE.name, name="element__name", curie=SPDX_CORE.curie('name'),
-                   model_uri=SPDX_LINKML.element__name, domain=None, range=Optional[str])
-
-slots.element__summary = Slot(uri=SPDX_CORE.summary, name="element__summary", curie=SPDX_CORE.curie('summary'),
-                   model_uri=SPDX_LINKML.element__summary, domain=None, range=Optional[str])
-
-slots.elementCollection__element = Slot(uri=SPDX_CORE.element, name="elementCollection__element", curie=SPDX_CORE.curie('element'),
-                   model_uri=SPDX_LINKML.elementCollection__element, domain=None, range=Optional[Union[Union[str, ElementSpdxId], list[Union[str, ElementSpdxId]]]])
-
-slots.elementCollection__profileConformance = Slot(uri=SPDX_CORE.profileConformance, name="elementCollection__profileConformance", curie=SPDX_CORE.curie('profileConformance'),
-                   model_uri=SPDX_LINKML.elementCollection__profileConformance, domain=None, range=Optional[Union[Union[str, "ProfileIdentifierType"], list[Union[str, "ProfileIdentifierType"]]]])
-
-slots.elementCollection__rootElement = Slot(uri=SPDX_CORE.rootElement, name="elementCollection__rootElement", curie=SPDX_CORE.curie('rootElement'),
-                   model_uri=SPDX_LINKML.elementCollection__rootElement, domain=None, range=Optional[Union[Union[str, ElementSpdxId], list[Union[str, ElementSpdxId]]]])
-
-slots.externalIdentifier__externalIdentifierType = Slot(uri=SPDX_CORE.externalIdentifierType, name="externalIdentifier__externalIdentifierType", curie=SPDX_CORE.curie('externalIdentifierType'),
-                   model_uri=SPDX_LINKML.externalIdentifier__externalIdentifierType, domain=None, range=Union[str, "ExternalIdentifierType"])
-
-slots.externalIdentifier__identifier = Slot(uri=SPDX_CORE.identifier, name="externalIdentifier__identifier", curie=SPDX_CORE.curie('identifier'),
-                   model_uri=SPDX_LINKML.externalIdentifier__identifier, domain=None, range=str)
-
-slots.externalIdentifier__identifierLocator = Slot(uri=SPDX_CORE.identifierLocator, name="externalIdentifier__identifierLocator", curie=SPDX_CORE.curie('identifierLocator'),
-                   model_uri=SPDX_LINKML.externalIdentifier__identifierLocator, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
-
-slots.externalIdentifier__issuingAuthority = Slot(uri=SPDX_CORE.issuingAuthority, name="externalIdentifier__issuingAuthority", curie=SPDX_CORE.curie('issuingAuthority'),
-                   model_uri=SPDX_LINKML.externalIdentifier__issuingAuthority, domain=None, range=Optional[str])
-
-slots.externalMap__definingArtifact = Slot(uri=SPDX_CORE.definingArtifact, name="externalMap__definingArtifact", curie=SPDX_CORE.curie('definingArtifact'),
-                   model_uri=SPDX_LINKML.externalMap__definingArtifact, domain=None, range=Optional[Union[str, ArtifactSpdxId]])
-
-slots.externalMap__externalSpdxId = Slot(uri=SPDX_CORE.externalSpdxId, name="externalMap__externalSpdxId", curie=SPDX_CORE.curie('externalSpdxId'),
-                   model_uri=SPDX_LINKML.externalMap__externalSpdxId, domain=None, range=Union[str, URI])
-
-slots.externalMap__locationHint = Slot(uri=SPDX_CORE.locationHint, name="externalMap__locationHint", curie=SPDX_CORE.curie('locationHint'),
-                   model_uri=SPDX_LINKML.externalMap__locationHint, domain=None, range=Optional[Union[str, URI]])
-
-slots.externalRef__externalRefType = Slot(uri=SPDX_CORE.externalRefType, name="externalRef__externalRefType", curie=SPDX_CORE.curie('externalRefType'),
-                   model_uri=SPDX_LINKML.externalRef__externalRefType, domain=None, range=Optional[Union[str, "ExternalRefType"]])
-
-slots.externalRef__locator = Slot(uri=SPDX_CORE.locator, name="externalRef__locator", curie=SPDX_CORE.curie('locator'),
-                   model_uri=SPDX_LINKML.externalRef__locator, domain=None, range=Optional[Union[str, list[str]]])
-
-slots.lifecycleScopedRelationship__scope = Slot(uri=SPDX_CORE.scope, name="lifecycleScopedRelationship__scope", curie=SPDX_CORE.curie('scope'),
-                   model_uri=SPDX_LINKML.lifecycleScopedRelationship__scope, domain=None, range=Optional[Union[str, "LifecycleScopeType"]])
-
-slots.namespaceMap__namespace = Slot(uri=SPDX_CORE.namespace, name="namespaceMap__namespace", curie=SPDX_CORE.curie('namespace'),
-                   model_uri=SPDX_LINKML.namespaceMap__namespace, domain=None, range=Union[str, URI])
-
-slots.namespaceMap__prefix = Slot(uri=SPDX_CORE.prefix, name="namespaceMap__prefix", curie=SPDX_CORE.curie('prefix'),
-                   model_uri=SPDX_LINKML.namespaceMap__prefix, domain=None, range=str)
-
-slots.packageVerificationCode__packageVerificationCodeExcludedFile = Slot(uri=SPDX_CORE.packageVerificationCodeExcludedFile, name="packageVerificationCode__packageVerificationCodeExcludedFile", curie=SPDX_CORE.curie('packageVerificationCodeExcludedFile'),
-                   model_uri=SPDX_LINKML.packageVerificationCode__packageVerificationCodeExcludedFile, domain=None, range=Optional[Union[str, list[str]]])
-
-slots.positiveIntegerRange__beginIntegerRange = Slot(uri=SPDX_CORE.beginIntegerRange, name="positiveIntegerRange__beginIntegerRange", curie=SPDX_CORE.curie('beginIntegerRange'),
-                   model_uri=SPDX_LINKML.positiveIntegerRange__beginIntegerRange, domain=None, range=Union[int, PositiveInteger])
-
-slots.positiveIntegerRange__endIntegerRange = Slot(uri=SPDX_CORE.endIntegerRange, name="positiveIntegerRange__endIntegerRange", curie=SPDX_CORE.curie('endIntegerRange'),
-                   model_uri=SPDX_LINKML.positiveIntegerRange__endIntegerRange, domain=None, range=Union[int, PositiveInteger])
-
-slots.relationship__completeness = Slot(uri=SPDX_CORE.completeness, name="relationship__completeness", curie=SPDX_CORE.curie('completeness'),
-                   model_uri=SPDX_LINKML.relationship__completeness, domain=None, range=Optional[Union[str, "RelationshipCompleteness"]])
-
-slots.relationship__endTime = Slot(uri=SPDX_CORE.endTime, name="relationship__endTime", curie=SPDX_CORE.curie('endTime'),
-                   model_uri=SPDX_LINKML.relationship__endTime, domain=None, range=Optional[Union[str, DateTimeStamp]])
-
-slots.relationship__from = Slot(uri=SPDX_CORE['from'], name="relationship__from", curie=SPDX_CORE.curie('from'),
-                   model_uri=SPDX_LINKML.relationship__from, domain=None, range=Union[str, ElementSpdxId])
-
-slots.relationship__relationshipType = Slot(uri=SPDX_CORE.relationshipType, name="relationship__relationshipType", curie=SPDX_CORE.curie('relationshipType'),
-                   model_uri=SPDX_LINKML.relationship__relationshipType, domain=None, range=Union[str, "RelationshipType"])
-
-slots.relationship__startTime = Slot(uri=SPDX_CORE.startTime, name="relationship__startTime", curie=SPDX_CORE.curie('startTime'),
-                   model_uri=SPDX_LINKML.relationship__startTime, domain=None, range=Optional[Union[str, DateTimeStamp]])
-
-slots.relationship__to = Slot(uri=SPDX_CORE.to, name="relationship__to", curie=SPDX_CORE.curie('to'),
-                   model_uri=SPDX_LINKML.relationship__to, domain=None, range=Union[Union[str, ElementSpdxId], list[Union[str, ElementSpdxId]]])
-
-slots.spdxDocument__dataLicense = Slot(uri=SPDX_CORE.dataLicense, name="spdxDocument__dataLicense", curie=SPDX_CORE.curie('dataLicense'),
-                   model_uri=SPDX_LINKML.spdxDocument__dataLicense, domain=None, range=Optional[Union[str, AnyLicenseInfoSpdxId]])
-
-slots.spdxDocument__import = Slot(uri=SPDX_CORE['import'], name="spdxDocument__import", curie=SPDX_CORE.curie('import'),
-                   model_uri=SPDX_LINKML.spdxDocument__import, domain=None, range=Optional[Union[Union[dict, ExternalMap], list[Union[dict, ExternalMap]]]])
-
-slots.spdxDocument__namespaceMap = Slot(uri=SPDX_CORE.namespaceMap, name="spdxDocument__namespaceMap", curie=SPDX_CORE.curie('namespaceMap'),
-                   model_uri=SPDX_LINKML.spdxDocument__namespaceMap, domain=None, range=Optional[Union[Union[dict, NamespaceMap], list[Union[dict, NamespaceMap]]]])
-
-slots.build__buildEndTime = Slot(uri=SPDX_BUILD.buildEndTime, name="build__buildEndTime", curie=SPDX_BUILD.curie('buildEndTime'),
-                   model_uri=SPDX_LINKML.build__buildEndTime, domain=None, range=Optional[Union[str, DateTimeStamp]])
-
-slots.build__buildId = Slot(uri=SPDX_BUILD.buildId, name="build__buildId", curie=SPDX_BUILD.curie('buildId'),
-                   model_uri=SPDX_LINKML.build__buildId, domain=None, range=Optional[str])
-
-slots.build__buildStartTime = Slot(uri=SPDX_BUILD.buildStartTime, name="build__buildStartTime", curie=SPDX_BUILD.curie('buildStartTime'),
-                   model_uri=SPDX_LINKML.build__buildStartTime, domain=None, range=Optional[Union[str, DateTimeStamp]])
-
-slots.build__buildType = Slot(uri=SPDX_BUILD.buildType, name="build__buildType", curie=SPDX_BUILD.curie('buildType'),
-                   model_uri=SPDX_LINKML.build__buildType, domain=None, range=Union[str, URI])
-
-slots.build__configSourceDigest = Slot(uri=SPDX_BUILD.configSourceDigest, name="build__configSourceDigest", curie=SPDX_BUILD.curie('configSourceDigest'),
-                   model_uri=SPDX_LINKML.build__configSourceDigest, domain=None, range=Optional[Union[Union[dict, Hash], list[Union[dict, Hash]]]])
-
-slots.build__configSourceEntrypoint = Slot(uri=SPDX_BUILD.configSourceEntrypoint, name="build__configSourceEntrypoint", curie=SPDX_BUILD.curie('configSourceEntrypoint'),
-                   model_uri=SPDX_LINKML.build__configSourceEntrypoint, domain=None, range=Optional[Union[str, list[str]]])
-
-slots.build__configSourceUri = Slot(uri=SPDX_BUILD.configSourceUri, name="build__configSourceUri", curie=SPDX_BUILD.curie('configSourceUri'),
-                   model_uri=SPDX_LINKML.build__configSourceUri, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
-
-slots.build__environment = Slot(uri=SPDX_BUILD.environment, name="build__environment", curie=SPDX_BUILD.curie('environment'),
-                   model_uri=SPDX_LINKML.build__environment, domain=None, range=Optional[Union[Union[dict, DictionaryEntry], list[Union[dict, DictionaryEntry]]]])
-
-slots.build__parameter = Slot(uri=SPDX_BUILD.parameter, name="build__parameter", curie=SPDX_BUILD.curie('parameter'),
-                   model_uri=SPDX_LINKML.build__parameter, domain=None, range=Optional[Union[Union[dict, DictionaryEntry], list[Union[dict, DictionaryEntry]]]])
-
-slots.cdxPropertiesExtension__cdxProperty = Slot(uri=SPDX_EXTENSION.cdxProperty, name="cdxPropertiesExtension__cdxProperty", curie=SPDX_EXTENSION.curie('cdxProperty'),
-                   model_uri=SPDX_LINKML.cdxPropertiesExtension__cdxProperty, domain=None, range=Union[Union[dict, CdxPropertyEntry], list[Union[dict, CdxPropertyEntry]]])
-
-slots.cdxPropertyEntry__cdxPropName = Slot(uri=SPDX_EXTENSION.cdxPropName, name="cdxPropertyEntry__cdxPropName", curie=SPDX_EXTENSION.curie('cdxPropName'),
-                   model_uri=SPDX_LINKML.cdxPropertyEntry__cdxPropName, domain=None, range=str)
-
-slots.cdxPropertyEntry__cdxPropValue = Slot(uri=SPDX_EXTENSION.cdxPropValue, name="cdxPropertyEntry__cdxPropValue", curie=SPDX_EXTENSION.curie('cdxPropValue'),
-                   model_uri=SPDX_LINKML.cdxPropertyEntry__cdxPropValue, domain=None, range=Optional[str])
-
-slots.licenseExpression__customIdToUri = Slot(uri=SPDX_SIMPLE_LICENSING.customIdToUri, name="licenseExpression__customIdToUri", curie=SPDX_SIMPLE_LICENSING.curie('customIdToUri'),
-                   model_uri=SPDX_LINKML.licenseExpression__customIdToUri, domain=None, range=Optional[Union[Union[dict, DictionaryEntry], list[Union[dict, DictionaryEntry]]]])
-
-slots.licenseExpression__licenseExpression = Slot(uri=SPDX_SIMPLE_LICENSING.licenseExpression, name="licenseExpression__licenseExpression", curie=SPDX_SIMPLE_LICENSING.curie('licenseExpression'),
-                   model_uri=SPDX_LINKML.licenseExpression__licenseExpression, domain=None, range=str)
-
-slots.licenseExpression__licenseListVersion = Slot(uri=SPDX_SIMPLE_LICENSING.licenseListVersion, name="licenseExpression__licenseListVersion", curie=SPDX_SIMPLE_LICENSING.curie('licenseListVersion'),
-                   model_uri=SPDX_LINKML.licenseExpression__licenseListVersion, domain=None, range=Optional[Union[str, Semver]])
-
-slots.contentIdentifier__contentIdentifierType = Slot(uri=SPDX_SOFTWARE.contentIdentifierType, name="contentIdentifier__contentIdentifierType", curie=SPDX_SOFTWARE.curie('contentIdentifierType'),
-                   model_uri=SPDX_LINKML.contentIdentifier__contentIdentifierType, domain=None, range=Union[str, "ContentIdentifierType"])
-
-slots.contentIdentifier__contentIdentifierValue = Slot(uri=SPDX_SOFTWARE.contentIdentifierValue, name="contentIdentifier__contentIdentifierValue", curie=SPDX_SOFTWARE.curie('contentIdentifierValue'),
-                   model_uri=SPDX_LINKML.contentIdentifier__contentIdentifierValue, domain=None, range=Union[str, URI])
-
-slots.file__fileKind = Slot(uri=SPDX_SOFTWARE.fileKind, name="file__fileKind", curie=SPDX_SOFTWARE.curie('fileKind'),
-                   model_uri=SPDX_LINKML.file__fileKind, domain=None, range=Optional[Union[str, "FileKindType"]])
-
-slots.package__downloadLocation = Slot(uri=SPDX_SOFTWARE.downloadLocation, name="package__downloadLocation", curie=SPDX_SOFTWARE.curie('downloadLocation'),
-                   model_uri=SPDX_LINKML.package__downloadLocation, domain=None, range=Optional[Union[str, URI]])
-
-slots.package__homePage = Slot(uri=SPDX_SOFTWARE.homePage, name="package__homePage", curie=SPDX_SOFTWARE.curie('homePage'),
-                   model_uri=SPDX_LINKML.package__homePage, domain=None, range=Optional[Union[str, URI]])
-
-slots.package__packageUrl = Slot(uri=SPDX_SOFTWARE.packageUrl, name="package__packageUrl", curie=SPDX_SOFTWARE.curie('packageUrl'),
-                   model_uri=SPDX_LINKML.package__packageUrl, domain=None, range=Optional[Union[str, URI]])
-
-slots.package__packageVersion = Slot(uri=SPDX_SOFTWARE.packageVersion, name="package__packageVersion", curie=SPDX_SOFTWARE.curie('packageVersion'),
-                   model_uri=SPDX_LINKML.package__packageVersion, domain=None, range=Optional[str])
-
-slots.package__sourceInfo = Slot(uri=SPDX_SOFTWARE.sourceInfo, name="package__sourceInfo", curie=SPDX_SOFTWARE.curie('sourceInfo'),
-                   model_uri=SPDX_LINKML.package__sourceInfo, domain=None, range=Optional[str])
-
-slots.sbom__sbomType = Slot(uri=SPDX_SOFTWARE.sbomType, name="sbom__sbomType", curie=SPDX_SOFTWARE.curie('sbomType'),
-                   model_uri=SPDX_LINKML.sbom__sbomType, domain=None, range=Optional[Union[Union[str, "SbomType"], list[Union[str, "SbomType"]]]])
-
-slots.snippet__byteRange = Slot(uri=SPDX_SOFTWARE.byteRange, name="snippet__byteRange", curie=SPDX_SOFTWARE.curie('byteRange'),
-                   model_uri=SPDX_LINKML.snippet__byteRange, domain=None, range=Optional[Union[dict, PositiveIntegerRange]])
-
-slots.snippet__lineRange = Slot(uri=SPDX_SOFTWARE.lineRange, name="snippet__lineRange", curie=SPDX_SOFTWARE.curie('lineRange'),
-                   model_uri=SPDX_LINKML.snippet__lineRange, domain=None, range=Optional[Union[dict, PositiveIntegerRange]])
-
-slots.snippet__snippetFromFile = Slot(uri=SPDX_SOFTWARE.snippetFromFile, name="snippet__snippetFromFile", curie=SPDX_SOFTWARE.curie('snippetFromFile'),
-                   model_uri=SPDX_LINKML.snippet__snippetFromFile, domain=None, range=Union[str, FileSpdxId])
-
-slots.softwareArtifact__additionalPurpose = Slot(uri=SPDX_SOFTWARE.additionalPurpose, name="softwareArtifact__additionalPurpose", curie=SPDX_SOFTWARE.curie('additionalPurpose'),
-                   model_uri=SPDX_LINKML.softwareArtifact__additionalPurpose, domain=None, range=Optional[Union[Union[str, "SoftwarePurpose"], list[Union[str, "SoftwarePurpose"]]]])
-
-slots.softwareArtifact__attributionText = Slot(uri=SPDX_SOFTWARE.attributionText, name="softwareArtifact__attributionText", curie=SPDX_SOFTWARE.curie('attributionText'),
-                   model_uri=SPDX_LINKML.softwareArtifact__attributionText, domain=None, range=Optional[Union[str, list[str]]])
-
-slots.softwareArtifact__contentIdentifier = Slot(uri=SPDX_SOFTWARE.contentIdentifier, name="softwareArtifact__contentIdentifier", curie=SPDX_SOFTWARE.curie('contentIdentifier'),
-                   model_uri=SPDX_LINKML.softwareArtifact__contentIdentifier, domain=None, range=Optional[Union[Union[dict, ContentIdentifier], list[Union[dict, ContentIdentifier]]]])
-
-slots.softwareArtifact__copyrightText = Slot(uri=SPDX_SOFTWARE.copyrightText, name="softwareArtifact__copyrightText", curie=SPDX_SOFTWARE.curie('copyrightText'),
-                   model_uri=SPDX_LINKML.softwareArtifact__copyrightText, domain=None, range=Optional[str])
-
-slots.softwareArtifact__primaryPurpose = Slot(uri=SPDX_SOFTWARE.primaryPurpose, name="softwareArtifact__primaryPurpose", curie=SPDX_SOFTWARE.curie('primaryPurpose'),
-                   model_uri=SPDX_LINKML.softwareArtifact__primaryPurpose, domain=None, range=Optional[Union[str, "SoftwarePurpose"]])
-
-slots.aIPackage__autonomyType = Slot(uri=SPDX_AI.autonomyType, name="aIPackage__autonomyType", curie=SPDX_AI.curie('autonomyType'),
-                   model_uri=SPDX_LINKML.aIPackage__autonomyType, domain=None, range=Optional[Union[str, "PresenceType"]])
-
-slots.aIPackage__domain = Slot(uri=SPDX_AI.domain, name="aIPackage__domain", curie=SPDX_AI.curie('domain'),
-                   model_uri=SPDX_LINKML.aIPackage__domain, domain=None, range=Optional[Union[str, list[str]]])
-
-slots.aIPackage__energyConsumption = Slot(uri=SPDX_AI.energyConsumption, name="aIPackage__energyConsumption", curie=SPDX_AI.curie('energyConsumption'),
-                   model_uri=SPDX_LINKML.aIPackage__energyConsumption, domain=None, range=Optional[Union[dict, EnergyConsumption]])
-
-slots.aIPackage__hyperparameter = Slot(uri=SPDX_AI.hyperparameter, name="aIPackage__hyperparameter", curie=SPDX_AI.curie('hyperparameter'),
-                   model_uri=SPDX_LINKML.aIPackage__hyperparameter, domain=None, range=Optional[Union[Union[dict, DictionaryEntry], list[Union[dict, DictionaryEntry]]]])
-
-slots.aIPackage__informationAboutApplication = Slot(uri=SPDX_AI.informationAboutApplication, name="aIPackage__informationAboutApplication", curie=SPDX_AI.curie('informationAboutApplication'),
-                   model_uri=SPDX_LINKML.aIPackage__informationAboutApplication, domain=None, range=Optional[str])
-
-slots.aIPackage__informationAboutTraining = Slot(uri=SPDX_AI.informationAboutTraining, name="aIPackage__informationAboutTraining", curie=SPDX_AI.curie('informationAboutTraining'),
-                   model_uri=SPDX_LINKML.aIPackage__informationAboutTraining, domain=None, range=Optional[str])
-
-slots.aIPackage__limitation = Slot(uri=SPDX_AI.limitation, name="aIPackage__limitation", curie=SPDX_AI.curie('limitation'),
-                   model_uri=SPDX_LINKML.aIPackage__limitation, domain=None, range=Optional[str])
-
-slots.aIPackage__metric = Slot(uri=SPDX_AI.metric, name="aIPackage__metric", curie=SPDX_AI.curie('metric'),
-                   model_uri=SPDX_LINKML.aIPackage__metric, domain=None, range=Optional[Union[Union[dict, DictionaryEntry], list[Union[dict, DictionaryEntry]]]])
-
-slots.aIPackage__metricDecisionThreshold = Slot(uri=SPDX_AI.metricDecisionThreshold, name="aIPackage__metricDecisionThreshold", curie=SPDX_AI.curie('metricDecisionThreshold'),
-                   model_uri=SPDX_LINKML.aIPackage__metricDecisionThreshold, domain=None, range=Optional[Union[Union[dict, DictionaryEntry], list[Union[dict, DictionaryEntry]]]])
-
-slots.aIPackage__modelDataPreprocessing = Slot(uri=SPDX_AI.modelDataPreprocessing, name="aIPackage__modelDataPreprocessing", curie=SPDX_AI.curie('modelDataPreprocessing'),
-                   model_uri=SPDX_LINKML.aIPackage__modelDataPreprocessing, domain=None, range=Optional[Union[str, list[str]]])
-
-slots.aIPackage__modelExplainability = Slot(uri=SPDX_AI.modelExplainability, name="aIPackage__modelExplainability", curie=SPDX_AI.curie('modelExplainability'),
-                   model_uri=SPDX_LINKML.aIPackage__modelExplainability, domain=None, range=Optional[Union[str, list[str]]])
-
-slots.aIPackage__safetyRiskAssessment = Slot(uri=SPDX_AI.safetyRiskAssessment, name="aIPackage__safetyRiskAssessment", curie=SPDX_AI.curie('safetyRiskAssessment'),
-                   model_uri=SPDX_LINKML.aIPackage__safetyRiskAssessment, domain=None, range=Optional[Union[str, "SafetyRiskAssessmentType"]])
-
-slots.aIPackage__standardCompliance = Slot(uri=SPDX_AI.standardCompliance, name="aIPackage__standardCompliance", curie=SPDX_AI.curie('standardCompliance'),
-                   model_uri=SPDX_LINKML.aIPackage__standardCompliance, domain=None, range=Optional[Union[str, list[str]]])
-
-slots.aIPackage__typeOfModel = Slot(uri=SPDX_AI.typeOfModel, name="aIPackage__typeOfModel", curie=SPDX_AI.curie('typeOfModel'),
-                   model_uri=SPDX_LINKML.aIPackage__typeOfModel, domain=None, range=Optional[Union[str, list[str]]])
-
-slots.aIPackage__useSensitivePersonalInformation = Slot(uri=SPDX_AI.useSensitivePersonalInformation, name="aIPackage__useSensitivePersonalInformation", curie=SPDX_AI.curie('useSensitivePersonalInformation'),
-                   model_uri=SPDX_LINKML.aIPackage__useSensitivePersonalInformation, domain=None, range=Optional[Union[str, "PresenceType"]])
-
-slots.energyConsumption__finetuningEnergyConsumption = Slot(uri=SPDX_AI.finetuningEnergyConsumption, name="energyConsumption__finetuningEnergyConsumption", curie=SPDX_AI.curie('finetuningEnergyConsumption'),
-                   model_uri=SPDX_LINKML.energyConsumption__finetuningEnergyConsumption, domain=None, range=Optional[Union[Union[dict, EnergyConsumptionDescription], list[Union[dict, EnergyConsumptionDescription]]]])
-
-slots.energyConsumption__inferenceEnergyConsumption = Slot(uri=SPDX_AI.inferenceEnergyConsumption, name="energyConsumption__inferenceEnergyConsumption", curie=SPDX_AI.curie('inferenceEnergyConsumption'),
-                   model_uri=SPDX_LINKML.energyConsumption__inferenceEnergyConsumption, domain=None, range=Optional[Union[Union[dict, EnergyConsumptionDescription], list[Union[dict, EnergyConsumptionDescription]]]])
-
-slots.energyConsumption__trainingEnergyConsumption = Slot(uri=SPDX_AI.trainingEnergyConsumption, name="energyConsumption__trainingEnergyConsumption", curie=SPDX_AI.curie('trainingEnergyConsumption'),
-                   model_uri=SPDX_LINKML.energyConsumption__trainingEnergyConsumption, domain=None, range=Optional[Union[Union[dict, EnergyConsumptionDescription], list[Union[dict, EnergyConsumptionDescription]]]])
-
-slots.energyConsumptionDescription__energyQuantity = Slot(uri=SPDX_AI.energyQuantity, name="energyConsumptionDescription__energyQuantity", curie=SPDX_AI.curie('energyQuantity'),
-                   model_uri=SPDX_LINKML.energyConsumptionDescription__energyQuantity, domain=None, range=Decimal)
-
-slots.energyConsumptionDescription__energyUnit = Slot(uri=SPDX_AI.energyUnit, name="energyConsumptionDescription__energyUnit", curie=SPDX_AI.curie('energyUnit'),
-                   model_uri=SPDX_LINKML.energyConsumptionDescription__energyUnit, domain=None, range=Union[str, "EnergyUnitType"])
-
-slots.datasetPackage__anonymizationMethodUsed = Slot(uri=SPDX_DATASET.anonymizationMethodUsed, name="datasetPackage__anonymizationMethodUsed", curie=SPDX_DATASET.curie('anonymizationMethodUsed'),
-                   model_uri=SPDX_LINKML.datasetPackage__anonymizationMethodUsed, domain=None, range=Optional[Union[str, list[str]]])
-
-slots.datasetPackage__confidentialityLevel = Slot(uri=SPDX_DATASET.confidentialityLevel, name="datasetPackage__confidentialityLevel", curie=SPDX_DATASET.curie('confidentialityLevel'),
-                   model_uri=SPDX_LINKML.datasetPackage__confidentialityLevel, domain=None, range=Optional[Union[str, "ConfidentialityLevelType"]])
-
-slots.datasetPackage__dataCollectionProcess = Slot(uri=SPDX_DATASET.dataCollectionProcess, name="datasetPackage__dataCollectionProcess", curie=SPDX_DATASET.curie('dataCollectionProcess'),
-                   model_uri=SPDX_LINKML.datasetPackage__dataCollectionProcess, domain=None, range=Optional[str])
-
-slots.datasetPackage__dataPreprocessing = Slot(uri=SPDX_DATASET.dataPreprocessing, name="datasetPackage__dataPreprocessing", curie=SPDX_DATASET.curie('dataPreprocessing'),
-                   model_uri=SPDX_LINKML.datasetPackage__dataPreprocessing, domain=None, range=Optional[Union[str, list[str]]])
-
-slots.datasetPackage__datasetAvailability = Slot(uri=SPDX_DATASET.datasetAvailability, name="datasetPackage__datasetAvailability", curie=SPDX_DATASET.curie('datasetAvailability'),
-                   model_uri=SPDX_LINKML.datasetPackage__datasetAvailability, domain=None, range=Optional[Union[str, "DatasetAvailabilityType"]])
-
-slots.datasetPackage__datasetNoise = Slot(uri=SPDX_DATASET.datasetNoise, name="datasetPackage__datasetNoise", curie=SPDX_DATASET.curie('datasetNoise'),
-                   model_uri=SPDX_LINKML.datasetPackage__datasetNoise, domain=None, range=Optional[str])
-
-slots.datasetPackage__datasetSize = Slot(uri=SPDX_DATASET.datasetSize, name="datasetPackage__datasetSize", curie=SPDX_DATASET.curie('datasetSize'),
-                   model_uri=SPDX_LINKML.datasetPackage__datasetSize, domain=None, range=Optional[Union[int, NonNegativeInteger]])
-
-slots.datasetPackage__datasetType = Slot(uri=SPDX_DATASET.datasetType, name="datasetPackage__datasetType", curie=SPDX_DATASET.curie('datasetType'),
-                   model_uri=SPDX_LINKML.datasetPackage__datasetType, domain=None, range=Union[Union[str, "DatasetType"], list[Union[str, "DatasetType"]]])
-
-slots.datasetPackage__datasetUpdateMechanism = Slot(uri=SPDX_DATASET.datasetUpdateMechanism, name="datasetPackage__datasetUpdateMechanism", curie=SPDX_DATASET.curie('datasetUpdateMechanism'),
-                   model_uri=SPDX_LINKML.datasetPackage__datasetUpdateMechanism, domain=None, range=Optional[str])
-
-slots.datasetPackage__hasSensitivePersonalInformation = Slot(uri=SPDX_DATASET.hasSensitivePersonalInformation, name="datasetPackage__hasSensitivePersonalInformation", curie=SPDX_DATASET.curie('hasSensitivePersonalInformation'),
-                   model_uri=SPDX_LINKML.datasetPackage__hasSensitivePersonalInformation, domain=None, range=Optional[Union[str, "PresenceType"]])
-
-slots.datasetPackage__intendedUse = Slot(uri=SPDX_DATASET.intendedUse, name="datasetPackage__intendedUse", curie=SPDX_DATASET.curie('intendedUse'),
-                   model_uri=SPDX_LINKML.datasetPackage__intendedUse, domain=None, range=Optional[str])
-
-slots.datasetPackage__knownBias = Slot(uri=SPDX_DATASET.knownBias, name="datasetPackage__knownBias", curie=SPDX_DATASET.curie('knownBias'),
-                   model_uri=SPDX_LINKML.datasetPackage__knownBias, domain=None, range=Optional[Union[str, list[str]]])
-
-slots.datasetPackage__sensor = Slot(uri=SPDX_DATASET.sensor, name="datasetPackage__sensor", curie=SPDX_DATASET.curie('sensor'),
-                   model_uri=SPDX_LINKML.datasetPackage__sensor, domain=None, range=Optional[Union[Union[dict, DictionaryEntry], list[Union[dict, DictionaryEntry]]]])
-
-slots.license__isDeprecatedLicenseId = Slot(uri=SPDX_EXPANDED_LICENSING.isDeprecatedLicenseId, name="license__isDeprecatedLicenseId", curie=SPDX_EXPANDED_LICENSING.curie('isDeprecatedLicenseId'),
-                   model_uri=SPDX_LINKML.license__isDeprecatedLicenseId, domain=None, range=Optional[Union[bool, Bool]])
-
-slots.license__isFsfLibre = Slot(uri=SPDX_EXPANDED_LICENSING.isFsfLibre, name="license__isFsfLibre", curie=SPDX_EXPANDED_LICENSING.curie('isFsfLibre'),
-                   model_uri=SPDX_LINKML.license__isFsfLibre, domain=None, range=Optional[Union[bool, Bool]])
-
-slots.license__isOsiApproved = Slot(uri=SPDX_EXPANDED_LICENSING.isOsiApproved, name="license__isOsiApproved", curie=SPDX_EXPANDED_LICENSING.curie('isOsiApproved'),
-                   model_uri=SPDX_LINKML.license__isOsiApproved, domain=None, range=Optional[Union[bool, Bool]])
-
-slots.license__standardLicenseHeader = Slot(uri=SPDX_EXPANDED_LICENSING.standardLicenseHeader, name="license__standardLicenseHeader", curie=SPDX_EXPANDED_LICENSING.curie('standardLicenseHeader'),
-                   model_uri=SPDX_LINKML.license__standardLicenseHeader, domain=None, range=Optional[str])
-
-slots.license__standardLicenseTemplate = Slot(uri=SPDX_EXPANDED_LICENSING.standardLicenseTemplate, name="license__standardLicenseTemplate", curie=SPDX_EXPANDED_LICENSING.curie('standardLicenseTemplate'),
-                   model_uri=SPDX_LINKML.license__standardLicenseTemplate, domain=None, range=Optional[str])
-
-slots.licenseAddition__additionText = Slot(uri=SPDX_EXPANDED_LICENSING.additionText, name="licenseAddition__additionText", curie=SPDX_EXPANDED_LICENSING.curie('additionText'),
-                   model_uri=SPDX_LINKML.licenseAddition__additionText, domain=None, range=str)
-
-slots.licenseAddition__isDeprecatedAdditionId = Slot(uri=SPDX_EXPANDED_LICENSING.isDeprecatedAdditionId, name="licenseAddition__isDeprecatedAdditionId", curie=SPDX_EXPANDED_LICENSING.curie('isDeprecatedAdditionId'),
-                   model_uri=SPDX_LINKML.licenseAddition__isDeprecatedAdditionId, domain=None, range=Optional[Union[bool, Bool]])
-
-slots.licenseAddition__standardAdditionTemplate = Slot(uri=SPDX_EXPANDED_LICENSING.standardAdditionTemplate, name="licenseAddition__standardAdditionTemplate", curie=SPDX_EXPANDED_LICENSING.curie('standardAdditionTemplate'),
-                   model_uri=SPDX_LINKML.licenseAddition__standardAdditionTemplate, domain=None, range=Optional[str])
-
-slots.orLaterOperator__subjectLicense = Slot(uri=SPDX_EXPANDED_LICENSING.subjectLicense, name="orLaterOperator__subjectLicense", curie=SPDX_EXPANDED_LICENSING.curie('subjectLicense'),
-                   model_uri=SPDX_LINKML.orLaterOperator__subjectLicense, domain=None, range=Union[str, LicenseSpdxId])
-
-slots.withAdditionOperator__subjectAddition = Slot(uri=SPDX_EXPANDED_LICENSING.subjectAddition, name="withAdditionOperator__subjectAddition", curie=SPDX_EXPANDED_LICENSING.curie('subjectAddition'),
-                   model_uri=SPDX_LINKML.withAdditionOperator__subjectAddition, domain=None, range=Union[str, LicenseAdditionSpdxId])
-
-slots.withAdditionOperator__subjectExtendableLicense = Slot(uri=SPDX_EXPANDED_LICENSING.subjectExtendableLicense, name="withAdditionOperator__subjectExtendableLicense", curie=SPDX_EXPANDED_LICENSING.curie('subjectExtendableLicense'),
-                   model_uri=SPDX_LINKML.withAdditionOperator__subjectExtendableLicense, domain=None, range=Union[str, ExtendableLicenseSpdxId])
-
-slots.epssVulnAssessmentRelationship__percentile = Slot(uri=SPDX_SECURITY.percentile, name="epssVulnAssessmentRelationship__percentile", curie=SPDX_SECURITY.curie('percentile'),
-                   model_uri=SPDX_LINKML.epssVulnAssessmentRelationship__percentile, domain=None, range=Decimal)
-
-slots.epssVulnAssessmentRelationship__probability = Slot(uri=SPDX_SECURITY.probability, name="epssVulnAssessmentRelationship__probability", curie=SPDX_SECURITY.curie('probability'),
-                   model_uri=SPDX_LINKML.epssVulnAssessmentRelationship__probability, domain=None, range=Decimal)
-
-slots.exploitCatalogVulnAssessmentRelationship__catalogType = Slot(uri=SPDX_SECURITY.catalogType, name="exploitCatalogVulnAssessmentRelationship__catalogType", curie=SPDX_SECURITY.curie('catalogType'),
-                   model_uri=SPDX_LINKML.exploitCatalogVulnAssessmentRelationship__catalogType, domain=None, range=Union[str, "ExploitCatalogType"])
-
-slots.exploitCatalogVulnAssessmentRelationship__exploited = Slot(uri=SPDX_SECURITY.exploited, name="exploitCatalogVulnAssessmentRelationship__exploited", curie=SPDX_SECURITY.curie('exploited'),
-                   model_uri=SPDX_LINKML.exploitCatalogVulnAssessmentRelationship__exploited, domain=None, range=Union[bool, Bool])
-
-slots.exploitCatalogVulnAssessmentRelationship__security_locator = Slot(uri=SPDX_SECURITY.locator, name="exploitCatalogVulnAssessmentRelationship__security_locator", curie=SPDX_SECURITY.curie('locator'),
-                   model_uri=SPDX_LINKML.exploitCatalogVulnAssessmentRelationship__security_locator, domain=None, range=Union[str, URI])
-
-slots.ssvcVulnAssessmentRelationship__decisionType = Slot(uri=SPDX_SECURITY.decisionType, name="ssvcVulnAssessmentRelationship__decisionType", curie=SPDX_SECURITY.curie('decisionType'),
-                   model_uri=SPDX_LINKML.ssvcVulnAssessmentRelationship__decisionType, domain=None, range=Union[str, "SsvcDecisionType"])
-
-slots.vexAffectedVulnAssessmentRelationship__actionStatement = Slot(uri=SPDX_SECURITY.actionStatement, name="vexAffectedVulnAssessmentRelationship__actionStatement", curie=SPDX_SECURITY.curie('actionStatement'),
-                   model_uri=SPDX_LINKML.vexAffectedVulnAssessmentRelationship__actionStatement, domain=None, range=str)
-
-slots.vexAffectedVulnAssessmentRelationship__actionStatementTime = Slot(uri=SPDX_SECURITY.actionStatementTime, name="vexAffectedVulnAssessmentRelationship__actionStatementTime", curie=SPDX_SECURITY.curie('actionStatementTime'),
-                   model_uri=SPDX_LINKML.vexAffectedVulnAssessmentRelationship__actionStatementTime, domain=None, range=Optional[Union[str, DateTimeStamp]])
-
-slots.vexNotAffectedVulnAssessmentRelationship__impactStatement = Slot(uri=SPDX_SECURITY.impactStatement, name="vexNotAffectedVulnAssessmentRelationship__impactStatement", curie=SPDX_SECURITY.curie('impactStatement'),
-                   model_uri=SPDX_LINKML.vexNotAffectedVulnAssessmentRelationship__impactStatement, domain=None, range=Optional[str])
-
-slots.vexNotAffectedVulnAssessmentRelationship__impactStatementTime = Slot(uri=SPDX_SECURITY.impactStatementTime, name="vexNotAffectedVulnAssessmentRelationship__impactStatementTime", curie=SPDX_SECURITY.curie('impactStatementTime'),
-                   model_uri=SPDX_LINKML.vexNotAffectedVulnAssessmentRelationship__impactStatementTime, domain=None, range=Optional[Union[str, DateTimeStamp]])
-
-slots.vexNotAffectedVulnAssessmentRelationship__justificationType = Slot(uri=SPDX_SECURITY.justificationType, name="vexNotAffectedVulnAssessmentRelationship__justificationType", curie=SPDX_SECURITY.curie('justificationType'),
-                   model_uri=SPDX_LINKML.vexNotAffectedVulnAssessmentRelationship__justificationType, domain=None, range=Optional[Union[str, "VexJustificationType"]])
-
-slots.vexVulnAssessmentRelationship__statusNotes = Slot(uri=SPDX_SECURITY.statusNotes, name="vexVulnAssessmentRelationship__statusNotes", curie=SPDX_SECURITY.curie('statusNotes'),
-                   model_uri=SPDX_LINKML.vexVulnAssessmentRelationship__statusNotes, domain=None, range=Optional[str])
-
-slots.vexVulnAssessmentRelationship__vexVersion = Slot(uri=SPDX_SECURITY.vexVersion, name="vexVulnAssessmentRelationship__vexVersion", curie=SPDX_SECURITY.curie('vexVersion'),
-                   model_uri=SPDX_LINKML.vexVulnAssessmentRelationship__vexVersion, domain=None, range=Optional[str])
-
-slots.vulnAssessmentRelationship__assessedElement = Slot(uri=SPDX_SECURITY.assessedElement, name="vulnAssessmentRelationship__assessedElement", curie=SPDX_SECURITY.curie('assessedElement'),
-                   model_uri=SPDX_LINKML.vulnAssessmentRelationship__assessedElement, domain=None, range=Optional[Union[str, SoftwareArtifactSpdxId]])
