@@ -3,14 +3,17 @@
 
 Two things can change without a commit here: the SPDX Project releases a newer
 model, so the schema falls behind, or the vendored file drifts from the release
-it claims to be. This script reads the version from the vendored model's
-ontology IRI, downloads the model the SPDX Project publishes for that version
-and compares the two byte for byte, and asks GitHub for the tags of
-spdx/spdx-3-model to see whether a newer release exists. It prints a Markdown
-report and exits 1 when the file differs or a newer release exists. A release
-candidate is reported and does not fail the check.
+it claims to be. The script reads the version from the vendored model's
+ontology IRI, downloads the model the SPDX Project publishes for that version,
+and compares the two byte for byte. It then asks GitHub for the tags of
+spdx/spdx-3-model, to see whether a newer release exists.
 
-Set ``GITHUB_TOKEN`` to raise the API rate limit. Usage::
+It prints a Markdown report, and exits 1 when the file differs or a newer
+release exists. A release candidate newer than every release is reported, and
+does not fail the check.
+
+Set ``GITHUB_TOKEN`` to raise the API rate limit. The script sends it to the
+GitHub API only, and not on to a host the API redirects to. Usage::
 
     python3 scripts/check_upstream_release.py [--report FILE]
 """
@@ -38,7 +41,8 @@ def _get(url: str) -> bytes:
     )
     token = os.environ.get("GITHUB_TOKEN")
     if token and url.startswith("https://api.github.com/"):
-        request.add_header("Authorization", f"Bearer {token}")
+        # urllib copies ordinary headers onto a redirect, whatever its host.
+        request.add_unredirected_header("Authorization", f"Bearer {token}")
         request.add_header("Accept", "application/vnd.github+json")
     with urllib.request.urlopen(request, timeout=60) as response:
         return response.read()
@@ -92,7 +96,8 @@ def check() -> tuple[list[str], bool]:
         report.append(
             f"- The vendored model is the latest SPDX release ({newest[0]}.{newest[1]}.{newest[2]})."
         )
-    if candidates and current and candidates[0][:3] > current[:3]:
+    known = [v[:3] for v in (current, newest) if v]
+    if candidates and known and candidates[0][:3] > max(known):
         tag = next(t for t, v in parsed.items() if v == candidates[0])
         report.append(f"- A release candidate is tagged upstream: `{tag}`.")
     return report, attention
