@@ -7,7 +7,7 @@ email: noel.mcloughlin@gmail.com
 existing_license_file: ''
 full_name: Noel McLoughlin
 gh_action_docs_preview: false
-gh_action_pypi: true
+gh_action_pypi: false
 github_org: lmodel
 license: Apache-2.0
 project_description: 'System Package Data Exchange (SPDX): LinkML Schema'
