@@ -30,7 +30,8 @@ To move to a new SPDX release:
 
 1. Replace the vendored file with the published one.
 2. Run `just gen-linkml`.
-3. Run `just lint`, `just gen-project` and `just test`.
+3. Run `just lint`, `just gen-project`, `just gen-doc`, `just lokf-adapt` and
+   `just test`.
 
 ## What the rendering adds
 
