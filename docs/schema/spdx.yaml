@@ -400,10 +400,9 @@ types:
     in_subset:
     - spdx_core
     from_schema: https://w3id.org/lmodel/spdx/spdx_core
-    typeof: datetime
-    base: XSDDateTime
+    typeof: string
+    base: str
     uri: xsd:dateTimeStamp
-    repr: str
     pattern: ^\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\dZ$
   media_type:
     name: media_type
@@ -7712,6 +7711,6 @@ classes:
     class_uri: spdx_security:Vulnerability
 metamodel_version: 1.12.0
 source_file: spdx.yaml
-source_file_date: '2026-10-29T16:13:48'
+source_file_date: '2026-10-29T16:46:05'
 source_file_size: 2256
 

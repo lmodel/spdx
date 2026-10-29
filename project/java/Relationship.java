@@ -17,10 +17,10 @@ import lombok.*;
 public class Relationship extends Element {
 
   private String completeness;
-  private ZonedDateTime endTime;
+  private String endTime;
   private Element from;
   private String relationshipType;
-  private ZonedDateTime startTime;
+  private String startTime;
   private List<Element> to;
 
 

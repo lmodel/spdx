@@ -471,10 +471,9 @@
         "spdx_core"
       ],
       "from_schema": "https://w3id.org/lmodel/spdx/spdx_core",
-      "typeof": "datetime",
-      "base": "XSDDateTime",
+      "typeof": "string",
+      "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTimeStamp",
-      "repr": "str",
       "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
       "@type": "TypeDefinition"
     },
@@ -9503,7 +9502,7 @@
   ],
   "metamodel_version": "1.12.0",
   "source_file": "spdx.yaml",
-  "source_file_date": "2026-10-29T16:13:48",
+  "source_file_date": "2026-10-29T16:46:05",
   "source_file_size": 2256,
   "@type": "SchemaDefinition",
   "@context": [

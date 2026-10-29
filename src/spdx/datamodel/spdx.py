@@ -55,8 +55,8 @@ from rdflib import (
     URIRef
 )
 
-from linkml_runtime.linkml_model.types import Boolean, Datetime, Decimal, Integer, String, Uri
-from linkml_runtime.utils.metamodelcore import Bool, Decimal, URI, XSDDateTime
+from linkml_runtime.linkml_model.types import Boolean, Decimal, Integer, String, Uri
+from linkml_runtime.utils.metamodelcore import Bool, Decimal, URI
 
 metamodel_version = "1.12.0"
 version = "3.0.1"
@@ -80,7 +80,7 @@ DEFAULT_ = SPDX_LINKML
 
 
 # Types
-class DateTimeStamp(Datetime):
+class DateTimeStamp(String):
     """ A UTC timestamp as SPDX writes one: a date, a time to the second and a trailing Z. """
     type_class_uri = XSD["dateTimeStamp"]
     type_class_curie = "xsd:dateTimeStamp"

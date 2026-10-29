@@ -1285,7 +1285,7 @@ CREATE TABLE "CreationInfo" (
 	id INTEGER NOT NULL,
 	type TEXT,
 	comment TEXT,
-	created DATETIME NOT NULL,
+	created TEXT NOT NULL,
 	"specVersion" TEXT NOT NULL,
 	PRIMARY KEY (id)
 );
@@ -1470,9 +1470,9 @@ CREATE TABLE "Tool" (
 CREATE INDEX "ix_Tool_spdxId" ON "Tool" ("spdxId");
 
 CREATE TABLE "Build" (
-	"buildEndTime" DATETIME,
+	"buildEndTime" TEXT,
 	"buildId" TEXT,
-	"buildStartTime" DATETIME,
+	"buildStartTime" TEXT,
 	"buildType" TEXT NOT NULL,
 	type TEXT,
 	comment TEXT,
@@ -1730,8 +1730,8 @@ CREATE TABLE "PackageVerificationCode_packageVerificationCodeExcludedFile" (
 	PRIMARY KEY ("PackageVerificationCode_id", "packageVerificationCodeExcludedFile"),
 	FOREIGN KEY("PackageVerificationCode_id") REFERENCES "PackageVerificationCode" (id)
 );
-CREATE INDEX "ix_PackageVerificationCode_packageVerificationCodeExcludedFile_packageVerificationCodeExcludedFile" ON "PackageVerificationCode_packageVerificationCodeExcludedFile" ("packageVerificationCodeExcludedFile");
 CREATE INDEX "ix_PackageVerificationCode_packageVerificationCodeExcludedFile_PackageVerificationCode_id" ON "PackageVerificationCode_packageVerificationCodeExcludedFile" ("PackageVerificationCode_id");
+CREATE INDEX "ix_PackageVerificationCode_packageVerificationCodeExcludedFile_packageVerificationCodeExcludedFile" ON "PackageVerificationCode_packageVerificationCodeExcludedFile" ("packageVerificationCodeExcludedFile");
 
 CREATE TABLE "Annotation" (
 	"contentType" TEXT,
@@ -1753,9 +1753,9 @@ CREATE INDEX "ix_Annotation_spdxId" ON "Annotation" ("spdxId");
 
 CREATE TABLE "Artifact" (
 	"suppliedBy" TEXT,
-	"builtTime" DATETIME,
-	"releaseTime" DATETIME,
-	"validUntilTime" DATETIME,
+	"builtTime" TEXT,
+	"releaseTime" TEXT,
+	"validUntilTime" TEXT,
 	type TEXT,
 	comment TEXT,
 	"spdxId" TEXT NOT NULL,
@@ -1784,10 +1784,10 @@ CREATE INDEX "ix_Hash_id" ON "Hash" (id);
 CREATE TABLE "LifecycleScopedRelationship" (
 	scope VARCHAR(11),
 	completeness VARCHAR(11),
-	"endTime" DATETIME,
+	"endTime" TEXT,
 	"from" TEXT NOT NULL,
 	"relationshipType" VARCHAR(26) NOT NULL,
-	"startTime" DATETIME,
+	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
 	"spdxId" TEXT NOT NULL,
@@ -1803,10 +1803,10 @@ CREATE INDEX "ix_LifecycleScopedRelationship_spdxId" ON "LifecycleScopedRelation
 
 CREATE TABLE "Relationship" (
 	completeness VARCHAR(11),
-	"endTime" DATETIME,
+	"endTime" TEXT,
 	"from" TEXT NOT NULL,
 	"relationshipType" VARCHAR(26) NOT NULL,
-	"startTime" DATETIME,
+	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
 	"spdxId" TEXT NOT NULL,
@@ -1841,9 +1841,9 @@ CREATE TABLE "File" (
 	"copyrightText" TEXT,
 	"primaryPurpose" VARCHAR(15),
 	"suppliedBy" TEXT,
-	"builtTime" DATETIME,
-	"releaseTime" DATETIME,
-	"validUntilTime" DATETIME,
+	"builtTime" TEXT,
+	"releaseTime" TEXT,
+	"validUntilTime" TEXT,
 	type TEXT,
 	comment TEXT,
 	"spdxId" TEXT NOT NULL,
@@ -1866,9 +1866,9 @@ CREATE TABLE "Package" (
 	"copyrightText" TEXT,
 	"primaryPurpose" VARCHAR(15),
 	"suppliedBy" TEXT,
-	"builtTime" DATETIME,
-	"releaseTime" DATETIME,
-	"validUntilTime" DATETIME,
+	"builtTime" TEXT,
+	"releaseTime" TEXT,
+	"validUntilTime" TEXT,
 	type TEXT,
 	comment TEXT,
 	"spdxId" TEXT NOT NULL,
@@ -1886,9 +1886,9 @@ CREATE TABLE "SoftwareArtifact" (
 	"copyrightText" TEXT,
 	"primaryPurpose" VARCHAR(15),
 	"suppliedBy" TEXT,
-	"builtTime" DATETIME,
-	"releaseTime" DATETIME,
-	"validUntilTime" DATETIME,
+	"builtTime" TEXT,
+	"releaseTime" TEXT,
+	"validUntilTime" TEXT,
 	type TEXT,
 	comment TEXT,
 	"spdxId" TEXT NOT NULL,
@@ -1917,9 +1917,9 @@ CREATE TABLE "AIPackage" (
 	"copyrightText" TEXT,
 	"primaryPurpose" VARCHAR(15),
 	"suppliedBy" TEXT,
-	"builtTime" DATETIME,
-	"releaseTime" DATETIME,
-	"validUntilTime" DATETIME,
+	"builtTime" TEXT,
+	"releaseTime" TEXT,
+	"validUntilTime" TEXT,
 	type TEXT,
 	comment TEXT,
 	"spdxId" TEXT NOT NULL,
@@ -1952,9 +1952,9 @@ CREATE TABLE "DatasetPackage" (
 	"copyrightText" TEXT,
 	"primaryPurpose" VARCHAR(15),
 	"suppliedBy" TEXT,
-	"builtTime" DATETIME,
-	"releaseTime" DATETIME,
-	"validUntilTime" DATETIME,
+	"builtTime" TEXT,
+	"releaseTime" TEXT,
+	"validUntilTime" TEXT,
 	type TEXT,
 	comment TEXT,
 	"spdxId" TEXT NOT NULL,
@@ -2001,13 +2001,13 @@ CREATE TABLE "WithAdditionOperator" (
 CREATE INDEX "ix_WithAdditionOperator_spdxId" ON "WithAdditionOperator" ("spdxId");
 
 CREATE TABLE "Vulnerability" (
-	"modifiedTime" DATETIME,
-	"publishedTime" DATETIME,
-	"withdrawnTime" DATETIME,
+	"modifiedTime" TEXT,
+	"publishedTime" TEXT,
+	"withdrawnTime" TEXT,
 	"suppliedBy" TEXT,
-	"builtTime" DATETIME,
-	"releaseTime" DATETIME,
-	"validUntilTime" DATETIME,
+	"builtTime" TEXT,
+	"releaseTime" TEXT,
+	"validUntilTime" TEXT,
 	type TEXT,
 	comment TEXT,
 	"spdxId" TEXT NOT NULL,
@@ -2028,8 +2028,8 @@ CREATE TABLE "Bom_element" (
 	FOREIGN KEY("Bom_spdxId") REFERENCES "Bom" ("spdxId"),
 	FOREIGN KEY("element_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_Bom_element_element_spdxId" ON "Bom_element" ("element_spdxId");
 CREATE INDEX "ix_Bom_element_Bom_spdxId" ON "Bom_element" ("Bom_spdxId");
+CREATE INDEX "ix_Bom_element_element_spdxId" ON "Bom_element" ("element_spdxId");
 
 CREATE TABLE "Bom_profileConformance" (
 	"Bom_spdxId" TEXT,
@@ -2047,8 +2047,8 @@ CREATE TABLE "Bom_rootElement" (
 	FOREIGN KEY("Bom_spdxId") REFERENCES "Bom" ("spdxId"),
 	FOREIGN KEY("rootElement_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_Bom_rootElement_Bom_spdxId" ON "Bom_rootElement" ("Bom_spdxId");
 CREATE INDEX "ix_Bom_rootElement_rootElement_spdxId" ON "Bom_rootElement" ("rootElement_spdxId");
+CREATE INDEX "ix_Bom_rootElement_Bom_spdxId" ON "Bom_rootElement" ("Bom_spdxId");
 
 CREATE TABLE "Bundle_element" (
 	"Bundle_spdxId" TEXT,
@@ -2057,8 +2057,8 @@ CREATE TABLE "Bundle_element" (
 	FOREIGN KEY("Bundle_spdxId") REFERENCES "Bundle" ("spdxId"),
 	FOREIGN KEY("element_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_Bundle_element_Bundle_spdxId" ON "Bundle_element" ("Bundle_spdxId");
 CREATE INDEX "ix_Bundle_element_element_spdxId" ON "Bundle_element" ("element_spdxId");
+CREATE INDEX "ix_Bundle_element_Bundle_spdxId" ON "Bundle_element" ("Bundle_spdxId");
 
 CREATE TABLE "Bundle_profileConformance" (
 	"Bundle_spdxId" TEXT,
@@ -2066,8 +2066,8 @@ CREATE TABLE "Bundle_profileConformance" (
 	PRIMARY KEY ("Bundle_spdxId", "profileConformance"),
 	FOREIGN KEY("Bundle_spdxId") REFERENCES "Bundle" ("spdxId")
 );
-CREATE INDEX "ix_Bundle_profileConformance_Bundle_spdxId" ON "Bundle_profileConformance" ("Bundle_spdxId");
 CREATE INDEX "ix_Bundle_profileConformance_profileConformance" ON "Bundle_profileConformance" ("profileConformance");
+CREATE INDEX "ix_Bundle_profileConformance_Bundle_spdxId" ON "Bundle_profileConformance" ("Bundle_spdxId");
 
 CREATE TABLE "Bundle_rootElement" (
 	"Bundle_spdxId" TEXT,
@@ -2096,8 +2096,8 @@ CREATE TABLE "CreationInfo_createdUsing" (
 	FOREIGN KEY("CreationInfo_id") REFERENCES "CreationInfo" (id),
 	FOREIGN KEY("createdUsing_spdxId") REFERENCES "Tool" ("spdxId")
 );
-CREATE INDEX "ix_CreationInfo_createdUsing_createdUsing_spdxId" ON "CreationInfo_createdUsing" ("createdUsing_spdxId");
 CREATE INDEX "ix_CreationInfo_createdUsing_CreationInfo_id" ON "CreationInfo_createdUsing" ("CreationInfo_id");
+CREATE INDEX "ix_CreationInfo_createdUsing_createdUsing_spdxId" ON "CreationInfo_createdUsing" ("createdUsing_spdxId");
 
 CREATE TABLE "ElementCollection_element" (
 	"ElementCollection_spdxId" TEXT,
@@ -2106,8 +2106,8 @@ CREATE TABLE "ElementCollection_element" (
 	FOREIGN KEY("ElementCollection_spdxId") REFERENCES "ElementCollection" ("spdxId"),
 	FOREIGN KEY("element_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_ElementCollection_element_ElementCollection_spdxId" ON "ElementCollection_element" ("ElementCollection_spdxId");
 CREATE INDEX "ix_ElementCollection_element_element_spdxId" ON "ElementCollection_element" ("element_spdxId");
+CREATE INDEX "ix_ElementCollection_element_ElementCollection_spdxId" ON "ElementCollection_element" ("ElementCollection_spdxId");
 
 CREATE TABLE "ElementCollection_profileConformance" (
 	"ElementCollection_spdxId" TEXT,
@@ -2115,8 +2115,8 @@ CREATE TABLE "ElementCollection_profileConformance" (
 	PRIMARY KEY ("ElementCollection_spdxId", "profileConformance"),
 	FOREIGN KEY("ElementCollection_spdxId") REFERENCES "ElementCollection" ("spdxId")
 );
-CREATE INDEX "ix_ElementCollection_profileConformance_ElementCollection_spdxId" ON "ElementCollection_profileConformance" ("ElementCollection_spdxId");
 CREATE INDEX "ix_ElementCollection_profileConformance_profileConformance" ON "ElementCollection_profileConformance" ("profileConformance");
+CREATE INDEX "ix_ElementCollection_profileConformance_ElementCollection_spdxId" ON "ElementCollection_profileConformance" ("ElementCollection_spdxId");
 
 CREATE TABLE "ElementCollection_rootElement" (
 	"ElementCollection_spdxId" TEXT,
@@ -2125,8 +2125,8 @@ CREATE TABLE "ElementCollection_rootElement" (
 	FOREIGN KEY("ElementCollection_spdxId") REFERENCES "ElementCollection" ("spdxId"),
 	FOREIGN KEY("rootElement_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_ElementCollection_rootElement_rootElement_spdxId" ON "ElementCollection_rootElement" ("rootElement_spdxId");
 CREATE INDEX "ix_ElementCollection_rootElement_ElementCollection_spdxId" ON "ElementCollection_rootElement" ("ElementCollection_spdxId");
+CREATE INDEX "ix_ElementCollection_rootElement_rootElement_spdxId" ON "ElementCollection_rootElement" ("rootElement_spdxId");
 
 CREATE TABLE "Build_configSourceEntrypoint" (
 	"Build_spdxId" TEXT,
@@ -2162,8 +2162,8 @@ CREATE TABLE "Sbom_element" (
 	FOREIGN KEY("Sbom_spdxId") REFERENCES "Sbom" ("spdxId"),
 	FOREIGN KEY("element_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_Sbom_element_Sbom_spdxId" ON "Sbom_element" ("Sbom_spdxId");
 CREATE INDEX "ix_Sbom_element_element_spdxId" ON "Sbom_element" ("element_spdxId");
+CREATE INDEX "ix_Sbom_element_Sbom_spdxId" ON "Sbom_element" ("Sbom_spdxId");
 
 CREATE TABLE "Sbom_profileConformance" (
 	"Sbom_spdxId" TEXT,
@@ -2171,8 +2171,8 @@ CREATE TABLE "Sbom_profileConformance" (
 	PRIMARY KEY ("Sbom_spdxId", "profileConformance"),
 	FOREIGN KEY("Sbom_spdxId") REFERENCES "Sbom" ("spdxId")
 );
-CREATE INDEX "ix_Sbom_profileConformance_Sbom_spdxId" ON "Sbom_profileConformance" ("Sbom_spdxId");
 CREATE INDEX "ix_Sbom_profileConformance_profileConformance" ON "Sbom_profileConformance" ("profileConformance");
+CREATE INDEX "ix_Sbom_profileConformance_Sbom_spdxId" ON "Sbom_profileConformance" ("Sbom_spdxId");
 
 CREATE TABLE "Sbom_rootElement" (
 	"Sbom_spdxId" TEXT,
@@ -2181,8 +2181,8 @@ CREATE TABLE "Sbom_rootElement" (
 	FOREIGN KEY("Sbom_spdxId") REFERENCES "Sbom" ("spdxId"),
 	FOREIGN KEY("rootElement_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_Sbom_rootElement_rootElement_spdxId" ON "Sbom_rootElement" ("rootElement_spdxId");
 CREATE INDEX "ix_Sbom_rootElement_Sbom_spdxId" ON "Sbom_rootElement" ("Sbom_spdxId");
+CREATE INDEX "ix_Sbom_rootElement_rootElement_spdxId" ON "Sbom_rootElement" ("rootElement_spdxId");
 
 CREATE TABLE "ConjunctiveLicenseSet_member" (
 	"ConjunctiveLicenseSet_spdxId" TEXT,
@@ -2304,9 +2304,9 @@ CREATE TABLE "Snippet" (
 	"copyrightText" TEXT,
 	"primaryPurpose" VARCHAR(15),
 	"suppliedBy" TEXT,
-	"builtTime" DATETIME,
-	"releaseTime" DATETIME,
-	"validUntilTime" DATETIME,
+	"builtTime" TEXT,
+	"releaseTime" TEXT,
+	"validUntilTime" TEXT,
 	type TEXT,
 	comment TEXT,
 	"spdxId" TEXT NOT NULL,
@@ -2328,16 +2328,16 @@ CREATE INDEX "ix_Snippet_spdxId" ON "Snippet" ("spdxId");
 CREATE TABLE "CvssV2VulnAssessmentRelationship" (
 	score NUMERIC NOT NULL,
 	"vectorString" TEXT NOT NULL,
-	"modifiedTime" DATETIME,
-	"publishedTime" DATETIME,
+	"modifiedTime" TEXT,
+	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
-	"withdrawnTime" DATETIME,
+	"withdrawnTime" TEXT,
 	"assessedElement" TEXT,
 	completeness VARCHAR(11),
-	"endTime" DATETIME,
+	"endTime" TEXT,
 	"from" TEXT NOT NULL,
 	"relationshipType" VARCHAR(26) NOT NULL,
-	"startTime" DATETIME,
+	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
 	"spdxId" TEXT NOT NULL,
@@ -2357,16 +2357,16 @@ CREATE TABLE "CvssV3VulnAssessmentRelationship" (
 	score NUMERIC NOT NULL,
 	severity VARCHAR(8) NOT NULL,
 	"vectorString" TEXT NOT NULL,
-	"modifiedTime" DATETIME,
-	"publishedTime" DATETIME,
+	"modifiedTime" TEXT,
+	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
-	"withdrawnTime" DATETIME,
+	"withdrawnTime" TEXT,
 	"assessedElement" TEXT,
 	completeness VARCHAR(11),
-	"endTime" DATETIME,
+	"endTime" TEXT,
 	"from" TEXT NOT NULL,
 	"relationshipType" VARCHAR(26) NOT NULL,
-	"startTime" DATETIME,
+	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
 	"spdxId" TEXT NOT NULL,
@@ -2386,16 +2386,16 @@ CREATE TABLE "CvssV4VulnAssessmentRelationship" (
 	score NUMERIC NOT NULL,
 	severity VARCHAR(8) NOT NULL,
 	"vectorString" TEXT NOT NULL,
-	"modifiedTime" DATETIME,
-	"publishedTime" DATETIME,
+	"modifiedTime" TEXT,
+	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
-	"withdrawnTime" DATETIME,
+	"withdrawnTime" TEXT,
 	"assessedElement" TEXT,
 	completeness VARCHAR(11),
-	"endTime" DATETIME,
+	"endTime" TEXT,
 	"from" TEXT NOT NULL,
 	"relationshipType" VARCHAR(26) NOT NULL,
-	"startTime" DATETIME,
+	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
 	"spdxId" TEXT NOT NULL,
@@ -2414,16 +2414,16 @@ CREATE INDEX "ix_CvssV4VulnAssessmentRelationship_spdxId" ON "CvssV4VulnAssessme
 CREATE TABLE "EpssVulnAssessmentRelationship" (
 	percentile NUMERIC NOT NULL,
 	probability NUMERIC NOT NULL,
-	"modifiedTime" DATETIME,
-	"publishedTime" DATETIME,
+	"modifiedTime" TEXT,
+	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
-	"withdrawnTime" DATETIME,
+	"withdrawnTime" TEXT,
 	"assessedElement" TEXT,
 	completeness VARCHAR(11),
-	"endTime" DATETIME,
+	"endTime" TEXT,
 	"from" TEXT NOT NULL,
 	"relationshipType" VARCHAR(26) NOT NULL,
-	"startTime" DATETIME,
+	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
 	"spdxId" TEXT NOT NULL,
@@ -2443,16 +2443,16 @@ CREATE TABLE "ExploitCatalogVulnAssessmentRelationship" (
 	"catalogType" VARCHAR(5) NOT NULL,
 	exploited BOOLEAN NOT NULL,
 	security_locator TEXT NOT NULL,
-	"modifiedTime" DATETIME,
-	"publishedTime" DATETIME,
+	"modifiedTime" TEXT,
+	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
-	"withdrawnTime" DATETIME,
+	"withdrawnTime" TEXT,
 	"assessedElement" TEXT,
 	completeness VARCHAR(11),
-	"endTime" DATETIME,
+	"endTime" TEXT,
 	"from" TEXT NOT NULL,
 	"relationshipType" VARCHAR(26) NOT NULL,
-	"startTime" DATETIME,
+	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
 	"spdxId" TEXT NOT NULL,
@@ -2470,16 +2470,16 @@ CREATE INDEX "ix_ExploitCatalogVulnAssessmentRelationship_spdxId" ON "ExploitCat
 
 CREATE TABLE "SsvcVulnAssessmentRelationship" (
 	"decisionType" VARCHAR(9) NOT NULL,
-	"modifiedTime" DATETIME,
-	"publishedTime" DATETIME,
+	"modifiedTime" TEXT,
+	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
-	"withdrawnTime" DATETIME,
+	"withdrawnTime" TEXT,
 	"assessedElement" TEXT,
 	completeness VARCHAR(11),
-	"endTime" DATETIME,
+	"endTime" TEXT,
 	"from" TEXT NOT NULL,
 	"relationshipType" VARCHAR(26) NOT NULL,
-	"startTime" DATETIME,
+	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
 	"spdxId" TEXT NOT NULL,
@@ -2497,19 +2497,19 @@ CREATE INDEX "ix_SsvcVulnAssessmentRelationship_spdxId" ON "SsvcVulnAssessmentRe
 
 CREATE TABLE "VexAffectedVulnAssessmentRelationship" (
 	"actionStatement" TEXT NOT NULL,
-	"actionStatementTime" DATETIME,
+	"actionStatementTime" TEXT,
 	"statusNotes" TEXT,
 	"vexVersion" TEXT,
-	"modifiedTime" DATETIME,
-	"publishedTime" DATETIME,
+	"modifiedTime" TEXT,
+	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
-	"withdrawnTime" DATETIME,
+	"withdrawnTime" TEXT,
 	"assessedElement" TEXT,
 	completeness VARCHAR(11),
-	"endTime" DATETIME,
+	"endTime" TEXT,
 	"from" TEXT NOT NULL,
 	"relationshipType" VARCHAR(26) NOT NULL,
-	"startTime" DATETIME,
+	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
 	"spdxId" TEXT NOT NULL,
@@ -2528,16 +2528,16 @@ CREATE INDEX "ix_VexAffectedVulnAssessmentRelationship_spdxId" ON "VexAffectedVu
 CREATE TABLE "VexFixedVulnAssessmentRelationship" (
 	"statusNotes" TEXT,
 	"vexVersion" TEXT,
-	"modifiedTime" DATETIME,
-	"publishedTime" DATETIME,
+	"modifiedTime" TEXT,
+	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
-	"withdrawnTime" DATETIME,
+	"withdrawnTime" TEXT,
 	"assessedElement" TEXT,
 	completeness VARCHAR(11),
-	"endTime" DATETIME,
+	"endTime" TEXT,
 	"from" TEXT NOT NULL,
 	"relationshipType" VARCHAR(26) NOT NULL,
-	"startTime" DATETIME,
+	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
 	"spdxId" TEXT NOT NULL,
@@ -2555,20 +2555,20 @@ CREATE INDEX "ix_VexFixedVulnAssessmentRelationship_spdxId" ON "VexFixedVulnAsse
 
 CREATE TABLE "VexNotAffectedVulnAssessmentRelationship" (
 	"impactStatement" TEXT,
-	"impactStatementTime" DATETIME,
+	"impactStatementTime" TEXT,
 	"justificationType" VARCHAR(43),
 	"statusNotes" TEXT,
 	"vexVersion" TEXT,
-	"modifiedTime" DATETIME,
-	"publishedTime" DATETIME,
+	"modifiedTime" TEXT,
+	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
-	"withdrawnTime" DATETIME,
+	"withdrawnTime" TEXT,
 	"assessedElement" TEXT,
 	completeness VARCHAR(11),
-	"endTime" DATETIME,
+	"endTime" TEXT,
 	"from" TEXT NOT NULL,
 	"relationshipType" VARCHAR(26) NOT NULL,
-	"startTime" DATETIME,
+	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
 	"spdxId" TEXT NOT NULL,
@@ -2587,16 +2587,16 @@ CREATE INDEX "ix_VexNotAffectedVulnAssessmentRelationship_spdxId" ON "VexNotAffe
 CREATE TABLE "VexUnderInvestigationVulnAssessmentRelationship" (
 	"statusNotes" TEXT,
 	"vexVersion" TEXT,
-	"modifiedTime" DATETIME,
-	"publishedTime" DATETIME,
+	"modifiedTime" TEXT,
+	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
-	"withdrawnTime" DATETIME,
+	"withdrawnTime" TEXT,
 	"assessedElement" TEXT,
 	completeness VARCHAR(11),
-	"endTime" DATETIME,
+	"endTime" TEXT,
 	"from" TEXT NOT NULL,
 	"relationshipType" VARCHAR(26) NOT NULL,
-	"startTime" DATETIME,
+	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
 	"spdxId" TEXT NOT NULL,
@@ -2615,16 +2615,16 @@ CREATE INDEX "ix_VexUnderInvestigationVulnAssessmentRelationship_spdxId" ON "Vex
 CREATE TABLE "VexVulnAssessmentRelationship" (
 	"statusNotes" TEXT,
 	"vexVersion" TEXT,
-	"modifiedTime" DATETIME,
-	"publishedTime" DATETIME,
+	"modifiedTime" TEXT,
+	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
-	"withdrawnTime" DATETIME,
+	"withdrawnTime" TEXT,
 	"assessedElement" TEXT,
 	completeness VARCHAR(11),
-	"endTime" DATETIME,
+	"endTime" TEXT,
 	"from" TEXT NOT NULL,
 	"relationshipType" VARCHAR(26) NOT NULL,
-	"startTime" DATETIME,
+	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
 	"spdxId" TEXT NOT NULL,
@@ -2641,16 +2641,16 @@ CREATE TABLE "VexVulnAssessmentRelationship" (
 CREATE INDEX "ix_VexVulnAssessmentRelationship_spdxId" ON "VexVulnAssessmentRelationship" ("spdxId");
 
 CREATE TABLE "VulnAssessmentRelationship" (
-	"modifiedTime" DATETIME,
-	"publishedTime" DATETIME,
+	"modifiedTime" TEXT,
+	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
-	"withdrawnTime" DATETIME,
+	"withdrawnTime" TEXT,
 	"assessedElement" TEXT,
 	completeness VARCHAR(11),
-	"endTime" DATETIME,
+	"endTime" TEXT,
 	"from" TEXT NOT NULL,
 	"relationshipType" VARCHAR(26) NOT NULL,
-	"startTime" DATETIME,
+	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
 	"spdxId" TEXT NOT NULL,
@@ -2682,8 +2682,8 @@ CREATE TABLE "Artifact_standardName" (
 	PRIMARY KEY ("Artifact_spdxId", "standardName"),
 	FOREIGN KEY("Artifact_spdxId") REFERENCES "Artifact" ("spdxId")
 );
-CREATE INDEX "ix_Artifact_standardName_standardName" ON "Artifact_standardName" ("standardName");
 CREATE INDEX "ix_Artifact_standardName_Artifact_spdxId" ON "Artifact_standardName" ("Artifact_spdxId");
+CREATE INDEX "ix_Artifact_standardName_standardName" ON "Artifact_standardName" ("standardName");
 
 CREATE TABLE "Artifact_supportLevel" (
 	"Artifact_spdxId" TEXT,
@@ -2701,8 +2701,8 @@ CREATE TABLE "LifecycleScopedRelationship_to" (
 	FOREIGN KEY("LifecycleScopedRelationship_spdxId") REFERENCES "LifecycleScopedRelationship" ("spdxId"),
 	FOREIGN KEY("to_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_LifecycleScopedRelationship_to_to_spdxId" ON "LifecycleScopedRelationship_to" ("to_spdxId");
 CREATE INDEX "ix_LifecycleScopedRelationship_to_LifecycleScopedRelationship_spdxId" ON "LifecycleScopedRelationship_to" ("LifecycleScopedRelationship_spdxId");
+CREATE INDEX "ix_LifecycleScopedRelationship_to_to_spdxId" ON "LifecycleScopedRelationship_to" ("to_spdxId");
 
 CREATE TABLE "Relationship_to" (
 	"Relationship_spdxId" TEXT,
@@ -2711,8 +2711,8 @@ CREATE TABLE "Relationship_to" (
 	FOREIGN KEY("Relationship_spdxId") REFERENCES "Relationship" ("spdxId"),
 	FOREIGN KEY("to_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_Relationship_to_Relationship_spdxId" ON "Relationship_to" ("Relationship_spdxId");
 CREATE INDEX "ix_Relationship_to_to_spdxId" ON "Relationship_to" ("to_spdxId");
+CREATE INDEX "ix_Relationship_to_Relationship_spdxId" ON "Relationship_to" ("Relationship_spdxId");
 
 CREATE TABLE "SpdxDocument_element" (
 	"SpdxDocument_spdxId" TEXT,
@@ -2758,8 +2758,8 @@ CREATE TABLE "File_attributionText" (
 	PRIMARY KEY ("File_spdxId", "attributionText"),
 	FOREIGN KEY("File_spdxId") REFERENCES "File" ("spdxId")
 );
-CREATE INDEX "ix_File_attributionText_File_spdxId" ON "File_attributionText" ("File_spdxId");
 CREATE INDEX "ix_File_attributionText_attributionText" ON "File_attributionText" ("attributionText");
+CREATE INDEX "ix_File_attributionText_File_spdxId" ON "File_attributionText" ("File_spdxId");
 
 CREATE TABLE "File_originatedBy" (
 	"File_spdxId" TEXT,
@@ -2777,8 +2777,8 @@ CREATE TABLE "File_standardName" (
 	PRIMARY KEY ("File_spdxId", "standardName"),
 	FOREIGN KEY("File_spdxId") REFERENCES "File" ("spdxId")
 );
-CREATE INDEX "ix_File_standardName_standardName" ON "File_standardName" ("standardName");
 CREATE INDEX "ix_File_standardName_File_spdxId" ON "File_standardName" ("File_spdxId");
+CREATE INDEX "ix_File_standardName_standardName" ON "File_standardName" ("standardName");
 
 CREATE TABLE "File_supportLevel" (
 	"File_spdxId" TEXT,
@@ -2804,8 +2804,8 @@ CREATE TABLE "Package_attributionText" (
 	PRIMARY KEY ("Package_spdxId", "attributionText"),
 	FOREIGN KEY("Package_spdxId") REFERENCES "Package" ("spdxId")
 );
-CREATE INDEX "ix_Package_attributionText_Package_spdxId" ON "Package_attributionText" ("Package_spdxId");
 CREATE INDEX "ix_Package_attributionText_attributionText" ON "Package_attributionText" ("attributionText");
+CREATE INDEX "ix_Package_attributionText_Package_spdxId" ON "Package_attributionText" ("Package_spdxId");
 
 CREATE TABLE "Package_originatedBy" (
 	"Package_spdxId" TEXT,
@@ -2814,8 +2814,8 @@ CREATE TABLE "Package_originatedBy" (
 	FOREIGN KEY("Package_spdxId") REFERENCES "Package" ("spdxId"),
 	FOREIGN KEY("originatedBy_spdxId") REFERENCES "Agent" ("spdxId")
 );
-CREATE INDEX "ix_Package_originatedBy_originatedBy_spdxId" ON "Package_originatedBy" ("originatedBy_spdxId");
 CREATE INDEX "ix_Package_originatedBy_Package_spdxId" ON "Package_originatedBy" ("Package_spdxId");
+CREATE INDEX "ix_Package_originatedBy_originatedBy_spdxId" ON "Package_originatedBy" ("originatedBy_spdxId");
 
 CREATE TABLE "Package_standardName" (
 	"Package_spdxId" TEXT,
@@ -3575,8 +3575,8 @@ CREATE TABLE "Snippet_originatedBy" (
 	FOREIGN KEY("Snippet_spdxId") REFERENCES "Snippet" ("spdxId"),
 	FOREIGN KEY("originatedBy_spdxId") REFERENCES "Agent" ("spdxId")
 );
-CREATE INDEX "ix_Snippet_originatedBy_Snippet_spdxId" ON "Snippet_originatedBy" ("Snippet_spdxId");
 CREATE INDEX "ix_Snippet_originatedBy_originatedBy_spdxId" ON "Snippet_originatedBy" ("originatedBy_spdxId");
+CREATE INDEX "ix_Snippet_originatedBy_Snippet_spdxId" ON "Snippet_originatedBy" ("Snippet_spdxId");
 
 CREATE TABLE "Snippet_standardName" (
 	"Snippet_spdxId" TEXT,
@@ -3731,5 +3731,5 @@ CREATE TABLE "ExternalRef_locator" (
 	PRIMARY KEY ("ExternalRef_id", locator),
 	FOREIGN KEY("ExternalRef_id") REFERENCES "ExternalRef" (id)
 );
-CREATE INDEX "ix_ExternalRef_locator_ExternalRef_id" ON "ExternalRef_locator" ("ExternalRef_id");
 CREATE INDEX "ix_ExternalRef_locator_locator" ON "ExternalRef_locator" (locator);
+CREATE INDEX "ix_ExternalRef_locator_ExternalRef_id" ON "ExternalRef_locator" ("ExternalRef_id");

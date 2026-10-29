@@ -17,7 +17,7 @@ import lombok.*;
 public class VexNotAffectedVulnAssessmentRelationship extends VexVulnAssessmentRelationship {
 
   private String impactStatement;
-  private ZonedDateTime impactStatementTime;
+  private String impactStatementTime;
   private String justificationType;
 
 

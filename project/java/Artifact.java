@@ -17,12 +17,12 @@ import lombok.*;
 public abstract class Artifact extends Element {
 
   private Agent suppliedBy;
-  private ZonedDateTime builtTime;
+  private String builtTime;
   private List<Agent> originatedBy;
-  private ZonedDateTime releaseTime;
+  private String releaseTime;
   private List<String> standardName;
   private List<String> supportLevel;
-  private ZonedDateTime validUntilTime;
+  private String validUntilTime;
 
 
 }

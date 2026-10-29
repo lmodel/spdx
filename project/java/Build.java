@@ -16,9 +16,9 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public class Build extends Element {
 
-  private ZonedDateTime buildEndTime;
+  private String buildEndTime;
   private String buildId;
-  private ZonedDateTime buildStartTime;
+  private String buildStartTime;
   private URI buildType;
   private List<Hash> configSourceDigest;
   private List<String> configSourceEntrypoint;

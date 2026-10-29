@@ -66,9 +66,8 @@ subsets:
 types:
 
   date_time_stamp:
-    typeof: datetime
-    base: XSDDateTime
-    repr: str
+    typeof: string
+    base: str
     uri: xsd:dateTimeStamp
     description: >-
       A UTC timestamp as SPDX writes one: a date, a time to the second and a trailing Z.

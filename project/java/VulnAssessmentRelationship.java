@@ -16,10 +16,10 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public abstract class VulnAssessmentRelationship extends Relationship {
 
-  private ZonedDateTime modifiedTime;
-  private ZonedDateTime publishedTime;
+  private String modifiedTime;
+  private String publishedTime;
   private Agent suppliedBy;
-  private ZonedDateTime withdrawnTime;
+  private String withdrawnTime;
   private SoftwareArtifact assessedElement;
 
 

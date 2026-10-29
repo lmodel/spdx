@@ -37,7 +37,6 @@
                 },
                 "builtTime": {
                     "description": "Specifies the time an artifact was built.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -263,7 +262,6 @@
                 },
                 "releaseTime": {
                     "description": "Specifies the time an artifact was released.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -371,7 +369,6 @@
                 },
                 "validUntilTime": {
                     "description": "Specifies until when the artifact can be used before its usage needs to be reassessed.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -774,7 +771,6 @@
             "properties": {
                 "builtTime": {
                     "description": "Specifies the time an artifact was built.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -849,7 +845,6 @@
                 },
                 "releaseTime": {
                     "description": "Specifies the time an artifact was released.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -908,7 +903,6 @@
                 },
                 "validUntilTime": {
                     "description": "Specifies until when the artifact can be used before its usage needs to be reassessed.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -1097,7 +1091,6 @@
             "properties": {
                 "buildEndTime": {
                     "description": "Property that describes the time at which a build stops.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -1113,7 +1106,6 @@
                 },
                 "buildStartTime": {
                     "description": "Property describing the start time of a build.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -1680,7 +1672,6 @@
                 },
                 "created": {
                     "description": "Identifies when the Element was originally created.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": "string"
                 },
@@ -2109,7 +2100,6 @@
                 },
                 "endTime": {
                     "description": "Specifies the time from which an element is no longer applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -2153,7 +2143,6 @@
                 },
                 "modifiedTime": {
                     "description": "Specifies a time when a vulnerability assessment was modified",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -2169,7 +2158,6 @@
                 },
                 "publishedTime": {
                     "description": "Specifies the time when a vulnerability was published.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -2191,7 +2179,6 @@
                 },
                 "startTime": {
                     "description": "Specifies the time from which an element is applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -2257,7 +2244,6 @@
                 },
                 "withdrawnTime": {
                     "description": "Specified the time and date when a vulnerability was withdrawn.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -2320,7 +2306,6 @@
                 },
                 "endTime": {
                     "description": "Specifies the time from which an element is no longer applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -2364,7 +2349,6 @@
                 },
                 "modifiedTime": {
                     "description": "Specifies a time when a vulnerability assessment was modified",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -2380,7 +2364,6 @@
                 },
                 "publishedTime": {
                     "description": "Specifies the time when a vulnerability was published.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -2406,7 +2389,6 @@
                 },
                 "startTime": {
                     "description": "Specifies the time from which an element is applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -2472,7 +2454,6 @@
                 },
                 "withdrawnTime": {
                     "description": "Specified the time and date when a vulnerability was withdrawn.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -2536,7 +2517,6 @@
                 },
                 "endTime": {
                     "description": "Specifies the time from which an element is no longer applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -2580,7 +2560,6 @@
                 },
                 "modifiedTime": {
                     "description": "Specifies a time when a vulnerability assessment was modified",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -2596,7 +2575,6 @@
                 },
                 "publishedTime": {
                     "description": "Specifies the time when a vulnerability was published.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -2622,7 +2600,6 @@
                 },
                 "startTime": {
                     "description": "Specifies the time from which an element is applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -2688,7 +2665,6 @@
                 },
                 "withdrawnTime": {
                     "description": "Specified the time and date when a vulnerability was withdrawn.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -2757,7 +2733,6 @@
                 },
                 "builtTime": {
                     "description": "Specifies the time an artifact was built.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -2987,7 +2962,6 @@
                 },
                 "releaseTime": {
                     "description": "Specifies the time an artifact was released.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -3063,7 +3037,6 @@
                 },
                 "validUntilTime": {
                     "description": "Specifies until when the artifact can be used before its usage needs to be reassessed.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -3652,7 +3625,6 @@
                 },
                 "endTime": {
                     "description": "Specifies the time from which an element is no longer applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -3696,7 +3668,6 @@
                 },
                 "modifiedTime": {
                     "description": "Specifies a time when a vulnerability assessment was modified",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -3720,7 +3691,6 @@
                 },
                 "publishedTime": {
                     "description": "Specifies the time when a vulnerability was published.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -3738,7 +3708,6 @@
                 },
                 "startTime": {
                     "description": "Specifies the time from which an element is applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -3800,7 +3769,6 @@
                 },
                 "withdrawnTime": {
                     "description": "Specified the time and date when a vulnerability was withdrawn.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -3876,7 +3844,6 @@
                 },
                 "endTime": {
                     "description": "Specifies the time from which an element is no longer applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -3924,7 +3891,6 @@
                 },
                 "modifiedTime": {
                     "description": "Specifies a time when a vulnerability assessment was modified",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -3940,7 +3906,6 @@
                 },
                 "publishedTime": {
                     "description": "Specifies the time when a vulnerability was published.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -3963,7 +3928,6 @@
                 },
                 "startTime": {
                     "description": "Specifies the time from which an element is applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -4025,7 +3989,6 @@
                 },
                 "withdrawnTime": {
                     "description": "Specified the time and date when a vulnerability was withdrawn.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -4441,7 +4404,6 @@
                 },
                 "builtTime": {
                     "description": "Specifies the time an artifact was built.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -4563,7 +4525,6 @@
                 },
                 "releaseTime": {
                     "description": "Specifies the time an artifact was released.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -4622,7 +4583,6 @@
                 },
                 "validUntilTime": {
                     "description": "Specifies until when the artifact can be used before its usage needs to be reassessed.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -5482,7 +5442,6 @@
                 },
                 "endTime": {
                     "description": "Specifies the time from which an element is no longer applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -5553,7 +5512,6 @@
                 },
                 "startTime": {
                     "description": "Specifies the time from which an element is applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -6252,7 +6210,6 @@
                 },
                 "builtTime": {
                     "description": "Specifies the time an artifact was built.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -6386,7 +6343,6 @@
                 },
                 "releaseTime": {
                     "description": "Specifies the time an artifact was released.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -6452,7 +6408,6 @@
                 },
                 "validUntilTime": {
                     "description": "Specifies until when the artifact can be used before its usage needs to be reassessed.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -6737,7 +6692,6 @@
                 },
                 "endTime": {
                     "description": "Specifies the time from which an element is no longer applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -6797,7 +6751,6 @@
                 },
                 "startTime": {
                     "description": "Specifies the time from which an element is applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -7258,7 +7211,6 @@
                 },
                 "builtTime": {
                     "description": "Specifies the time an artifact was built.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -7383,7 +7335,6 @@
                 },
                 "releaseTime": {
                     "description": "Specifies the time an artifact was released.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -7447,7 +7398,6 @@
                 },
                 "validUntilTime": {
                     "description": "Specifies until when the artifact can be used before its usage needs to be reassessed.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -7618,7 +7568,6 @@
                 },
                 "builtTime": {
                     "description": "Specifies the time an artifact was built.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -7721,7 +7670,6 @@
                 },
                 "releaseTime": {
                     "description": "Specifies the time an artifact was released.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -7780,7 +7728,6 @@
                 },
                 "validUntilTime": {
                     "description": "Specifies until when the artifact can be used before its usage needs to be reassessed.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -8078,7 +8025,6 @@
                 },
                 "endTime": {
                     "description": "Specifies the time from which an element is no longer applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -8122,7 +8068,6 @@
                 },
                 "modifiedTime": {
                     "description": "Specifies a time when a vulnerability assessment was modified",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -8138,7 +8083,6 @@
                 },
                 "publishedTime": {
                     "description": "Specifies the time when a vulnerability was published.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -8156,7 +8100,6 @@
                 },
                 "startTime": {
                     "description": "Specifies the time from which an element is applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -8218,7 +8161,6 @@
                 },
                 "withdrawnTime": {
                     "description": "Specified the time and date when a vulnerability was withdrawn.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -8370,7 +8312,6 @@
                 },
                 "actionStatementTime": {
                     "description": "Records the time when a recommended action was communicated in a VEX statement to mitigate a vulnerability.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -8416,7 +8357,6 @@
                 },
                 "endTime": {
                     "description": "Specifies the time from which an element is no longer applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -8460,7 +8400,6 @@
                 },
                 "modifiedTime": {
                     "description": "Specifies a time when a vulnerability assessment was modified",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -8476,7 +8415,6 @@
                 },
                 "publishedTime": {
                     "description": "Specifies the time when a vulnerability was published.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -8494,7 +8432,6 @@
                 },
                 "startTime": {
                     "description": "Specifies the time from which an element is applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -8570,7 +8507,6 @@
                 },
                 "withdrawnTime": {
                     "description": "Specified the time and date when a vulnerability was withdrawn.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -8632,7 +8568,6 @@
                 },
                 "endTime": {
                     "description": "Specifies the time from which an element is no longer applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -8676,7 +8611,6 @@
                 },
                 "modifiedTime": {
                     "description": "Specifies a time when a vulnerability assessment was modified",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -8692,7 +8626,6 @@
                 },
                 "publishedTime": {
                     "description": "Specifies the time when a vulnerability was published.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -8710,7 +8643,6 @@
                 },
                 "startTime": {
                     "description": "Specifies the time from which an element is applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -8786,7 +8718,6 @@
                 },
                 "withdrawnTime": {
                     "description": "Specified the time and date when a vulnerability was withdrawn.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -8859,7 +8790,6 @@
                 },
                 "endTime": {
                     "description": "Specifies the time from which an element is no longer applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -8910,7 +8840,6 @@
                 },
                 "impactStatementTime": {
                     "description": "Timestamp of impact statement.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -8930,7 +8859,6 @@
                 },
                 "modifiedTime": {
                     "description": "Specifies a time when a vulnerability assessment was modified",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -8946,7 +8874,6 @@
                 },
                 "publishedTime": {
                     "description": "Specifies the time when a vulnerability was published.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -8964,7 +8891,6 @@
                 },
                 "startTime": {
                     "description": "Specifies the time from which an element is applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -9040,7 +8966,6 @@
                 },
                 "withdrawnTime": {
                     "description": "Specified the time and date when a vulnerability was withdrawn.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -9101,7 +9026,6 @@
                 },
                 "endTime": {
                     "description": "Specifies the time from which an element is no longer applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -9145,7 +9069,6 @@
                 },
                 "modifiedTime": {
                     "description": "Specifies a time when a vulnerability assessment was modified",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -9161,7 +9084,6 @@
                 },
                 "publishedTime": {
                     "description": "Specifies the time when a vulnerability was published.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -9179,7 +9101,6 @@
                 },
                 "startTime": {
                     "description": "Specifies the time from which an element is applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -9255,7 +9176,6 @@
                 },
                 "withdrawnTime": {
                     "description": "Specified the time and date when a vulnerability was withdrawn.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -9316,7 +9236,6 @@
                 },
                 "endTime": {
                     "description": "Specifies the time from which an element is no longer applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -9360,7 +9279,6 @@
                 },
                 "modifiedTime": {
                     "description": "Specifies a time when a vulnerability assessment was modified",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -9376,7 +9294,6 @@
                 },
                 "publishedTime": {
                     "description": "Specifies the time when a vulnerability was published.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -9394,7 +9311,6 @@
                 },
                 "startTime": {
                     "description": "Specifies the time from which an element is applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -9470,7 +9386,6 @@
                 },
                 "withdrawnTime": {
                     "description": "Specified the time and date when a vulnerability was withdrawn.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -9531,7 +9446,6 @@
                 },
                 "endTime": {
                     "description": "Specifies the time from which an element is no longer applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -9575,7 +9489,6 @@
                 },
                 "modifiedTime": {
                     "description": "Specifies a time when a vulnerability assessment was modified",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -9591,7 +9504,6 @@
                 },
                 "publishedTime": {
                     "description": "Specifies the time when a vulnerability was published.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -9609,7 +9521,6 @@
                 },
                 "startTime": {
                     "description": "Specifies the time from which an element is applicable / valid.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -9671,7 +9582,6 @@
                 },
                 "withdrawnTime": {
                     "description": "Specified the time and date when a vulnerability was withdrawn.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -9695,7 +9605,6 @@
             "properties": {
                 "builtTime": {
                     "description": "Specifies the time an artifact was built.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -9752,7 +9661,6 @@
                 },
                 "modifiedTime": {
                     "description": "Specifies a time when a vulnerability assessment was modified",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -9779,7 +9687,6 @@
                 },
                 "publishedTime": {
                     "description": "Specifies the time when a vulnerability was published.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -9788,7 +9695,6 @@
                 },
                 "releaseTime": {
                     "description": "Specifies the time an artifact was released.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -9847,7 +9753,6 @@
                 },
                 "validUntilTime": {
                     "description": "Specifies until when the artifact can be used before its usage needs to be reassessed.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",
@@ -9876,7 +9781,6 @@
                 },
                 "withdrawnTime": {
                     "description": "Specified the time and date when a vulnerability was withdrawn.",
-                    "format": "date-time",
                     "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$",
                     "type": [
                         "string",

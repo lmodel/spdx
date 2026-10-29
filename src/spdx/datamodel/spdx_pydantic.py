@@ -1323,7 +1323,7 @@ class CreationInfo(ConfiguredBaseModel):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/comment/'],
          'slot_uri': 'spdx_core:comment'} })
-    created: datetime  = Field(default=..., description="""Identifies when the Element was originally created.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CreationInfo'],
+    created: str = Field(default=..., description="""Identifies when the Element was originally created.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CreationInfo'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/created/'],
          'slot_uri': 'spdx_core:created'} })
     createdBy: list[str] = Field(default=..., description="""Identifies who or what created the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CreationInfo'],
@@ -1673,13 +1673,13 @@ class Artifact(Element):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    builtTime: Optional[datetime ] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
          'slot_uri': 'spdx_core:builtTime'} })
     originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
          'slot_uri': 'spdx_core:originatedBy'} })
-    releaseTime: Optional[datetime ] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
          'slot_uri': 'spdx_core:releaseTime'} })
     standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
@@ -1688,7 +1688,7 @@ class Artifact(Element):
     supportLevel: Optional[list[SupportType]] = Field(default=None, description="""Specifies the level of support associated with an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/supportLevel/'],
          'slot_uri': 'spdx_core:supportLevel'} })
-    validUntilTime: Optional[datetime ] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
     type: Literal["Artifact"] = Field(default="Artifact", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
@@ -2578,7 +2578,7 @@ class Relationship(Element):
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
-    endTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -2587,7 +2587,7 @@ class Relationship(Element):
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
-    startTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -2666,7 +2666,7 @@ class LifecycleScopedRelationship(Relationship):
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
-    endTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -2675,7 +2675,7 @@ class LifecycleScopedRelationship(Relationship):
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
-    startTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -2967,13 +2967,13 @@ class Build(Element):
          'in_subset': ['spdx_build'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Classes/Build/']})
 
-    buildEndTime: Optional[datetime ] = Field(default=None, description="""Property that describes the time at which a build stops.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Build'],
+    buildEndTime: Optional[str] = Field(default=None, description="""Property that describes the time at which a build stops.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Build'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/buildEndTime/'],
          'slot_uri': 'spdx_build:buildEndTime'} })
     buildId: Optional[str] = Field(default=None, description="""A buildId is a locally unique identifier used by a builder to identify a unique instance of a build produced by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Build'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/buildId/'],
          'slot_uri': 'spdx_build:buildId'} })
-    buildStartTime: Optional[datetime ] = Field(default=None, description="""Property describing the start time of a build.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Build'],
+    buildStartTime: Optional[str] = Field(default=None, description="""Property describing the start time of a build.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Build'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/buildStartTime/'],
          'slot_uri': 'spdx_build:buildStartTime'} })
     buildType: str = Field(default=..., description="""A buildType is a hint that is used to indicate the toolchain, platform, or infrastructure that the build was invoked on.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Build'],
@@ -3423,13 +3423,13 @@ class SoftwareArtifact(Artifact):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    builtTime: Optional[datetime ] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
          'slot_uri': 'spdx_core:builtTime'} })
     originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
          'slot_uri': 'spdx_core:originatedBy'} })
-    releaseTime: Optional[datetime ] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
          'slot_uri': 'spdx_core:releaseTime'} })
     standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
@@ -3438,7 +3438,7 @@ class SoftwareArtifact(Artifact):
     supportLevel: Optional[list[SupportType]] = Field(default=None, description="""Specifies the level of support associated with an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/supportLevel/'],
          'slot_uri': 'spdx_core:supportLevel'} })
-    validUntilTime: Optional[datetime ] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
     type: Literal["SoftwareArtifact"] = Field(default="SoftwareArtifact", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
@@ -3534,13 +3534,13 @@ class File(SoftwareArtifact):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    builtTime: Optional[datetime ] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
          'slot_uri': 'spdx_core:builtTime'} })
     originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
          'slot_uri': 'spdx_core:originatedBy'} })
-    releaseTime: Optional[datetime ] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
          'slot_uri': 'spdx_core:releaseTime'} })
     standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
@@ -3549,7 +3549,7 @@ class File(SoftwareArtifact):
     supportLevel: Optional[list[SupportType]] = Field(default=None, description="""Specifies the level of support associated with an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/supportLevel/'],
          'slot_uri': 'spdx_core:supportLevel'} })
-    validUntilTime: Optional[datetime ] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
     type: Literal["File"] = Field(default="File", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
@@ -3653,13 +3653,13 @@ class Package(SoftwareArtifact):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    builtTime: Optional[datetime ] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
          'slot_uri': 'spdx_core:builtTime'} })
     originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
          'slot_uri': 'spdx_core:originatedBy'} })
-    releaseTime: Optional[datetime ] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
          'slot_uri': 'spdx_core:releaseTime'} })
     standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
@@ -3668,7 +3668,7 @@ class Package(SoftwareArtifact):
     supportLevel: Optional[list[SupportType]] = Field(default=None, description="""Specifies the level of support associated with an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/supportLevel/'],
          'slot_uri': 'spdx_core:supportLevel'} })
-    validUntilTime: Optional[datetime ] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
     type: Literal["Package"] = Field(default="Package", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
@@ -3766,13 +3766,13 @@ class Snippet(SoftwareArtifact):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    builtTime: Optional[datetime ] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
          'slot_uri': 'spdx_core:builtTime'} })
     originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
          'slot_uri': 'spdx_core:originatedBy'} })
-    releaseTime: Optional[datetime ] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
          'slot_uri': 'spdx_core:releaseTime'} })
     standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
@@ -3781,7 +3781,7 @@ class Snippet(SoftwareArtifact):
     supportLevel: Optional[list[SupportType]] = Field(default=None, description="""Specifies the level of support associated with an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/supportLevel/'],
          'slot_uri': 'spdx_core:supportLevel'} })
-    validUntilTime: Optional[datetime ] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
     type: Literal["Snippet"] = Field(default="Snippet", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
@@ -3930,13 +3930,13 @@ class AIPackage(Package):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    builtTime: Optional[datetime ] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
          'slot_uri': 'spdx_core:builtTime'} })
     originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
          'slot_uri': 'spdx_core:originatedBy'} })
-    releaseTime: Optional[datetime ] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
          'slot_uri': 'spdx_core:releaseTime'} })
     standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
@@ -3945,7 +3945,7 @@ class AIPackage(Package):
     supportLevel: Optional[list[SupportType]] = Field(default=None, description="""Specifies the level of support associated with an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/supportLevel/'],
          'slot_uri': 'spdx_core:supportLevel'} })
-    validUntilTime: Optional[datetime ] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
     type: Literal["AIPackage"] = Field(default="AIPackage", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
@@ -4163,13 +4163,13 @@ class DatasetPackage(Package):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    builtTime: Optional[datetime ] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
          'slot_uri': 'spdx_core:builtTime'} })
     originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
          'slot_uri': 'spdx_core:originatedBy'} })
-    releaseTime: Optional[datetime ] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
          'slot_uri': 'spdx_core:releaseTime'} })
     standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
@@ -4178,7 +4178,7 @@ class DatasetPackage(Package):
     supportLevel: Optional[list[SupportType]] = Field(default=None, description="""Specifies the level of support associated with an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/supportLevel/'],
          'slot_uri': 'spdx_core:supportLevel'} })
-    validUntilTime: Optional[datetime ] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
     type: Literal["DatasetPackage"] = Field(default="DatasetPackage", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
@@ -5245,11 +5245,11 @@ class VulnAssessmentRelationship(Relationship):
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Classes/VulnAssessmentRelationship/']})
 
-    modifiedTime: Optional[datetime ] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
          'slot_uri': 'spdx_security:modifiedTime'} })
-    publishedTime: Optional[datetime ] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    publishedTime: Optional[str] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/publishedTime/'],
          'slot_uri': 'spdx_security:publishedTime'} })
@@ -5257,7 +5257,7 @@ class VulnAssessmentRelationship(Relationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    withdrawnTime: Optional[datetime ] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    withdrawnTime: Optional[str] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
@@ -5267,7 +5267,7 @@ class VulnAssessmentRelationship(Relationship):
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
-    endTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -5276,7 +5276,7 @@ class VulnAssessmentRelationship(Relationship):
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
-    startTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -5361,11 +5361,11 @@ class CvssV2VulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/vectorString/'],
          'slot_uri': 'spdx_security:vectorString'} })
-    modifiedTime: Optional[datetime ] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
          'slot_uri': 'spdx_security:modifiedTime'} })
-    publishedTime: Optional[datetime ] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    publishedTime: Optional[str] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/publishedTime/'],
          'slot_uri': 'spdx_security:publishedTime'} })
@@ -5373,7 +5373,7 @@ class CvssV2VulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    withdrawnTime: Optional[datetime ] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    withdrawnTime: Optional[str] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
@@ -5383,7 +5383,7 @@ class CvssV2VulnAssessmentRelationship(VulnAssessmentRelationship):
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
-    endTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -5392,7 +5392,7 @@ class CvssV2VulnAssessmentRelationship(VulnAssessmentRelationship):
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
-    startTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -5482,11 +5482,11 @@ class CvssV3VulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/vectorString/'],
          'slot_uri': 'spdx_security:vectorString'} })
-    modifiedTime: Optional[datetime ] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
          'slot_uri': 'spdx_security:modifiedTime'} })
-    publishedTime: Optional[datetime ] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    publishedTime: Optional[str] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/publishedTime/'],
          'slot_uri': 'spdx_security:publishedTime'} })
@@ -5494,7 +5494,7 @@ class CvssV3VulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    withdrawnTime: Optional[datetime ] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    withdrawnTime: Optional[str] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
@@ -5504,7 +5504,7 @@ class CvssV3VulnAssessmentRelationship(VulnAssessmentRelationship):
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
-    endTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -5513,7 +5513,7 @@ class CvssV3VulnAssessmentRelationship(VulnAssessmentRelationship):
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
-    startTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -5603,11 +5603,11 @@ class CvssV4VulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/vectorString/'],
          'slot_uri': 'spdx_security:vectorString'} })
-    modifiedTime: Optional[datetime ] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
          'slot_uri': 'spdx_security:modifiedTime'} })
-    publishedTime: Optional[datetime ] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    publishedTime: Optional[str] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/publishedTime/'],
          'slot_uri': 'spdx_security:publishedTime'} })
@@ -5615,7 +5615,7 @@ class CvssV4VulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    withdrawnTime: Optional[datetime ] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    withdrawnTime: Optional[str] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
@@ -5625,7 +5625,7 @@ class CvssV4VulnAssessmentRelationship(VulnAssessmentRelationship):
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
-    endTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -5634,7 +5634,7 @@ class CvssV4VulnAssessmentRelationship(VulnAssessmentRelationship):
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
-    startTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -5713,11 +5713,11 @@ class EpssVulnAssessmentRelationship(VulnAssessmentRelationship):
     probability: Decimal = Field(default=..., description="""A probability score between 0 and 1 of a vulnerability being exploited.""", json_schema_extra = { "linkml_meta": {'domain_of': ['EpssVulnAssessmentRelationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/probability/'],
          'slot_uri': 'spdx_security:probability'} })
-    modifiedTime: Optional[datetime ] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
          'slot_uri': 'spdx_security:modifiedTime'} })
-    publishedTime: Optional[datetime ] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    publishedTime: Optional[str] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/publishedTime/'],
          'slot_uri': 'spdx_security:publishedTime'} })
@@ -5725,7 +5725,7 @@ class EpssVulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    withdrawnTime: Optional[datetime ] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    withdrawnTime: Optional[str] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
@@ -5735,7 +5735,7 @@ class EpssVulnAssessmentRelationship(VulnAssessmentRelationship):
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
-    endTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -5744,7 +5744,7 @@ class EpssVulnAssessmentRelationship(VulnAssessmentRelationship):
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
-    startTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -5826,11 +5826,11 @@ class ExploitCatalogVulnAssessmentRelationship(VulnAssessmentRelationship):
     security_locator: str = Field(default=..., description="""Provides the location of an exploit catalog.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExploitCatalogVulnAssessmentRelationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/locator/'],
          'slot_uri': 'spdx_security:locator'} })
-    modifiedTime: Optional[datetime ] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
          'slot_uri': 'spdx_security:modifiedTime'} })
-    publishedTime: Optional[datetime ] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    publishedTime: Optional[str] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/publishedTime/'],
          'slot_uri': 'spdx_security:publishedTime'} })
@@ -5838,7 +5838,7 @@ class ExploitCatalogVulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    withdrawnTime: Optional[datetime ] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    withdrawnTime: Optional[str] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
@@ -5848,7 +5848,7 @@ class ExploitCatalogVulnAssessmentRelationship(VulnAssessmentRelationship):
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
-    endTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -5857,7 +5857,7 @@ class ExploitCatalogVulnAssessmentRelationship(VulnAssessmentRelationship):
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
-    startTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -5933,11 +5933,11 @@ class SsvcVulnAssessmentRelationship(VulnAssessmentRelationship):
     decisionType: SsvcDecisionType = Field(default=..., description="""Provide the enumeration of possible decisions in the [Stakeholder-Specific Vulnerability Categorization (SSVC) decision tree](https://www.cisa.gov/stakeholder-specific-vulnerability-categorization-ssvc).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SsvcVulnAssessmentRelationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/decisionType/'],
          'slot_uri': 'spdx_security:decisionType'} })
-    modifiedTime: Optional[datetime ] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
          'slot_uri': 'spdx_security:modifiedTime'} })
-    publishedTime: Optional[datetime ] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    publishedTime: Optional[str] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/publishedTime/'],
          'slot_uri': 'spdx_security:publishedTime'} })
@@ -5945,7 +5945,7 @@ class SsvcVulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    withdrawnTime: Optional[datetime ] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    withdrawnTime: Optional[str] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
@@ -5955,7 +5955,7 @@ class SsvcVulnAssessmentRelationship(VulnAssessmentRelationship):
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
-    endTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -5964,7 +5964,7 @@ class SsvcVulnAssessmentRelationship(VulnAssessmentRelationship):
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
-    startTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -6044,11 +6044,11 @@ class VexVulnAssessmentRelationship(VulnAssessmentRelationship):
     vexVersion: Optional[str] = Field(default=None, description="""Specifies the version of a VEX statement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexVulnAssessmentRelationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/vexVersion/'],
          'slot_uri': 'spdx_security:vexVersion'} })
-    modifiedTime: Optional[datetime ] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
          'slot_uri': 'spdx_security:modifiedTime'} })
-    publishedTime: Optional[datetime ] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    publishedTime: Optional[str] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/publishedTime/'],
          'slot_uri': 'spdx_security:publishedTime'} })
@@ -6056,7 +6056,7 @@ class VexVulnAssessmentRelationship(VulnAssessmentRelationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    withdrawnTime: Optional[datetime ] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    withdrawnTime: Optional[str] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
@@ -6066,7 +6066,7 @@ class VexVulnAssessmentRelationship(VulnAssessmentRelationship):
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
-    endTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -6075,7 +6075,7 @@ class VexVulnAssessmentRelationship(VulnAssessmentRelationship):
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
-    startTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -6151,7 +6151,7 @@ class VexAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
     actionStatement: str = Field(default=..., description="""Provides advise on how to mitigate or remediate a vulnerability when a VEX product is affected by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexAffectedVulnAssessmentRelationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/actionStatement/'],
          'slot_uri': 'spdx_security:actionStatement'} })
-    actionStatementTime: Optional[datetime ] = Field(default=None, description="""Records the time when a recommended action was communicated in a VEX statement to mitigate a vulnerability.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexAffectedVulnAssessmentRelationship'],
+    actionStatementTime: Optional[str] = Field(default=None, description="""Records the time when a recommended action was communicated in a VEX statement to mitigate a vulnerability.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexAffectedVulnAssessmentRelationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/actionStatementTime/'],
          'slot_uri': 'spdx_security:actionStatementTime'} })
     statusNotes: Optional[str] = Field(default=None, description="""Conveys information about how VEX status was determined.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexVulnAssessmentRelationship'],
@@ -6160,11 +6160,11 @@ class VexAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
     vexVersion: Optional[str] = Field(default=None, description="""Specifies the version of a VEX statement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexVulnAssessmentRelationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/vexVersion/'],
          'slot_uri': 'spdx_security:vexVersion'} })
-    modifiedTime: Optional[datetime ] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
          'slot_uri': 'spdx_security:modifiedTime'} })
-    publishedTime: Optional[datetime ] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    publishedTime: Optional[str] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/publishedTime/'],
          'slot_uri': 'spdx_security:publishedTime'} })
@@ -6172,7 +6172,7 @@ class VexAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    withdrawnTime: Optional[datetime ] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    withdrawnTime: Optional[str] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
@@ -6182,7 +6182,7 @@ class VexAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
-    endTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -6191,7 +6191,7 @@ class VexAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
-    startTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -6270,11 +6270,11 @@ class VexFixedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
     vexVersion: Optional[str] = Field(default=None, description="""Specifies the version of a VEX statement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexVulnAssessmentRelationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/vexVersion/'],
          'slot_uri': 'spdx_security:vexVersion'} })
-    modifiedTime: Optional[datetime ] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
          'slot_uri': 'spdx_security:modifiedTime'} })
-    publishedTime: Optional[datetime ] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    publishedTime: Optional[str] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/publishedTime/'],
          'slot_uri': 'spdx_security:publishedTime'} })
@@ -6282,7 +6282,7 @@ class VexFixedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    withdrawnTime: Optional[datetime ] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    withdrawnTime: Optional[str] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
@@ -6292,7 +6292,7 @@ class VexFixedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
-    endTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -6301,7 +6301,7 @@ class VexFixedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
-    startTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -6377,7 +6377,7 @@ class VexNotAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
     impactStatement: Optional[str] = Field(default=None, description="""Explains why a VEX product is not affected by a vulnerability. It is an alternative in VexNotAffectedVulnAssessmentRelationship to the machine-readable justification label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexNotAffectedVulnAssessmentRelationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/impactStatement/'],
          'slot_uri': 'spdx_security:impactStatement'} })
-    impactStatementTime: Optional[datetime ] = Field(default=None, description="""Timestamp of impact statement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexNotAffectedVulnAssessmentRelationship'],
+    impactStatementTime: Optional[str] = Field(default=None, description="""Timestamp of impact statement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexNotAffectedVulnAssessmentRelationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/impactStatementTime/'],
          'slot_uri': 'spdx_security:impactStatementTime'} })
     justificationType: Optional[VexJustificationType] = Field(default=None, description="""Impact justification label to be used when linking a vulnerability to an element representing a VEX product with a VexNotAffectedVulnAssessmentRelationship relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexNotAffectedVulnAssessmentRelationship'],
@@ -6389,11 +6389,11 @@ class VexNotAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
     vexVersion: Optional[str] = Field(default=None, description="""Specifies the version of a VEX statement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexVulnAssessmentRelationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/vexVersion/'],
          'slot_uri': 'spdx_security:vexVersion'} })
-    modifiedTime: Optional[datetime ] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
          'slot_uri': 'spdx_security:modifiedTime'} })
-    publishedTime: Optional[datetime ] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    publishedTime: Optional[str] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/publishedTime/'],
          'slot_uri': 'spdx_security:publishedTime'} })
@@ -6401,7 +6401,7 @@ class VexNotAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    withdrawnTime: Optional[datetime ] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    withdrawnTime: Optional[str] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
@@ -6411,7 +6411,7 @@ class VexNotAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
-    endTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -6420,7 +6420,7 @@ class VexNotAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
-    startTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -6499,11 +6499,11 @@ class VexUnderInvestigationVulnAssessmentRelationship(VexVulnAssessmentRelations
     vexVersion: Optional[str] = Field(default=None, description="""Specifies the version of a VEX statement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VexVulnAssessmentRelationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/vexVersion/'],
          'slot_uri': 'spdx_security:vexVersion'} })
-    modifiedTime: Optional[datetime ] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
          'slot_uri': 'spdx_security:modifiedTime'} })
-    publishedTime: Optional[datetime ] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    publishedTime: Optional[str] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/publishedTime/'],
          'slot_uri': 'spdx_security:publishedTime'} })
@@ -6511,7 +6511,7 @@ class VexUnderInvestigationVulnAssessmentRelationship(VexVulnAssessmentRelations
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    withdrawnTime: Optional[datetime ] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    withdrawnTime: Optional[str] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
@@ -6521,7 +6521,7 @@ class VexUnderInvestigationVulnAssessmentRelationship(VexVulnAssessmentRelations
     completeness: Optional[RelationshipCompleteness] = Field(default=None, description="""Provides information about the completeness of relationships.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/'],
          'slot_uri': 'spdx_core:completeness'} })
-    endTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    endTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is no longer applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/'],
          'slot_uri': 'spdx_core:endTime'} })
     from_: str = Field(default=..., alias="from", description="""References the Element on the left-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -6530,7 +6530,7 @@ class VexUnderInvestigationVulnAssessmentRelationship(VexVulnAssessmentRelations
     relationshipType: RelationshipType = Field(default=..., description="""Information about the relationship between two Elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/'],
          'slot_uri': 'spdx_core:relationshipType'} })
-    startTime: Optional[datetime ] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
+    startTime: Optional[str] = Field(default=None, description="""Specifies the time from which an element is applicable / valid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/'],
          'slot_uri': 'spdx_core:startTime'} })
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
@@ -6603,15 +6603,15 @@ class Vulnerability(Artifact):
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Classes/Vulnerability/']})
 
-    modifiedTime: Optional[datetime ] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    modifiedTime: Optional[str] = Field(default=None, description="""Specifies a time when a vulnerability assessment was modified""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/'],
          'slot_uri': 'spdx_security:modifiedTime'} })
-    publishedTime: Optional[datetime ] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    publishedTime: Optional[str] = Field(default=None, description="""Specifies the time when a vulnerability was published.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/publishedTime/'],
          'slot_uri': 'spdx_security:publishedTime'} })
-    withdrawnTime: Optional[datetime ] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
+    withdrawnTime: Optional[str] = Field(default=None, description="""Specified the time and date when a vulnerability was withdrawn.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VulnAssessmentRelationship', 'Vulnerability'],
          'in_subset': ['spdx_security'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/withdrawnTime/'],
          'slot_uri': 'spdx_security:withdrawnTime'} })
@@ -6619,13 +6619,13 @@ class Vulnerability(Artifact):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/'],
          'slot_uri': 'spdx_core:suppliedBy'} })
-    builtTime: Optional[datetime ] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    builtTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was built.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/'],
          'slot_uri': 'spdx_core:builtTime'} })
     originatedBy: Optional[list[str]] = Field(default=None, description="""Identifies from where or whom the Element originally came.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/'],
          'slot_uri': 'spdx_core:originatedBy'} })
-    releaseTime: Optional[datetime ] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    releaseTime: Optional[str] = Field(default=None, description="""Specifies the time an artifact was released.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/'],
          'slot_uri': 'spdx_core:releaseTime'} })
     standardName: Optional[list[str]] = Field(default=None, description="""The name of a relevant standard that may apply to an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
@@ -6634,7 +6634,7 @@ class Vulnerability(Artifact):
     supportLevel: Optional[list[SupportType]] = Field(default=None, description="""Specifies the level of support associated with an artifact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/supportLevel/'],
          'slot_uri': 'spdx_core:supportLevel'} })
-    validUntilTime: Optional[datetime ] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
+    validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
     type: Literal["Vulnerability"] = Field(default="Vulnerability", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '

@@ -80,14 +80,14 @@ SEMVER_PATTERN = (
     r"(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$"
 )
 
-# Each type names its base as well as its typeof: the SQL generator reads the base
-# from the type itself and does not follow typeof, so a datetime type would be a TEXT
-# column (linkml 1.12.1, linkml issue 3491).
+# Each type names its base as well as its typeof, because the SQL generator reads the
+# base from the type itself and does not follow typeof (linkml 1.12.1, linkml issue
+# 3491). date_time_stamp is a string, not a datetime: the Python runtime writes a UTC
+# datetime back as +00:00, which the type's pattern and SPDX's SHACL both reject.
 TYPES = {
     "date_time_stamp": {
-        "typeof": "datetime",
-        "base": "XSDDateTime",
-        "repr": "str",
+        "typeof": "string",
+        "base": "str",
         "uri": "xsd:dateTimeStamp",
         "description": "A UTC timestamp as SPDX writes one: a date, a time to the second and a trailing Z.",
         "pattern": DATE_TIME_PATTERN,

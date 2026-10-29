@@ -18,7 +18,7 @@ public class CreationInfo  {
 
   private String type;
   private String comment;
-  private ZonedDateTime created;
+  private String created;
   private List<Agent> createdBy;
   private List<Tool> createdUsing;
   private String specVersion;
