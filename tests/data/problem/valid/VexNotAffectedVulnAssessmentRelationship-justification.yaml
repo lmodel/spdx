@@ -1,5 +1,5 @@
 spdxId: https://example.com/spdx/assessments/cve-2024-12345-vex-not-affected
-type: VexNotAffectedVulnAssessmentRelationship
+type: spdx_security:VexNotAffectedVulnAssessmentRelationship
 relationshipType: doesNotAffect
 from: https://example.com/spdx/vulnerabilities/CVE-2024-12345
 to:

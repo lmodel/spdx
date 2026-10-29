@@ -1,5 +1,5 @@
 spdxId: https://example.com/spdx/annotations/review-1
-type: Annotation
+type: spdx_core:Annotation
 annotationType: review
 subject: https://example.com/spdx/packages/hello-1.0.0
 statement: Reviewed the declared license against the source headers.

@@ -16,7 +16,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public class DictionaryEntry  {
 
-  private String type;
+  private URI type;
   private String key;
   private String value;
 

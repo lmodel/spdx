@@ -1,5 +1,5 @@
 spdxId: https://example.com/spdx/licenses/mit-and-apache
-type: ConjunctiveLicenseSet
+type: spdx_expanded_licensing:ConjunctiveLicenseSet
 member:
   - https://spdx.org/licenses/MIT
   - https://spdx.org/licenses/Apache-2.0

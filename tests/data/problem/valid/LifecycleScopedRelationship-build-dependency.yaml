@@ -1,5 +1,5 @@
 spdxId: https://example.com/spdx/relationships/hello-depends-on-zlib
-type: LifecycleScopedRelationship
+type: spdx_core:LifecycleScopedRelationship
 relationshipType: dependsOn
 scope: build
 from: https://example.com/spdx/packages/hello-1.0.0

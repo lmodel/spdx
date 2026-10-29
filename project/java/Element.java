@@ -16,7 +16,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public abstract class Element  {
 
-  private String type;
+  private URI type;
   private String comment;
   private List<IntegrityMethod> verifiedUsing;
   private URI spdxId;

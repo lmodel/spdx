@@ -2155,9 +2155,9 @@
     {
       "name": "type",
       "definition_uri": "https://w3id.org/lmodel/spdx/type",
-      "description": "The name of the class an object is an instance of, such as Package or Hash.",
+      "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
       "comments": [
-        "SPDX JSON-LD writes the same key with the profile prefixed to a class outside Core, software_Package for a Package. This schema takes the bare class name."
+        "SPDX JSON-LD writes the same key with a term of its context, software_Package for a Package. This schema takes the class's CURIE or its full IRI, so RDF written from the data types each object with its SPDX class."
       ],
       "in_subset": [
         "spdx_core"
@@ -2184,7 +2184,7 @@
         "EnergyConsumption",
         "EnergyConsumptionDescription"
       ],
-      "range": "string",
+      "range": "uriorcurie",
       "@type": "SlotDefinition"
     },
     {
@@ -9502,7 +9502,7 @@
   ],
   "metamodel_version": "1.12.0",
   "source_file": "spdx.yaml",
-  "source_file_date": "2026-10-29T16:46:05",
+  "source_file_date": "2026-10-29T16:47:43",
   "source_file_size": 2256,
   "@type": "SchemaDefinition",
   "@context": [

@@ -892,14 +892,16 @@ enums:
 slots:
 
   type:
-    description: The name of the class an object is an instance of, such as Package or Hash.
+    description: >-
+      The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
     slot_uri: rdf:type
     designates_type: true
-    range: string
+    range: uriorcurie
     comments:
       - >-
-        SPDX JSON-LD writes the same key with the profile prefixed to a class outside Core, software_Package
-        for a Package. This schema takes the bare class name.
+        SPDX JSON-LD writes the same key with a term of its context, software_Package for a Package. This
+        schema takes the class's CURIE or its full IRI, so RDF written from the data types each object
+        with its SPDX class.
     in_subset:
       - spdx_core
 

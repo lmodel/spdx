@@ -1,5 +1,5 @@
 spdxId: https://example.com/spdx/licenses/gpl-2.0-with-classpath
-type: WithAdditionOperator
+type: spdx_expanded_licensing:WithAdditionOperator
 subjectExtendableLicense: https://spdx.org/licenses/GPL-2.0-only
 subjectAddition: https://spdx.org/licenses/Classpath-exception-2.0
 creationInfo:

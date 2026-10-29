@@ -1,5 +1,5 @@
 spdxId: https://example.com/spdx/packages/handwriting-images-1.0
-type: DatasetPackage
+type: spdx_dataset:DatasetPackage
 name: handwriting-images
 packageVersion: "1.0"
 primaryPurpose: data

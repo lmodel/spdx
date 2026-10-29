@@ -767,7 +767,7 @@ export interface Bundle extends ElementCollection {
  * Provides information about the creation of the Element.
  */
 export interface CreationInfo {
-    /** The name of the class an object is an instance of, such as Package or Hash. */
+    /** The class an object is an instance of, as the class's CURIE, such as spdx_software:Package. */
     type?: string,
     /** Provide consumers with comments by the creator of the Element about the Element. */
     comment?: string,
@@ -786,7 +786,7 @@ export interface CreationInfo {
  * A key with an associated value.
  */
 export interface DictionaryEntry {
-    /** The name of the class an object is an instance of, such as Package or Hash. */
+    /** The class an object is an instance of, as the class's CURIE, such as spdx_software:Package. */
     type?: string,
     /** A key used in a generic key-value pair. */
     key: string,
@@ -799,7 +799,7 @@ export interface DictionaryEntry {
  * Base domain class from which all other SPDX-3.0 domain classes derive.
  */
 export interface Element {
-    /** The name of the class an object is an instance of, such as Package or Hash. */
+    /** The class an object is an instance of, as the class's CURIE, such as spdx_software:Package. */
     type?: string,
     /** Provide consumers with comments by the creator of the Element about the Element. */
     comment?: string,
@@ -841,7 +841,7 @@ export interface ElementCollection extends Element {
  * A characterization of some aspect of an Element that is associated with the Element in a generalized fashion.
  */
 export interface Extension {
-    /** The name of the class an object is an instance of, such as Package or Hash. */
+    /** The class an object is an instance of, as the class's CURIE, such as spdx_software:Package. */
     type?: string,
 }
 
@@ -850,7 +850,7 @@ export interface Extension {
  * A reference to a resource identifier defined outside the scope of SPDX-3.0 content that uniquely identifies an Element.
  */
 export interface ExternalIdentifier {
-    /** The name of the class an object is an instance of, such as Package or Hash. */
+    /** The class an object is an instance of, as the class's CURIE, such as spdx_software:Package. */
     type?: string,
     /** Provide consumers with comments by the creator of the Element about the Element. */
     comment?: string,
@@ -869,7 +869,7 @@ export interface ExternalIdentifier {
  * A map of Element identifiers that are used within an SpdxDocument but defined external to that SpdxDocument.
  */
 export interface ExternalMap {
-    /** The name of the class an object is an instance of, such as Package or Hash. */
+    /** The class an object is an instance of, as the class's CURIE, such as spdx_software:Package. */
     type?: string,
     /** Provides an IntegrityMethod with which the integrity of an Element can be asserted. */
     verifiedUsing?: IntegrityMethod[],
@@ -886,7 +886,7 @@ export interface ExternalMap {
  * A reference to a resource outside the scope of SPDX-3.0 content related to an Element.
  */
 export interface ExternalRef {
-    /** The name of the class an object is an instance of, such as Package or Hash. */
+    /** The class an object is an instance of, as the class's CURIE, such as spdx_software:Package. */
     type?: string,
     /** Provide consumers with comments by the creator of the Element about the Element. */
     comment?: string,
@@ -921,7 +921,7 @@ export interface IndividualElement extends Element {
  * Provides an independently reproducible mechanism that permits verification of a specific Element.
  */
 export interface IntegrityMethod {
-    /** The name of the class an object is an instance of, such as Package or Hash. */
+    /** The class an object is an instance of, as the class's CURIE, such as spdx_software:Package. */
     type?: string,
     /** Provide consumers with comments by the creator of the Element about the Element. */
     comment?: string,
@@ -941,7 +941,7 @@ export interface LifecycleScopedRelationship extends Relationship {
  * A mapping between prefixes and namespace partial URIs.
  */
 export interface NamespaceMap {
-    /** The name of the class an object is an instance of, such as Package or Hash. */
+    /** The class an object is an instance of, as the class's CURIE, such as spdx_software:Package. */
     type?: string,
     /** Provides an unambiguous mechanism for conveying a URI fragment portion of an Element ID. */
     namespace: string,
@@ -981,7 +981,7 @@ export interface Person extends Agent {
  * A tuple of two positive integers that define a range.
  */
 export interface PositiveIntegerRange {
-    /** The name of the class an object is an instance of, such as Package or Hash. */
+    /** The class an object is an instance of, as the class's CURIE, such as spdx_software:Package. */
     type?: string,
     /** Defines the beginning of a range. */
     beginIntegerRange: number,
@@ -1074,7 +1074,7 @@ export interface CdxPropertiesExtension extends Extension {
  * A property name with an associated value.
  */
 export interface CdxPropertyEntry {
-    /** The name of the class an object is an instance of, such as Package or Hash. */
+    /** The class an object is an instance of, as the class's CURIE, such as spdx_software:Package. */
     type?: string,
     /** A name used in a CdxPropertyEntry name-value pair. */
     cdxPropName: string,
@@ -1224,7 +1224,7 @@ export interface AIPackage extends Package {
  * A class for describing the energy consumption incurred by an AI model in different stages of its lifecycle.
  */
 export interface EnergyConsumption {
-    /** The name of the class an object is an instance of, such as Package or Hash. */
+    /** The class an object is an instance of, as the class's CURIE, such as spdx_software:Package. */
     type?: string,
     /** Specifies the amount of energy consumed when finetuning the AI model that is being used in the AI system. */
     finetuningEnergyConsumption?: EnergyConsumptionDescription[],
@@ -1239,7 +1239,7 @@ export interface EnergyConsumption {
  * The class that helps note down the quantity of energy consumption and the unit used for measurement.
  */
 export interface EnergyConsumptionDescription {
-    /** The name of the class an object is an instance of, such as Package or Hash. */
+    /** The class an object is an instance of, as the class's CURIE, such as spdx_software:Package. */
     type?: string,
     /** Represents the energy quantity. */
     energyQuantity: string,

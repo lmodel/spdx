@@ -1,5 +1,5 @@
 spdxId: https://example.com/spdx/packages/handwriting-model-2.1.0
-type: AIPackage
+type: spdx_ai:AIPackage
 name: handwriting-model
 packageVersion: 2.1.0
 primaryPurpose: model

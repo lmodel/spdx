@@ -55,8 +55,8 @@ from rdflib import (
     URIRef
 )
 
-from linkml_runtime.linkml_model.types import Boolean, Decimal, Integer, String, Uri
-from linkml_runtime.utils.metamodelcore import Bool, Decimal, URI
+from linkml_runtime.linkml_model.types import Boolean, Decimal, Integer, String, Uri, Uriorcurie
+from linkml_runtime.utils.metamodelcore import Bool, Decimal, URI, URIorCURIE
 
 metamodel_version = "1.12.0"
 version = "3.0.1"
@@ -340,7 +340,7 @@ class CreationInfo(YAMLRoot):
     created: Union[str, DateTimeStamp] = None
     createdBy: Union[Union[str, AgentSpdxId], list[Union[str, AgentSpdxId]]] = None
     specVersion: Union[str, Semver] = None
-    type: Optional[str] = None
+    type: Optional[Union[str, URIorCURIE]] = None
     comment: Optional[str] = None
     createdUsing: Optional[Union[Union[str, ToolSpdxId], list[Union[str, ToolSpdxId]]]] = empty_list()
 
@@ -361,7 +361,7 @@ class CreationInfo(YAMLRoot):
         if not isinstance(self.specVersion, Semver):
             self.specVersion = Semver(self.specVersion)
 
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
         if self.comment is not None and not isinstance(self.comment, str):
             self.comment = str(self.comment)
@@ -386,7 +386,7 @@ class DictionaryEntry(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = SPDX_LINKML.DictionaryEntry
 
     key: str = None
-    type: Optional[str] = None
+    type: Optional[Union[str, URIorCURIE]] = None
     value: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -395,7 +395,7 @@ class DictionaryEntry(YAMLRoot):
         if not isinstance(self.key, str):
             self.key = str(self.key)
 
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
         if self.value is not None and not isinstance(self.value, str):
             self.value = str(self.value)
@@ -417,7 +417,7 @@ class Element(YAMLRoot):
 
     spdxId: Union[str, ElementSpdxId] = None
     creationInfo: Union[dict, CreationInfo] = None
-    type: Optional[str] = None
+    type: Optional[Union[str, URIorCURIE]] = None
     comment: Optional[str] = None
     verifiedUsing: Optional[Union[Union[dict, "IntegrityMethod"], list[Union[dict, "IntegrityMethod"]]]] = empty_list()
     description: Optional[str] = None
@@ -438,7 +438,7 @@ class Element(YAMLRoot):
         if not isinstance(self.creationInfo, CreationInfo):
             self.creationInfo = CreationInfo(**as_dict(self.creationInfo))
 
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
         if self.comment is not None and not isinstance(self.comment, str):
             self.comment = str(self.comment)
@@ -476,12 +476,20 @@ class Element(YAMLRoot):
             return super().__new__(cls,*args,**kwargs)
         else:
             type_designator_value = kwargs[type_designator]
-            target_cls = cls._class_for("class_name", type_designator_value)
+            target_cls = cls._class_for("class_class_curie", type_designator_value)
+
+
+            if target_cls is None:
+                target_cls = cls._class_for("class_class_uri", type_designator_value)
+
+
+            if target_cls is None:
+                target_cls = cls._class_for("class_model_uri", type_designator_value)
 
 
             if target_cls is None:
                 raise ValueError(f"Wrong type designator value: class {cls.__name__} "
-                                 f"has no subclass with ['class_name']='{kwargs[type_designator]}'")
+                                 f"has no subclass with ['class_class_curie', 'class_class_uri', 'class_model_uri']='{kwargs[type_designator]}'")
             return super().__new__(target_cls,*args,**kwargs)
 
 
@@ -508,7 +516,7 @@ class Agent(Element):
             self.spdxId = AgentSpdxId(self.spdxId)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -553,7 +561,7 @@ class Annotation(Element):
             self.statement = str(self.statement)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -574,7 +582,7 @@ class AnyLicenseInfo(Element):
     def __post_init__(self, *_: str, **kwargs: Any):
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -625,7 +633,7 @@ class Artifact(Element):
             self.validUntilTime = DateTimeStamp(self.validUntilTime)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -660,7 +668,7 @@ class ElementCollection(Element):
         self.rootElement = [v if isinstance(v, ElementSpdxId) else ElementSpdxId(v) for v in self.rootElement]
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -689,7 +697,7 @@ class Bundle(ElementCollection):
             self.context = str(self.context)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -715,7 +723,7 @@ class Bom(Bundle):
             self.spdxId = BomSpdxId(self.spdxId)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -730,10 +738,10 @@ class Extension(YAMLRoot):
     class_name: ClassVar[str] = "Extension"
     class_model_uri: ClassVar[URIRef] = SPDX_LINKML.Extension
 
-    type: Optional[str] = None
+    type: Optional[Union[str, URIorCURIE]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
         super().__post_init__(**kwargs)
 
@@ -745,12 +753,20 @@ class Extension(YAMLRoot):
             return super().__new__(cls,*args,**kwargs)
         else:
             type_designator_value = kwargs[type_designator]
-            target_cls = cls._class_for("class_name", type_designator_value)
+            target_cls = cls._class_for("class_class_curie", type_designator_value)
+
+
+            if target_cls is None:
+                target_cls = cls._class_for("class_class_uri", type_designator_value)
+
+
+            if target_cls is None:
+                target_cls = cls._class_for("class_model_uri", type_designator_value)
 
 
             if target_cls is None:
                 raise ValueError(f"Wrong type designator value: class {cls.__name__} "
-                                 f"has no subclass with ['class_name']='{kwargs[type_designator]}'")
+                                 f"has no subclass with ['class_class_curie', 'class_class_uri', 'class_model_uri']='{kwargs[type_designator]}'")
             return super().__new__(target_cls,*args,**kwargs)
 
 
@@ -770,7 +786,7 @@ class ExternalIdentifier(YAMLRoot):
 
     externalIdentifierType: Union[str, "ExternalIdentifierType"] = None
     identifier: str = None
-    type: Optional[str] = None
+    type: Optional[Union[str, URIorCURIE]] = None
     comment: Optional[str] = None
     identifierLocator: Optional[Union[Union[str, URI], list[Union[str, URI]]]] = empty_list()
     issuingAuthority: Optional[str] = None
@@ -786,7 +802,7 @@ class ExternalIdentifier(YAMLRoot):
         if not isinstance(self.identifier, str):
             self.identifier = str(self.identifier)
 
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
         if self.comment is not None and not isinstance(self.comment, str):
             self.comment = str(self.comment)
@@ -814,7 +830,7 @@ class ExternalMap(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = SPDX_LINKML.ExternalMap
 
     externalSpdxId: Union[str, URI] = None
-    type: Optional[str] = None
+    type: Optional[Union[str, URIorCURIE]] = None
     verifiedUsing: Optional[Union[Union[dict, "IntegrityMethod"], list[Union[dict, "IntegrityMethod"]]]] = empty_list()
     definingArtifact: Optional[Union[str, ArtifactSpdxId]] = None
     locationHint: Optional[Union[str, URI]] = None
@@ -825,7 +841,7 @@ class ExternalMap(YAMLRoot):
         if not isinstance(self.externalSpdxId, URI):
             self.externalSpdxId = URI(self.externalSpdxId)
 
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
         if not isinstance(self.verifiedUsing, list):
             self.verifiedUsing = [self.verifiedUsing] if self.verifiedUsing is not None else []
@@ -852,14 +868,14 @@ class ExternalRef(YAMLRoot):
     class_name: ClassVar[str] = "ExternalRef"
     class_model_uri: ClassVar[URIRef] = SPDX_LINKML.ExternalRef
 
-    type: Optional[str] = None
+    type: Optional[Union[str, URIorCURIE]] = None
     comment: Optional[str] = None
     contentType: Optional[Union[str, MediaType]] = None
     externalRefType: Optional[Union[str, "ExternalRefType"]] = None
     locator: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
         if self.comment is not None and not isinstance(self.comment, str):
             self.comment = str(self.comment)
@@ -899,7 +915,7 @@ class IndividualElement(Element):
             self.spdxId = IndividualElementSpdxId(self.spdxId)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -914,11 +930,11 @@ class IntegrityMethod(YAMLRoot):
     class_name: ClassVar[str] = "IntegrityMethod"
     class_model_uri: ClassVar[URIRef] = SPDX_LINKML.IntegrityMethod
 
-    type: Optional[str] = None
+    type: Optional[Union[str, URIorCURIE]] = None
     comment: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
         if self.comment is not None and not isinstance(self.comment, str):
             self.comment = str(self.comment)
@@ -933,12 +949,20 @@ class IntegrityMethod(YAMLRoot):
             return super().__new__(cls,*args,**kwargs)
         else:
             type_designator_value = kwargs[type_designator]
-            target_cls = cls._class_for("class_name", type_designator_value)
+            target_cls = cls._class_for("class_class_curie", type_designator_value)
+
+
+            if target_cls is None:
+                target_cls = cls._class_for("class_class_uri", type_designator_value)
+
+
+            if target_cls is None:
+                target_cls = cls._class_for("class_model_uri", type_designator_value)
 
 
             if target_cls is None:
                 raise ValueError(f"Wrong type designator value: class {cls.__name__} "
-                                 f"has no subclass with ['class_name']='{kwargs[type_designator]}'")
+                                 f"has no subclass with ['class_class_curie', 'class_class_uri', 'class_model_uri']='{kwargs[type_designator]}'")
             return super().__new__(target_cls,*args,**kwargs)
 
 
@@ -970,7 +994,7 @@ class Hash(IntegrityMethod):
             self.hashValue = str(self.hashValue)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -987,7 +1011,7 @@ class NamespaceMap(YAMLRoot):
 
     namespace: Union[str, URI] = None
     prefix: str = None
-    type: Optional[str] = None
+    type: Optional[Union[str, URIorCURIE]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.namespace):
@@ -1000,7 +1024,7 @@ class NamespaceMap(YAMLRoot):
         if not isinstance(self.prefix, str):
             self.prefix = str(self.prefix)
 
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
         super().__post_init__(**kwargs)
 
@@ -1027,7 +1051,7 @@ class Organization(Agent):
             self.spdxId = OrganizationSpdxId(self.spdxId)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1062,7 +1086,7 @@ class PackageVerificationCode(IntegrityMethod):
         self.packageVerificationCodeExcludedFile = [v if isinstance(v, str) else str(v) for v in self.packageVerificationCodeExcludedFile]
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1087,7 +1111,7 @@ class Person(Agent):
             self.spdxId = PersonSpdxId(self.spdxId)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1104,7 +1128,7 @@ class PositiveIntegerRange(YAMLRoot):
 
     beginIntegerRange: Union[int, PositiveInteger] = None
     endIntegerRange: Union[int, PositiveInteger] = None
-    type: Optional[str] = None
+    type: Optional[Union[str, URIorCURIE]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.beginIntegerRange):
@@ -1117,7 +1141,7 @@ class PositiveIntegerRange(YAMLRoot):
         if not isinstance(self.endIntegerRange, PositiveInteger):
             self.endIntegerRange = PositiveInteger(self.endIntegerRange)
 
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
         super().__post_init__(**kwargs)
 
@@ -1175,7 +1199,7 @@ class Relationship(Element):
             self.startTime = DateTimeStamp(self.startTime)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1207,7 +1231,7 @@ class LifecycleScopedRelationship(Relationship):
             self.scope = LifecycleScopeType(self.scope)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1232,7 +1256,7 @@ class SoftwareAgent(Agent):
             self.spdxId = SoftwareAgentSpdxId(self.spdxId)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1267,7 +1291,7 @@ class SpdxDocument(ElementCollection):
         self._normalize_inlined_as_list(slot_name="namespaceMap", slot_type=NamespaceMap, key_name="namespace", keyed=False)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1292,7 +1316,7 @@ class Tool(Element):
             self.spdxId = ToolSpdxId(self.spdxId)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1354,7 +1378,7 @@ class Build(Element):
         self._normalize_inlined_as_list(slot_name="parameter", slot_type=DictionaryEntry, key_name="key", keyed=False)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1377,7 +1401,7 @@ class CdxPropertiesExtension(Extension):
         self._normalize_inlined_as_list(slot_name="cdxProperty", slot_type=CdxPropertyEntry, key_name="cdxPropName", keyed=False)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1393,7 +1417,7 @@ class CdxPropertyEntry(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = SPDX_LINKML.CdxPropertyEntry
 
     cdxPropName: str = None
-    type: Optional[str] = None
+    type: Optional[Union[str, URIorCURIE]] = None
     cdxPropValue: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -1402,7 +1426,7 @@ class CdxPropertyEntry(YAMLRoot):
         if not isinstance(self.cdxPropName, str):
             self.cdxPropName = str(self.cdxPropName)
 
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
         if self.cdxPropValue is not None and not isinstance(self.cdxPropValue, str):
             self.cdxPropValue = str(self.cdxPropValue)
@@ -1445,7 +1469,7 @@ class LicenseExpression(AnyLicenseInfo):
             self.licenseListVersion = Semver(self.licenseListVersion)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1476,7 +1500,7 @@ class SimpleLicensingText(Element):
             self.licenseText = str(self.licenseText)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1506,7 +1530,7 @@ class ContentIdentifier(IntegrityMethod):
             self.contentIdentifierValue = URI(self.contentIdentifierValue)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1536,7 +1560,7 @@ class Sbom(Bom):
         self.sbomType = [v if isinstance(v, SbomType) else SbomType(v) for v in self.sbomType]
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1577,7 +1601,7 @@ class SoftwareArtifact(Artifact):
             self.primaryPurpose = SoftwarePurpose(self.primaryPurpose)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1610,7 +1634,7 @@ class File(SoftwareArtifact):
             self.fileKind = FileKindType(self.fileKind)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1655,7 +1679,7 @@ class Package(SoftwareArtifact):
             self.sourceInfo = str(self.sourceInfo)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1694,7 +1718,7 @@ class Snippet(SoftwareArtifact):
             self.lineRange = PositiveIntegerRange(**as_dict(self.lineRange))
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1781,7 +1805,7 @@ class AIPackage(Package):
             self.useSensitivePersonalInformation = PresenceType(self.useSensitivePersonalInformation)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1796,13 +1820,13 @@ class EnergyConsumption(YAMLRoot):
     class_name: ClassVar[str] = "EnergyConsumption"
     class_model_uri: ClassVar[URIRef] = SPDX_LINKML.EnergyConsumption
 
-    type: Optional[str] = None
+    type: Optional[Union[str, URIorCURIE]] = None
     finetuningEnergyConsumption: Optional[Union[Union[dict, "EnergyConsumptionDescription"], list[Union[dict, "EnergyConsumptionDescription"]]]] = empty_list()
     inferenceEnergyConsumption: Optional[Union[Union[dict, "EnergyConsumptionDescription"], list[Union[dict, "EnergyConsumptionDescription"]]]] = empty_list()
     trainingEnergyConsumption: Optional[Union[Union[dict, "EnergyConsumptionDescription"], list[Union[dict, "EnergyConsumptionDescription"]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
         self._normalize_inlined_as_list(slot_name="finetuningEnergyConsumption", slot_type=EnergyConsumptionDescription, key_name="energyQuantity", keyed=False)
 
@@ -1827,7 +1851,7 @@ class EnergyConsumptionDescription(YAMLRoot):
 
     energyQuantity: Decimal = None
     energyUnit: Union[str, "EnergyUnitType"] = None
-    type: Optional[str] = None
+    type: Optional[Union[str, URIorCURIE]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.energyQuantity):
@@ -1840,7 +1864,7 @@ class EnergyConsumptionDescription(YAMLRoot):
         if not isinstance(self.energyUnit, EnergyUnitType):
             self.energyUnit = EnergyUnitType(self.energyUnit)
 
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
         super().__post_init__(**kwargs)
 
@@ -1924,7 +1948,7 @@ class DatasetPackage(Package):
         self._normalize_inlined_as_list(slot_name="sensor", slot_type=DictionaryEntry, key_name="key", keyed=False)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1956,7 +1980,7 @@ class ConjunctiveLicenseSet(AnyLicenseInfo):
         self.member = [v if isinstance(v, AnyLicenseInfoSpdxId) else AnyLicenseInfoSpdxId(v) for v in self.member]
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1988,7 +2012,7 @@ class DisjunctiveLicenseSet(AnyLicenseInfo):
         self.member = [v if isinstance(v, AnyLicenseInfoSpdxId) else AnyLicenseInfoSpdxId(v) for v in self.member]
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2009,7 +2033,7 @@ class ExtendableLicense(AnyLicenseInfo):
     def __post_init__(self, *_: str, **kwargs: Any):
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2034,7 +2058,7 @@ class IndividualLicensingInfo(AnyLicenseInfo):
             self.spdxId = IndividualLicensingInfoSpdxId(self.spdxId)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2093,7 +2117,7 @@ class License(ExtendableLicense):
             self.standardLicenseTemplate = str(self.standardLicenseTemplate)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2119,7 +2143,7 @@ class CustomLicense(License):
             self.spdxId = CustomLicenseSpdxId(self.spdxId)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2166,7 +2190,7 @@ class LicenseAddition(Element):
             self.standardAdditionTemplate = str(self.standardAdditionTemplate)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2192,7 +2216,7 @@ class CustomLicenseAddition(LicenseAddition):
             self.spdxId = CustomLicenseAdditionSpdxId(self.spdxId)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2226,7 +2250,7 @@ class ListedLicense(License):
             self.listVersionAdded = str(self.listVersionAdded)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2260,7 +2284,7 @@ class ListedLicenseException(LicenseAddition):
             self.listVersionAdded = str(self.listVersionAdded)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2291,7 +2315,7 @@ class OrLaterOperator(ExtendableLicense):
             self.subjectLicense = LicenseSpdxId(self.subjectLicense)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2328,7 +2352,7 @@ class WithAdditionOperator(AnyLicenseInfo):
             self.subjectExtendableLicense = ExtendableLicenseSpdxId(self.subjectExtendableLicense)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2371,7 +2395,7 @@ class VulnAssessmentRelationship(Relationship):
             self.assessedElement = SoftwareArtifactSpdxId(self.assessedElement)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2411,7 +2435,7 @@ class CvssV2VulnAssessmentRelationship(VulnAssessmentRelationship):
             self.vectorString = str(self.vectorString)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2457,7 +2481,7 @@ class CvssV3VulnAssessmentRelationship(VulnAssessmentRelationship):
             self.vectorString = str(self.vectorString)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2503,7 +2527,7 @@ class CvssV4VulnAssessmentRelationship(VulnAssessmentRelationship):
             self.vectorString = str(self.vectorString)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2543,7 +2567,7 @@ class EpssVulnAssessmentRelationship(VulnAssessmentRelationship):
             self.probability = Decimal(self.probability)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2589,7 +2613,7 @@ class ExploitCatalogVulnAssessmentRelationship(VulnAssessmentRelationship):
             self.security_locator = URI(self.security_locator)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2623,7 +2647,7 @@ class SsvcVulnAssessmentRelationship(VulnAssessmentRelationship):
             self.decisionType = SsvcDecisionType(self.decisionType)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2654,7 +2678,7 @@ class VexVulnAssessmentRelationship(VulnAssessmentRelationship):
             self.vexVersion = str(self.vexVersion)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2692,7 +2716,7 @@ class VexAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
             self.actionStatementTime = DateTimeStamp(self.actionStatementTime)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2721,7 +2745,7 @@ class VexFixedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
             self.spdxId = VexFixedVulnAssessmentRelationshipSpdxId(self.spdxId)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2762,7 +2786,7 @@ class VexNotAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
             self.justificationType = VexJustificationType(self.justificationType)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2790,7 +2814,7 @@ class VexUnderInvestigationVulnAssessmentRelationship(VexVulnAssessmentRelations
             self.spdxId = VexUnderInvestigationVulnAssessmentRelationshipSpdxId(self.spdxId)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2827,7 +2851,7 @@ class Vulnerability(Artifact):
             self.withdrawnTime = DateTimeStamp(self.withdrawnTime)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+        self.type = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 # Enumerations
@@ -4083,7 +4107,7 @@ class slots:
     pass
 
 slots.type = Slot(uri=RDF.type, name="type", curie=RDF.curie('type'),
-                   model_uri=SPDX_LINKML.type, domain=None, range=Optional[str])
+                   model_uri=SPDX_LINKML.type, domain=None, range=Optional[Union[str, URIorCURIE]])
 
 slots.algorithm = Slot(uri=SPDX_CORE.algorithm, name="algorithm", curie=SPDX_CORE.curie('algorithm'),
                    model_uri=SPDX_LINKML.algorithm, domain=None, range=Union[str, "HashAlgorithm"])

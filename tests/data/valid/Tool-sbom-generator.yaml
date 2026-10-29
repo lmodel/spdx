@@ -1,5 +1,5 @@
 spdxId: https://example.com/spdx/tools/sbom-generator
-type: Tool
+type: spdx_core:Tool
 name: sbom-generator 2.4
 creationInfo:
   specVersion: 3.0.1

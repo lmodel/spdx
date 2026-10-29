@@ -2460,10 +2460,10 @@ spdx_linkml:trainingEnergyConsumption a owl:ObjectProperty ;
 	skos:inScheme spdx_linkml:spdx_ai .
 spdx_linkml:type a owl:DatatypeProperty ;
 	rdfs:label "type" ;
-	rdfs:range xsd:string ;
-	skos:definition "The name of the class an object is an instance of, such as Package or Hash." ;
+	rdfs:range xsd:anyURI ;
+	skos:definition "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package." ;
 	skos:inScheme spdx_linkml:spdx_core ;
-	skos:note "SPDX JSON-LD writes the same key with the profile prefixed to a class outside Core, software_Package for a Package. This schema takes the bare class name." .
+	skos:note "SPDX JSON-LD writes the same key with a term of its context, software_Package for a Package. This schema takes the class's CURIE or its full IRI, so RDF written from the data types each object with its SPDX class." .
 spdx_linkml:typeOfModel a owl:DatatypeProperty ;
 	rdfs:label "typeOfModel" ;
 	rdfs:seeAlso <https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/typeOfModel/> ;

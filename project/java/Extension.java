@@ -16,7 +16,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public abstract class Extension  {
 
-  private String type;
+  private URI type;
 
 
 }

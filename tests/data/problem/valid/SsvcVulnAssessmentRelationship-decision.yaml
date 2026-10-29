@@ -1,5 +1,5 @@
 spdxId: https://example.com/spdx/assessments/cve-2024-12345-ssvc
-type: SsvcVulnAssessmentRelationship
+type: spdx_security:SsvcVulnAssessmentRelationship
 relationshipType: hasAssessmentFor
 from: https://example.com/spdx/vulnerabilities/CVE-2024-12345
 to:

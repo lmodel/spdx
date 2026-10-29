@@ -16,7 +16,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public class NamespaceMap  {
 
-  private String type;
+  private URI type;
   private URI namespace;
   private String prefix;
 

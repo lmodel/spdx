@@ -1,5 +1,5 @@
 spdxId: https://example.com/spdx/agents/release-bot
-type: SoftwareAgent
+type: spdx_core:SoftwareAgent
 name: release-bot
 creationInfo:
   specVersion: 3.0.1

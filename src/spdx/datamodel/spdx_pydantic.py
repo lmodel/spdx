@@ -1296,9 +1296,10 @@ class CreationInfo(ConfiguredBaseModel):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/CreationInfo/']})
 
-    type: Literal["CreationInfo"] = Field(default="CreationInfo", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/CreationInfo","https://spdx.org/rdf/3.0.1/terms/Core/CreationInfo","spdx_linkml:CreationInfo","spdx_core:CreationInfo"] = Field(default="spdx_core:CreationInfo", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -1346,9 +1347,10 @@ class DictionaryEntry(ConfiguredBaseModel):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/DictionaryEntry/']})
 
-    type: Literal["DictionaryEntry"] = Field(default="DictionaryEntry", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/DictionaryEntry","https://spdx.org/rdf/3.0.1/terms/Core/DictionaryEntry","spdx_linkml:DictionaryEntry","spdx_core:DictionaryEntry"] = Field(default="spdx_core:DictionaryEntry", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -1383,9 +1385,10 @@ class Element(ConfiguredBaseModel):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Element/']})
 
-    type: Literal["Element"] = Field(default="Element", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/Element","https://spdx.org/rdf/3.0.1/terms/Core/Element","spdx_linkml:Element","spdx_core:Element"] = Field(default="spdx_core:Element", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -1450,9 +1453,10 @@ class Agent(Element):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Agent/']})
 
-    type: Literal["Agent"] = Field(default="Agent", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/Agent","https://spdx.org/rdf/3.0.1/terms/Core/Agent","spdx_linkml:Agent","spdx_core:Agent"] = Field(default="spdx_core:Agent", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -1530,9 +1534,10 @@ class Annotation(Element):
     subject: str = Field(default=..., description="""An Element an annotator has made an assertion about.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Annotation'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/subject/'],
          'slot_uri': 'spdx_core:subject'} })
-    type: Literal["Annotation"] = Field(default="Annotation", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/Annotation","https://spdx.org/rdf/3.0.1/terms/Core/Annotation","spdx_linkml:Annotation","spdx_core:Annotation"] = Field(default="spdx_core:Annotation", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -1601,9 +1606,10 @@ class AnyLicenseInfo(Element):
          'in_subset': ['spdx_simple_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Classes/AnyLicenseInfo/']})
 
-    type: Literal["AnyLicenseInfo"] = Field(default="AnyLicenseInfo", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/AnyLicenseInfo","https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/AnyLicenseInfo","spdx_linkml:AnyLicenseInfo","spdx_simple_licensing:AnyLicenseInfo"] = Field(default="spdx_simple_licensing:AnyLicenseInfo", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -1691,9 +1697,10 @@ class Artifact(Element):
     validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
-    type: Literal["Artifact"] = Field(default="Artifact", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/Artifact","https://spdx.org/rdf/3.0.1/terms/Core/Artifact","spdx_linkml:Artifact","spdx_core:Artifact"] = Field(default="spdx_core:Artifact", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -1768,9 +1775,10 @@ class ElementCollection(Element):
     rootElement: Optional[list[str]] = Field(default=None, description="""This property is used to denote the root Element(s) of a tree of elements contained in a BOM.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElementCollection'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/rootElement/'],
          'slot_uri': 'spdx_core:rootElement'} })
-    type: Literal["ElementCollection"] = Field(default="ElementCollection", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/ElementCollection","https://spdx.org/rdf/3.0.1/terms/Core/ElementCollection","spdx_linkml:ElementCollection","spdx_core:ElementCollection"] = Field(default="spdx_core:ElementCollection", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -1847,9 +1855,10 @@ class Bundle(ElementCollection):
     rootElement: Optional[list[str]] = Field(default=None, description="""This property is used to denote the root Element(s) of a tree of elements contained in a BOM.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElementCollection'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/rootElement/'],
          'slot_uri': 'spdx_core:rootElement'} })
-    type: Literal["Bundle"] = Field(default="Bundle", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/Bundle","https://spdx.org/rdf/3.0.1/terms/Core/Bundle","spdx_linkml:Bundle","spdx_core:Bundle"] = Field(default="spdx_core:Bundle", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -1926,9 +1935,10 @@ class Bom(Bundle):
     rootElement: Optional[list[str]] = Field(default=None, description="""This property is used to denote the root Element(s) of a tree of elements contained in a BOM.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElementCollection'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/rootElement/'],
          'slot_uri': 'spdx_core:rootElement'} })
-    type: Literal["Bom"] = Field(default="Bom", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/Bom","https://spdx.org/rdf/3.0.1/terms/Core/Bom","spdx_linkml:Bom","spdx_core:Bom"] = Field(default="spdx_core:Bom", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -1997,9 +2007,10 @@ class Extension(ConfiguredBaseModel):
          'in_subset': ['spdx_extension'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Classes/Extension/']})
 
-    type: Literal["Extension"] = Field(default="Extension", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/Extension","https://spdx.org/rdf/3.0.1/terms/Extension/Extension","spdx_linkml:Extension","spdx_extension:Extension"] = Field(default="spdx_extension:Extension", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -2027,9 +2038,10 @@ class ExternalIdentifier(ConfiguredBaseModel):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/ExternalIdentifier/']})
 
-    type: Literal["ExternalIdentifier"] = Field(default="ExternalIdentifier", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/ExternalIdentifier","https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifier","spdx_linkml:ExternalIdentifier","spdx_core:ExternalIdentifier"] = Field(default="spdx_core:ExternalIdentifier", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -2077,9 +2089,10 @@ class ExternalMap(ConfiguredBaseModel):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/ExternalMap/']})
 
-    type: Literal["ExternalMap"] = Field(default="ExternalMap", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/ExternalMap","https://spdx.org/rdf/3.0.1/terms/Core/ExternalMap","spdx_linkml:ExternalMap","spdx_core:ExternalMap"] = Field(default="spdx_core:ExternalMap", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -2120,9 +2133,10 @@ class ExternalRef(ConfiguredBaseModel):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/ExternalRef/']})
 
-    type: Literal["ExternalRef"] = Field(default="ExternalRef", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/ExternalRef","https://spdx.org/rdf/3.0.1/terms/Core/ExternalRef","spdx_linkml:ExternalRef","spdx_core:ExternalRef"] = Field(default="spdx_core:ExternalRef", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -2168,9 +2182,10 @@ class IndividualElement(Element):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/IndividualElement/']})
 
-    type: Literal["IndividualElement"] = Field(default="IndividualElement", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/IndividualElement","https://spdx.org/rdf/3.0.1/terms/Core/IndividualElement","spdx_linkml:IndividualElement","spdx_core:IndividualElement"] = Field(default="spdx_core:IndividualElement", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -2236,9 +2251,10 @@ class IntegrityMethod(ConfiguredBaseModel):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/IntegrityMethod/']})
 
-    type: Literal["IntegrityMethod"] = Field(default="IntegrityMethod", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/IntegrityMethod","https://spdx.org/rdf/3.0.1/terms/Core/IntegrityMethod","spdx_linkml:IntegrityMethod","spdx_core:IntegrityMethod"] = Field(default="spdx_core:IntegrityMethod", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -2282,9 +2298,10 @@ class Hash(IntegrityMethod):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/hashValue/'],
          'slot_uri': 'spdx_core:hashValue'} })
-    type: Literal["Hash"] = Field(default="Hash", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/Hash","https://spdx.org/rdf/3.0.1/terms/Core/Hash","spdx_linkml:Hash","spdx_core:Hash"] = Field(default="spdx_core:Hash", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -2320,9 +2337,10 @@ class NamespaceMap(ConfiguredBaseModel):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/NamespaceMap/']})
 
-    type: Literal["NamespaceMap"] = Field(default="NamespaceMap", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/NamespaceMap","https://spdx.org/rdf/3.0.1/terms/Core/NamespaceMap","spdx_linkml:NamespaceMap","spdx_core:NamespaceMap"] = Field(default="spdx_core:NamespaceMap", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -2356,9 +2374,10 @@ class Organization(Agent):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Organization/']})
 
-    type: Literal["Organization"] = Field(default="Organization", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/Organization","https://spdx.org/rdf/3.0.1/terms/Core/Organization","spdx_linkml:Organization","spdx_core:Organization"] = Field(default="spdx_core:Organization", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -2434,9 +2453,10 @@ class PackageVerificationCode(IntegrityMethod):
     packageVerificationCodeExcludedFile: Optional[list[str]] = Field(default=None, description="""The relative file name of a file to be excluded from the `PackageVerificationCode`.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PackageVerificationCode'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/packageVerificationCodeExcludedFile/'],
          'slot_uri': 'spdx_core:packageVerificationCodeExcludedFile'} })
-    type: Literal["PackageVerificationCode"] = Field(default="PackageVerificationCode", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/PackageVerificationCode","https://spdx.org/rdf/3.0.1/terms/Core/PackageVerificationCode","spdx_linkml:PackageVerificationCode","spdx_core:PackageVerificationCode"] = Field(default="spdx_core:PackageVerificationCode", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -2472,9 +2492,10 @@ class Person(Agent):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Person/']})
 
-    type: Literal["Person"] = Field(default="Person", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/Person","https://spdx.org/rdf/3.0.1/terms/Core/Person","spdx_linkml:Person","spdx_core:Person"] = Field(default="spdx_core:Person", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -2539,9 +2560,10 @@ class PositiveIntegerRange(ConfiguredBaseModel):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/PositiveIntegerRange/']})
 
-    type: Literal["PositiveIntegerRange"] = Field(default="PositiveIntegerRange", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/PositiveIntegerRange","https://spdx.org/rdf/3.0.1/terms/Core/PositiveIntegerRange","spdx_linkml:PositiveIntegerRange","spdx_core:PositiveIntegerRange"] = Field(default="spdx_core:PositiveIntegerRange", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -2593,9 +2615,10 @@ class Relationship(Element):
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
-    type: Literal["Relationship"] = Field(default="Relationship", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/Relationship","https://spdx.org/rdf/3.0.1/terms/Core/Relationship","spdx_linkml:Relationship","spdx_core:Relationship"] = Field(default="spdx_core:Relationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -2681,9 +2704,10 @@ class LifecycleScopedRelationship(Relationship):
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
-    type: Literal["LifecycleScopedRelationship"] = Field(default="LifecycleScopedRelationship", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/LifecycleScopedRelationship","https://spdx.org/rdf/3.0.1/terms/Core/LifecycleScopedRelationship","spdx_linkml:LifecycleScopedRelationship","spdx_core:LifecycleScopedRelationship"] = Field(default="spdx_core:LifecycleScopedRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -2748,9 +2772,10 @@ class SoftwareAgent(Agent):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/SoftwareAgent/']})
 
-    type: Literal["SoftwareAgent"] = Field(default="SoftwareAgent", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/SoftwareAgent","https://spdx.org/rdf/3.0.1/terms/Core/SoftwareAgent","spdx_linkml:SoftwareAgent","spdx_core:SoftwareAgent"] = Field(default="spdx_core:SoftwareAgent", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -2833,9 +2858,10 @@ class SpdxDocument(ElementCollection):
     rootElement: Optional[list[str]] = Field(default=None, description="""This property is used to denote the root Element(s) of a tree of elements contained in a BOM.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElementCollection'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/rootElement/'],
          'slot_uri': 'spdx_core:rootElement'} })
-    type: Literal["SpdxDocument"] = Field(default="SpdxDocument", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/SpdxDocument","https://spdx.org/rdf/3.0.1/terms/Core/SpdxDocument","spdx_linkml:SpdxDocument","spdx_core:SpdxDocument"] = Field(default="spdx_core:SpdxDocument", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -2900,9 +2926,10 @@ class Tool(Element):
          'in_subset': ['spdx_core'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Tool/']})
 
-    type: Literal["Tool"] = Field(default="Tool", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/Tool","https://spdx.org/rdf/3.0.1/terms/Core/Tool","spdx_linkml:Tool","spdx_core:Tool"] = Field(default="spdx_core:Tool", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -2994,9 +3021,10 @@ class Build(Element):
     parameter: Optional[list[DictionaryEntry]] = Field(default=None, description="""Property describing a parameter used in an instance of a build.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Build'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Properties/parameter/'],
          'slot_uri': 'spdx_build:parameter'} })
-    type: Literal["Build"] = Field(default="Build", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/Build","https://spdx.org/rdf/3.0.1/terms/Build/Build","spdx_linkml:Build","spdx_build:Build"] = Field(default="spdx_build:Build", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -3064,9 +3092,10 @@ class CdxPropertiesExtension(Extension):
     cdxProperty: list[CdxPropertyEntry] = Field(default=..., description="""Provides a map of a property names to a values.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CdxPropertiesExtension'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Properties/cdxProperty/'],
          'slot_uri': 'spdx_extension:cdxProperty'} })
-    type: Literal["CdxPropertiesExtension"] = Field(default="CdxPropertiesExtension", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/CdxPropertiesExtension","https://spdx.org/rdf/3.0.1/terms/Extension/CdxPropertiesExtension","spdx_linkml:CdxPropertiesExtension","spdx_extension:CdxPropertiesExtension"] = Field(default="spdx_extension:CdxPropertiesExtension", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -3094,9 +3123,10 @@ class CdxPropertyEntry(ConfiguredBaseModel):
          'in_subset': ['spdx_extension'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Classes/CdxPropertyEntry/']})
 
-    type: Literal["CdxPropertyEntry"] = Field(default="CdxPropertyEntry", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/CdxPropertyEntry","https://spdx.org/rdf/3.0.1/terms/Extension/CdxPropertyEntry","spdx_linkml:CdxPropertyEntry","spdx_extension:CdxPropertyEntry"] = Field(default="spdx_extension:CdxPropertyEntry", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -3139,9 +3169,10 @@ class LicenseExpression(AnyLicenseInfo):
     licenseListVersion: Optional[str] = Field(default=None, description="""The version of the SPDX License List used in the license expression.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LicenseExpression'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Properties/licenseListVersion/'],
          'slot_uri': 'spdx_simple_licensing:licenseListVersion'} })
-    type: Literal["LicenseExpression"] = Field(default="LicenseExpression", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/LicenseExpression","https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/LicenseExpression","spdx_linkml:LicenseExpression","spdx_simple_licensing:LicenseExpression"] = Field(default="spdx_simple_licensing:LicenseExpression", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -3210,9 +3241,10 @@ class SimpleLicensingText(Element):
          'in_subset': ['spdx_simple_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Properties/licenseText/'],
          'slot_uri': 'spdx_simple_licensing:licenseText'} })
-    type: Literal["SimpleLicensingText"] = Field(default="SimpleLicensingText", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/SimpleLicensingText","https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/SimpleLicensingText","spdx_linkml:SimpleLicensingText","spdx_simple_licensing:SimpleLicensingText"] = Field(default="spdx_simple_licensing:SimpleLicensingText", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -3283,9 +3315,10 @@ class ContentIdentifier(IntegrityMethod):
     contentIdentifierValue: str = Field(default=..., description="""Specifies the value of the content identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContentIdentifier'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/contentIdentifierValue/'],
          'slot_uri': 'spdx_software:contentIdentifierValue'} })
-    type: Literal["ContentIdentifier"] = Field(default="ContentIdentifier", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/ContentIdentifier","https://spdx.org/rdf/3.0.1/terms/Software/ContentIdentifier","spdx_linkml:ContentIdentifier","spdx_software:ContentIdentifier"] = Field(default="spdx_software:ContentIdentifier", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -3336,9 +3369,10 @@ class Sbom(Bom):
     rootElement: Optional[list[str]] = Field(default=None, description="""This property is used to denote the root Element(s) of a tree of elements contained in a BOM.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElementCollection'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/rootElement/'],
          'slot_uri': 'spdx_core:rootElement'} })
-    type: Literal["Sbom"] = Field(default="Sbom", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/Sbom","https://spdx.org/rdf/3.0.1/terms/Software/Sbom","spdx_linkml:Sbom","spdx_software:Sbom"] = Field(default="spdx_software:Sbom", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -3441,9 +3475,10 @@ class SoftwareArtifact(Artifact):
     validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
-    type: Literal["SoftwareArtifact"] = Field(default="SoftwareArtifact", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/SoftwareArtifact","https://spdx.org/rdf/3.0.1/terms/Software/SoftwareArtifact","spdx_linkml:SoftwareArtifact","spdx_software:SoftwareArtifact"] = Field(default="spdx_software:SoftwareArtifact", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -3552,9 +3587,10 @@ class File(SoftwareArtifact):
     validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
-    type: Literal["File"] = Field(default="File", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/File","https://spdx.org/rdf/3.0.1/terms/Software/File","spdx_linkml:File","spdx_software:File"] = Field(default="spdx_software:File", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -3671,9 +3707,10 @@ class Package(SoftwareArtifact):
     validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
-    type: Literal["Package"] = Field(default="Package", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/Package","https://spdx.org/rdf/3.0.1/terms/Software/Package","spdx_linkml:Package","spdx_software:Package"] = Field(default="spdx_software:Package", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -3784,9 +3821,10 @@ class Snippet(SoftwareArtifact):
     validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
-    type: Literal["Snippet"] = Field(default="Snippet", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/Snippet","https://spdx.org/rdf/3.0.1/terms/Software/Snippet","spdx_linkml:Snippet","spdx_software:Snippet"] = Field(default="spdx_software:Snippet", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -3948,9 +3986,10 @@ class AIPackage(Package):
     validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
-    type: Literal["AIPackage"] = Field(default="AIPackage", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/AIPackage","https://spdx.org/rdf/3.0.1/terms/AI/AIPackage","spdx_linkml:AIPackage","spdx_ai:AIPackage"] = Field(default="spdx_ai:AIPackage", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -4015,9 +4054,10 @@ class EnergyConsumption(ConfiguredBaseModel):
          'in_subset': ['spdx_ai'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/EnergyConsumption/']})
 
-    type: Literal["EnergyConsumption"] = Field(default="EnergyConsumption", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/EnergyConsumption","https://spdx.org/rdf/3.0.1/terms/AI/EnergyConsumption","spdx_linkml:EnergyConsumption","spdx_ai:EnergyConsumption"] = Field(default="spdx_ai:EnergyConsumption", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -4054,9 +4094,10 @@ class EnergyConsumptionDescription(ConfiguredBaseModel):
          'in_subset': ['spdx_ai'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/EnergyConsumptionDescription/']})
 
-    type: Literal["EnergyConsumptionDescription"] = Field(default="EnergyConsumptionDescription", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/EnergyConsumptionDescription","https://spdx.org/rdf/3.0.1/terms/AI/EnergyConsumptionDescription","spdx_linkml:EnergyConsumptionDescription","spdx_ai:EnergyConsumptionDescription"] = Field(default="spdx_ai:EnergyConsumptionDescription", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -4181,9 +4222,10 @@ class DatasetPackage(Package):
     validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
-    type: Literal["DatasetPackage"] = Field(default="DatasetPackage", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/DatasetPackage","https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetPackage","spdx_linkml:DatasetPackage","spdx_dataset:DatasetPackage"] = Field(default="spdx_dataset:DatasetPackage", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -4252,9 +4294,10 @@ class ConjunctiveLicenseSet(AnyLicenseInfo):
          'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/member/'],
          'slot_uri': 'spdx_expanded_licensing:member'} })
-    type: Literal["ConjunctiveLicenseSet"] = Field(default="ConjunctiveLicenseSet", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/ConjunctiveLicenseSet","https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/ConjunctiveLicenseSet","spdx_linkml:ConjunctiveLicenseSet","spdx_expanded_licensing:ConjunctiveLicenseSet"] = Field(default="spdx_expanded_licensing:ConjunctiveLicenseSet", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -4323,9 +4366,10 @@ class DisjunctiveLicenseSet(AnyLicenseInfo):
          'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/member/'],
          'slot_uri': 'spdx_expanded_licensing:member'} })
-    type: Literal["DisjunctiveLicenseSet"] = Field(default="DisjunctiveLicenseSet", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/DisjunctiveLicenseSet","https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/DisjunctiveLicenseSet","spdx_linkml:DisjunctiveLicenseSet","spdx_expanded_licensing:DisjunctiveLicenseSet"] = Field(default="spdx_expanded_licensing:DisjunctiveLicenseSet", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -4391,9 +4435,10 @@ class ExtendableLicense(AnyLicenseInfo):
          'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Classes/ExtendableLicense/']})
 
-    type: Literal["ExtendableLicense"] = Field(default="ExtendableLicense", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/ExtendableLicense","https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/ExtendableLicense","spdx_linkml:ExtendableLicense","spdx_expanded_licensing:ExtendableLicense"] = Field(default="spdx_expanded_licensing:ExtendableLicense", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -4458,9 +4503,10 @@ class IndividualLicensingInfo(AnyLicenseInfo):
          'in_subset': ['spdx_expanded_licensing'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Classes/IndividualLicensingInfo/']})
 
-    type: Literal["IndividualLicensingInfo"] = Field(default="IndividualLicensingInfo", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/IndividualLicensingInfo","https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/IndividualLicensingInfo","spdx_linkml:IndividualLicensingInfo","spdx_expanded_licensing:IndividualLicensingInfo"] = Field(default="spdx_expanded_licensing:IndividualLicensingInfo", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -4557,9 +4603,10 @@ class License(ExtendableLicense):
     standardLicenseTemplate: Optional[str] = Field(default=None, description="""Identifies the full text of a License, in SPDX templating format.""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/standardLicenseTemplate/'],
          'slot_uri': 'spdx_expanded_licensing:standardLicenseTemplate'} })
-    type: Literal["License"] = Field(default="License", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/License","https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/License","spdx_linkml:License","spdx_expanded_licensing:License"] = Field(default="spdx_expanded_licensing:License", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -4655,9 +4702,10 @@ class CustomLicense(License):
     standardLicenseTemplate: Optional[str] = Field(default=None, description="""Identifies the full text of a License, in SPDX templating format.""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/standardLicenseTemplate/'],
          'slot_uri': 'spdx_expanded_licensing:standardLicenseTemplate'} })
-    type: Literal["CustomLicense"] = Field(default="CustomLicense", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/CustomLicense","https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/CustomLicense","spdx_linkml:CustomLicense","spdx_expanded_licensing:CustomLicense"] = Field(default="spdx_expanded_licensing:CustomLicense", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -4744,9 +4792,10 @@ class LicenseAddition(Element):
     standardAdditionTemplate: Optional[str] = Field(default=None, description="""Identifies the full text of a LicenseAddition, in SPDX templating format.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LicenseAddition'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/standardAdditionTemplate/'],
          'slot_uri': 'spdx_expanded_licensing:standardAdditionTemplate'} })
-    type: Literal["LicenseAddition"] = Field(default="LicenseAddition", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/LicenseAddition","https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/LicenseAddition","spdx_linkml:LicenseAddition","spdx_expanded_licensing:LicenseAddition"] = Field(default="spdx_expanded_licensing:LicenseAddition", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -4832,9 +4881,10 @@ class CustomLicenseAddition(LicenseAddition):
     standardAdditionTemplate: Optional[str] = Field(default=None, description="""Identifies the full text of a LicenseAddition, in SPDX templating format.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LicenseAddition'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/standardAdditionTemplate/'],
          'slot_uri': 'spdx_expanded_licensing:standardAdditionTemplate'} })
-    type: Literal["CustomLicenseAddition"] = Field(default="CustomLicenseAddition", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/CustomLicenseAddition","https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/CustomLicenseAddition","spdx_linkml:CustomLicenseAddition","spdx_expanded_licensing:CustomLicenseAddition"] = Field(default="spdx_expanded_licensing:CustomLicenseAddition", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -4938,9 +4988,10 @@ class ListedLicense(License):
     standardLicenseTemplate: Optional[str] = Field(default=None, description="""Identifies the full text of a License, in SPDX templating format.""", json_schema_extra = { "linkml_meta": {'domain_of': ['License'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/standardLicenseTemplate/'],
          'slot_uri': 'spdx_expanded_licensing:standardLicenseTemplate'} })
-    type: Literal["ListedLicense"] = Field(default="ListedLicense", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/ListedLicense","https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/ListedLicense","spdx_linkml:ListedLicense","spdx_expanded_licensing:ListedLicense"] = Field(default="spdx_expanded_licensing:ListedLicense", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -5034,9 +5085,10 @@ class ListedLicenseException(LicenseAddition):
     standardAdditionTemplate: Optional[str] = Field(default=None, description="""Identifies the full text of a LicenseAddition, in SPDX templating format.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LicenseAddition'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/standardAdditionTemplate/'],
          'slot_uri': 'spdx_expanded_licensing:standardAdditionTemplate'} })
-    type: Literal["ListedLicenseException"] = Field(default="ListedLicenseException", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/ListedLicenseException","https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/ListedLicenseException","spdx_linkml:ListedLicenseException","spdx_expanded_licensing:ListedLicenseException"] = Field(default="spdx_expanded_licensing:ListedLicenseException", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -5104,9 +5156,10 @@ class OrLaterOperator(ExtendableLicense):
     subjectLicense: str = Field(default=..., description="""A License participating in an 'or later' model.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OrLaterOperator'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/subjectLicense/'],
          'slot_uri': 'spdx_expanded_licensing:subjectLicense'} })
-    type: Literal["OrLaterOperator"] = Field(default="OrLaterOperator", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/OrLaterOperator","https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/OrLaterOperator","spdx_linkml:OrLaterOperator","spdx_expanded_licensing:OrLaterOperator"] = Field(default="spdx_expanded_licensing:OrLaterOperator", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -5177,9 +5230,10 @@ class WithAdditionOperator(AnyLicenseInfo):
     subjectExtendableLicense: str = Field(default=..., description="""A License participating in a 'with addition' model.""", json_schema_extra = { "linkml_meta": {'domain_of': ['WithAdditionOperator'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/Properties/subjectExtendableLicense/'],
          'slot_uri': 'spdx_expanded_licensing:subjectExtendableLicense'} })
-    type: Literal["WithAdditionOperator"] = Field(default="WithAdditionOperator", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/WithAdditionOperator","https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/WithAdditionOperator","spdx_linkml:WithAdditionOperator","spdx_expanded_licensing:WithAdditionOperator"] = Field(default="spdx_expanded_licensing:WithAdditionOperator", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -5282,9 +5336,10 @@ class VulnAssessmentRelationship(Relationship):
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
-    type: Literal["VulnAssessmentRelationship"] = Field(default="VulnAssessmentRelationship", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/VulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/VulnAssessmentRelationship","spdx_linkml:VulnAssessmentRelationship","spdx_security:VulnAssessmentRelationship"] = Field(default="spdx_security:VulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -5398,9 +5453,10 @@ class CvssV2VulnAssessmentRelationship(VulnAssessmentRelationship):
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
-    type: Literal["CvssV2VulnAssessmentRelationship"] = Field(default="CvssV2VulnAssessmentRelationship", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/CvssV2VulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/CvssV2VulnAssessmentRelationship","spdx_linkml:CvssV2VulnAssessmentRelationship","spdx_security:CvssV2VulnAssessmentRelationship"] = Field(default="spdx_security:CvssV2VulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -5519,9 +5575,10 @@ class CvssV3VulnAssessmentRelationship(VulnAssessmentRelationship):
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
-    type: Literal["CvssV3VulnAssessmentRelationship"] = Field(default="CvssV3VulnAssessmentRelationship", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/CvssV3VulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/CvssV3VulnAssessmentRelationship","spdx_linkml:CvssV3VulnAssessmentRelationship","spdx_security:CvssV3VulnAssessmentRelationship"] = Field(default="spdx_security:CvssV3VulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -5640,9 +5697,10 @@ class CvssV4VulnAssessmentRelationship(VulnAssessmentRelationship):
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
-    type: Literal["CvssV4VulnAssessmentRelationship"] = Field(default="CvssV4VulnAssessmentRelationship", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/CvssV4VulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/CvssV4VulnAssessmentRelationship","spdx_linkml:CvssV4VulnAssessmentRelationship","spdx_security:CvssV4VulnAssessmentRelationship"] = Field(default="spdx_security:CvssV4VulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -5750,9 +5808,10 @@ class EpssVulnAssessmentRelationship(VulnAssessmentRelationship):
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
-    type: Literal["EpssVulnAssessmentRelationship"] = Field(default="EpssVulnAssessmentRelationship", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/EpssVulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/EpssVulnAssessmentRelationship","spdx_linkml:EpssVulnAssessmentRelationship","spdx_security:EpssVulnAssessmentRelationship"] = Field(default="spdx_security:EpssVulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -5863,9 +5922,10 @@ class ExploitCatalogVulnAssessmentRelationship(VulnAssessmentRelationship):
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
-    type: Literal["ExploitCatalogVulnAssessmentRelationship"] = Field(default="ExploitCatalogVulnAssessmentRelationship", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/ExploitCatalogVulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/ExploitCatalogVulnAssessmentRelationship","spdx_linkml:ExploitCatalogVulnAssessmentRelationship","spdx_security:ExploitCatalogVulnAssessmentRelationship"] = Field(default="spdx_security:ExploitCatalogVulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -5970,9 +6030,10 @@ class SsvcVulnAssessmentRelationship(VulnAssessmentRelationship):
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
-    type: Literal["SsvcVulnAssessmentRelationship"] = Field(default="SsvcVulnAssessmentRelationship", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/SsvcVulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/SsvcVulnAssessmentRelationship","spdx_linkml:SsvcVulnAssessmentRelationship","spdx_security:SsvcVulnAssessmentRelationship"] = Field(default="spdx_security:SsvcVulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -6081,9 +6142,10 @@ class VexVulnAssessmentRelationship(VulnAssessmentRelationship):
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
-    type: Literal["VexVulnAssessmentRelationship"] = Field(default="VexVulnAssessmentRelationship", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/VexVulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/VexVulnAssessmentRelationship","spdx_linkml:VexVulnAssessmentRelationship","spdx_security:VexVulnAssessmentRelationship"] = Field(default="spdx_security:VexVulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -6197,9 +6259,10 @@ class VexAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
-    type: Literal["VexAffectedVulnAssessmentRelationship"] = Field(default="VexAffectedVulnAssessmentRelationship", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/VexAffectedVulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/VexAffectedVulnAssessmentRelationship","spdx_linkml:VexAffectedVulnAssessmentRelationship","spdx_security:VexAffectedVulnAssessmentRelationship"] = Field(default="spdx_security:VexAffectedVulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -6307,9 +6370,10 @@ class VexFixedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
-    type: Literal["VexFixedVulnAssessmentRelationship"] = Field(default="VexFixedVulnAssessmentRelationship", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/VexFixedVulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/VexFixedVulnAssessmentRelationship","spdx_linkml:VexFixedVulnAssessmentRelationship","spdx_security:VexFixedVulnAssessmentRelationship"] = Field(default="spdx_security:VexFixedVulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -6426,9 +6490,10 @@ class VexNotAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
-    type: Literal["VexNotAffectedVulnAssessmentRelationship"] = Field(default="VexNotAffectedVulnAssessmentRelationship", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/VexNotAffectedVulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/VexNotAffectedVulnAssessmentRelationship","spdx_linkml:VexNotAffectedVulnAssessmentRelationship","spdx_security:VexNotAffectedVulnAssessmentRelationship"] = Field(default="spdx_security:VexNotAffectedVulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -6536,9 +6601,10 @@ class VexUnderInvestigationVulnAssessmentRelationship(VexVulnAssessmentRelations
     to: list[str] = Field(default=..., description="""References an Element on the right-hand side of a relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Relationship'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/'],
          'slot_uri': 'spdx_core:to'} })
-    type: Literal["VexUnderInvestigationVulnAssessmentRelationship"] = Field(default="VexUnderInvestigationVulnAssessmentRelationship", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/VexUnderInvestigationVulnAssessmentRelationship","https://spdx.org/rdf/3.0.1/terms/Security/VexUnderInvestigationVulnAssessmentRelationship","spdx_linkml:VexUnderInvestigationVulnAssessmentRelationship","spdx_security:VexUnderInvestigationVulnAssessmentRelationship"] = Field(default="spdx_security:VexUnderInvestigationVulnAssessmentRelationship", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',
@@ -6637,9 +6703,10 @@ class Vulnerability(Artifact):
     validUntilTime: Optional[str] = Field(default=None, description="""Specifies until when the artifact can be used before its usage needs to be reassessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact'],
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/'],
          'slot_uri': 'spdx_core:validUntilTime'} })
-    type: Literal["Vulnerability"] = Field(default="Vulnerability", description="""The name of the class an object is an instance of, such as Package or Hash.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with the profile prefixed to a '
-                      'class outside Core, software_Package for a Package. This schema '
-                      'takes the bare class name.'],
+    type: Literal["https://w3id.org/lmodel/spdx/Vulnerability","https://spdx.org/rdf/3.0.1/terms/Security/Vulnerability","spdx_linkml:Vulnerability","spdx_security:Vulnerability"] = Field(default="spdx_security:Vulnerability", description="""The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.""", json_schema_extra = { "linkml_meta": {'comments': ['SPDX JSON-LD writes the same key with a term of its context, '
+                      "software_Package for a Package. This schema takes the class's "
+                      'CURIE or its full IRI, so RDF written from the data types each '
+                      'object with its SPDX class.'],
          'designates_type': True,
          'domain_of': ['CreationInfo',
                        'DictionaryEntry',

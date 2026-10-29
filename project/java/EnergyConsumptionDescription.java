@@ -16,7 +16,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public class EnergyConsumptionDescription  {
 
-  private String type;
+  private URI type;
   private BigDecimal energyQuantity;
   private String energyUnit;
 

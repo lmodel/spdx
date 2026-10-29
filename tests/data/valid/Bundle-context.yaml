@@ -1,5 +1,5 @@
 spdxId: https://example.com/spdx/bundles/release-2024-10
-type: Bundle
+type: spdx_core:Bundle
 context: Everything shipped in the October 2024 release.
 element:
   - https://example.com/spdx/packages/hello-1.0.0

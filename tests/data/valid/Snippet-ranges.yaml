@@ -1,5 +1,5 @@
 spdxId: https://example.com/spdx/snippets/main-c-1
-type: Snippet
+type: spdx_software:Snippet
 snippetFromFile: https://example.com/spdx/files/main.c
 byteRange:
   beginIntegerRange: 310

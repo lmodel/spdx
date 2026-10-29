@@ -1,12 +1,12 @@
 spdxId: https://example.com/spdx/files/main.c
-type: File
+type: spdx_software:File
 name: src/main.c
 fileKind: file
 contentType: text/x-c
 primaryPurpose: source
 copyrightText: NOASSERTION
 verifiedUsing:
-  - type: Hash
+  - type: spdx_core:Hash
     algorithm: sha1
     hashValue: da39a3ee5e6b4b0d3255bfef95601890afd80709
 creationInfo:

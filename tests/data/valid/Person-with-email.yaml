@@ -1,5 +1,5 @@
 spdxId: https://example.com/spdx/agents/jane
-type: Person
+type: spdx_core:Person
 name: Jane Doe
 externalIdentifier:
   - externalIdentifierType: email

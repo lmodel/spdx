@@ -16,7 +16,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public class PositiveIntegerRange  {
 
-  private String type;
+  private URI type;
   private Integer beginIntegerRange;
   private Integer endIntegerRange;
 

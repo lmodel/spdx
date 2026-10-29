@@ -1,5 +1,5 @@
 spdxId: https://example.com/spdx/relationships/sbom-contains-package
-type: Relationship
+type: spdx_core:Relationship
 relationshipType: contains
 completeness: complete
 from: https://example.com/spdx/sboms/hello

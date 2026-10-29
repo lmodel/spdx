@@ -16,7 +16,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public class ExternalRef  {
 
-  private String type;
+  private URI type;
   private String comment;
   private String contentType;
   private String externalRefType;

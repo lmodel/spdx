@@ -1,5 +1,5 @@
 spdxId: https://example.com/spdx/licenses/LicenseRef-Example-text
-type: SimpleLicensingText
+type: spdx_simple_licensing:SimpleLicensingText
 licenseText: Permission is granted to Example Org employees only.
 creationInfo:
   specVersion: 3.0.1

@@ -16,7 +16,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public class ExternalMap  {
 
-  private String type;
+  private URI type;
   private List<IntegrityMethod> verifiedUsing;
   private Artifact definingArtifact;
   private URI externalSpdxId;

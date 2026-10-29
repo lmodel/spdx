@@ -41,7 +41,8 @@ The rules, each applied the same way to every element:
 - Extension and AnyLicenseInfo are declared in the core module, because Core's
   own fields range over them; their IRIs stay in their profiles' namespaces.
 - ``type``, the ``rdf:type`` designator, is a slot of every class that has no
-  parent, so an inlined object such as a Hash says which IntegrityMethod it is.
+  parent. Its value is the class's CURIE, such as ``spdx_core:Hash``, so an
+  inlined object says which IntegrityMethod it is.
 """
 
 from __future__ import annotations
@@ -187,14 +188,17 @@ PROFILES = {
     ),
 }
 
+# The designator's range is uriorcurie, not string: the LinkML runtime writes the
+# designator's value as the node's rdf:type, so a class name would be a literal.
 TYPE_SLOT = {
-    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
     "slot_uri": "rdf:type",
     "designates_type": True,
-    "range": "string",
+    "range": "uriorcurie",
     "comments": [
-        "SPDX JSON-LD writes the same key with the profile prefixed to a class outside Core, "
-        "software_Package for a Package. This schema takes the bare class name.",
+        "SPDX JSON-LD writes the same key with a term of its context, software_Package for a Package. "
+        "This schema takes the class's CURIE or its full IRI, so RDF written from the data types each "
+        "object with its SPDX class.",
     ],
 }
 

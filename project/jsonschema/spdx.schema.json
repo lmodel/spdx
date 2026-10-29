@@ -337,9 +337,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "AIPackage"
+                        "spdx_ai:AIPackage",
+                        "https://spdx.org/rdf/3.0.1/terms/AI/AIPackage"
                     ],
                     "type": [
                         "string",
@@ -475,9 +476,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "Agent"
+                        "spdx_core:Agent",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/Agent"
                     ],
                     "type": [
                         "string",
@@ -608,9 +610,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "Annotation"
+                        "spdx_core:Annotation",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/Annotation"
                     ],
                     "type": [
                         "string",
@@ -728,9 +731,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "AnyLicenseInfo"
+                        "spdx_simple_licensing:AnyLicenseInfo",
+                        "https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/AnyLicenseInfo"
                     ],
                     "type": [
                         "string",
@@ -892,9 +896,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "Artifact"
+                        "spdx_core:Artifact",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/Artifact"
                     ],
                     "type": [
                         "string",
@@ -1048,9 +1053,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "Bom"
+                        "spdx_core:Bom",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/Bom"
                     ],
                     "type": [
                         "string",
@@ -1236,9 +1242,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "Build"
+                        "spdx_build:Build",
+                        "https://spdx.org/rdf/3.0.1/terms/Build/Build"
                     ],
                     "type": [
                         "string",
@@ -1385,9 +1392,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "Bundle"
+                        "spdx_core:Bundle",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/Bundle"
                     ],
                     "type": [
                         "string",
@@ -1434,9 +1442,10 @@
                     "type": "array"
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "CdxPropertiesExtension"
+                        "spdx_extension:CdxPropertiesExtension",
+                        "https://spdx.org/rdf/3.0.1/terms/Extension/CdxPropertiesExtension"
                     ],
                     "type": [
                         "string",
@@ -1466,9 +1475,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "CdxPropertyEntry"
+                        "spdx_extension:CdxPropertyEntry",
+                        "https://spdx.org/rdf/3.0.1/terms/Extension/CdxPropertyEntry"
                     ],
                     "type": [
                         "string",
@@ -1574,9 +1584,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "ConjunctiveLicenseSet"
+                        "spdx_expanded_licensing:ConjunctiveLicenseSet",
+                        "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/ConjunctiveLicenseSet"
                     ],
                     "type": [
                         "string",
@@ -1633,9 +1644,10 @@
                     "type": "string"
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "ContentIdentifier"
+                        "spdx_software:ContentIdentifier",
+                        "https://spdx.org/rdf/3.0.1/terms/Software/ContentIdentifier"
                     ],
                     "type": [
                         "string",
@@ -1700,9 +1712,10 @@
                     "type": "string"
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "CreationInfo"
+                        "spdx_core:CreationInfo",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/CreationInfo"
                     ],
                     "type": [
                         "string",
@@ -1854,9 +1867,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "CustomLicense"
+                        "spdx_expanded_licensing:CustomLicense",
+                        "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/CustomLicense"
                     ],
                     "type": [
                         "string",
@@ -2007,9 +2021,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "CustomLicenseAddition"
+                        "spdx_expanded_licensing:CustomLicenseAddition",
+                        "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/CustomLicenseAddition"
                     ],
                     "type": [
                         "string",
@@ -2209,9 +2224,10 @@
                     "type": "array"
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "CvssV2VulnAssessmentRelationship"
+                        "spdx_security:CvssV2VulnAssessmentRelationship",
+                        "https://spdx.org/rdf/3.0.1/terms/Security/CvssV2VulnAssessmentRelationship"
                     ],
                     "type": [
                         "string",
@@ -2419,9 +2435,10 @@
                     "type": "array"
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "CvssV3VulnAssessmentRelationship"
+                        "spdx_security:CvssV3VulnAssessmentRelationship",
+                        "https://spdx.org/rdf/3.0.1/terms/Security/CvssV3VulnAssessmentRelationship"
                     ],
                     "type": [
                         "string",
@@ -2630,9 +2647,10 @@
                     "type": "array"
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "CvssV4VulnAssessmentRelationship"
+                        "spdx_security:CvssV4VulnAssessmentRelationship",
+                        "https://spdx.org/rdf/3.0.1/terms/Security/CvssV4VulnAssessmentRelationship"
                     ],
                     "type": [
                         "string",
@@ -3026,9 +3044,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "DatasetPackage"
+                        "spdx_dataset:DatasetPackage",
+                        "https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetPackage"
                     ],
                     "type": [
                         "string",
@@ -3102,9 +3121,10 @@
                     "type": "string"
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "DictionaryEntry"
+                        "spdx_core:DictionaryEntry",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/DictionaryEntry"
                     ],
                     "type": [
                         "string",
@@ -3206,9 +3226,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "DisjunctiveLicenseSet"
+                        "spdx_expanded_licensing:DisjunctiveLicenseSet",
+                        "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/DisjunctiveLicenseSet"
                     ],
                     "type": [
                         "string",
@@ -3316,9 +3337,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "Element"
+                        "spdx_core:Element",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/Element"
                     ],
                     "type": [
                         "string",
@@ -3457,9 +3479,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "ElementCollection"
+                        "spdx_core:ElementCollection",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/ElementCollection"
                     ],
                     "type": [
                         "string",
@@ -3529,9 +3552,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "EnergyConsumption"
+                        "spdx_ai:EnergyConsumption",
+                        "https://spdx.org/rdf/3.0.1/terms/AI/EnergyConsumption"
                     ],
                     "type": [
                         "string",
@@ -3555,9 +3579,10 @@
                     "description": "Specifies the unit in which energy is measured."
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "EnergyConsumptionDescription"
+                        "spdx_ai:EnergyConsumptionDescription",
+                        "https://spdx.org/rdf/3.0.1/terms/AI/EnergyConsumptionDescription"
                     ],
                     "type": [
                         "string",
@@ -3738,9 +3763,10 @@
                     "type": "array"
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "EpssVulnAssessmentRelationship"
+                        "spdx_security:EpssVulnAssessmentRelationship",
+                        "https://spdx.org/rdf/3.0.1/terms/Security/EpssVulnAssessmentRelationship"
                     ],
                     "type": [
                         "string",
@@ -3958,9 +3984,10 @@
                     "type": "array"
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "ExploitCatalogVulnAssessmentRelationship"
+                        "spdx_security:ExploitCatalogVulnAssessmentRelationship",
+                        "https://spdx.org/rdf/3.0.1/terms/Security/ExploitCatalogVulnAssessmentRelationship"
                     ],
                     "type": [
                         "string",
@@ -4081,9 +4108,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "ExtendableLicense"
+                        "spdx_expanded_licensing:ExtendableLicense",
+                        "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/ExtendableLicense"
                     ],
                     "type": [
                         "string",
@@ -4123,9 +4151,10 @@
             "description": "A characterization of some aspect of an Element that is associated with the Element in a generalized fashion.",
             "properties": {
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "Extension"
+                        "spdx_extension:Extension",
+                        "https://spdx.org/rdf/3.0.1/terms/Extension/Extension"
                     ],
                     "type": [
                         "string",
@@ -4174,9 +4203,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "ExternalIdentifier"
+                        "spdx_core:ExternalIdentifier",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifier"
                     ],
                     "type": [
                         "string",
@@ -4235,9 +4265,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "ExternalMap"
+                        "spdx_core:ExternalMap",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/ExternalMap"
                     ],
                     "type": [
                         "string",
@@ -4312,9 +4343,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "ExternalRef"
+                        "spdx_core:ExternalRef",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/ExternalRef"
                     ],
                     "type": [
                         "string",
@@ -4572,9 +4604,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "File"
+                        "spdx_software:File",
+                        "https://spdx.org/rdf/3.0.1/terms/Software/File"
                     ],
                     "type": [
                         "string",
@@ -4646,9 +4679,10 @@
                     "type": "string"
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "Hash"
+                        "spdx_core:Hash",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/Hash"
                     ],
                     "type": [
                         "string",
@@ -4764,9 +4798,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "IndividualElement"
+                        "spdx_core:IndividualElement",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/IndividualElement"
                     ],
                     "type": [
                         "string",
@@ -4873,9 +4908,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "IndividualLicensingInfo"
+                        "spdx_expanded_licensing:IndividualLicensingInfo",
+                        "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/IndividualLicensingInfo"
                     ],
                     "type": [
                         "string",
@@ -4922,9 +4958,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "IntegrityMethod"
+                        "spdx_core:IntegrityMethod",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/IntegrityMethod"
                     ],
                     "type": [
                         "string",
@@ -5071,9 +5108,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "License"
+                        "spdx_expanded_licensing:License",
+                        "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/License"
                     ],
                     "type": [
                         "string",
@@ -5224,9 +5262,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "LicenseAddition"
+                        "spdx_expanded_licensing:LicenseAddition",
+                        "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/LicenseAddition"
                     ],
                     "type": [
                         "string",
@@ -5356,9 +5395,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "LicenseExpression"
+                        "spdx_simple_licensing:LicenseExpression",
+                        "https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/LicenseExpression"
                     ],
                     "type": [
                         "string",
@@ -5534,9 +5574,10 @@
                     "type": "array"
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "LifecycleScopedRelationship"
+                        "spdx_core:LifecycleScopedRelationship",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/LifecycleScopedRelationship"
                     ],
                     "type": [
                         "string",
@@ -5724,9 +5765,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "ListedLicense"
+                        "spdx_expanded_licensing:ListedLicense",
+                        "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/ListedLicense"
                     ],
                     "type": [
                         "string",
@@ -5891,9 +5933,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "ListedLicenseException"
+                        "spdx_expanded_licensing:ListedLicenseException",
+                        "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/ListedLicenseException"
                     ],
                     "type": [
                         "string",
@@ -5943,9 +5986,10 @@
                     "type": "string"
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "NamespaceMap"
+                        "spdx_core:NamespaceMap",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/NamespaceMap"
                     ],
                     "type": [
                         "string",
@@ -6037,9 +6081,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "OrLaterOperator"
+                        "spdx_expanded_licensing:OrLaterOperator",
+                        "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/OrLaterOperator"
                     ],
                     "type": [
                         "string",
@@ -6147,9 +6192,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "Organization"
+                        "spdx_core:Organization",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/Organization"
                     ],
                     "type": [
                         "string",
@@ -6397,9 +6443,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "Package"
+                        "spdx_software:Package",
+                        "https://spdx.org/rdf/3.0.1/terms/Software/Package"
                     ],
                     "type": [
                         "string",
@@ -6472,9 +6519,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "PackageVerificationCode"
+                        "spdx_core:PackageVerificationCode",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/PackageVerificationCode"
                     ],
                     "type": [
                         "string",
@@ -6561,9 +6609,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "Person"
+                        "spdx_core:Person",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/Person"
                     ],
                     "type": [
                         "string",
@@ -6613,9 +6662,10 @@
                     "type": "integer"
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "PositiveIntegerRange"
+                        "spdx_core:PositiveIntegerRange",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/PositiveIntegerRange"
                     ],
                     "type": [
                         "string",
@@ -6773,9 +6823,10 @@
                     "type": "array"
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "Relationship"
+                        "spdx_core:Relationship",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/Relationship"
                     ],
                     "type": [
                         "string",
@@ -7021,9 +7072,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "Sbom"
+                        "spdx_software:Sbom",
+                        "https://spdx.org/rdf/3.0.1/terms/Software/Sbom"
                     ],
                     "type": [
                         "string",
@@ -7147,9 +7199,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "SimpleLicensingText"
+                        "spdx_simple_licensing:SimpleLicensingText",
+                        "https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/SimpleLicensingText"
                     ],
                     "type": [
                         "string",
@@ -7387,9 +7440,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "Snippet"
+                        "spdx_software:Snippet",
+                        "https://spdx.org/rdf/3.0.1/terms/Software/Snippet"
                     ],
                     "type": [
                         "string",
@@ -7505,9 +7559,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "SoftwareAgent"
+                        "spdx_core:SoftwareAgent",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/SoftwareAgent"
                     ],
                     "type": [
                         "string",
@@ -7717,9 +7772,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "SoftwareArtifact"
+                        "spdx_software:SoftwareArtifact",
+                        "https://spdx.org/rdf/3.0.1/terms/Software/SoftwareArtifact"
                     ],
                     "type": [
                         "string",
@@ -7930,9 +7986,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "SpdxDocument"
+                        "spdx_core:SpdxDocument",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/SpdxDocument"
                     ],
                     "type": [
                         "string",
@@ -8130,9 +8187,10 @@
                     "type": "array"
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "SsvcVulnAssessmentRelationship"
+                        "spdx_security:SsvcVulnAssessmentRelationship",
+                        "https://spdx.org/rdf/3.0.1/terms/Security/SsvcVulnAssessmentRelationship"
                     ],
                     "type": [
                         "string",
@@ -8265,9 +8323,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "Tool"
+                        "spdx_core:Tool",
+                        "https://spdx.org/rdf/3.0.1/terms/Core/Tool"
                     ],
                     "type": [
                         "string",
@@ -8469,9 +8528,10 @@
                     "type": "array"
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "VexAffectedVulnAssessmentRelationship"
+                        "spdx_security:VexAffectedVulnAssessmentRelationship",
+                        "https://spdx.org/rdf/3.0.1/terms/Security/VexAffectedVulnAssessmentRelationship"
                     ],
                     "type": [
                         "string",
@@ -8680,9 +8740,10 @@
                     "type": "array"
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "VexFixedVulnAssessmentRelationship"
+                        "spdx_security:VexFixedVulnAssessmentRelationship",
+                        "https://spdx.org/rdf/3.0.1/terms/Security/VexFixedVulnAssessmentRelationship"
                     ],
                     "type": [
                         "string",
@@ -8928,9 +8989,10 @@
                     "type": "array"
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "VexNotAffectedVulnAssessmentRelationship"
+                        "spdx_security:VexNotAffectedVulnAssessmentRelationship",
+                        "https://spdx.org/rdf/3.0.1/terms/Security/VexNotAffectedVulnAssessmentRelationship"
                     ],
                     "type": [
                         "string",
@@ -9138,9 +9200,10 @@
                     "type": "array"
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "VexUnderInvestigationVulnAssessmentRelationship"
+                        "spdx_security:VexUnderInvestigationVulnAssessmentRelationship",
+                        "https://spdx.org/rdf/3.0.1/terms/Security/VexUnderInvestigationVulnAssessmentRelationship"
                     ],
                     "type": [
                         "string",
@@ -9348,9 +9411,10 @@
                     "type": "array"
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "VexVulnAssessmentRelationship"
+                        "spdx_security:VexVulnAssessmentRelationship",
+                        "https://spdx.org/rdf/3.0.1/terms/Security/VexVulnAssessmentRelationship"
                     ],
                     "type": [
                         "string",
@@ -9551,9 +9615,10 @@
                     "type": "array"
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "VulnAssessmentRelationship"
+                        "spdx_security:VulnAssessmentRelationship",
+                        "https://spdx.org/rdf/3.0.1/terms/Security/VulnAssessmentRelationship"
                     ],
                     "type": [
                         "string",
@@ -9742,9 +9807,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "Vulnerability"
+                        "spdx_security:Vulnerability",
+                        "https://spdx.org/rdf/3.0.1/terms/Security/Vulnerability"
                     ],
                     "type": [
                         "string",
@@ -9877,9 +9943,10 @@
                     ]
                 },
                 "type": {
-                    "description": "The name of the class an object is an instance of, such as Package or Hash.",
+                    "description": "The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.",
                     "enum": [
-                        "WithAdditionOperator"
+                        "spdx_expanded_licensing:WithAdditionOperator",
+                        "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/WithAdditionOperator"
                     ],
                     "type": [
                         "string",

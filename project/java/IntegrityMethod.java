@@ -16,7 +16,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public abstract class IntegrityMethod  {
 
-  private String type;
+  private URI type;
   private String comment;
 
 

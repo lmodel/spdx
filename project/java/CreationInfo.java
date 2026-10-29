@@ -16,7 +16,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public class CreationInfo  {
 
-  private String type;
+  private URI type;
   private String comment;
   private String created;
   private List<Agent> createdBy;

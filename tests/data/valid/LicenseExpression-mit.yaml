@@ -1,5 +1,5 @@
 spdxId: https://example.com/spdx/licenses/mit-expression
-type: LicenseExpression
+type: spdx_simple_licensing:LicenseExpression
 licenseExpression: MIT
 licenseListVersion: 3.25.0
 creationInfo:

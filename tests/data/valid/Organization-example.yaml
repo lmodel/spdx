@@ -1,5 +1,5 @@
 spdxId: https://example.com/spdx/agents/example-org
-type: Organization
+type: spdx_core:Organization
 name: Example Org
 summary: The organisation that supplies the hello package.
 creationInfo:

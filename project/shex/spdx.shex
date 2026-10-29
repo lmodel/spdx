@@ -202,7 +202,7 @@ linkml:Sparqlpath xsd:string
 }
 
 <CdxPropertyEntry> CLOSED {
-    (  $<CdxPropertyEntry_tes> (  rdf:type @linkml:String ? ;
+    (  $<CdxPropertyEntry_tes> (  rdf:type @linkml:Uriorcurie ? ;
           spdx_extension:cdxPropName @linkml:String ;
           spdx_extension:cdxPropValue @linkml:String ?
        ) ;
@@ -231,7 +231,7 @@ linkml:Sparqlpath xsd:string
 }
 
 <CreationInfo> CLOSED {
-    (  $<CreationInfo_tes> (  rdf:type @linkml:String ? ;
+    (  $<CreationInfo_tes> (  rdf:type @linkml:Uriorcurie ? ;
           spdx_core:comment @linkml:String ? ;
           spdx_core:created @<DateTimeStamp> ;
           spdx_core:createdBy @<Agent> + ;
@@ -342,7 +342,7 @@ linkml:Sparqlpath xsd:string
 }
 
 <DictionaryEntry> CLOSED {
-    (  $<DictionaryEntry_tes> (  rdf:type @linkml:String ? ;
+    (  $<DictionaryEntry_tes> (  rdf:type @linkml:Uriorcurie ? ;
           spdx_core:key @linkml:String ;
           spdx_core:value @linkml:String ?
        ) ;
@@ -365,7 +365,7 @@ linkml:Sparqlpath xsd:string
 )
 
 <Element_struct> {
-    (  $<Element_tes> (  rdf:type @linkml:String ? ;
+    (  $<Element_tes> (  rdf:type @linkml:Uriorcurie ? ;
           spdx_core:comment @linkml:String ? ;
           spdx_core:verifiedUsing @<IntegrityMethod> * ;
           spdx_core:creationInfo @<CreationInfo> ;
@@ -405,7 +405,7 @@ linkml:Sparqlpath xsd:string
 }
 
 <EnergyConsumption> CLOSED {
-    (  $<EnergyConsumption_tes> (  rdf:type @linkml:String ? ;
+    (  $<EnergyConsumption_tes> (  rdf:type @linkml:Uriorcurie ? ;
           spdx_ai:finetuningEnergyConsumption @<EnergyConsumptionDescription> * ;
           spdx_ai:inferenceEnergyConsumption @<EnergyConsumptionDescription> * ;
           spdx_ai:trainingEnergyConsumption @<EnergyConsumptionDescription> *
@@ -415,7 +415,7 @@ linkml:Sparqlpath xsd:string
 }
 
 <EnergyConsumptionDescription> CLOSED {
-    (  $<EnergyConsumptionDescription_tes> (  rdf:type @linkml:String ? ;
+    (  $<EnergyConsumptionDescription_tes> (  rdf:type @linkml:Uriorcurie ? ;
           spdx_ai:energyQuantity @linkml:Decimal ;
           spdx_ai:energyUnit [ <https://spdx.org/rdf/3.0.1/terms/AI/EnergyUnitType/kilowattHour>
              <https://spdx.org/rdf/3.0.1/terms/AI/EnergyUnitType/megajoule>
@@ -461,14 +461,14 @@ linkml:Sparqlpath xsd:string
 
 <Extension>  (
     {
-       (  $<Extension_tes> rdf:type @linkml:String ? ;
+       (  $<Extension_tes> rdf:type @linkml:Uriorcurie ? ;
           rdf:type [ spdx_extension:Extension ] ?
        )
     } OR @<CdxPropertiesExtension>
 )
 
 <ExternalIdentifier> CLOSED {
-    (  $<ExternalIdentifier_tes> (  rdf:type @linkml:String ? ;
+    (  $<ExternalIdentifier_tes> (  rdf:type @linkml:Uriorcurie ? ;
           spdx_core:comment @linkml:String ? ;
           spdx_core:externalIdentifierType [ <https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/cpe22>
              <https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/cpe23>
@@ -490,7 +490,7 @@ linkml:Sparqlpath xsd:string
 }
 
 <ExternalMap> CLOSED {
-    (  $<ExternalMap_tes> (  rdf:type @linkml:String ? ;
+    (  $<ExternalMap_tes> (  rdf:type @linkml:Uriorcurie ? ;
           spdx_core:verifiedUsing @<IntegrityMethod> * ;
           spdx_core:definingArtifact @<Artifact> ? ;
           spdx_core:externalSpdxId @linkml:Uri ;
@@ -501,7 +501,7 @@ linkml:Sparqlpath xsd:string
 }
 
 <ExternalRef> CLOSED {
-    (  $<ExternalRef_tes> (  rdf:type @linkml:String ? ;
+    (  $<ExternalRef_tes> (  rdf:type @linkml:Uriorcurie ? ;
           spdx_core:comment @linkml:String ? ;
           spdx_core:contentType @<MediaType> ? ;
           spdx_core:externalRefType [ <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/altDownloadLocation>
@@ -616,7 +616,7 @@ linkml:Sparqlpath xsd:string
 )
 
 <IntegrityMethod_struct> {
-    (  $<IntegrityMethod_tes> (  rdf:type @linkml:String ? ;
+    (  $<IntegrityMethod_tes> (  rdf:type @linkml:Uriorcurie ? ;
           spdx_core:comment @linkml:String ?
        ) ;
        rdf:type [ spdx_core:IntegrityMethod ] ?
@@ -708,7 +708,7 @@ linkml:Sparqlpath xsd:string
 }
 
 <NamespaceMap> CLOSED {
-    (  $<NamespaceMap_tes> (  rdf:type @linkml:String ? ;
+    (  $<NamespaceMap_tes> (  rdf:type @linkml:Uriorcurie ? ;
           spdx_core:namespace @linkml:Uri ;
           spdx_core:prefix @linkml:String
        ) ;
@@ -786,7 +786,7 @@ linkml:Sparqlpath xsd:string
 }
 
 <PositiveIntegerRange> CLOSED {
-    (  $<PositiveIntegerRange_tes> (  rdf:type @linkml:String ? ;
+    (  $<PositiveIntegerRange_tes> (  rdf:type @linkml:Uriorcurie ? ;
           spdx_core:beginIntegerRange @<PositiveInteger> ;
           spdx_core:endIntegerRange @<PositiveInteger>
        ) ;

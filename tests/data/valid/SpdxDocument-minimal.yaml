@@ -1,5 +1,5 @@
 spdxId: https://example.com/spdx/documents/hello-sbom
-type: SpdxDocument
+type: spdx_core:SpdxDocument
 name: hello SBOM document
 profileConformance:
   - core

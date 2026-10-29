@@ -1,5 +1,5 @@
 spdxId: https://example.com/spdx/licenses/LicenseRef-Example
-type: CustomLicense
+type: spdx_expanded_licensing:CustomLicense
 name: Example Proprietary License
 licenseText: Permission is granted to Example Org employees only.
 isOsiApproved: false

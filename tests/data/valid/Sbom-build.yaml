@@ -1,5 +1,5 @@
 spdxId: https://example.com/spdx/sboms/hello
-type: Sbom
+type: spdx_software:Sbom
 sbomType:
   - build
 rootElement:

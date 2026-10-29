@@ -4,7 +4,7 @@ package spdx;
 // version: 3.0.1
 // Agent represents anything with the potential to act on a system.
 message Agent {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -29,7 +29,7 @@ message Agent {
 }
 // Specifies an AI package and its associated information.
 message AIPackage {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -118,7 +118,7 @@ message AIPackage {
 }
 // An assertion made in relation to one or more elements.
 message Annotation {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -151,7 +151,7 @@ message Annotation {
 }
 // Abstract class representing a license combination consisting of one or more licenses.
 message AnyLicenseInfo {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -176,7 +176,7 @@ message AnyLicenseInfo {
 }
 // A distinct article or unit within the digital domain.
 message Artifact {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -215,7 +215,7 @@ message Artifact {
 }
 // A container for a grouping of SPDX-3.0 content characterizing details (provenence, composition, licensing, etc.) about a product.
 message Bom {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -248,7 +248,7 @@ message Bom {
 }
 // Class that describes a build instance of software/artifacts.
 message Build {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -291,7 +291,7 @@ message Build {
 }
 // A collection of Elements that have a shared context.
 message Bundle {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -324,14 +324,14 @@ message Bundle {
 }
 // A type of extension consisting of a list of name value pairs.
 message CdxPropertiesExtension {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provides a map of a property names to a values.
   repeated CdxPropertyEntry cdxProperty = 2;
 }
 // A property name with an associated value.
 message CdxPropertyEntry {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // A name used in a CdxPropertyEntry name-value pair.
   string cdxPropName = 2;
@@ -340,7 +340,7 @@ message CdxPropertyEntry {
 }
 // Portion of an AnyLicenseInfo representing a set of licensing information where all elements apply.
 message ConjunctiveLicenseSet {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -367,7 +367,7 @@ message ConjunctiveLicenseSet {
 }
 // A canonical, unique, immutable identifier
 message ContentIdentifier {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -378,7 +378,7 @@ message ContentIdentifier {
 }
 // Provides information about the creation of the Element.
 message CreationInfo {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -393,7 +393,7 @@ message CreationInfo {
 }
 // A license that is not listed on the SPDX License List.
 message CustomLicense {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -436,7 +436,7 @@ message CustomLicense {
 }
 // A license addition that is not listed on the SPDX Exceptions List.
 message CustomLicenseAddition {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -473,7 +473,7 @@ message CustomLicenseAddition {
 }
 // Provides a CVSS version 2.0 assessment for a vulnerability.
 message CvssV2VulnAssessmentRelationship {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -524,7 +524,7 @@ message CvssV2VulnAssessmentRelationship {
 }
 // Provides a CVSS version 3 assessment for a vulnerability.
 message CvssV3VulnAssessmentRelationship {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -577,7 +577,7 @@ message CvssV3VulnAssessmentRelationship {
 }
 // Provides a CVSS version 4 assessment for a vulnerability.
 message CvssV4VulnAssessmentRelationship {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -630,7 +630,7 @@ message CvssV4VulnAssessmentRelationship {
 }
 // Specifies a data package and its associated information.
 message DatasetPackage {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -715,7 +715,7 @@ message DatasetPackage {
 }
 // A key with an associated value.
 message DictionaryEntry {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // A key used in a generic key-value pair.
   string key = 2;
@@ -724,7 +724,7 @@ message DictionaryEntry {
 }
 // Portion of an AnyLicenseInfo representing a set of licensing information where only one of the elements applies.
 message DisjunctiveLicenseSet {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -751,7 +751,7 @@ message DisjunctiveLicenseSet {
 }
 // Base domain class from which all other SPDX-3.0 domain classes derive.
 message Element {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -776,7 +776,7 @@ message Element {
 }
 // A collection of Elements, not necessarily with unifying context.
 message ElementCollection {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -807,7 +807,7 @@ message ElementCollection {
 }
 // A class for describing the energy consumption incurred by an AI model in different stages of its lifecycle.
 message EnergyConsumption {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Specifies the amount of energy consumed when finetuning the AI model that is being used in the AI system.
   repeated EnergyConsumptionDescription finetuningEnergyConsumption = 2;
@@ -818,7 +818,7 @@ message EnergyConsumption {
 }
 // The class that helps note down the quantity of energy consumption and the unit used for measurement.
 message EnergyConsumptionDescription {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Represents the energy quantity.
   string energyQuantity = 2;
@@ -827,7 +827,7 @@ message EnergyConsumptionDescription {
 }
 // Provides an EPSS assessment for a vulnerability.
 message EpssVulnAssessmentRelationship {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -878,7 +878,7 @@ message EpssVulnAssessmentRelationship {
 }
 // Provides an exploit assessment of a vulnerability.
 message ExploitCatalogVulnAssessmentRelationship {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -931,7 +931,7 @@ message ExploitCatalogVulnAssessmentRelationship {
 }
 // Abstract class representing a License or an OrLaterOperator.
 message ExtendableLicense {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -956,12 +956,12 @@ message ExtendableLicense {
 }
 // A characterization of some aspect of an Element that is associated with the Element in a generalized fashion.
 message Extension {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
 }
 // A reference to a resource identifier defined outside the scope of SPDX-3.0 content that uniquely identifies an Element.
 message ExternalIdentifier {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -976,7 +976,7 @@ message ExternalIdentifier {
 }
 // A map of Element identifiers that are used within an SpdxDocument but defined external to that SpdxDocument.
 message ExternalMap {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
   repeated IntegrityMethod verifiedUsing = 2;
@@ -989,7 +989,7 @@ message ExternalMap {
 }
 // A reference to a resource outside the scope of SPDX-3.0 content related to an Element.
 message ExternalRef {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1002,7 +1002,7 @@ message ExternalRef {
 }
 // Refers to any object that stores content on a computer.
 message File {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1055,7 +1055,7 @@ message File {
 }
 // A mathematically calculated representation of a grouping of data.
 message Hash {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1066,7 +1066,7 @@ message Hash {
 }
 // A concrete subclass of Element used by Individuals in the Core profile.
 message IndividualElement {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1091,7 +1091,7 @@ message IndividualElement {
 }
 // A concrete subclass of AnyLicenseInfo used by Individuals in the ExpandedLicensing profile.
 message IndividualLicensingInfo {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1116,14 +1116,14 @@ message IndividualLicensingInfo {
 }
 // Provides an independently reproducible mechanism that permits verification of a specific Element.
 message IntegrityMethod {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
 }
 // Abstract class for the portion of an AnyLicenseInfo representing a license.
 message License {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1166,7 +1166,7 @@ message License {
 }
 // Abstract class for additional text intended to be added to a License, but which is not itself a standalone License.
 message LicenseAddition {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1203,7 +1203,7 @@ message LicenseAddition {
 }
 // An SPDX Element containing an SPDX license expression string.
 message LicenseExpression {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1234,7 +1234,7 @@ message LicenseExpression {
 }
 // Provide context for a relationship that occurs in the lifecycle.
 message LifecycleScopedRelationship {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1273,7 +1273,7 @@ message LifecycleScopedRelationship {
 }
 // A license that is listed on the SPDX License List.
 message ListedLicense {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1320,7 +1320,7 @@ message ListedLicense {
 }
 // A license exception that is listed on the SPDX Exceptions list.
 message ListedLicenseException {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1361,7 +1361,7 @@ message ListedLicenseException {
 }
 // A mapping between prefixes and namespace partial URIs.
 message NamespaceMap {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provides an unambiguous mechanism for conveying a URI fragment portion of an Element ID.
   string namespace = 2;
@@ -1370,7 +1370,7 @@ message NamespaceMap {
 }
 // A group of people who work together in an organized way for a shared purpose.
 message Organization {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1395,7 +1395,7 @@ message Organization {
 }
 // Portion of an AnyLicenseInfo representing this version, or any later version, of the indicated License.
 message OrLaterOperator {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1422,7 +1422,7 @@ message OrLaterOperator {
 }
 // Refers to any unit of content that can be associated with a distribution of software.
 message Package {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1481,7 +1481,7 @@ message Package {
 }
 // An SPDX version 2.X compatible verification method for software packages.
 message PackageVerificationCode {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1494,7 +1494,7 @@ message PackageVerificationCode {
 }
 // An individual human being.
 message Person {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1519,7 +1519,7 @@ message Person {
 }
 // A tuple of two positive integers that define a range.
 message PositiveIntegerRange {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Defines the beginning of a range.
   int32 beginIntegerRange = 2;
@@ -1528,7 +1528,7 @@ message PositiveIntegerRange {
 }
 // Describes a relationship between one or more elements.
 message Relationship {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1565,7 +1565,7 @@ message Relationship {
 }
 // A collection of SPDX Elements describing a single package.
 message Sbom {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1600,7 +1600,7 @@ message Sbom {
 }
 // A license or addition that is not listed on the SPDX License List.
 message SimpleLicensingText {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1627,7 +1627,7 @@ message SimpleLicensingText {
 }
 // Describes a certain part of a file.
 message Snippet {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1682,7 +1682,7 @@ message Snippet {
 }
 // A software agent.
 message SoftwareAgent {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1707,7 +1707,7 @@ message SoftwareAgent {
 }
 // A distinct article or unit related to Software.
 message SoftwareArtifact {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1756,7 +1756,7 @@ message SoftwareArtifact {
 }
 // A collection of SPDX Elements that could potentially be serialized.
 message SpdxDocument {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1793,7 +1793,7 @@ message SpdxDocument {
 }
 // Provides an SSVC assessment for a vulnerability.
 message SsvcVulnAssessmentRelationship {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1842,7 +1842,7 @@ message SsvcVulnAssessmentRelationship {
 }
 // An element of hardware and/or software utilized to carry out a particular function.
 message Tool {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1867,7 +1867,7 @@ message Tool {
 }
 // Connects a vulnerability and an element designating the element as a product affected by the vulnerability.
 message VexAffectedVulnAssessmentRelationship {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1922,7 +1922,7 @@ message VexAffectedVulnAssessmentRelationship {
 }
 // Links a vulnerability and elements representing products (in the VEX sense) where a fix has been applied and are no longer affected.
 message VexFixedVulnAssessmentRelationship {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -1973,7 +1973,7 @@ message VexFixedVulnAssessmentRelationship {
 }
 // Links a vulnerability and one or more elements designating the latter as products not affected by the vulnerability.
 message VexNotAffectedVulnAssessmentRelationship {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -2030,7 +2030,7 @@ message VexNotAffectedVulnAssessmentRelationship {
 }
 // Designates elements as products where the impact of a vulnerability is being investigated.
 message VexUnderInvestigationVulnAssessmentRelationship {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -2081,7 +2081,7 @@ message VexUnderInvestigationVulnAssessmentRelationship {
 }
 // Abstract ancestor class for all VEX relationships
 message VexVulnAssessmentRelationship {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -2132,7 +2132,7 @@ message VexVulnAssessmentRelationship {
 }
 // Abstract ancestor class for all vulnerability assessments
 message VulnAssessmentRelationship {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -2179,7 +2179,7 @@ message VulnAssessmentRelationship {
 }
 // Specifies a vulnerability and its associated information.
 message Vulnerability {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
@@ -2224,7 +2224,7 @@ message Vulnerability {
 }
 // Portion of an AnyLicenseInfo representing a License which has additional text applied to it.
 message WithAdditionOperator {
-  // The name of the class an object is an instance of, such as Package or Hash.
+  // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;

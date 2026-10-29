@@ -1,5 +1,5 @@
 spdxId: https://example.com/spdx/documents/hello-sbom-with-import
-type: SpdxDocument
+type: spdx_core:SpdxDocument
 rootElement:
   - https://example.com/spdx/sboms/hello
 element:
@@ -8,7 +8,7 @@ import:
   - externalSpdxId: https://other.example/spdx/packages/zlib-1.3.1
     locationHint: https://other.example/sboms/zlib.spdx.json
     verifiedUsing:
-      - type: Hash
+      - type: spdx_core:Hash
         algorithm: sha256
         hashValue: 9a93b2b7dfdac77ceba5a558a580e74667dd6fede4585b91eefb60f03b72df23
 creationInfo:

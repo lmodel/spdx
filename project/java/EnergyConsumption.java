@@ -16,7 +16,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public class EnergyConsumption  {
 
-  private String type;
+  private URI type;
   private List<EnergyConsumptionDescription> finetuningEnergyConsumption;
   private List<EnergyConsumptionDescription> inferenceEnergyConsumption;
   private List<EnergyConsumptionDescription> trainingEnergyConsumption;

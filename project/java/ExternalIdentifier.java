@@ -16,7 +16,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public class ExternalIdentifier  {
 
-  private String type;
+  private URI type;
   private String comment;
   private String externalIdentifierType;
   private String identifier;

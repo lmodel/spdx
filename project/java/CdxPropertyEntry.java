@@ -16,7 +16,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public class CdxPropertyEntry  {
 
-  private String type;
+  private URI type;
   private String cdxPropName;
   private String cdxPropValue;
 

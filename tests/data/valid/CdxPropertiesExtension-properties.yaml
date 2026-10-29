@@ -1,4 +1,4 @@
-type: CdxPropertiesExtension
+type: spdx_extension:CdxPropertiesExtension
 cdxProperty:
   - cdxPropName: cdx:reproducible
     cdxPropValue: "true"
