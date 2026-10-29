@@ -1,7 +1,7 @@
 {
    "linkml": "https://w3id.org/linkml/",
    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-   "spdx": "https://spdx.org/rdf/3.0.1/terms/",
+   "spdx3": "https://spdx.org/rdf/3.0.1/terms/",
    "spdx_ai": "https://spdx.org/rdf/3.0.1/terms/AI/",
    "spdx_build": "https://spdx.org/rdf/3.0.1/terms/Build/",
    "spdx_core": "https://spdx.org/rdf/3.0.1/terms/Core/",

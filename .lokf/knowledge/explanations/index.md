@@ -1,0 +1,4 @@
+# Explanations
+
+* [Element names and the shared namespace](element-names.md) - Why the spdx schema names its elements as it does: SPDX's own names, lowerCamelCase slots and vocabulary values as SPDX's JSON-LD writes them, security_locator for the Security profile's locator, spdxId and a class CURIE as the type, the spdx_linkml package and the spdx3 prefix; and why the adapt copy renames Agent, Organization, Person, media_type and seven keys, and shares Hash and four keys with neighbour copies.
+* [Scope, influences and mappings](scope-and-influences.md) - What the spdx schema renders and leaves out, and why: the SPDX 3.0.1 model alone, with no influences beyond it and no mappings; the five things the rendering adds; the model's individuals and the extension rule it leaves out; and where a document in SPDX's JSON-LD, or RDF written from the schema's data, differs from SPDX's own.

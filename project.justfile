@@ -31,3 +31,29 @@ upstream-check:
 [group('model development')]
 test-data:
   uv run python -m pytest tests/test_data.py
+
+# ============ Knowledge bundle: the adapted domain schema ============
+
+# `.lokf/spdx.yaml` is the copy `lokf adapt` writes from the schema so that it
+# can sit beside `.lokf/lokf.yaml` (`lokf adapt --help` lists the moves). The
+# root is Element, the one class SPDX gives an identifier: every class a
+# knowledge concept may name as its `type` descends from it, and the copy puts
+# LOKF's `id` in place of `spdxId`. Re-rooting a subclass such as Package on
+# `Concept` would cut it off from the fields it inherits, and `lokf adapt`
+# refuses a copy in which Element lists `id` but does not descend from
+# `Concept`. A name the copy shares with lokf.yaml takes the prefix `spdx`
+# and keeps its SPDX IRI. The recipes run the `lokf` the sidecar's floor pins
+# (0.9.0 or later); LOKF_CMD runs another, such as a checkout:
+# LOKF_CMD="uv run --project ../lokf lokf" just lokf-adapt
+lokf_cmd := env_var_or_default("LOKF_CMD", "uv run --project .lokf lokf")
+lokf_adapt_roots := "--root Element"
+
+# Rewrite .lokf/spdx.yaml from the schema (run after every schema change)
+[group('knowledge bundle')]
+lokf-adapt:
+  {{lokf_cmd}} adapt {{source_schema_path}} {{lokf_adapt_roots}} --prefix spdx --lokf .lokf/lokf.yaml -o .lokf/spdx.yaml
+
+# Fail when .lokf/spdx.yaml is stale against the schema or .lokf/lokf.yaml
+[group('knowledge bundle')]
+lokf-adapt-check:
+  {{lokf_cmd}} adapt {{source_schema_path}} {{lokf_adapt_roots}} --prefix spdx --lokf .lokf/lokf.yaml -o .lokf/spdx.yaml --check

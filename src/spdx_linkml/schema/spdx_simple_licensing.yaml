@@ -12,7 +12,7 @@ see_also:
 
 prefixes:
   spdx_linkml: https://w3id.org/lmodel/spdx/
-  spdx: https://spdx.org/rdf/3.0.1/terms/
+  spdx3: https://spdx.org/rdf/3.0.1/terms/
   spdx_core: https://spdx.org/rdf/3.0.1/terms/Core/
   spdx_software: https://spdx.org/rdf/3.0.1/terms/Software/
   spdx_security: https://spdx.org/rdf/3.0.1/terms/Security/
@@ -35,6 +35,39 @@ imports:
 
 slots:
 
+  customIdToUri:
+    description: >-
+      Maps a LicenseRef or AdditionRef string for a Custom License or a Custom License Addition to its
+      URI ID.
+    slot_uri: spdx_simple_licensing:customIdToUri
+    range: DictionaryEntry
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Properties/customIdToUri/
+    in_subset:
+      - spdx_simple_licensing
+
+  licenseExpression:
+    description: A string in the license expression format.
+    slot_uri: spdx_simple_licensing:licenseExpression
+    range: string
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Properties/licenseExpression/
+    in_subset:
+      - spdx_simple_licensing
+
+  licenseListVersion:
+    description: The version of the SPDX License List used in the license expression.
+    slot_uri: spdx_simple_licensing:licenseListVersion
+    range: semver
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Properties/licenseListVersion/
+    in_subset:
+      - spdx_simple_licensing
+
   licenseText:
     description: Identifies the full text of a License or Addition.
     slot_uri: spdx_simple_licensing:licenseText
@@ -55,31 +88,10 @@ classes:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Classes/LicenseExpression/
     in_subset:
       - spdx_simple_licensing
-    attributes:
-      customIdToUri:
-        description: >-
-          Maps a LicenseRef or AdditionRef string for a Custom License or a Custom License Addition to
-          its URI ID.
-        slot_uri: spdx_simple_licensing:customIdToUri
-        range: DictionaryEntry
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Properties/customIdToUri/
-      licenseExpression:
-        description: A string in the license expression format.
-        slot_uri: spdx_simple_licensing:licenseExpression
-        range: string
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Properties/licenseExpression/
-      licenseListVersion:
-        description: The version of the SPDX License List used in the license expression.
-        slot_uri: spdx_simple_licensing:licenseListVersion
-        range: semver
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/Properties/licenseListVersion/
+    slots:
+      - customIdToUri
+      - licenseExpression
+      - licenseListVersion
 
   SimpleLicensingText:
     is_a: Element

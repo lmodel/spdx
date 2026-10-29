@@ -14,7 +14,7 @@ see_also:
 
 prefixes:
   spdx_linkml: https://w3id.org/lmodel/spdx/
-  spdx: https://spdx.org/rdf/3.0.1/terms/
+  spdx3: https://spdx.org/rdf/3.0.1/terms/
   spdx_core: https://spdx.org/rdf/3.0.1/terms/Core/
   spdx_software: https://spdx.org/rdf/3.0.1/terms/Software/
   spdx_security: https://spdx.org/rdf/3.0.1/terms/Security/
@@ -915,6 +915,35 @@ slots:
     in_subset:
       - spdx_core
 
+  annotationType:
+    description: Describes the type of annotation.
+    slot_uri: spdx_core:annotationType
+    range: AnnotationType
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/annotationType/
+    in_subset:
+      - spdx_core
+
+  beginIntegerRange:
+    description: Defines the beginning of a range.
+    slot_uri: spdx_core:beginIntegerRange
+    range: positive_integer
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/beginIntegerRange/
+    in_subset:
+      - spdx_core
+
+  builtTime:
+    description: Specifies the time an artifact was built.
+    slot_uri: spdx_core:builtTime
+    range: date_time_stamp
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/
+    in_subset:
+      - spdx_core
+
   comment:
     description: Provide consumers with comments by the creator of the Element about the Element.
     slot_uri: spdx_core:comment
@@ -924,12 +953,213 @@ slots:
     in_subset:
       - spdx_core
 
+  completeness:
+    description: Provides information about the completeness of relationships.
+    slot_uri: spdx_core:completeness
+    range: RelationshipCompleteness
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/
+    in_subset:
+      - spdx_core
+
   contentType:
     description: Provides information about the content type of an Element or a Property.
     slot_uri: spdx_core:contentType
     range: media_type
     see_also:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/contentType/
+    in_subset:
+      - spdx_core
+
+  context:
+    description: >-
+      Gives information about the circumstances or unifying properties that Elements of the bundle have
+      been assembled under.
+    slot_uri: spdx_core:context
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/context/
+    in_subset:
+      - spdx_core
+
+  created:
+    description: Identifies when the Element was originally created.
+    slot_uri: spdx_core:created
+    range: date_time_stamp
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/created/
+    in_subset:
+      - spdx_core
+
+  createdBy:
+    description: Identifies who or what created the Element.
+    slot_uri: spdx_core:createdBy
+    range: Agent
+    required: true
+    multivalued: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/createdBy/
+    in_subset:
+      - spdx_core
+
+  createdUsing:
+    description: Identifies the tooling that was used during the creation of the Element.
+    slot_uri: spdx_core:createdUsing
+    range: Tool
+    multivalued: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/createdUsing/
+    in_subset:
+      - spdx_core
+
+  creationInfo:
+    description: Provides information about the creation of the Element.
+    slot_uri: spdx_core:creationInfo
+    range: CreationInfo
+    required: true
+    inlined: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/
+    in_subset:
+      - spdx_core
+
+  dataLicense:
+    description: >-
+      Provides the license under which the SPDX documentation of the Element can be used.
+    slot_uri: spdx_core:dataLicense
+    range: AnyLicenseInfo
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/dataLicense/
+    in_subset:
+      - spdx_core
+
+  definingArtifact:
+    description: >-
+      Artifact representing a serialization instance of SPDX data containing the definition of a particular
+      Element.
+    slot_uri: spdx_core:definingArtifact
+    range: Artifact
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/definingArtifact/
+    in_subset:
+      - spdx_core
+
+  description:
+    description: Provides a detailed description of the Element.
+    slot_uri: spdx_core:description
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/
+    in_subset:
+      - spdx_core
+
+  element:
+    description: Refers to one or more Elements that are part of an ElementCollection.
+    slot_uri: spdx_core:element
+    range: Element
+    multivalued: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/element/
+    in_subset:
+      - spdx_core
+
+  endIntegerRange:
+    description: Defines the end of a range.
+    slot_uri: spdx_core:endIntegerRange
+    range: positive_integer
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endIntegerRange/
+    in_subset:
+      - spdx_core
+
+  endTime:
+    description: Specifies the time from which an element is no longer applicable / valid.
+    slot_uri: spdx_core:endTime
+    range: date_time_stamp
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/
+    in_subset:
+      - spdx_core
+
+  extension:
+    description: Specifies an Extension characterization of some aspect of an Element.
+    slot_uri: spdx_core:extension
+    range: Extension
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/
+    in_subset:
+      - spdx_core
+
+  externalIdentifier:
+    description: >-
+      Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies
+      an Element.
+    slot_uri: spdx_core:externalIdentifier
+    range: ExternalIdentifier
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/
+    in_subset:
+      - spdx_core
+
+  externalIdentifierType:
+    description: Specifies the type of the external identifier.
+    slot_uri: spdx_core:externalIdentifierType
+    range: ExternalIdentifierType
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifierType/
+    in_subset:
+      - spdx_core
+
+  externalRef:
+    description: >-
+      Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics
+      of an Element.
+    slot_uri: spdx_core:externalRef
+    range: ExternalRef
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/
+    in_subset:
+      - spdx_core
+
+  externalRefType:
+    description: Specifies the type of the external reference.
+    slot_uri: spdx_core:externalRefType
+    range: ExternalRefType
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRefType/
+    in_subset:
+      - spdx_core
+
+  externalSpdxId:
+    description: >-
+      Identifies an external Element used within an SpdxDocument but defined external to that SpdxDocument.
+    slot_uri: spdx_core:externalSpdxId
+    range: uri
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalSpdxId/
+    in_subset:
+      - spdx_core
+
+  from:
+    description: References the Element on the left-hand side of a relationship.
+    slot_uri: spdx_core:from
+    range: Element
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/from/
     in_subset:
       - spdx_core
 
@@ -943,6 +1173,249 @@ slots:
     in_subset:
       - spdx_core
 
+  identifier:
+    description: Uniquely identifies an external element.
+    slot_uri: spdx_core:identifier
+    range: string
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/identifier/
+    in_subset:
+      - spdx_core
+
+  identifierLocator:
+    description: Provides the location for more information regarding an external identifier.
+    slot_uri: spdx_core:identifierLocator
+    range: uri
+    multivalued: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/identifierLocator/
+    in_subset:
+      - spdx_core
+
+  import:
+    description: Provides an ExternalMap of Element identifiers.
+    slot_uri: spdx_core:import
+    range: ExternalMap
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/import/
+    in_subset:
+      - spdx_core
+
+  issuingAuthority:
+    description: An entity that is authorized to issue identification credentials.
+    slot_uri: spdx_core:issuingAuthority
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/issuingAuthority/
+    in_subset:
+      - spdx_core
+
+  key:
+    description: A key used in a generic key-value pair.
+    slot_uri: spdx_core:key
+    range: string
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/key/
+    in_subset:
+      - spdx_core
+
+  locationHint:
+    description: Provides an indication of where to retrieve an external Element.
+    slot_uri: spdx_core:locationHint
+    range: uri
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/locationHint/
+    in_subset:
+      - spdx_core
+
+  locator:
+    description: Provides the location of an external reference.
+    slot_uri: spdx_core:locator
+    range: string
+    multivalued: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/locator/
+    in_subset:
+      - spdx_core
+
+  name:
+    description: Identifies the name of an Element as designated by the creator.
+    slot_uri: spdx_core:name
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/
+    in_subset:
+      - spdx_core
+
+  namespace:
+    description: >-
+      Provides an unambiguous mechanism for conveying a URI fragment portion of an Element ID.
+    slot_uri: spdx_core:namespace
+    range: uri
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/namespace/
+    in_subset:
+      - spdx_core
+
+  namespaceMap:
+    description: >-
+      Provides a NamespaceMap of prefixes and associated namespace partial URIs applicable to an SpdxDocument
+      and independent of any specific serialization format or instance.
+    slot_uri: spdx_core:namespaceMap
+    range: NamespaceMap
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/namespaceMap/
+    in_subset:
+      - spdx_core
+
+  originatedBy:
+    description: Identifies from where or whom the Element originally came.
+    slot_uri: spdx_core:originatedBy
+    range: Agent
+    multivalued: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/
+    in_subset:
+      - spdx_core
+
+  packageVerificationCodeExcludedFile:
+    description: >-
+      The relative file name of a file to be excluded from the `PackageVerificationCode`.
+    slot_uri: spdx_core:packageVerificationCodeExcludedFile
+    range: string
+    multivalued: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/packageVerificationCodeExcludedFile/
+    in_subset:
+      - spdx_core
+
+  prefix:
+    description: A substitute for a URI.
+    slot_uri: spdx_core:prefix
+    range: string
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/prefix/
+    in_subset:
+      - spdx_core
+
+  profileConformance:
+    description: >-
+      Describes one a profile which the creator of this ElementCollection intends to conform to.
+    slot_uri: spdx_core:profileConformance
+    range: ProfileIdentifierType
+    multivalued: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/profileConformance/
+    in_subset:
+      - spdx_core
+
+  relationshipType:
+    description: Information about the relationship between two Elements.
+    slot_uri: spdx_core:relationshipType
+    range: RelationshipType
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/
+    in_subset:
+      - spdx_core
+
+  releaseTime:
+    description: Specifies the time an artifact was released.
+    slot_uri: spdx_core:releaseTime
+    range: date_time_stamp
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/
+    in_subset:
+      - spdx_core
+
+  rootElement:
+    description: >-
+      This property is used to denote the root Element(s) of a tree of elements contained in a BOM.
+    slot_uri: spdx_core:rootElement
+    range: Element
+    multivalued: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/rootElement/
+    in_subset:
+      - spdx_core
+
+  scope:
+    description: Capture the scope of information about a specific relationship between elements.
+    slot_uri: spdx_core:scope
+    range: LifecycleScopeType
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/scope/
+    in_subset:
+      - spdx_core
+
+  specVersion:
+    description: >-
+      Provides a reference number that can be used to understand how to parse and interpret an Element.
+    slot_uri: spdx_core:specVersion
+    range: semver
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/specVersion/
+    in_subset:
+      - spdx_core
+
+  standardName:
+    description: The name of a relevant standard that may apply to an artifact.
+    slot_uri: spdx_core:standardName
+    range: string
+    multivalued: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/standardName/
+    in_subset:
+      - spdx_core
+
+  startTime:
+    description: Specifies the time from which an element is applicable / valid.
+    slot_uri: spdx_core:startTime
+    range: date_time_stamp
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/
+    in_subset:
+      - spdx_core
+
+  statement:
+    description: Commentary on an assertion that an annotator has made.
+    slot_uri: spdx_core:statement
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/statement/
+    in_subset:
+      - spdx_core
+
+  subject:
+    description: An Element an annotator has made an assertion about.
+    slot_uri: spdx_core:subject
+    range: Element
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/subject/
+    in_subset:
+      - spdx_core
+
+  summary:
+    description: A short description of an Element.
+    slot_uri: spdx_core:summary
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/
+    in_subset:
+      - spdx_core
+
   suppliedBy:
     description: >-
       Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
@@ -950,6 +1423,46 @@ slots:
     range: Agent
     see_also:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/suppliedBy/
+    in_subset:
+      - spdx_core
+
+  supportLevel:
+    description: Specifies the level of support associated with an artifact.
+    slot_uri: spdx_core:supportLevel
+    range: SupportType
+    multivalued: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/supportLevel/
+    in_subset:
+      - spdx_core
+
+  to:
+    description: References an Element on the right-hand side of a relationship.
+    slot_uri: spdx_core:to
+    range: Element
+    required: true
+    multivalued: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/
+    in_subset:
+      - spdx_core
+
+  validUntilTime:
+    description: >-
+      Specifies until when the artifact can be used before its usage needs to be reassessed.
+    slot_uri: spdx_core:validUntilTime
+    range: date_time_stamp
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/
+    in_subset:
+      - spdx_core
+
+  value:
+    description: A value used in a generic key-value pair.
+    slot_uri: spdx_core:value
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/value/
     in_subset:
       - spdx_core
 
@@ -986,28 +1499,10 @@ classes:
     in_subset:
       - spdx_core
     slots:
+      - annotationType
       - contentType
-    attributes:
-      annotationType:
-        description: Describes the type of annotation.
-        slot_uri: spdx_core:annotationType
-        range: AnnotationType
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/annotationType/
-      statement:
-        description: Commentary on an assertion that an annotator has made.
-        slot_uri: spdx_core:statement
-        range: string
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/statement/
-      subject:
-        description: An Element an annotator has made an assertion about.
-        slot_uri: spdx_core:subject
-        range: Element
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/subject/
+      - statement
+      - subject
 
   AnyLicenseInfo:
     is_a: Element
@@ -1034,48 +1529,13 @@ classes:
     in_subset:
       - spdx_core
     slots:
+      - builtTime
+      - originatedBy
+      - releaseTime
+      - standardName
       - suppliedBy
-    attributes:
-      builtTime:
-        description: Specifies the time an artifact was built.
-        slot_uri: spdx_core:builtTime
-        range: date_time_stamp
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/builtTime/
-      originatedBy:
-        description: Identifies from where or whom the Element originally came.
-        slot_uri: spdx_core:originatedBy
-        range: Agent
-        multivalued: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/originatedBy/
-      releaseTime:
-        description: Specifies the time an artifact was released.
-        slot_uri: spdx_core:releaseTime
-        range: date_time_stamp
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/releaseTime/
-      standardName:
-        description: The name of a relevant standard that may apply to an artifact.
-        slot_uri: spdx_core:standardName
-        range: string
-        multivalued: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/standardName/
-      supportLevel:
-        description: Specifies the level of support associated with an artifact.
-        slot_uri: spdx_core:supportLevel
-        range: SupportType
-        multivalued: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/supportLevel/
-      validUntilTime:
-        description: >-
-          Specifies until when the artifact can be used before its usage needs to be reassessed.
-        slot_uri: spdx_core:validUntilTime
-        range: date_time_stamp
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/validUntilTime/
+      - supportLevel
+      - validUntilTime
 
   Bom:
     is_a: Bundle
@@ -1096,15 +1556,8 @@ classes:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Bundle/
     in_subset:
       - spdx_core
-    attributes:
-      context:
-        description: >-
-          Gives information about the circumstances or unifying properties that Elements of the bundle
-          have been assembled under.
-        slot_uri: spdx_core:context
-        range: string
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/context/
+    slots:
+      - context
 
   CreationInfo:
     class_uri: spdx_core:CreationInfo
@@ -1116,37 +1569,10 @@ classes:
     slots:
       - type
       - comment
-    attributes:
-      created:
-        description: Identifies when the Element was originally created.
-        slot_uri: spdx_core:created
-        range: date_time_stamp
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/created/
-      createdBy:
-        description: Identifies who or what created the Element.
-        slot_uri: spdx_core:createdBy
-        range: Agent
-        required: true
-        multivalued: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/createdBy/
-      createdUsing:
-        description: Identifies the tooling that was used during the creation of the Element.
-        slot_uri: spdx_core:createdUsing
-        range: Tool
-        multivalued: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/createdUsing/
-      specVersion:
-        description: >-
-          Provides a reference number that can be used to understand how to parse and interpret an Element.
-        slot_uri: spdx_core:specVersion
-        range: semver
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/specVersion/
+      - created
+      - createdBy
+      - createdUsing
+      - specVersion
 
   DictionaryEntry:
     class_uri: spdx_core:DictionaryEntry
@@ -1157,20 +1583,8 @@ classes:
       - spdx_core
     slots:
       - type
-    attributes:
-      key:
-        description: A key used in a generic key-value pair.
-        slot_uri: spdx_core:key
-        range: string
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/key/
-      value:
-        description: A value used in a generic key-value pair.
-        slot_uri: spdx_core:value
-        range: string
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/value/
+      - key
+      - value
 
   Element:
     abstract: true
@@ -1183,6 +1597,13 @@ classes:
     slots:
       - type
       - comment
+      - creationInfo
+      - description
+      - extension
+      - externalIdentifier
+      - externalRef
+      - name
+      - summary
       - verifiedUsing
     attributes:
       spdxId:
@@ -1194,63 +1615,6 @@ classes:
           - >-
             SPDX JSON-LD writes an Element's IRI as spdxId. The model has no property for it, so this
             schema declares the key in its own namespace.
-      creationInfo:
-        description: Provides information about the creation of the Element.
-        slot_uri: spdx_core:creationInfo
-        range: CreationInfo
-        required: true
-        inlined: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/creationInfo/
-      description:
-        description: Provides a detailed description of the Element.
-        slot_uri: spdx_core:description
-        range: string
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/description/
-      extension:
-        description: Specifies an Extension characterization of some aspect of an Element.
-        slot_uri: spdx_core:extension
-        range: Extension
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/extension/
-      externalIdentifier:
-        description: >-
-          Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies
-          an Element.
-        slot_uri: spdx_core:externalIdentifier
-        range: ExternalIdentifier
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifier/
-      externalRef:
-        description: >-
-          Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics
-          of an Element.
-        slot_uri: spdx_core:externalRef
-        range: ExternalRef
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRef/
-      name:
-        description: Identifies the name of an Element as designated by the creator.
-        slot_uri: spdx_core:name
-        range: string
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/name/
-      summary:
-        description: A short description of an Element.
-        slot_uri: spdx_core:summary
-        range: string
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/summary/
 
   ElementCollection:
     is_a: Element
@@ -1261,30 +1625,10 @@ classes:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/ElementCollection/
     in_subset:
       - spdx_core
-    attributes:
-      element:
-        description: Refers to one or more Elements that are part of an ElementCollection.
-        slot_uri: spdx_core:element
-        range: Element
-        multivalued: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/element/
-      profileConformance:
-        description: >-
-          Describes one a profile which the creator of this ElementCollection intends to conform to.
-        slot_uri: spdx_core:profileConformance
-        range: ProfileIdentifierType
-        multivalued: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/profileConformance/
-      rootElement:
-        description: >-
-          This property is used to denote the root Element(s) of a tree of elements contained in a BOM.
-        slot_uri: spdx_core:rootElement
-        range: Element
-        multivalued: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/rootElement/
+    slots:
+      - element
+      - profileConformance
+      - rootElement
 
   Extension:
     abstract: true
@@ -1315,34 +1659,10 @@ classes:
     slots:
       - type
       - comment
-    attributes:
-      externalIdentifierType:
-        description: Specifies the type of the external identifier.
-        slot_uri: spdx_core:externalIdentifierType
-        range: ExternalIdentifierType
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalIdentifierType/
-      identifier:
-        description: Uniquely identifies an external element.
-        slot_uri: spdx_core:identifier
-        range: string
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/identifier/
-      identifierLocator:
-        description: Provides the location for more information regarding an external identifier.
-        slot_uri: spdx_core:identifierLocator
-        range: uri
-        multivalued: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/identifierLocator/
-      issuingAuthority:
-        description: An entity that is authorized to issue identification credentials.
-        slot_uri: spdx_core:issuingAuthority
-        range: string
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/issuingAuthority/
+      - externalIdentifierType
+      - identifier
+      - identifierLocator
+      - issuingAuthority
 
   ExternalMap:
     class_uri: spdx_core:ExternalMap
@@ -1354,30 +1674,10 @@ classes:
       - spdx_core
     slots:
       - type
+      - definingArtifact
+      - externalSpdxId
+      - locationHint
       - verifiedUsing
-    attributes:
-      definingArtifact:
-        description: >-
-          Artifact representing a serialization instance of SPDX data containing the definition of a particular
-          Element.
-        slot_uri: spdx_core:definingArtifact
-        range: Artifact
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/definingArtifact/
-      externalSpdxId:
-        description: >-
-          Identifies an external Element used within an SpdxDocument but defined external to that SpdxDocument.
-        slot_uri: spdx_core:externalSpdxId
-        range: uri
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalSpdxId/
-      locationHint:
-        description: Provides an indication of where to retrieve an external Element.
-        slot_uri: spdx_core:locationHint
-        range: uri
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/locationHint/
 
   ExternalRef:
     class_uri: spdx_core:ExternalRef
@@ -1391,20 +1691,8 @@ classes:
       - type
       - comment
       - contentType
-    attributes:
-      externalRefType:
-        description: Specifies the type of the external reference.
-        slot_uri: spdx_core:externalRefType
-        range: ExternalRefType
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/externalRefType/
-      locator:
-        description: Provides the location of an external reference.
-        slot_uri: spdx_core:locator
-        range: string
-        multivalued: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/locator/
+      - externalRefType
+      - locator
 
   Hash:
     is_a: IntegrityMethod
@@ -1448,13 +1736,8 @@ classes:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/LifecycleScopedRelationship/
     in_subset:
       - spdx_core
-    attributes:
-      scope:
-        description: Capture the scope of information about a specific relationship between elements.
-        slot_uri: spdx_core:scope
-        range: LifecycleScopeType
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/scope/
+    slots:
+      - scope
 
   NamespaceMap:
     class_uri: spdx_core:NamespaceMap
@@ -1465,22 +1748,8 @@ classes:
       - spdx_core
     slots:
       - type
-    attributes:
-      namespace:
-        description: >-
-          Provides an unambiguous mechanism for conveying a URI fragment portion of an Element ID.
-        slot_uri: spdx_core:namespace
-        range: uri
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/namespace/
-      prefix:
-        description: A substitute for a URI.
-        slot_uri: spdx_core:prefix
-        range: string
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/prefix/
+      - namespace
+      - prefix
 
   Organization:
     is_a: Agent
@@ -1502,15 +1771,7 @@ classes:
     slots:
       - algorithm
       - hashValue
-    attributes:
-      packageVerificationCodeExcludedFile:
-        description: >-
-          The relative file name of a file to be excluded from the `PackageVerificationCode`.
-        slot_uri: spdx_core:packageVerificationCodeExcludedFile
-        range: string
-        multivalued: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/packageVerificationCodeExcludedFile/
+      - packageVerificationCodeExcludedFile
 
   Person:
     is_a: Agent
@@ -1530,21 +1791,8 @@ classes:
       - spdx_core
     slots:
       - type
-    attributes:
-      beginIntegerRange:
-        description: Defines the beginning of a range.
-        slot_uri: spdx_core:beginIntegerRange
-        range: positive_integer
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/beginIntegerRange/
-      endIntegerRange:
-        description: Defines the end of a range.
-        slot_uri: spdx_core:endIntegerRange
-        range: positive_integer
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endIntegerRange/
+      - beginIntegerRange
+      - endIntegerRange
 
   Relationship:
     is_a: Element
@@ -1554,47 +1802,13 @@ classes:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/Relationship/
     in_subset:
       - spdx_core
-    attributes:
-      completeness:
-        description: Provides information about the completeness of relationships.
-        slot_uri: spdx_core:completeness
-        range: RelationshipCompleteness
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/completeness/
-      endTime:
-        description: Specifies the time from which an element is no longer applicable / valid.
-        slot_uri: spdx_core:endTime
-        range: date_time_stamp
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/endTime/
-      from:
-        description: References the Element on the left-hand side of a relationship.
-        slot_uri: spdx_core:from
-        range: Element
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/from/
-      relationshipType:
-        description: Information about the relationship between two Elements.
-        slot_uri: spdx_core:relationshipType
-        range: RelationshipType
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/relationshipType/
-      startTime:
-        description: Specifies the time from which an element is applicable / valid.
-        slot_uri: spdx_core:startTime
-        range: date_time_stamp
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/startTime/
-      to:
-        description: References an Element on the right-hand side of a relationship.
-        slot_uri: spdx_core:to
-        range: Element
-        required: true
-        multivalued: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/to/
+    slots:
+      - completeness
+      - endTime
+      - from
+      - relationshipType
+      - startTime
+      - to
 
   SoftwareAgent:
     is_a: Agent
@@ -1613,34 +1827,10 @@ classes:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Classes/SpdxDocument/
     in_subset:
       - spdx_core
-    attributes:
-      dataLicense:
-        description: >-
-          Provides the license under which the SPDX documentation of the Element can be used.
-        slot_uri: spdx_core:dataLicense
-        range: AnyLicenseInfo
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/dataLicense/
-      import:
-        description: Provides an ExternalMap of Element identifiers.
-        slot_uri: spdx_core:import
-        range: ExternalMap
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/import/
-      namespaceMap:
-        description: >-
-          Provides a NamespaceMap of prefixes and associated namespace partial URIs applicable to an SpdxDocument
-          and independent of any specific serialization format or instance.
-        slot_uri: spdx_core:namespaceMap
-        range: NamespaceMap
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/namespaceMap/
+    slots:
+      - dataLicense
+      - import
+      - namespaceMap
 
   Tool:
     is_a: Element

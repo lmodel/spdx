@@ -30,7 +30,8 @@ To move to a new SPDX release:
 
 1. Replace the vendored file with the published one.
 2. Run `just gen-linkml`.
-3. Run `just lint`, `just gen-project` and `just test`.
+3. Run `just lint`, `just gen-project`, `just gen-doc`, `just lokf-adapt` and
+   `just test`.
 
 ## What the rendering adds
 
@@ -88,8 +89,13 @@ a class of the model. The schema has no such rule.
   `<Class>-<anything>.yaml`, each validated against its class. They cover
   every concrete class but IndividualElement and IndividualLicensingInfo,
   whose only instances are the model's individuals.
-- `tests/data/invalid/` holds counter-examples, each failing for the one
-  reason its name states.
+- `tests/data/invalid/` and `tests/data/problem/invalid/` hold a
+  counter-example for each constraint the schema states. That is each slot a
+  class makes required, each enum, each patterned or bounded type, the
+  minimum of two members in a license set, the identifier, the type
+  designator and the closed classes. Each fails for the one reason its name
+  states, and a test fails when a required slot or an enum has no
+  counter-example.
 - `tests/data/problem/` holds the examples the example runner cannot load,
   because a Relationship's `from` key and an SpdxDocument's `import` key are
   Python keywords. The validator checks them like the others.

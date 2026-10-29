@@ -1,0 +1,8 @@
+spdxId: https://example.com/spdx/annotations/review-1
+annotationType: bogus
+subject: https://example.com/spdx/packages/hello-1.0.0
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane

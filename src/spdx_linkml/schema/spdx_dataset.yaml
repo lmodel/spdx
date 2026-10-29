@@ -12,7 +12,7 @@ see_also:
 
 prefixes:
   spdx_linkml: https://w3id.org/lmodel/spdx/
-  spdx: https://spdx.org/rdf/3.0.1/terms/
+  spdx3: https://spdx.org/rdf/3.0.1/terms/
   spdx_core: https://spdx.org/rdf/3.0.1/terms/Core/
   spdx_software: https://spdx.org/rdf/3.0.1/terms/Software/
   spdx_security: https://spdx.org/rdf/3.0.1/terms/Security/
@@ -155,6 +155,134 @@ enums:
         description: data is video based, such as a collection of movie clips featuring Tom Hanks.
         meaning: spdx_dataset:DatasetType/video
 
+slots:
+
+  anonymizationMethodUsed:
+    description: Describes the anonymization methods used.
+    slot_uri: spdx_dataset:anonymizationMethodUsed
+    range: string
+    multivalued: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/anonymizationMethodUsed/
+    in_subset:
+      - spdx_dataset
+
+  confidentialityLevel:
+    description: Describes the confidentiality level of the data points contained in the dataset.
+    slot_uri: spdx_dataset:confidentialityLevel
+    range: ConfidentialityLevelType
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/confidentialityLevel/
+    in_subset:
+      - spdx_dataset
+
+  dataCollectionProcess:
+    description: Describes how the dataset was collected.
+    slot_uri: spdx_dataset:dataCollectionProcess
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/dataCollectionProcess/
+    in_subset:
+      - spdx_dataset
+
+  dataPreprocessing:
+    description: >-
+      Describes the preprocessing steps that were applied to the raw data to create the given dataset.
+    slot_uri: spdx_dataset:dataPreprocessing
+    range: string
+    multivalued: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/dataPreprocessing/
+    in_subset:
+      - spdx_dataset
+
+  datasetAvailability:
+    description: The field describes the availability of a dataset.
+    slot_uri: spdx_dataset:datasetAvailability
+    range: DatasetAvailabilityType
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/datasetAvailability/
+    in_subset:
+      - spdx_dataset
+
+  datasetNoise:
+    description: Describes potentially noisy elements of the dataset.
+    slot_uri: spdx_dataset:datasetNoise
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/datasetNoise/
+    in_subset:
+      - spdx_dataset
+
+  datasetSize:
+    description: Captures the size of the dataset.
+    slot_uri: spdx_dataset:datasetSize
+    range: non_negative_integer
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/datasetSize/
+    in_subset:
+      - spdx_dataset
+
+  datasetType:
+    description: Describes the type of the given dataset.
+    slot_uri: spdx_dataset:datasetType
+    range: DatasetType
+    required: true
+    multivalued: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/datasetType/
+    in_subset:
+      - spdx_dataset
+
+  datasetUpdateMechanism:
+    description: Describes a mechanism to update the dataset.
+    slot_uri: spdx_dataset:datasetUpdateMechanism
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/datasetUpdateMechanism/
+    in_subset:
+      - spdx_dataset
+
+  hasSensitivePersonalInformation:
+    description: Describes if any sensitive personal information is present in the dataset.
+    slot_uri: spdx_dataset:hasSensitivePersonalInformation
+    range: PresenceType
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/hasSensitivePersonalInformation/
+    in_subset:
+      - spdx_dataset
+
+  intendedUse:
+    description: Describes what the given dataset should be used for.
+    slot_uri: spdx_dataset:intendedUse
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/intendedUse/
+    in_subset:
+      - spdx_dataset
+
+  knownBias:
+    description: Records the biases that the dataset is known to encompass.
+    slot_uri: spdx_dataset:knownBias
+    range: string
+    multivalued: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/knownBias/
+    in_subset:
+      - spdx_dataset
+
+  sensor:
+    description: Describes a sensor used for collecting the data.
+    slot_uri: spdx_dataset:sensor
+    range: DictionaryEntry
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/sensor/
+    in_subset:
+      - spdx_dataset
+
 classes:
 
   DatasetPackage:
@@ -165,91 +293,17 @@ classes:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/
     in_subset:
       - spdx_dataset
-    attributes:
-      anonymizationMethodUsed:
-        description: Describes the anonymization methods used.
-        slot_uri: spdx_dataset:anonymizationMethodUsed
-        range: string
-        multivalued: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/anonymizationMethodUsed/
-      confidentialityLevel:
-        description: Describes the confidentiality level of the data points contained in the dataset.
-        slot_uri: spdx_dataset:confidentialityLevel
-        range: ConfidentialityLevelType
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/confidentialityLevel/
-      dataCollectionProcess:
-        description: Describes how the dataset was collected.
-        slot_uri: spdx_dataset:dataCollectionProcess
-        range: string
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/dataCollectionProcess/
-      dataPreprocessing:
-        description: >-
-          Describes the preprocessing steps that were applied to the raw data to create the given dataset.
-        slot_uri: spdx_dataset:dataPreprocessing
-        range: string
-        multivalued: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/dataPreprocessing/
-      datasetAvailability:
-        description: The field describes the availability of a dataset.
-        slot_uri: spdx_dataset:datasetAvailability
-        range: DatasetAvailabilityType
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/datasetAvailability/
-      datasetNoise:
-        description: Describes potentially noisy elements of the dataset.
-        slot_uri: spdx_dataset:datasetNoise
-        range: string
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/datasetNoise/
-      datasetSize:
-        description: Captures the size of the dataset.
-        slot_uri: spdx_dataset:datasetSize
-        range: non_negative_integer
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/datasetSize/
-      datasetType:
-        description: Describes the type of the given dataset.
-        slot_uri: spdx_dataset:datasetType
-        range: DatasetType
-        required: true
-        multivalued: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/datasetType/
-      datasetUpdateMechanism:
-        description: Describes a mechanism to update the dataset.
-        slot_uri: spdx_dataset:datasetUpdateMechanism
-        range: string
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/datasetUpdateMechanism/
-      hasSensitivePersonalInformation:
-        description: Describes if any sensitive personal information is present in the dataset.
-        slot_uri: spdx_dataset:hasSensitivePersonalInformation
-        range: PresenceType
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/hasSensitivePersonalInformation/
-      intendedUse:
-        description: Describes what the given dataset should be used for.
-        slot_uri: spdx_dataset:intendedUse
-        range: string
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/intendedUse/
-      knownBias:
-        description: Records the biases that the dataset is known to encompass.
-        slot_uri: spdx_dataset:knownBias
-        range: string
-        multivalued: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/knownBias/
-      sensor:
-        description: Describes a sensor used for collecting the data.
-        slot_uri: spdx_dataset:sensor
-        range: DictionaryEntry
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/sensor/
+    slots:
+      - anonymizationMethodUsed
+      - confidentialityLevel
+      - dataCollectionProcess
+      - dataPreprocessing
+      - datasetAvailability
+      - datasetNoise
+      - datasetSize
+      - datasetType
+      - datasetUpdateMechanism
+      - hasSensitivePersonalInformation
+      - intendedUse
+      - knownBias
+      - sensor

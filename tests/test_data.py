@@ -3,10 +3,11 @@
 Local examples: ``tests/data/valid/`` and ``tests/data/problem/valid/`` hold
 files named ``<Class>-<anything>.yaml``, each validated against that class with
 closed classes. ``tests/data/invalid/`` and ``tests/data/problem/invalid/`` hold
-counter-examples, each failing for the one reason REASONS names. The
-``problem/`` folders hold the files the example runner cannot load, because a
-key is a Python keyword (a Relationship's ``from``, an SpdxDocument's
-``import``). The validator reads them like the others.
+counter-examples, one for each constraint the schema states, each failing for
+the one reason its name gives. The ``problem/`` folders hold the files the
+example runner cannot load, because a key is a Python keyword (a
+Relationship's ``from``, an SpdxDocument's ``import``). The validator reads
+them like the others.
 
 Upstream examples: ``tests/data/spdx-examples/`` is a copy of the SPDX Project's
 example repository. Its SPDX 3 documents are JSON-LD, whose keys differ from this
@@ -20,6 +21,7 @@ vocabulary value is one its enum declares.
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 from typing import Any
 
@@ -47,21 +49,39 @@ UPSTREAM_SPDX3_JSON_FILES = sorted(
 
 # A closed class reports every unexpected key in one message, so the count of
 # results alone cannot tell one reason from another: each counter-example names
-# the part of the validator's message it must fail with.
+# the parts of the validator's message it must fail with. A name of the form
+# <Class>-missing-<slot> or <Class>-<slot>-unknown-value says them alone, and
+# REASONS gives them for every other name.
+NAMED_REASONS = (
+    (re.compile(r"^\w+-missing-(\w+)$"), ("'{0}' is a required property in /",)),
+    (re.compile(r"^\w+-(\w+)-unknown-value$"), ("'bogus' is not one of", "in /{0}")),
+)
 REASONS = {
-    "CreationInfo-specVersion-not-semver": "'3' does not match",
-    "EnergyConsumptionDescription-missing-energyUnit": "'energyUnit' is a required property",
-    "File-contentType-not-a-media-type": "'plaintext' does not match",
-    "Hash-missing-hashValue": "'hashValue' is a required property",
-    "Organization-spdxId-not-an-iri": "is not a 'uri' in /spdxId",
-    "Package-missing-creationInfo": "'creationInfo' is a required property",
-    "Package-releaseTime-not-utc": "'2024-10-01T12:00:00+01:00' does not match",
-    "Person-undeclared-slot": "('email' was unexpected)",
-    "PositiveIntegerRange-begin-zero": "0 is less than the minimum of 1",
-    "Relationship-missing-to": "'to' is a required property",
-    "Sbom-sbomType-unknown-value": "'bogus' is not one of",
-    "Snippet-missing-snippetFromFile": "'snippetFromFile' is a required property",
+    "ConjunctiveLicenseSet-one-member": ("is too short in /member",),
+    "CreationInfo-specVersion-not-semver": ("'3' does not match",),
+    "DatasetPackage-datasetSize-negative": ("-1 is less than the minimum of 0",),
+    "DisjunctiveLicenseSet-one-member": ("is too short in /member",),
+    "File-contentType-not-a-media-type": ("'plaintext' does not match",),
+    "Organization-spdxId-not-an-iri": ("is not a 'uri' in /spdxId",),
+    "Organization-type-names-another-class": (
+        "'spdx_core:Person' is not one of",
+        "in /type",
+    ),
+    "Package-releaseTime-not-utc": ("'2024-10-01T12:00:00+01:00' does not match",),
+    "Person-undeclared-slot": ("('email' was unexpected)",),
+    "PositiveIntegerRange-begin-zero": ("0 is less than the minimum of 1",),
 }
+
+
+def _reasons(stem: str) -> tuple[str, ...]:
+    """The parts of the message a counter-example must fail with, or none."""
+    if stem in REASONS:
+        return REASONS[stem]
+    for pattern, parts in NAMED_REASONS:
+        match = pattern.match(stem)
+        if match:
+            return tuple(part.format(*match.groups()) for part in parts)
+    return ()
 
 
 @pytest.fixture(scope="module")
@@ -102,12 +122,51 @@ def test_valid_example_validates(validator: Validator, path: Path) -> None:
 def test_invalid_example_fails_once_for_its_reason(
     validator: Validator, path: Path
 ) -> None:
-    assert path.stem in REASONS, (
-        f"{path.name}: add the part of the message it must fail with to REASONS"
+    reasons = _reasons(path.stem)
+    assert reasons, (
+        f"{path.name}: name the fault in the file name, or add the message to REASONS"
     )
     messages = _messages(validator, path)
     assert len(messages) == 1, f"{path.name} should fail for one reason, not {messages}"
-    assert REASONS[path.stem] in messages[0]
+    for part in reasons:
+        assert part in messages[0], (part, messages[0])
+
+
+def test_every_required_slot_has_a_counter_example(schema_view: SchemaView) -> None:
+    """Each slot a class makes required has a <Class>-missing-<slot> counter-example,
+    on that class or, when it is abstract, on a class below it."""
+    stems = {path.stem for path in INVALID_FILES}
+    missing = []
+    for name, cls in schema_view.all_classes().items():
+        declared = (
+            set(cls.slots or []) | set(cls.attributes or {}) | set(cls.slot_usage or {})
+        )
+        for slot in sorted(declared):
+            if not schema_view.induced_slot(slot, name).required:
+                continue
+            parent = cls.is_a
+            if (
+                parent
+                and slot in schema_view.class_slots(parent)
+                and schema_view.induced_slot(slot, parent).required
+            ):
+                continue
+            below = schema_view.class_descendants(name)
+            if not any(f"{c}-missing-{slot}" in stems for c in below):
+                missing.append(f"{name}.{slot}")
+    assert not missing, f"required slots with no counter-example: {missing}"
+
+
+def test_every_enum_has_a_counter_example(schema_view: SchemaView) -> None:
+    """Each enum has a <Class>-<slot>-unknown-value counter-example on a slot that ranges over it."""
+    covered = set()
+    for path in INVALID_FILES:
+        match = NAMED_REASONS[1][0].match(path.stem)
+        if match:
+            slot = schema_view.induced_slot(match.group(1), _target_class(path))
+            covered.add(slot.range)
+    missing = sorted(set(schema_view.all_enums()) - covered)
+    assert not missing, f"enums with no counter-example: {missing}"
 
 
 # -- the SPDX Project's examples -------------------------------------------------

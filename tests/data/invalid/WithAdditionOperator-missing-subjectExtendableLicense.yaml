@@ -1,0 +1,7 @@
+spdxId: https://example.com/spdx/licenses/gpl-2.0-with-classpath
+subjectAddition: https://spdx.org/licenses/Classpath-exception-2.0
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane

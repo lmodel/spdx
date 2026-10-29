@@ -12,7 +12,7 @@ authors = [
   {name = "Noel McLoughlin", email = "noel.mcloughlin@gmail.com"},
 ]
 license = "Apache-2.0"
-license-files = ["LICENSE"]
+license-files = ["LICENSE", "NOTICE"]
 readme = "README.md"
 requires-python = ">=3.10"
 dynamic = ["version"]
@@ -24,11 +24,6 @@ dependencies = [
 [dependency-groups]
 dev = [
     "linkml>=1.9.3",
-    "mkdocs-material>=8.2.8",
-    "mkdocs-mermaid2-plugin>=1.1.1",
-    "mkdocs-pymdownx-material-extras>=2.5.6",
-    "jupyter>=1.0.0",
-    "mknotebooks>= 0.8.0",
 ]
 
 [tool.hatch.build.targets.wheel]
@@ -69,6 +64,14 @@ skip = [
   "project/*",
   "src/spdx_linkml/datamodel/spdx_linkml_pydantic.py",
   "src/spdx_linkml/datamodel/spdx_linkml.py",
+  # The SPDX model and the SPDX Project's examples, copied as published, the
+  # neighbours' adapt copies, and files copied in by the KTL sidecar sync or
+  # written by npm, not by hand.
+  "src/spdx_linkml/schema/upstream/*",
+  "tests/data/spdx-examples/*",
+  "tests/neighbours/*",
+  ".lokf/scripts/*",
+  "website/package-lock.json",
 ]
 
 # Reminder: words have to be lowercased for the ignore-words-list
@@ -87,4 +90,12 @@ extend-exclude = [
   "project/*",
   "src/spdx_linkml/datamodel/spdx_linkml_pydantic.py",
   "src/spdx_linkml/datamodel/spdx_linkml.py",
+  # The SPDX model and the SPDX Project's examples, copied as published, the
+  # neighbours' adapt copies, and files copied in by the KTL sidecar sync or
+  # written by npm, not by hand.
+  "src/spdx_linkml/schema/upstream/*",
+  "tests/data/spdx-examples/*",
+  "tests/neighbours/*",
+  ".lokf/scripts/*",
+  "website/package-lock.json",
 ]

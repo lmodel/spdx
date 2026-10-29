@@ -31,7 +31,7 @@ def schema_view() -> SchemaView:
 
 @pytest.fixture(scope="module")
 def spdx_terms(schema_view: SchemaView) -> str:
-    return schema_view.namespaces()["spdx"]
+    return schema_view.namespaces()["spdx3"]
 
 
 def _graph(path: Path, schema_view: SchemaView) -> Graph:

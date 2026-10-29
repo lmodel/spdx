@@ -1,13 +1,31 @@
 ---
 # https://pre-commit.com/
+#
+# No hook may rewrite a file this repository does not write by hand:
+#
+# - the SPDX model and the SPDX Project's examples, kept byte for byte so
+#   scripts/check_upstream_release.py can compare the model with its release;
+# - the schema, which scripts/spdx_to_linkml.py writes from that model with
+#   the model's own texts, and what the LinkML generators and `lokf adapt`
+#   write, which the next run would rewrite back;
+# - the KTL sidecar's scripts, which the weekly sync replaces.
+exclude: >-
+  (?x)^(
+    src/spdx_linkml/schema/|
+    tests/data/spdx-examples/|
+    src/spdx_linkml/datamodel/|
+    project/|
+    docs/schema/|
+    \.lokf/(scripts|m365)/|
+    \.lokf/(lokf|spdx)\.yaml$|
+    tests/neighbours/
+  )
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
       - id: check-toml
       - id: check-yaml
-        # mkdocs.yml uses !!python/name tags unsupported by the safe YAML loader
-        exclude: ^mkdocs\.yml$
       - id: end-of-file-fixer
         exclude: ^\.copier-answers\.yml$
       - id: trailing-whitespace

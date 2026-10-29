@@ -27,10 +27,11 @@ The rules, each applied the same way to every element:
   ``sh:datatype`` is the range, and the property's ``rdfs:range`` when neither
   is given. ``sh:minCount 1`` is ``required``, and no ``sh:maxCount`` is
   ``multivalued``. A constraint of another kind is noted and left out.
-- A property one class uses is that class's attribute. A property two or more
-  classes use is a top-level slot in the module of its namespace. The slot
-  carries what every use agrees on, and a class has ``slot_usage`` only where
-  its use differs.
+- Every property is a top-level slot in the module of its namespace, never a
+  class attribute. ``lokf adapt`` renames a slot whose name LOKF also defines
+  (``name``, ``description``, ``from``), and it never renames an attribute.
+  The slot carries what every use agrees on, and a class has ``slot_usage``
+  only where its use differs.
 - Element carries the identifier ``spdxId``, so a reference to Element or a
   descendant is its IRI. The other classes, which SPDX lets be blank nodes,
   have no identifier and are inlined where used.
@@ -71,7 +72,10 @@ DEFAULT_OUT = ROOT / "src" / "spdx_linkml" / "schema"
 SCHEMA_ID = "https://w3id.org/lmodel/spdx"
 OWN_PREFIX = "spdx_linkml"
 OWN_NS = SCHEMA_ID + "/"
-TERMS_PREFIX = "spdx"
+# The root of SPDX 3.0.1's terms. LOKF binds `spdx` to SPDX 2's namespace,
+# http://spdx.org/rdf/terms#, for its Checksum class, so this schema names the
+# root `spdx3`, and a `lokf adapt` copy beside lokf.yaml binds no prefix twice.
+TERMS_PREFIX = "spdx3"
 DOCS_SITE = "https://lmodel.github.io/spdx"
 LICENSE = "Apache-2.0"
 # The umbrella is named like the Python package, spdx_linkml, as the project
@@ -429,7 +433,6 @@ class Converter:
         )
         if unused:
             self.report.append(f"properties no class uses, left out: {unused}")
-        self.shared = {p for p, classes in self.uses.items() if len(classes) > 1}
 
     def resolve(self, cls, prop, c) -> dict:
         """The LinkML field for one property shape: range, cardinality, inlining, pattern."""
@@ -527,7 +530,7 @@ class Converter:
         return h
 
     def slot_definition(self, prop) -> tuple[dict, dict[URIRef, dict]]:
-        """A shared property's slot: the keys every use agrees on, and each class's differences."""
+        """A property's slot: the keys every use agrees on, and each class's differences."""
         uses = {cls: self.fields[cls][prop] for cls in self.uses[prop]}
         keys = []
         for f in uses.values():
@@ -566,20 +569,14 @@ class Converter:
         d["see_also"] = [f"{self.spec}/model/{self.profile(cls)}/Classes/{name}/"]
         d["in_subset"] = [module_of_profile(self.profile(cls))]
         slots = ["type"] if parent is None else []
-        slots += sorted(self.slot_name[p] for p in self.fields[cls] if p in self.shared)
+        slots += sorted(self.slot_name[p] for p in self.fields[cls])
         if slots:
             d["slots"] = slots
-        attributes: dict = {}
         if cls == self.element:
-            attributes["spdxId"] = dict(SPDX_ID_ATTRIBUTE)
-        for p in sorted(self.fields[cls], key=lambda p: self.slot_name[p]):
-            if p not in self.shared:
-                attributes[self.slot_name[p]] = self.fields[cls][p]
-        if attributes:
-            d["attributes"] = attributes
+            d["attributes"] = {"spdxId": dict(SPDX_ID_ATTRIBUTE)}
         usage = {}
         for p in sorted(self.fields[cls], key=lambda p: self.slot_name[p]):
-            if p in self.shared and cls in slot_level[p][1]:
+            if cls in slot_level[p][1]:
                 usage[self.slot_name[p]] = slot_level[p][1][cls]
         if usage:
             d["slot_usage"] = usage
@@ -605,7 +602,7 @@ class Converter:
 
     def build(self) -> dict[str, dict]:
         """Every schema file by name: the umbrella and one module per profile."""
-        slot_level = {p: self.slot_definition(p) for p in self.shared}
+        slot_level = {p: self.slot_definition(p) for p in self.uses}
         modules = {module_of_profile(profile): profile for profile in PROFILES}
         classes_in = defaultdict(list)
         for cls in self.classes:
@@ -614,7 +611,7 @@ class Converter:
         for enum in self.enum_classes:
             enums_in[module_of_profile(self.profile(enum))].append(enum)
         slots_in = defaultdict(list)
-        for p in self.shared:
+        for p in self.uses:
             slots_in[module_of_profile(self.profile(p))].append(p)
 
         def module_of_range(name: str) -> str:
@@ -630,8 +627,7 @@ class Converter:
                     needed.add(self.module_of_class(self.parent(cls)))
                 for p, f in self.fields[cls].items():
                     needed.add(module_of_range(f["range"]))
-                    if p in self.shared:
-                        needed.add(module_of_profile(self.profile(p)))
+                    needed.add(module_of_profile(self.profile(p)))
             for p in slots_in[module]:
                 # A slot whose uses disagree on the range has none; each use's
                 # range was counted with its class above.
@@ -840,7 +836,7 @@ def main(argv=None) -> int:
     )
     enums = sum(len(s.get("enums", {})) for s in files.values())
     print(
-        f"SPDX {converter.version}: {len(files) - 1} modules, {classes} classes, {slots} shared slots, "
+        f"SPDX {converter.version}: {len(files) - 1} modules, {classes} classes, {slots} slots, "
         f"{attributes} attributes, {enums} enums, written to {args.output_dir}",
         file=sys.stderr,
     )

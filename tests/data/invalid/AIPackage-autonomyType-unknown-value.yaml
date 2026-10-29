@@ -1,0 +1,7 @@
+spdxId: https://example.com/spdx/packages/handwriting-model-2.1.0
+autonomyType: bogus
+creationInfo:
+  specVersion: 3.0.1
+  created: "2024-11-22T03:00:01Z"
+  createdBy:
+    - https://example.com/spdx/agents/jane

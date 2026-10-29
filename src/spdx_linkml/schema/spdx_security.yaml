@@ -13,7 +13,7 @@ see_also:
 
 prefixes:
   spdx_linkml: https://w3id.org/lmodel/spdx/
-  spdx: https://spdx.org/rdf/3.0.1/terms/
+  spdx3: https://spdx.org/rdf/3.0.1/terms/
   spdx_core: https://spdx.org/rdf/3.0.1/terms/Core/
   spdx_software: https://spdx.org/rdf/3.0.1/terms/Software/
   spdx_security: https://spdx.org/rdf/3.0.1/terms/Security/
@@ -146,12 +146,128 @@ enums:
 
 slots:
 
+  actionStatement:
+    description: >-
+      Provides advise on how to mitigate or remediate a vulnerability when a VEX product is affected by
+      it.
+    slot_uri: spdx_security:actionStatement
+    range: string
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/actionStatement/
+    in_subset:
+      - spdx_security
+
+  actionStatementTime:
+    description: >-
+      Records the time when a recommended action was communicated in a VEX statement to mitigate a vulnerability.
+    slot_uri: spdx_security:actionStatementTime
+    range: date_time_stamp
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/actionStatementTime/
+    in_subset:
+      - spdx_security
+
+  assessedElement:
+    description: >-
+      Specifies an Element contained in a piece of software where a vulnerability was found.
+    slot_uri: spdx_security:assessedElement
+    range: SoftwareArtifact
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/
+    in_subset:
+      - spdx_security
+
+  catalogType:
+    description: Specifies the exploit catalog type.
+    slot_uri: spdx_security:catalogType
+    range: ExploitCatalogType
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/catalogType/
+    in_subset:
+      - spdx_security
+
+  decisionType:
+    description: >-
+      Provide the enumeration of possible decisions in the [Stakeholder-Specific Vulnerability Categorization
+      (SSVC) decision tree](https://www.cisa.gov/stakeholder-specific-vulnerability-categorization-ssvc).
+    slot_uri: spdx_security:decisionType
+    range: SsvcDecisionType
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/decisionType/
+    in_subset:
+      - spdx_security
+
+  exploited:
+    description: >-
+      Describe that a CVE is known to have an exploit because it's been listed in an exploit catalog.
+    slot_uri: spdx_security:exploited
+    range: boolean
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/exploited/
+    in_subset:
+      - spdx_security
+
+  impactStatement:
+    description: >-
+      Explains why a VEX product is not affected by a vulnerability. It is an alternative in VexNotAffectedVulnAssessmentRelationship
+      to the machine-readable justification label.
+    slot_uri: spdx_security:impactStatement
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/impactStatement/
+    in_subset:
+      - spdx_security
+
+  impactStatementTime:
+    description: Timestamp of impact statement.
+    slot_uri: spdx_security:impactStatementTime
+    range: date_time_stamp
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/impactStatementTime/
+    in_subset:
+      - spdx_security
+
+  justificationType:
+    description: >-
+      Impact justification label to be used when linking a vulnerability to an element representing a
+      VEX product with a VexNotAffectedVulnAssessmentRelationship relationship.
+    slot_uri: spdx_security:justificationType
+    range: VexJustificationType
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/justificationType/
+    in_subset:
+      - spdx_security
+
   modifiedTime:
     description: Specifies a time when a vulnerability assessment was modified
     slot_uri: spdx_security:modifiedTime
     range: date_time_stamp
     see_also:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/modifiedTime/
+    in_subset:
+      - spdx_security
+
+  percentile:
+    description: The percentile of the current probability score.
+    slot_uri: spdx_security:percentile
+    range: decimal
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/percentile/
+    in_subset:
+      - spdx_security
+
+  probability:
+    description: A probability score between 0 and 1 of a vulnerability being exploited.
+    slot_uri: spdx_security:probability
+    range: decimal
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/probability/
     in_subset:
       - spdx_security
 
@@ -174,6 +290,16 @@ slots:
     in_subset:
       - spdx_security
 
+  security_locator:
+    description: Provides the location of an exploit catalog.
+    slot_uri: spdx_security:locator
+    range: uri
+    required: true
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/locator/
+    in_subset:
+      - spdx_security
+
   severity:
     description: >-
       Specifies the CVSS qualitative severity rating of a vulnerability in relation to a piece of software.
@@ -185,6 +311,15 @@ slots:
     in_subset:
       - spdx_security
 
+  statusNotes:
+    description: Conveys information about how VEX status was determined.
+    slot_uri: spdx_security:statusNotes
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/statusNotes/
+    in_subset:
+      - spdx_security
+
   vectorString:
     description: Specifies the CVSS vector string for a vulnerability.
     slot_uri: spdx_security:vectorString
@@ -192,6 +327,15 @@ slots:
     required: true
     see_also:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/vectorString/
+    in_subset:
+      - spdx_security
+
+  vexVersion:
+    description: Specifies the version of a VEX statement.
+    slot_uri: spdx_security:vexVersion
+    range: string
+    see_also:
+      - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/vexVersion/
     in_subset:
       - spdx_security
 
@@ -252,21 +396,9 @@ classes:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Classes/EpssVulnAssessmentRelationship/
     in_subset:
       - spdx_security
-    attributes:
-      percentile:
-        description: The percentile of the current probability score.
-        slot_uri: spdx_security:percentile
-        range: decimal
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/percentile/
-      probability:
-        description: A probability score between 0 and 1 of a vulnerability being exploited.
-        slot_uri: spdx_security:probability
-        range: decimal
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/probability/
+    slots:
+      - percentile
+      - probability
 
   ExploitCatalogVulnAssessmentRelationship:
     is_a: VulnAssessmentRelationship
@@ -276,29 +408,10 @@ classes:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Classes/ExploitCatalogVulnAssessmentRelationship/
     in_subset:
       - spdx_security
-    attributes:
-      catalogType:
-        description: Specifies the exploit catalog type.
-        slot_uri: spdx_security:catalogType
-        range: ExploitCatalogType
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/catalogType/
-      exploited:
-        description: >-
-          Describe that a CVE is known to have an exploit because it's been listed in an exploit catalog.
-        slot_uri: spdx_security:exploited
-        range: boolean
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/exploited/
-      security_locator:
-        description: Provides the location of an exploit catalog.
-        slot_uri: spdx_security:locator
-        range: uri
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/locator/
+    slots:
+      - catalogType
+      - exploited
+      - security_locator
 
   SsvcVulnAssessmentRelationship:
     is_a: VulnAssessmentRelationship
@@ -308,16 +421,8 @@ classes:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Classes/SsvcVulnAssessmentRelationship/
     in_subset:
       - spdx_security
-    attributes:
-      decisionType:
-        description: >-
-          Provide the enumeration of possible decisions in the [Stakeholder-Specific Vulnerability Categorization
-          (SSVC) decision tree](https://www.cisa.gov/stakeholder-specific-vulnerability-categorization-ssvc).
-        slot_uri: spdx_security:decisionType
-        range: SsvcDecisionType
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/decisionType/
+    slots:
+      - decisionType
 
   VexAffectedVulnAssessmentRelationship:
     is_a: VexVulnAssessmentRelationship
@@ -328,24 +433,9 @@ classes:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Classes/VexAffectedVulnAssessmentRelationship/
     in_subset:
       - spdx_security
-    attributes:
-      actionStatement:
-        description: >-
-          Provides advise on how to mitigate or remediate a vulnerability when a VEX product is affected
-          by it.
-        slot_uri: spdx_security:actionStatement
-        range: string
-        required: true
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/actionStatement/
-      actionStatementTime:
-        description: >-
-          Records the time when a recommended action was communicated in a VEX statement to mitigate a
-          vulnerability.
-        slot_uri: spdx_security:actionStatementTime
-        range: date_time_stamp
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/actionStatementTime/
+    slots:
+      - actionStatement
+      - actionStatementTime
 
   VexFixedVulnAssessmentRelationship:
     is_a: VexVulnAssessmentRelationship
@@ -368,29 +458,10 @@ classes:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Classes/VexNotAffectedVulnAssessmentRelationship/
     in_subset:
       - spdx_security
-    attributes:
-      impactStatement:
-        description: >-
-          Explains why a VEX product is not affected by a vulnerability. It is an alternative in VexNotAffectedVulnAssessmentRelationship
-          to the machine-readable justification label.
-        slot_uri: spdx_security:impactStatement
-        range: string
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/impactStatement/
-      impactStatementTime:
-        description: Timestamp of impact statement.
-        slot_uri: spdx_security:impactStatementTime
-        range: date_time_stamp
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/impactStatementTime/
-      justificationType:
-        description: >-
-          Impact justification label to be used when linking a vulnerability to an element representing
-          a VEX product with a VexNotAffectedVulnAssessmentRelationship relationship.
-        slot_uri: spdx_security:justificationType
-        range: VexJustificationType
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/justificationType/
+    slots:
+      - impactStatement
+      - impactStatementTime
+      - justificationType
 
   VexUnderInvestigationVulnAssessmentRelationship:
     is_a: VexVulnAssessmentRelationship
@@ -411,19 +482,9 @@ classes:
       - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Classes/VexVulnAssessmentRelationship/
     in_subset:
       - spdx_security
-    attributes:
-      statusNotes:
-        description: Conveys information about how VEX status was determined.
-        slot_uri: spdx_security:statusNotes
-        range: string
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/statusNotes/
-      vexVersion:
-        description: Specifies the version of a VEX statement.
-        slot_uri: spdx_security:vexVersion
-        range: string
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/vexVersion/
+    slots:
+      - statusNotes
+      - vexVersion
 
   VulnAssessmentRelationship:
     is_a: Relationship
@@ -435,18 +496,11 @@ classes:
     in_subset:
       - spdx_security
     slots:
+      - assessedElement
       - modifiedTime
       - publishedTime
       - suppliedBy
       - withdrawnTime
-    attributes:
-      assessedElement:
-        description: >-
-          Specifies an Element contained in a piece of software where a vulnerability was found.
-        slot_uri: spdx_security:assessedElement
-        range: SoftwareArtifact
-        see_also:
-          - https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Properties/assessedElement/
 
   Vulnerability:
     is_a: Artifact
