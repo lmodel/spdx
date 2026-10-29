@@ -53,6 +53,8 @@ testpaths = ["tests"]
 [tool.ruff]
 exclude = [
     "src/spdx/_version.py",
+    # A copy of the SPDX Project's example repository, kept as published.
+    "tests/data/spdx-examples",
 ]
 # Set oldest supported Python version
 target-version = "py310"

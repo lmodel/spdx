@@ -33,7 +33,9 @@ TAG = re.compile(r"^v?(\d+)\.(\d+)(?:\.(\d+))?(?:-?(rc\d+))?$", re.IGNORECASE)
 
 
 def _get(url: str) -> bytes:
-    request = urllib.request.Request(url, headers={"User-Agent": "lmodel-spdx-upstream-check"})
+    request = urllib.request.Request(
+        url, headers={"User-Agent": "lmodel-spdx-upstream-check"}
+    )
     token = os.environ.get("GITHUB_TOKEN")
     if token and url.startswith("https://api.github.com/"):
         request.add_header("Authorization", f"Bearer {token}")
@@ -56,7 +58,9 @@ def check() -> tuple[list[str], bool]:
     vendored = VENDORED.read_bytes()
     match = TERMS.search(vendored.decode("utf-8", errors="replace"))
     if not match:
-        return [f"- `{VENDORED.relative_to(ROOT)}` names no SPDX terms namespace."], True
+        return [
+            f"- `{VENDORED.relative_to(ROOT)}` names no SPDX terms namespace."
+        ], True
     version = match.group(1)
     report = [f"- Vendored model: SPDX {version} (`{VENDORED.relative_to(ROOT)}`)."]
     attention = False
@@ -64,9 +68,13 @@ def check() -> tuple[list[str], bool]:
     published_url = f"https://spdx.org/rdf/{version}/spdx-model.ttl"
     published = _get(published_url)
     if published == vendored:
-        report.append(f"- The vendored file is byte for byte the model published at <{published_url}>.")
+        report.append(
+            f"- The vendored file is byte for byte the model published at <{published_url}>."
+        )
     else:
-        report.append(f"- The vendored file differs from the model published at <{published_url}>.")
+        report.append(
+            f"- The vendored file differs from the model published at <{published_url}>."
+        )
         attention = True
 
     tags = [t["name"] for t in json.loads(_get(TAGS_API))]
@@ -76,10 +84,14 @@ def check() -> tuple[list[str], bool]:
     candidates = sorted((v for v in parsed.values() if v and not v[3]), reverse=True)
     newest = finals[0] if finals else None
     if newest and current and newest[:3] > current[:3]:
-        report.append(f"- A newer SPDX release exists: {newest[0]}.{newest[1]}.{newest[2]}.")
+        report.append(
+            f"- A newer SPDX release exists: {newest[0]}.{newest[1]}.{newest[2]}."
+        )
         attention = True
     elif newest:
-        report.append(f"- The vendored model is the latest SPDX release ({newest[0]}.{newest[1]}.{newest[2]}).")
+        report.append(
+            f"- The vendored model is the latest SPDX release ({newest[0]}.{newest[1]}.{newest[2]})."
+        )
     if candidates and current and candidates[0][:3] > current[:3]:
         tag = next(t for t, v in parsed.items() if v == candidates[0])
         report.append(f"- A release candidate is tagged upstream: `{tag}`.")
@@ -88,7 +100,9 @@ def check() -> tuple[list[str], bool]:
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    parser.add_argument("--report", type=Path, help="also write the Markdown report to this file")
+    parser.add_argument(
+        "--report", type=Path, help="also write the Markdown report to this file"
+    )
     args = parser.parse_args(argv)
     report, attention = check()
     text = "\n".join(report) + "\n"

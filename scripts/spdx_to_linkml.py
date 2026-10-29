@@ -244,7 +244,9 @@ class Converter:
         self.terms_ns = str(ontology)
         match = re.search(r"/rdf/([^/]+)/terms/$", self.terms_ns)
         if not match:
-            raise SystemExit(f"cannot read the SPDX version from the ontology IRI {self.terms_ns}")
+            raise SystemExit(
+                f"cannot read the SPDX version from the ontology IRI {self.terms_ns}"
+            )
         self.version = match.group(1)
         self.spec = f"https://spdx.github.io/spdx-spec/v{self.version}"
         self.source = f"https://spdx.org/rdf/{self.version}/spdx-model.ttl"
@@ -271,10 +273,16 @@ class Converter:
             return ""
         s = re.sub(r"\s*\n\s*", " ", str(value).replace("\r\n", "\n")).strip()
         s = re.sub(r"[ \t]{2,}", " ", s)
-        s = s.replace("\\*", "*")  # a Markdown escape upstream, a stray backslash in generated code
-        s = s.replace("](../../../annexes/", f"]({self.spec}/annexes/").replace(".md)", "/)")
+        s = s.replace(
+            "\\*", "*"
+        )  # a Markdown escape upstream, a stray backslash in generated code
+        s = s.replace("](../../../annexes/", f"]({self.spec}/annexes/").replace(
+            ".md)", "/)"
+        )
         if "](../" in s:
-            self.report.append(f"relative link left in the description of {local(subject)}")
+            self.report.append(
+                f"relative link left in the description of {local(subject)}"
+            )
         return s
 
     def _classify(self) -> None:
@@ -285,12 +293,21 @@ class Converter:
             for t in g.objects(individual, RDF.type):
                 if t != OWL.NamedIndividual:
                     by_class[t].append(individual)
-        self.enum_classes = {c for c, members in by_class.items() if any(g.value(m, RDFS.label) for m in members)}
-        self.enum_members = {c: sorted(by_class[c], key=lambda m: str(g.value(m, RDFS.label))) for c in self.enum_classes}
+        self.enum_classes = {
+            c
+            for c, members in by_class.items()
+            if any(g.value(m, RDFS.label) for m in members)
+        }
+        self.enum_members = {
+            c: sorted(by_class[c], key=lambda m: str(g.value(m, RDFS.label)))
+            for c in self.enum_classes
+        }
         self.classes = owl_classes - self.enum_classes
         for c, members in by_class.items():
             if c not in self.enum_classes:
-                self.report.append(f"left out, instance data: {', '.join(sorted(local(m) for m in members))} (a {local(c)})")
+                self.report.append(
+                    f"left out, instance data: {', '.join(sorted(local(m) for m in members))} (a {local(c)})"
+                )
         self.element = URIRef(self.terms_ns + "Core/Element")
         names = defaultdict(list)
         for c in self.classes | self.enum_classes:
@@ -312,7 +329,10 @@ class Converter:
 
     def is_abstract(self, cls) -> bool:
         for shape in self.g.objects(cls, SH.property):
-            if self.g.value(shape, SH.path) == RDF.type and self.g.value(shape, SH["not"]) is not None:
+            if (
+                self.g.value(shape, SH.path) == RDF.type
+                and self.g.value(shape, SH["not"]) is not None
+            ):
                 return True
         return False
 
@@ -323,7 +343,9 @@ class Converter:
 
     def _name_properties(self) -> None:
         g = self.g
-        self.properties = set(g.subjects(RDF.type, OWL.ObjectProperty)) | set(g.subjects(RDF.type, OWL.DatatypeProperty))
+        self.properties = set(g.subjects(RDF.type, OWL.ObjectProperty)) | set(
+            g.subjects(RDF.type, OWL.DatatypeProperty)
+        )
         counts = defaultdict(int)
         for p in self.properties:
             counts[local(p)] += 1
@@ -331,7 +353,9 @@ class Converter:
         for p in self.properties:
             if counts[local(p)] > 1 and self.profile(p) != "Core":
                 self.slot_name[p] = f"{self.profile(p).lower()}_{local(p)}"
-                self.report.append(f"property {self.curie(p)} is the slot {self.slot_name[p]}: Core also has a {local(p)}")
+                self.report.append(
+                    f"property {self.curie(p)} is the slot {self.slot_name[p]}: Core also has a {local(p)}"
+                )
             else:
                 self.slot_name[p] = local(p)
 
@@ -346,7 +370,16 @@ class Converter:
                 path = g.value(shape, SH.path)
                 if path == RDF.type:
                     continue
-                c = merged.setdefault(path, {"target": None, "min": None, "max": None, "pattern": None, "in": None})
+                c = merged.setdefault(
+                    path,
+                    {
+                        "target": None,
+                        "min": None,
+                        "max": None,
+                        "pattern": None,
+                        "in": None,
+                    },
+                )
                 for key, predicate in (
                     ("target", SH["class"]),
                     ("target", SH.datatype),
@@ -363,14 +396,18 @@ class Converter:
             self.fields[cls] = {p: self.resolve(cls, p, c) for p, c in merged.items()}
             for p in merged:
                 self.uses[p].append(cls)
-        unused = sorted(self.slot_name[p] for p in self.properties if p not in self.uses)
+        unused = sorted(
+            self.slot_name[p] for p in self.properties if p not in self.uses
+        )
         if unused:
             self.report.append(f"properties no class uses, left out: {unused}")
         self.shared = {p for p, classes in self.uses.items() if len(classes) > 1}
 
     def resolve(self, cls, prop, c) -> dict:
         """The LinkML field for one property shape: range, cardinality, inlining, pattern."""
-        target = c["target"] if c["target"] is not None else self.g.value(prop, RDFS.range)
+        target = (
+            c["target"] if c["target"] is not None else self.g.value(prop, RDFS.range)
+        )
         pattern = str(c["pattern"]) if c["pattern"] is not None else None
         field = {"description": self.text(prop), "slot_uri": self.curie(prop)}
         if target in self.enum_classes:
@@ -379,7 +416,9 @@ class Converter:
                 listed = {local(m) for m in c["in"]}
                 declared = {local(m) for m in self.enum_members[target]}
                 if listed != declared:
-                    self.report.append(f"{local(cls)}.{local(prop)} lists {sorted(listed ^ declared)} differently from {local(target)}")
+                    self.report.append(
+                        f"{local(cls)}.{local(prop)} lists {sorted(listed ^ declared)} differently from {local(target)}"
+                    )
         elif target in self.classes:
             field["range"] = local(target)
         elif str(target).startswith(str(XSD)):
@@ -389,11 +428,17 @@ class Converter:
                 pattern = None
             elif (str(target), None) in DATATYPES:
                 field["range"] = DATATYPES[(str(target), None)]
-                self.report.append(f"{local(cls)}.{local(prop)} keeps a pattern no type declares: {pattern}")
+                self.report.append(
+                    f"{local(cls)}.{local(prop)} keeps a pattern no type declares: {pattern}"
+                )
             else:
-                raise SystemExit(f"no LinkML range for {target} on {local(cls)}.{local(prop)}")
+                raise SystemExit(
+                    f"no LinkML range for {target} on {local(cls)}.{local(prop)}"
+                )
         else:
-            raise SystemExit(f"no LinkML range for {target} on {local(cls)}.{local(prop)}")
+            raise SystemExit(
+                f"no LinkML range for {target} on {local(cls)}.{local(prop)}"
+            )
         minimum = int(c["min"]) if c["min"] is not None else 0
         maximum = int(c["max"]) if c["max"] is not None else None
         if minimum >= 1:
@@ -410,7 +455,9 @@ class Converter:
                 field["inlined_as_list"] = True
         if pattern:
             field["pattern"] = pattern
-        field["see_also"] = [f"{self.spec}/model/{self.profile(prop)}/Properties/{local(prop)}/"]
+        field["see_also"] = [
+            f"{self.spec}/model/{self.profile(prop)}/Properties/{local(prop)}/"
+        ]
         return field
 
     # -- building the schema dictionaries ------------------------------------
@@ -419,10 +466,20 @@ class Converter:
         p = {OWN_PREFIX: OWN_NS, UMBRELLA: self.terms_ns}
         for profile in PROFILES:
             p[module_of_profile(profile)] = f"{self.terms_ns}{profile}/"
-        p.update({"linkml": "https://w3id.org/linkml/", "rdf": str(RDF), "xsd": str(XSD)})
+        p.update(
+            {"linkml": "https://w3id.org/linkml/", "rdf": str(RDF), "xsd": str(XSD)}
+        )
         return p
 
-    def header(self, name: str, title: str, description: str, see_also: list[str], imports: list[str], comments=None) -> dict:
+    def header(
+        self,
+        name: str,
+        title: str,
+        description: str,
+        see_also: list[str],
+        imports: list[str],
+        comments=None,
+    ) -> dict:
         h: dict = {
             "id": SCHEMA_ID if name == UMBRELLA else f"{SCHEMA_ID}/{name}",
             "name": name,
@@ -461,7 +518,9 @@ class Converter:
                         differences[cls][k] = f[k]
         return slot, differences
 
-    def class_definition(self, cls, slot_level: dict[URIRef, tuple[dict, dict]]) -> dict:
+    def class_definition(
+        self, cls, slot_level: dict[URIRef, tuple[dict, dict]]
+    ) -> dict:
         name = local(cls)
         d: dict = {}
         parent = self.parent(cls)
@@ -502,11 +561,16 @@ class Converter:
         values = {}
         for member in self.enum_members[enum]:
             label = str(self.g.value(member, RDFS.label))
-            values[label] = {"description": self.text(member), "meaning": self.curie(member)}
+            values[label] = {
+                "description": self.text(member),
+                "meaning": self.curie(member),
+            }
         return {
             "enum_uri": self.curie(enum),
             "description": self.text(enum),
-            "see_also": [f"{self.spec}/model/{self.profile(enum)}/Vocabularies/{local(enum)}/"],
+            "see_also": [
+                f"{self.spec}/model/{self.profile(enum)}/Vocabularies/{local(enum)}/"
+            ],
             "in_subset": [module_of_profile(self.profile(enum))],
             "permissible_values": values,
         }
@@ -526,7 +590,14 @@ class Converter:
             slots_in[module_of_profile(self.profile(p))].append(p)
 
         def module_of_range(name: str) -> str:
-            if name in TYPES or name in ("string", "uri", "boolean", "decimal", "integer", "datetime"):
+            if name in TYPES or name in (
+                "string",
+                "uri",
+                "boolean",
+                "decimal",
+                "integer",
+                "datetime",
+            ):
                 return CORE
             return self.module_of_class(self.by_name[name])
 
@@ -549,25 +620,46 @@ class Converter:
         for module in order:
             profile = modules[module]
             title, description = PROFILES[profile]
-            imports = ["linkml:types"] + [f"./{m}" for m in sorted(deps[module], key=lambda m: (m != CORE, m))]
-            schema = self.header(module, title, description, [f"{self.spec}/model/{profile}/{profile}/"], imports)
+            imports = ["linkml:types"] + [
+                f"./{m}" for m in sorted(deps[module], key=lambda m: (m != CORE, m))
+            ]
+            schema = self.header(
+                module,
+                title,
+                description,
+                [f"{self.spec}/model/{profile}/{profile}/"],
+                imports,
+            )
             if module == CORE:
                 schema["subsets"] = {
-                    module_of_profile(p): {"description": f"Elements of the {PROFILES[p][0]}."} for p in PROFILES
+                    module_of_profile(p): {
+                        "description": f"Elements of the {PROFILES[p][0]}."
+                    }
+                    for p in PROFILES
                 }
-                schema["types"] = {name: {**definition, "in_subset": [CORE]} for name, definition in TYPES.items()}
+                schema["types"] = {
+                    name: {**definition, "in_subset": [CORE]}
+                    for name, definition in TYPES.items()
+                }
             if enums_in[module]:
-                schema["enums"] = {local(e): self.enum_definition(e) for e in sorted(enums_in[module], key=local)}
+                schema["enums"] = {
+                    local(e): self.enum_definition(e)
+                    for e in sorted(enums_in[module], key=local)
+                }
             slots = {}
             if module == CORE:
                 slots["type"] = {**TYPE_SLOT, "in_subset": [CORE]}
             for p in sorted(slots_in[module], key=lambda p: self.slot_name[p]):
-                slots[self.slot_name[p]] = {**slot_level[p][0], "in_subset": [module_of_profile(self.profile(p))]}
+                slots[self.slot_name[p]] = {
+                    **slot_level[p][0],
+                    "in_subset": [module_of_profile(self.profile(p))],
+                }
             if slots:
                 schema["slots"] = slots
             if classes_in[module]:
                 schema["classes"] = {
-                    local(c): self.class_definition(c, slot_level) for c in sorted(classes_in[module], key=local)
+                    local(c): self.class_definition(c, slot_level)
+                    for c in sorted(classes_in[module], key=local)
                 }
             files[module] = schema
 
@@ -597,7 +689,9 @@ class Converter:
 
 
 class _Dumper(yaml.SafeDumper):
-    def increase_indent(self, flow=False, indentless=False):  # lists sit indented under their key
+    def increase_indent(
+        self, flow=False, indentless=False
+    ):  # lists sit indented under their key
         return super().increase_indent(flow, False)
 
 
@@ -609,12 +703,28 @@ def _represent_str(dumper, data):
 
 _Dumper.add_representer(str, _represent_str)
 
-_SECTION_KEYS = {"prefixes", "default_prefix", "imports", "subsets", "types", "enums", "slots", "classes"}
+_SECTION_KEYS = {
+    "prefixes",
+    "default_prefix",
+    "imports",
+    "subsets",
+    "types",
+    "enums",
+    "slots",
+    "classes",
+}
 _ELEMENT_SECTIONS = {"subsets", "types", "enums", "slots", "classes"}
 
 
 def dump(schema: dict) -> str:
-    raw = yaml.dump(schema, Dumper=_Dumper, default_flow_style=False, allow_unicode=True, sort_keys=False, width=100)
+    raw = yaml.dump(
+        schema,
+        Dumper=_Dumper,
+        default_flow_style=False,
+        allow_unicode=True,
+        sort_keys=False,
+        width=100,
+    )
     out: list[str] = []
     in_elements = False
     for line in raw.split("\n"):
@@ -624,7 +734,12 @@ def dump(schema: dict) -> str:
             if key in _SECTION_KEYS and out and out[-1] != "":
                 out.append("")
             in_elements = key in _ELEMENT_SECTIONS
-        elif line.strip() and indent == 2 and in_elements and not line.lstrip().startswith("-"):
+        elif (
+            line.strip()
+            and indent == 2
+            and in_elements
+            and not line.lstrip().startswith("-")
+        ):
             if out and out[-1] != "":
                 out.append("")
         out.append(line)
@@ -655,16 +770,35 @@ def check(files: dict[str, dict], out_dir: Path) -> int:
             old = old_path.read_text(encoding="utf-8") if old_path.exists() else ""
             if new != old:
                 status = 1
-                diff = difflib.unified_diff(old.splitlines(), new.splitlines(), str(old_path), "regenerated", lineterm="", n=1)
+                diff = difflib.unified_diff(
+                    old.splitlines(),
+                    new.splitlines(),
+                    str(old_path),
+                    "regenerated",
+                    lineterm="",
+                    n=1,
+                )
                 print("\n".join(list(diff)[:40]))
         return status
 
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    parser.add_argument("--ttl", type=Path, default=DEFAULT_TTL, help="the vendored SPDX model")
-    parser.add_argument("-d", "--output-dir", type=Path, default=DEFAULT_OUT, help="where the modules go")
-    parser.add_argument("--check", action="store_true", help="compare with the output folder instead of writing")
+    parser.add_argument(
+        "--ttl", type=Path, default=DEFAULT_TTL, help="the vendored SPDX model"
+    )
+    parser.add_argument(
+        "-d",
+        "--output-dir",
+        type=Path,
+        default=DEFAULT_OUT,
+        help="where the modules go",
+    )
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="compare with the output folder instead of writing",
+    )
     args = parser.parse_args(argv)
     converter = Converter(args.ttl)
     files = converter.build()
@@ -675,7 +809,11 @@ def main(argv=None) -> int:
     write_all(files, args.output_dir)
     classes = sum(len(s.get("classes", {})) for s in files.values())
     slots = sum(len(s.get("slots", {})) for s in files.values())
-    attributes = sum(len(c.get("attributes", {})) for s in files.values() for c in s.get("classes", {}).values())
+    attributes = sum(
+        len(c.get("attributes", {}))
+        for s in files.values()
+        for c in s.get("classes", {}).values()
+    )
     enums = sum(len(s.get("enums", {})) for s in files.values())
     print(
         f"SPDX {converter.version}: {len(files) - 1} modules, {classes} classes, {slots} shared slots, "

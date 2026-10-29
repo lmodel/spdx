@@ -34,10 +34,16 @@ SCHEMA_PATH = TESTS_DIR.parent / "src" / "spdx" / "schema" / "spdx.yaml"
 DATA_DIR = TESTS_DIR / "data"
 UPSTREAM_DIR = DATA_DIR / "spdx-examples"
 
-VALID_FILES = sorted((DATA_DIR / "valid").glob("*.yaml")) + sorted((DATA_DIR / "problem" / "valid").glob("*.yaml"))
-INVALID_FILES = sorted((DATA_DIR / "invalid").glob("*.yaml")) + sorted((DATA_DIR / "problem" / "invalid").glob("*.yaml"))
+VALID_FILES = sorted((DATA_DIR / "valid").glob("*.yaml")) + sorted(
+    (DATA_DIR / "problem" / "valid").glob("*.yaml")
+)
+INVALID_FILES = sorted((DATA_DIR / "invalid").glob("*.yaml")) + sorted(
+    (DATA_DIR / "problem" / "invalid").glob("*.yaml")
+)
 UPSTREAM_JSON_FILES = sorted(UPSTREAM_DIR.rglob("*.json"))
-UPSTREAM_SPDX3_JSON_FILES = sorted(set(UPSTREAM_DIR.rglob("spdx3.0/*.json")) | set(UPSTREAM_DIR.rglob("*.spdx3.json")))
+UPSTREAM_SPDX3_JSON_FILES = sorted(
+    set(UPSTREAM_DIR.rglob("spdx3.0/*.json")) | set(UPSTREAM_DIR.rglob("*.spdx3.json"))
+)
 
 # A closed class reports every unexpected key in one message, so the count of
 # results alone cannot tell one reason from another: each counter-example names
@@ -65,7 +71,9 @@ def schema_view() -> SchemaView:
 
 @pytest.fixture(scope="module")
 def validator() -> Validator:
-    return Validator(str(SCHEMA_PATH), validation_plugins=[JsonschemaValidationPlugin(closed=True)])
+    return Validator(
+        str(SCHEMA_PATH), validation_plugins=[JsonschemaValidationPlugin(closed=True)]
+    )
 
 
 def _target_class(path: Path) -> str:
@@ -75,17 +83,28 @@ def _target_class(path: Path) -> str:
 def _messages(validator: Validator, path: Path) -> list[str]:
     data = yaml.safe_load(path.read_text(encoding="utf-8"))
     assert isinstance(data, dict), f"{path} must hold one object"
-    return [result.message for result in validator.validate(data, _target_class(path)).results]
+    return [
+        result.message
+        for result in validator.validate(data, _target_class(path)).results
+    ]
 
 
-@pytest.mark.parametrize("path", VALID_FILES, ids=lambda p: str(p.relative_to(DATA_DIR)))
+@pytest.mark.parametrize(
+    "path", VALID_FILES, ids=lambda p: str(p.relative_to(DATA_DIR))
+)
 def test_valid_example_validates(validator: Validator, path: Path) -> None:
     assert _messages(validator, path) == []
 
 
-@pytest.mark.parametrize("path", INVALID_FILES, ids=lambda p: str(p.relative_to(DATA_DIR)))
-def test_invalid_example_fails_once_for_its_reason(validator: Validator, path: Path) -> None:
-    assert path.stem in REASONS, f"{path.name}: add the part of the message it must fail with to REASONS"
+@pytest.mark.parametrize(
+    "path", INVALID_FILES, ids=lambda p: str(p.relative_to(DATA_DIR))
+)
+def test_invalid_example_fails_once_for_its_reason(
+    validator: Validator, path: Path
+) -> None:
+    assert path.stem in REASONS, (
+        f"{path.name}: add the part of the message it must fail with to REASONS"
+    )
     messages = _messages(validator, path)
     assert len(messages) == 1, f"{path.name} should fail for one reason, not {messages}"
     assert REASONS[path.stem] in messages[0]
@@ -107,41 +126,63 @@ def _strip_profile(name: str, known: set[str]) -> str:
 
 def _nodes(path: Path) -> list[dict[str, Any]]:
     payload = json.loads(path.read_text(encoding="utf-8"))
-    return [node for node in payload.get("@graph", []) if isinstance(node, dict) and isinstance(node.get("type"), str)]
+    return [
+        node
+        for node in payload.get("@graph", [])
+        if isinstance(node, dict) and isinstance(node.get("type"), str)
+    ]
 
 
 def _as_list(value: Any) -> list[Any]:
     return value if isinstance(value, list) else [value]
 
 
-@pytest.mark.parametrize("path", UPSTREAM_JSON_FILES, ids=lambda p: str(p.relative_to(UPSTREAM_DIR)))
+@pytest.mark.parametrize(
+    "path", UPSTREAM_JSON_FILES, ids=lambda p: str(p.relative_to(UPSTREAM_DIR))
+)
 def test_upstream_examples_are_valid_json(path: Path) -> None:
     assert isinstance(json.loads(path.read_text(encoding="utf-8")), dict)
 
 
-@pytest.mark.parametrize("path", UPSTREAM_SPDX3_JSON_FILES, ids=lambda p: str(p.relative_to(UPSTREAM_DIR)))
+@pytest.mark.parametrize(
+    "path", UPSTREAM_SPDX3_JSON_FILES, ids=lambda p: str(p.relative_to(UPSTREAM_DIR))
+)
 def test_upstream_spdx3_examples_have_jsonld_graph(path: Path) -> None:
     payload = json.loads(path.read_text(encoding="utf-8"))
     assert "@context" in payload
     assert isinstance(payload.get("@graph"), list) and payload["@graph"]
 
 
-@pytest.mark.parametrize("path", UPSTREAM_SPDX3_JSON_FILES, ids=lambda p: str(p.relative_to(UPSTREAM_DIR)))
+@pytest.mark.parametrize(
+    "path", UPSTREAM_SPDX3_JSON_FILES, ids=lambda p: str(p.relative_to(UPSTREAM_DIR))
+)
 def test_upstream_spdx3_types_are_classes(path: Path, schema_view: SchemaView) -> None:
     classes = set(schema_view.all_classes())
-    unknown = {node["type"] for node in _nodes(path) if _strip_profile(node["type"], classes) not in classes}
-    assert not unknown, f"types the schema has no class for in {path.name}: {sorted(unknown)}"
+    unknown = {
+        node["type"]
+        for node in _nodes(path)
+        if _strip_profile(node["type"], classes) not in classes
+    }
+    assert not unknown, (
+        f"types the schema has no class for in {path.name}: {sorted(unknown)}"
+    )
 
 
-@pytest.mark.parametrize("path", UPSTREAM_SPDX3_JSON_FILES, ids=lambda p: str(p.relative_to(UPSTREAM_DIR)))
-def test_upstream_spdx3_required_slots_are_present(path: Path, schema_view: SchemaView) -> None:
+@pytest.mark.parametrize(
+    "path", UPSTREAM_SPDX3_JSON_FILES, ids=lambda p: str(p.relative_to(UPSTREAM_DIR))
+)
+def test_upstream_spdx3_required_slots_are_present(
+    path: Path, schema_view: SchemaView
+) -> None:
     classes = set(schema_view.all_classes())
     missing: list[str] = []
     for index, node in enumerate(_nodes(path)):
         class_name = _strip_profile(node["type"], classes)
         if class_name not in classes:
             continue
-        slots = {slot.name: slot for slot in schema_view.class_induced_slots(class_name)}
+        slots = {
+            slot.name: slot for slot in schema_view.class_induced_slots(class_name)
+        }
         keys = {_strip_profile(key, set(slots)) for key in node}
         for name, slot in slots.items():
             if slot.required and name not in keys:
@@ -149,8 +190,12 @@ def test_upstream_spdx3_required_slots_are_present(path: Path, schema_view: Sche
     assert not missing, f"required slots missing in {path.name}: {missing}"
 
 
-@pytest.mark.parametrize("path", UPSTREAM_SPDX3_JSON_FILES, ids=lambda p: str(p.relative_to(UPSTREAM_DIR)))
-def test_upstream_spdx3_vocabulary_values_are_declared(path: Path, schema_view: SchemaView) -> None:
+@pytest.mark.parametrize(
+    "path", UPSTREAM_SPDX3_JSON_FILES, ids=lambda p: str(p.relative_to(UPSTREAM_DIR))
+)
+def test_upstream_spdx3_vocabulary_values_are_declared(
+    path: Path, schema_view: SchemaView
+) -> None:
     classes = set(schema_view.all_classes())
     enums = schema_view.all_enums()
     bad: list[str] = []
@@ -158,20 +203,28 @@ def test_upstream_spdx3_vocabulary_values_are_declared(path: Path, schema_view: 
         class_name = _strip_profile(node["type"], classes)
         if class_name not in classes:
             continue
-        slots = {slot.name: slot for slot in schema_view.class_induced_slots(class_name)}
+        slots = {
+            slot.name: slot for slot in schema_view.class_induced_slots(class_name)
+        }
         for key, value in node.items():
             slot = slots.get(_strip_profile(key, set(slots)))
             if slot is None or slot.range not in enums:
                 continue
             allowed = set(enums[slot.range].permissible_values)
             for item in _as_list(value):
-                if isinstance(item, str) and not item.startswith(("http://", "https://", "_:")) and item not in allowed:
+                if (
+                    isinstance(item, str)
+                    and not item.startswith(("http://", "https://", "_:"))
+                    and item not in allowed
+                ):
                     bad.append(f"{index}:{class_name}.{slot.name}={item}")
     assert not bad, f"values no vocabulary declares in {path.name}: {bad}"
 
 
 @pytest.mark.parametrize(
-    "path", [p for p in UPSTREAM_JSON_FILES if "spdx2." in str(p)], ids=lambda p: str(p.relative_to(UPSTREAM_DIR))
+    "path",
+    [p for p in UPSTREAM_JSON_FILES if "spdx2." in str(p)],
+    ids=lambda p: str(p.relative_to(UPSTREAM_DIR)),
 )
 def test_upstream_spdx2_examples_have_expected_markers(path: Path) -> None:
     payload = json.loads(path.read_text(encoding="utf-8"))
