@@ -5,7 +5,7 @@ title: SPDX Core profile
 description: >-
   The Core profile: the Element that every SPDX object descends from, agents, relationships, collections
   and documents, creation information, integrity methods and external references. The other profiles build
-  on it, and the LinkML types this schema declares live here.
+  on it, and it declares the schema's LinkML types.
 version: 3.0.1
 source: https://spdx.org/rdf/3.0.1/spdx-model.ttl
 license: Apache-2.0
@@ -1193,7 +1193,7 @@ classes:
         comments:
           - >-
             SPDX JSON-LD writes an Element's IRI as spdxId. The model has no property for it, so this
-            key is the schema's own, in its own namespace.
+            schema declares the key in its own namespace.
       creationInfo:
         description: Provides information about the creation of the Element.
         slot_uri: spdx_core:creationInfo

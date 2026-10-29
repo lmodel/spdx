@@ -71,9 +71,9 @@ linkml_meta = LinkMLMeta({'comments': ['scripts/spdx_to_linkml.py writes every Y
                   'script or the model, never the files.',
                   'spdx_core imports only the LinkML types, each profile module '
                   'imports the modules it references, and this file adds nothing '
-                  'of its own, so an importer can take one profile.',
-                  "The element descriptions are the model's own rdfs:comment "
-                  'texts, which the SPDX Project publishes under the Community '
+                  'of its own, so an importer can import one profile alone.',
+                  "The element descriptions are the model's rdfs:comment texts, "
+                  'which the SPDX Project publishes under the Community '
                   'Specification License 1.0.',
                   "The model's individuals (NoAssertionElement, NoneElement, "
                   'NoAssertionLicense, NoneLicense and SpdxOrganization) are '
@@ -1418,7 +1418,7 @@ class Element(ConfiguredBaseModel):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -1486,7 +1486,7 @@ class Agent(Element):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -1567,7 +1567,7 @@ class Annotation(Element):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -1639,7 +1639,7 @@ class AnyLicenseInfo(Element):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -1730,7 +1730,7 @@ class Artifact(Element):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -1808,7 +1808,7 @@ class ElementCollection(Element):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -1888,7 +1888,7 @@ class Bundle(ElementCollection):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -1968,7 +1968,7 @@ class Bom(Bundle):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -2215,7 +2215,7 @@ class IndividualElement(Element):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -2407,7 +2407,7 @@ class Organization(Agent):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -2525,7 +2525,7 @@ class Person(Agent):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -2648,7 +2648,7 @@ class Relationship(Element):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -2737,7 +2737,7 @@ class LifecycleScopedRelationship(Relationship):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -2805,7 +2805,7 @@ class SoftwareAgent(Agent):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -2891,7 +2891,7 @@ class SpdxDocument(ElementCollection):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -2959,7 +2959,7 @@ class Tool(Element):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -3054,7 +3054,7 @@ class Build(Element):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -3202,7 +3202,7 @@ class LicenseExpression(AnyLicenseInfo):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -3274,7 +3274,7 @@ class SimpleLicensingText(Element):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -3402,7 +3402,7 @@ class Sbom(Bom):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -3508,7 +3508,7 @@ class SoftwareArtifact(Artifact):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -3620,7 +3620,7 @@ class File(SoftwareArtifact):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -3740,7 +3740,7 @@ class Package(SoftwareArtifact):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -3854,7 +3854,7 @@ class Snippet(SoftwareArtifact):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -4019,7 +4019,7 @@ class AIPackage(Package):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -4255,7 +4255,7 @@ class DatasetPackage(Package):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -4327,7 +4327,7 @@ class ConjunctiveLicenseSet(AnyLicenseInfo):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -4399,7 +4399,7 @@ class DisjunctiveLicenseSet(AnyLicenseInfo):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -4468,7 +4468,7 @@ class ExtendableLicense(AnyLicenseInfo):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -4536,7 +4536,7 @@ class IndividualLicensingInfo(AnyLicenseInfo):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -4636,7 +4636,7 @@ class License(ExtendableLicense):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -4735,7 +4735,7 @@ class CustomLicense(License):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -4825,7 +4825,7 @@ class LicenseAddition(Element):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -4914,7 +4914,7 @@ class CustomLicenseAddition(LicenseAddition):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -5021,7 +5021,7 @@ class ListedLicense(License):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -5118,7 +5118,7 @@ class ListedLicenseException(LicenseAddition):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -5189,7 +5189,7 @@ class OrLaterOperator(ExtendableLicense):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -5263,7 +5263,7 @@ class WithAdditionOperator(AnyLicenseInfo):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -5369,7 +5369,7 @@ class VulnAssessmentRelationship(Relationship):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -5486,7 +5486,7 @@ class CvssV2VulnAssessmentRelationship(VulnAssessmentRelationship):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -5608,7 +5608,7 @@ class CvssV3VulnAssessmentRelationship(VulnAssessmentRelationship):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -5730,7 +5730,7 @@ class CvssV4VulnAssessmentRelationship(VulnAssessmentRelationship):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -5841,7 +5841,7 @@ class EpssVulnAssessmentRelationship(VulnAssessmentRelationship):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -5955,7 +5955,7 @@ class ExploitCatalogVulnAssessmentRelationship(VulnAssessmentRelationship):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -6063,7 +6063,7 @@ class SsvcVulnAssessmentRelationship(VulnAssessmentRelationship):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -6175,7 +6175,7 @@ class VexVulnAssessmentRelationship(VulnAssessmentRelationship):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -6292,7 +6292,7 @@ class VexAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -6403,7 +6403,7 @@ class VexFixedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -6523,7 +6523,7 @@ class VexNotAffectedVulnAssessmentRelationship(VexVulnAssessmentRelationship):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -6634,7 +6634,7 @@ class VexUnderInvestigationVulnAssessmentRelationship(VexVulnAssessmentRelations
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],
@@ -6736,7 +6736,7 @@ class Vulnerability(Artifact):
          'see_also': ['https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Properties/verifiedUsing/'],
          'slot_uri': 'spdx_core:verifiedUsing'} })
     spdxId: str = Field(default=..., description="""The IRI that identifies this Element. A reference to an Element from any field is this IRI.""", json_schema_extra = { "linkml_meta": {'comments': ["SPDX JSON-LD writes an Element's IRI as spdxId. The model has "
-                      "no property for it, so this key is the schema's own, in its own "
+                      'no property for it, so this schema declares the key in its own '
                       'namespace.'],
          'domain_of': ['Element']} })
     creationInfo: CreationInfo = Field(default=..., description="""Provides information about the creation of the Element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Element'],

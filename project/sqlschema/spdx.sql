@@ -1730,8 +1730,8 @@ CREATE TABLE "PackageVerificationCode_packageVerificationCodeExcludedFile" (
 	PRIMARY KEY ("PackageVerificationCode_id", "packageVerificationCodeExcludedFile"),
 	FOREIGN KEY("PackageVerificationCode_id") REFERENCES "PackageVerificationCode" (id)
 );
-CREATE INDEX "ix_PackageVerificationCode_packageVerificationCodeExcludedFile_packageVerificationCodeExcludedFile" ON "PackageVerificationCode_packageVerificationCodeExcludedFile" ("packageVerificationCodeExcludedFile");
 CREATE INDEX "ix_PackageVerificationCode_packageVerificationCodeExcludedFile_PackageVerificationCode_id" ON "PackageVerificationCode_packageVerificationCodeExcludedFile" ("PackageVerificationCode_id");
+CREATE INDEX "ix_PackageVerificationCode_packageVerificationCodeExcludedFile_packageVerificationCodeExcludedFile" ON "PackageVerificationCode_packageVerificationCodeExcludedFile" ("packageVerificationCodeExcludedFile");
 
 CREATE TABLE "Annotation" (
 	"contentType" TEXT,
@@ -2028,8 +2028,8 @@ CREATE TABLE "Bom_element" (
 	FOREIGN KEY("Bom_spdxId") REFERENCES "Bom" ("spdxId"),
 	FOREIGN KEY("element_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_Bom_element_Bom_spdxId" ON "Bom_element" ("Bom_spdxId");
 CREATE INDEX "ix_Bom_element_element_spdxId" ON "Bom_element" ("element_spdxId");
+CREATE INDEX "ix_Bom_element_Bom_spdxId" ON "Bom_element" ("Bom_spdxId");
 
 CREATE TABLE "Bom_profileConformance" (
 	"Bom_spdxId" TEXT,
@@ -2037,8 +2037,8 @@ CREATE TABLE "Bom_profileConformance" (
 	PRIMARY KEY ("Bom_spdxId", "profileConformance"),
 	FOREIGN KEY("Bom_spdxId") REFERENCES "Bom" ("spdxId")
 );
-CREATE INDEX "ix_Bom_profileConformance_profileConformance" ON "Bom_profileConformance" ("profileConformance");
 CREATE INDEX "ix_Bom_profileConformance_Bom_spdxId" ON "Bom_profileConformance" ("Bom_spdxId");
+CREATE INDEX "ix_Bom_profileConformance_profileConformance" ON "Bom_profileConformance" ("profileConformance");
 
 CREATE TABLE "Bom_rootElement" (
 	"Bom_spdxId" TEXT,
@@ -2047,8 +2047,8 @@ CREATE TABLE "Bom_rootElement" (
 	FOREIGN KEY("Bom_spdxId") REFERENCES "Bom" ("spdxId"),
 	FOREIGN KEY("rootElement_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_Bom_rootElement_Bom_spdxId" ON "Bom_rootElement" ("Bom_spdxId");
 CREATE INDEX "ix_Bom_rootElement_rootElement_spdxId" ON "Bom_rootElement" ("rootElement_spdxId");
+CREATE INDEX "ix_Bom_rootElement_Bom_spdxId" ON "Bom_rootElement" ("Bom_spdxId");
 
 CREATE TABLE "Bundle_element" (
 	"Bundle_spdxId" TEXT,
@@ -2057,8 +2057,8 @@ CREATE TABLE "Bundle_element" (
 	FOREIGN KEY("Bundle_spdxId") REFERENCES "Bundle" ("spdxId"),
 	FOREIGN KEY("element_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_Bundle_element_Bundle_spdxId" ON "Bundle_element" ("Bundle_spdxId");
 CREATE INDEX "ix_Bundle_element_element_spdxId" ON "Bundle_element" ("element_spdxId");
+CREATE INDEX "ix_Bundle_element_Bundle_spdxId" ON "Bundle_element" ("Bundle_spdxId");
 
 CREATE TABLE "Bundle_profileConformance" (
 	"Bundle_spdxId" TEXT,
@@ -2106,8 +2106,8 @@ CREATE TABLE "ElementCollection_element" (
 	FOREIGN KEY("ElementCollection_spdxId") REFERENCES "ElementCollection" ("spdxId"),
 	FOREIGN KEY("element_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_ElementCollection_element_element_spdxId" ON "ElementCollection_element" ("element_spdxId");
 CREATE INDEX "ix_ElementCollection_element_ElementCollection_spdxId" ON "ElementCollection_element" ("ElementCollection_spdxId");
+CREATE INDEX "ix_ElementCollection_element_element_spdxId" ON "ElementCollection_element" ("element_spdxId");
 
 CREATE TABLE "ElementCollection_profileConformance" (
 	"ElementCollection_spdxId" TEXT,
@@ -2152,8 +2152,8 @@ CREATE TABLE "Sbom_sbomType" (
 	PRIMARY KEY ("Sbom_spdxId", "sbomType"),
 	FOREIGN KEY("Sbom_spdxId") REFERENCES "Sbom" ("spdxId")
 );
-CREATE INDEX "ix_Sbom_sbomType_Sbom_spdxId" ON "Sbom_sbomType" ("Sbom_spdxId");
 CREATE INDEX "ix_Sbom_sbomType_sbomType" ON "Sbom_sbomType" ("sbomType");
+CREATE INDEX "ix_Sbom_sbomType_Sbom_spdxId" ON "Sbom_sbomType" ("Sbom_spdxId");
 
 CREATE TABLE "Sbom_element" (
 	"Sbom_spdxId" TEXT,
@@ -2162,8 +2162,8 @@ CREATE TABLE "Sbom_element" (
 	FOREIGN KEY("Sbom_spdxId") REFERENCES "Sbom" ("spdxId"),
 	FOREIGN KEY("element_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_Sbom_element_Sbom_spdxId" ON "Sbom_element" ("Sbom_spdxId");
 CREATE INDEX "ix_Sbom_element_element_spdxId" ON "Sbom_element" ("element_spdxId");
+CREATE INDEX "ix_Sbom_element_Sbom_spdxId" ON "Sbom_element" ("Sbom_spdxId");
 
 CREATE TABLE "Sbom_profileConformance" (
 	"Sbom_spdxId" TEXT,
@@ -2181,8 +2181,8 @@ CREATE TABLE "Sbom_rootElement" (
 	FOREIGN KEY("Sbom_spdxId") REFERENCES "Sbom" ("spdxId"),
 	FOREIGN KEY("rootElement_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_Sbom_rootElement_Sbom_spdxId" ON "Sbom_rootElement" ("Sbom_spdxId");
 CREATE INDEX "ix_Sbom_rootElement_rootElement_spdxId" ON "Sbom_rootElement" ("rootElement_spdxId");
+CREATE INDEX "ix_Sbom_rootElement_Sbom_spdxId" ON "Sbom_rootElement" ("Sbom_spdxId");
 
 CREATE TABLE "ConjunctiveLicenseSet_member" (
 	"ConjunctiveLicenseSet_spdxId" TEXT,
@@ -2191,8 +2191,8 @@ CREATE TABLE "ConjunctiveLicenseSet_member" (
 	FOREIGN KEY("ConjunctiveLicenseSet_spdxId") REFERENCES "ConjunctiveLicenseSet" ("spdxId"),
 	FOREIGN KEY("member_spdxId") REFERENCES "AnyLicenseInfo" ("spdxId")
 );
-CREATE INDEX "ix_ConjunctiveLicenseSet_member_member_spdxId" ON "ConjunctiveLicenseSet_member" ("member_spdxId");
 CREATE INDEX "ix_ConjunctiveLicenseSet_member_ConjunctiveLicenseSet_spdxId" ON "ConjunctiveLicenseSet_member" ("ConjunctiveLicenseSet_spdxId");
+CREATE INDEX "ix_ConjunctiveLicenseSet_member_member_spdxId" ON "ConjunctiveLicenseSet_member" ("member_spdxId");
 
 CREATE TABLE "CustomLicense_seeAlso" (
 	"CustomLicense_spdxId" TEXT,
@@ -2228,8 +2228,8 @@ CREATE TABLE "License_seeAlso" (
 	PRIMARY KEY ("License_spdxId", "seeAlso"),
 	FOREIGN KEY("License_spdxId") REFERENCES "License" ("spdxId")
 );
-CREATE INDEX "ix_License_seeAlso_seeAlso" ON "License_seeAlso" ("seeAlso");
 CREATE INDEX "ix_License_seeAlso_License_spdxId" ON "License_seeAlso" ("License_spdxId");
+CREATE INDEX "ix_License_seeAlso_seeAlso" ON "License_seeAlso" ("seeAlso");
 
 CREATE TABLE "LicenseAddition_seeAlso" (
 	"LicenseAddition_spdxId" TEXT,
@@ -2255,8 +2255,8 @@ CREATE TABLE "ListedLicenseException_seeAlso" (
 	PRIMARY KEY ("ListedLicenseException_spdxId", "seeAlso"),
 	FOREIGN KEY("ListedLicenseException_spdxId") REFERENCES "ListedLicenseException" ("spdxId")
 );
-CREATE INDEX "ix_ListedLicenseException_seeAlso_seeAlso" ON "ListedLicenseException_seeAlso" ("seeAlso");
 CREATE INDEX "ix_ListedLicenseException_seeAlso_ListedLicenseException_spdxId" ON "ListedLicenseException_seeAlso" ("ListedLicenseException_spdxId");
+CREATE INDEX "ix_ListedLicenseException_seeAlso_seeAlso" ON "ListedLicenseException_seeAlso" ("seeAlso");
 
 CREATE TABLE "DictionaryEntry" (
 	id INTEGER NOT NULL,
@@ -2682,8 +2682,8 @@ CREATE TABLE "Artifact_standardName" (
 	PRIMARY KEY ("Artifact_spdxId", "standardName"),
 	FOREIGN KEY("Artifact_spdxId") REFERENCES "Artifact" ("spdxId")
 );
-CREATE INDEX "ix_Artifact_standardName_standardName" ON "Artifact_standardName" ("standardName");
 CREATE INDEX "ix_Artifact_standardName_Artifact_spdxId" ON "Artifact_standardName" ("Artifact_spdxId");
+CREATE INDEX "ix_Artifact_standardName_standardName" ON "Artifact_standardName" ("standardName");
 
 CREATE TABLE "Artifact_supportLevel" (
 	"Artifact_spdxId" TEXT,
@@ -2691,8 +2691,8 @@ CREATE TABLE "Artifact_supportLevel" (
 	PRIMARY KEY ("Artifact_spdxId", "supportLevel"),
 	FOREIGN KEY("Artifact_spdxId") REFERENCES "Artifact" ("spdxId")
 );
-CREATE INDEX "ix_Artifact_supportLevel_Artifact_spdxId" ON "Artifact_supportLevel" ("Artifact_spdxId");
 CREATE INDEX "ix_Artifact_supportLevel_supportLevel" ON "Artifact_supportLevel" ("supportLevel");
+CREATE INDEX "ix_Artifact_supportLevel_Artifact_spdxId" ON "Artifact_supportLevel" ("Artifact_spdxId");
 
 CREATE TABLE "LifecycleScopedRelationship_to" (
 	"LifecycleScopedRelationship_spdxId" TEXT,
@@ -2721,8 +2721,8 @@ CREATE TABLE "SpdxDocument_element" (
 	FOREIGN KEY("SpdxDocument_spdxId") REFERENCES "SpdxDocument" ("spdxId"),
 	FOREIGN KEY("element_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_SpdxDocument_element_SpdxDocument_spdxId" ON "SpdxDocument_element" ("SpdxDocument_spdxId");
 CREATE INDEX "ix_SpdxDocument_element_element_spdxId" ON "SpdxDocument_element" ("element_spdxId");
+CREATE INDEX "ix_SpdxDocument_element_SpdxDocument_spdxId" ON "SpdxDocument_element" ("SpdxDocument_spdxId");
 
 CREATE TABLE "SpdxDocument_profileConformance" (
 	"SpdxDocument_spdxId" TEXT,
@@ -2740,8 +2740,8 @@ CREATE TABLE "SpdxDocument_rootElement" (
 	FOREIGN KEY("SpdxDocument_spdxId") REFERENCES "SpdxDocument" ("spdxId"),
 	FOREIGN KEY("rootElement_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_SpdxDocument_rootElement_rootElement_spdxId" ON "SpdxDocument_rootElement" ("rootElement_spdxId");
 CREATE INDEX "ix_SpdxDocument_rootElement_SpdxDocument_spdxId" ON "SpdxDocument_rootElement" ("SpdxDocument_spdxId");
+CREATE INDEX "ix_SpdxDocument_rootElement_rootElement_spdxId" ON "SpdxDocument_rootElement" ("rootElement_spdxId");
 
 CREATE TABLE "File_additionalPurpose" (
 	"File_spdxId" TEXT,
@@ -2749,8 +2749,8 @@ CREATE TABLE "File_additionalPurpose" (
 	PRIMARY KEY ("File_spdxId", "additionalPurpose"),
 	FOREIGN KEY("File_spdxId") REFERENCES "File" ("spdxId")
 );
-CREATE INDEX "ix_File_additionalPurpose_File_spdxId" ON "File_additionalPurpose" ("File_spdxId");
 CREATE INDEX "ix_File_additionalPurpose_additionalPurpose" ON "File_additionalPurpose" ("additionalPurpose");
+CREATE INDEX "ix_File_additionalPurpose_File_spdxId" ON "File_additionalPurpose" ("File_spdxId");
 
 CREATE TABLE "File_attributionText" (
 	"File_spdxId" TEXT,
@@ -2786,8 +2786,8 @@ CREATE TABLE "File_supportLevel" (
 	PRIMARY KEY ("File_spdxId", "supportLevel"),
 	FOREIGN KEY("File_spdxId") REFERENCES "File" ("spdxId")
 );
-CREATE INDEX "ix_File_supportLevel_supportLevel" ON "File_supportLevel" ("supportLevel");
 CREATE INDEX "ix_File_supportLevel_File_spdxId" ON "File_supportLevel" ("File_spdxId");
+CREATE INDEX "ix_File_supportLevel_supportLevel" ON "File_supportLevel" ("supportLevel");
 
 CREATE TABLE "Package_additionalPurpose" (
 	"Package_spdxId" TEXT,
@@ -2814,8 +2814,8 @@ CREATE TABLE "Package_originatedBy" (
 	FOREIGN KEY("Package_spdxId") REFERENCES "Package" ("spdxId"),
 	FOREIGN KEY("originatedBy_spdxId") REFERENCES "Agent" ("spdxId")
 );
-CREATE INDEX "ix_Package_originatedBy_Package_spdxId" ON "Package_originatedBy" ("Package_spdxId");
 CREATE INDEX "ix_Package_originatedBy_originatedBy_spdxId" ON "Package_originatedBy" ("originatedBy_spdxId");
+CREATE INDEX "ix_Package_originatedBy_Package_spdxId" ON "Package_originatedBy" ("Package_spdxId");
 
 CREATE TABLE "Package_standardName" (
 	"Package_spdxId" TEXT,
@@ -2823,8 +2823,8 @@ CREATE TABLE "Package_standardName" (
 	PRIMARY KEY ("Package_spdxId", "standardName"),
 	FOREIGN KEY("Package_spdxId") REFERENCES "Package" ("spdxId")
 );
-CREATE INDEX "ix_Package_standardName_Package_spdxId" ON "Package_standardName" ("Package_spdxId");
 CREATE INDEX "ix_Package_standardName_standardName" ON "Package_standardName" ("standardName");
+CREATE INDEX "ix_Package_standardName_Package_spdxId" ON "Package_standardName" ("Package_spdxId");
 
 CREATE TABLE "Package_supportLevel" (
 	"Package_spdxId" TEXT,
@@ -2841,8 +2841,8 @@ CREATE TABLE "SoftwareArtifact_additionalPurpose" (
 	PRIMARY KEY ("SoftwareArtifact_spdxId", "additionalPurpose"),
 	FOREIGN KEY("SoftwareArtifact_spdxId") REFERENCES "SoftwareArtifact" ("spdxId")
 );
-CREATE INDEX "ix_SoftwareArtifact_additionalPurpose_additionalPurpose" ON "SoftwareArtifact_additionalPurpose" ("additionalPurpose");
 CREATE INDEX "ix_SoftwareArtifact_additionalPurpose_SoftwareArtifact_spdxId" ON "SoftwareArtifact_additionalPurpose" ("SoftwareArtifact_spdxId");
+CREATE INDEX "ix_SoftwareArtifact_additionalPurpose_additionalPurpose" ON "SoftwareArtifact_additionalPurpose" ("additionalPurpose");
 
 CREATE TABLE "SoftwareArtifact_attributionText" (
 	"SoftwareArtifact_spdxId" TEXT,
@@ -2860,8 +2860,8 @@ CREATE TABLE "SoftwareArtifact_originatedBy" (
 	FOREIGN KEY("SoftwareArtifact_spdxId") REFERENCES "SoftwareArtifact" ("spdxId"),
 	FOREIGN KEY("originatedBy_spdxId") REFERENCES "Agent" ("spdxId")
 );
-CREATE INDEX "ix_SoftwareArtifact_originatedBy_SoftwareArtifact_spdxId" ON "SoftwareArtifact_originatedBy" ("SoftwareArtifact_spdxId");
 CREATE INDEX "ix_SoftwareArtifact_originatedBy_originatedBy_spdxId" ON "SoftwareArtifact_originatedBy" ("originatedBy_spdxId");
+CREATE INDEX "ix_SoftwareArtifact_originatedBy_SoftwareArtifact_spdxId" ON "SoftwareArtifact_originatedBy" ("SoftwareArtifact_spdxId");
 
 CREATE TABLE "SoftwareArtifact_standardName" (
 	"SoftwareArtifact_spdxId" TEXT,
@@ -2914,8 +2914,8 @@ CREATE TABLE "AIPackage_standardCompliance" (
 	PRIMARY KEY ("AIPackage_spdxId", "standardCompliance"),
 	FOREIGN KEY("AIPackage_spdxId") REFERENCES "AIPackage" ("spdxId")
 );
-CREATE INDEX "ix_AIPackage_standardCompliance_standardCompliance" ON "AIPackage_standardCompliance" ("standardCompliance");
 CREATE INDEX "ix_AIPackage_standardCompliance_AIPackage_spdxId" ON "AIPackage_standardCompliance" ("AIPackage_spdxId");
+CREATE INDEX "ix_AIPackage_standardCompliance_standardCompliance" ON "AIPackage_standardCompliance" ("standardCompliance");
 
 CREATE TABLE "AIPackage_typeOfModel" (
 	"AIPackage_spdxId" TEXT,
@@ -2932,8 +2932,8 @@ CREATE TABLE "AIPackage_additionalPurpose" (
 	PRIMARY KEY ("AIPackage_spdxId", "additionalPurpose"),
 	FOREIGN KEY("AIPackage_spdxId") REFERENCES "AIPackage" ("spdxId")
 );
-CREATE INDEX "ix_AIPackage_additionalPurpose_AIPackage_spdxId" ON "AIPackage_additionalPurpose" ("AIPackage_spdxId");
 CREATE INDEX "ix_AIPackage_additionalPurpose_additionalPurpose" ON "AIPackage_additionalPurpose" ("additionalPurpose");
+CREATE INDEX "ix_AIPackage_additionalPurpose_AIPackage_spdxId" ON "AIPackage_additionalPurpose" ("AIPackage_spdxId");
 
 CREATE TABLE "AIPackage_attributionText" (
 	"AIPackage_spdxId" TEXT,
@@ -2969,8 +2969,8 @@ CREATE TABLE "AIPackage_supportLevel" (
 	PRIMARY KEY ("AIPackage_spdxId", "supportLevel"),
 	FOREIGN KEY("AIPackage_spdxId") REFERENCES "AIPackage" ("spdxId")
 );
-CREATE INDEX "ix_AIPackage_supportLevel_AIPackage_spdxId" ON "AIPackage_supportLevel" ("AIPackage_spdxId");
 CREATE INDEX "ix_AIPackage_supportLevel_supportLevel" ON "AIPackage_supportLevel" ("supportLevel");
+CREATE INDEX "ix_AIPackage_supportLevel_AIPackage_spdxId" ON "AIPackage_supportLevel" ("AIPackage_spdxId");
 
 CREATE TABLE "DatasetPackage_anonymizationMethodUsed" (
 	"DatasetPackage_spdxId" TEXT,
@@ -2996,8 +2996,8 @@ CREATE TABLE "DatasetPackage_datasetType" (
 	PRIMARY KEY ("DatasetPackage_spdxId", "datasetType"),
 	FOREIGN KEY("DatasetPackage_spdxId") REFERENCES "DatasetPackage" ("spdxId")
 );
-CREATE INDEX "ix_DatasetPackage_datasetType_DatasetPackage_spdxId" ON "DatasetPackage_datasetType" ("DatasetPackage_spdxId");
 CREATE INDEX "ix_DatasetPackage_datasetType_datasetType" ON "DatasetPackage_datasetType" ("datasetType");
+CREATE INDEX "ix_DatasetPackage_datasetType_DatasetPackage_spdxId" ON "DatasetPackage_datasetType" ("DatasetPackage_spdxId");
 
 CREATE TABLE "DatasetPackage_knownBias" (
 	"DatasetPackage_spdxId" TEXT,
@@ -3033,8 +3033,8 @@ CREATE TABLE "DatasetPackage_originatedBy" (
 	FOREIGN KEY("DatasetPackage_spdxId") REFERENCES "DatasetPackage" ("spdxId"),
 	FOREIGN KEY("originatedBy_spdxId") REFERENCES "Agent" ("spdxId")
 );
-CREATE INDEX "ix_DatasetPackage_originatedBy_originatedBy_spdxId" ON "DatasetPackage_originatedBy" ("originatedBy_spdxId");
 CREATE INDEX "ix_DatasetPackage_originatedBy_DatasetPackage_spdxId" ON "DatasetPackage_originatedBy" ("DatasetPackage_spdxId");
+CREATE INDEX "ix_DatasetPackage_originatedBy_originatedBy_spdxId" ON "DatasetPackage_originatedBy" ("originatedBy_spdxId");
 
 CREATE TABLE "DatasetPackage_standardName" (
 	"DatasetPackage_spdxId" TEXT,
@@ -3061,8 +3061,8 @@ CREATE TABLE "Vulnerability_originatedBy" (
 	FOREIGN KEY("Vulnerability_spdxId") REFERENCES "Vulnerability" ("spdxId"),
 	FOREIGN KEY("originatedBy_spdxId") REFERENCES "Agent" ("spdxId")
 );
-CREATE INDEX "ix_Vulnerability_originatedBy_Vulnerability_spdxId" ON "Vulnerability_originatedBy" ("Vulnerability_spdxId");
 CREATE INDEX "ix_Vulnerability_originatedBy_originatedBy_spdxId" ON "Vulnerability_originatedBy" ("originatedBy_spdxId");
+CREATE INDEX "ix_Vulnerability_originatedBy_Vulnerability_spdxId" ON "Vulnerability_originatedBy" ("Vulnerability_spdxId");
 
 CREATE TABLE "Vulnerability_standardName" (
 	"Vulnerability_spdxId" TEXT,
@@ -3556,8 +3556,8 @@ CREATE TABLE "Snippet_additionalPurpose" (
 	PRIMARY KEY ("Snippet_spdxId", "additionalPurpose"),
 	FOREIGN KEY("Snippet_spdxId") REFERENCES "Snippet" ("spdxId")
 );
-CREATE INDEX "ix_Snippet_additionalPurpose_Snippet_spdxId" ON "Snippet_additionalPurpose" ("Snippet_spdxId");
 CREATE INDEX "ix_Snippet_additionalPurpose_additionalPurpose" ON "Snippet_additionalPurpose" ("additionalPurpose");
+CREATE INDEX "ix_Snippet_additionalPurpose_Snippet_spdxId" ON "Snippet_additionalPurpose" ("Snippet_spdxId");
 
 CREATE TABLE "Snippet_attributionText" (
 	"Snippet_spdxId" TEXT,
@@ -3565,8 +3565,8 @@ CREATE TABLE "Snippet_attributionText" (
 	PRIMARY KEY ("Snippet_spdxId", "attributionText"),
 	FOREIGN KEY("Snippet_spdxId") REFERENCES "Snippet" ("spdxId")
 );
-CREATE INDEX "ix_Snippet_attributionText_Snippet_spdxId" ON "Snippet_attributionText" ("Snippet_spdxId");
 CREATE INDEX "ix_Snippet_attributionText_attributionText" ON "Snippet_attributionText" ("attributionText");
+CREATE INDEX "ix_Snippet_attributionText_Snippet_spdxId" ON "Snippet_attributionText" ("Snippet_spdxId");
 
 CREATE TABLE "Snippet_originatedBy" (
 	"Snippet_spdxId" TEXT,
@@ -3575,8 +3575,8 @@ CREATE TABLE "Snippet_originatedBy" (
 	FOREIGN KEY("Snippet_spdxId") REFERENCES "Snippet" ("spdxId"),
 	FOREIGN KEY("originatedBy_spdxId") REFERENCES "Agent" ("spdxId")
 );
-CREATE INDEX "ix_Snippet_originatedBy_originatedBy_spdxId" ON "Snippet_originatedBy" ("originatedBy_spdxId");
 CREATE INDEX "ix_Snippet_originatedBy_Snippet_spdxId" ON "Snippet_originatedBy" ("Snippet_spdxId");
+CREATE INDEX "ix_Snippet_originatedBy_originatedBy_spdxId" ON "Snippet_originatedBy" ("originatedBy_spdxId");
 
 CREATE TABLE "Snippet_standardName" (
 	"Snippet_spdxId" TEXT,
@@ -3584,8 +3584,8 @@ CREATE TABLE "Snippet_standardName" (
 	PRIMARY KEY ("Snippet_spdxId", "standardName"),
 	FOREIGN KEY("Snippet_spdxId") REFERENCES "Snippet" ("spdxId")
 );
-CREATE INDEX "ix_Snippet_standardName_standardName" ON "Snippet_standardName" ("standardName");
 CREATE INDEX "ix_Snippet_standardName_Snippet_spdxId" ON "Snippet_standardName" ("Snippet_spdxId");
+CREATE INDEX "ix_Snippet_standardName_standardName" ON "Snippet_standardName" ("standardName");
 
 CREATE TABLE "Snippet_supportLevel" (
 	"Snippet_spdxId" TEXT,
@@ -3623,8 +3623,8 @@ CREATE TABLE "CvssV4VulnAssessmentRelationship_to" (
 	FOREIGN KEY("CvssV4VulnAssessmentRelationship_spdxId") REFERENCES "CvssV4VulnAssessmentRelationship" ("spdxId"),
 	FOREIGN KEY("to_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_CvssV4VulnAssessmentRelationship_to_CvssV4VulnAssessmentRelationship_spdxId" ON "CvssV4VulnAssessmentRelationship_to" ("CvssV4VulnAssessmentRelationship_spdxId");
 CREATE INDEX "ix_CvssV4VulnAssessmentRelationship_to_to_spdxId" ON "CvssV4VulnAssessmentRelationship_to" ("to_spdxId");
+CREATE INDEX "ix_CvssV4VulnAssessmentRelationship_to_CvssV4VulnAssessmentRelationship_spdxId" ON "CvssV4VulnAssessmentRelationship_to" ("CvssV4VulnAssessmentRelationship_spdxId");
 
 CREATE TABLE "EpssVulnAssessmentRelationship_to" (
 	"EpssVulnAssessmentRelationship_spdxId" TEXT,
@@ -3663,8 +3663,8 @@ CREATE TABLE "VexAffectedVulnAssessmentRelationship_to" (
 	FOREIGN KEY("VexAffectedVulnAssessmentRelationship_spdxId") REFERENCES "VexAffectedVulnAssessmentRelationship" ("spdxId"),
 	FOREIGN KEY("to_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_VexAffectedVulnAssessmentRelationship_to_VexAffectedVulnAssessmentRelationship_spdxId" ON "VexAffectedVulnAssessmentRelationship_to" ("VexAffectedVulnAssessmentRelationship_spdxId");
 CREATE INDEX "ix_VexAffectedVulnAssessmentRelationship_to_to_spdxId" ON "VexAffectedVulnAssessmentRelationship_to" ("to_spdxId");
+CREATE INDEX "ix_VexAffectedVulnAssessmentRelationship_to_VexAffectedVulnAssessmentRelationship_spdxId" ON "VexAffectedVulnAssessmentRelationship_to" ("VexAffectedVulnAssessmentRelationship_spdxId");
 
 CREATE TABLE "VexFixedVulnAssessmentRelationship_to" (
 	"VexFixedVulnAssessmentRelationship_spdxId" TEXT,
@@ -3703,8 +3703,8 @@ CREATE TABLE "VexVulnAssessmentRelationship_to" (
 	FOREIGN KEY("VexVulnAssessmentRelationship_spdxId") REFERENCES "VexVulnAssessmentRelationship" ("spdxId"),
 	FOREIGN KEY("to_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_VexVulnAssessmentRelationship_to_VexVulnAssessmentRelationship_spdxId" ON "VexVulnAssessmentRelationship_to" ("VexVulnAssessmentRelationship_spdxId");
 CREATE INDEX "ix_VexVulnAssessmentRelationship_to_to_spdxId" ON "VexVulnAssessmentRelationship_to" ("to_spdxId");
+CREATE INDEX "ix_VexVulnAssessmentRelationship_to_VexVulnAssessmentRelationship_spdxId" ON "VexVulnAssessmentRelationship_to" ("VexVulnAssessmentRelationship_spdxId");
 
 CREATE TABLE "VulnAssessmentRelationship_to" (
 	"VulnAssessmentRelationship_spdxId" TEXT,
@@ -3713,8 +3713,8 @@ CREATE TABLE "VulnAssessmentRelationship_to" (
 	FOREIGN KEY("VulnAssessmentRelationship_spdxId") REFERENCES "VulnAssessmentRelationship" ("spdxId"),
 	FOREIGN KEY("to_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_VulnAssessmentRelationship_to_to_spdxId" ON "VulnAssessmentRelationship_to" ("to_spdxId");
 CREATE INDEX "ix_VulnAssessmentRelationship_to_VulnAssessmentRelationship_spdxId" ON "VulnAssessmentRelationship_to" ("VulnAssessmentRelationship_spdxId");
+CREATE INDEX "ix_VulnAssessmentRelationship_to_to_spdxId" ON "VulnAssessmentRelationship_to" ("to_spdxId");
 
 CREATE TABLE "ExternalIdentifier_identifierLocator" (
 	"ExternalIdentifier_id" INTEGER,
@@ -3731,5 +3731,5 @@ CREATE TABLE "ExternalRef_locator" (
 	PRIMARY KEY ("ExternalRef_id", locator),
 	FOREIGN KEY("ExternalRef_id") REFERENCES "ExternalRef" (id)
 );
-CREATE INDEX "ix_ExternalRef_locator_locator" ON "ExternalRef_locator" (locator);
 CREATE INDEX "ix_ExternalRef_locator_ExternalRef_id" ON "ExternalRef_locator" ("ExternalRef_id");
+CREATE INDEX "ix_ExternalRef_locator_locator" ON "ExternalRef_locator" (locator);

@@ -12,34 +12,37 @@ Usage::
 
 ``--check`` writes to a temporary folder and exits 1 when the result differs
 from what the output folder holds, so a test can tell a hand edit from a
-regeneration.
+regeneration. Either way, the script prints a note on standard error for each
+part of the model it leaves out or renames.
 
 The rules, each applied the same way to every element:
 
 - An ``owl:Class`` whose individuals carry ``rdfs:label`` is an enum, and the
-  labels are its permissible values; every other ``owl:Class`` is a class. The
+  labels are its permissible values. Every other ``owl:Class`` is a class. The
   individuals without a label (NoAssertionElement, NoneElement,
   NoAssertionLicense, NoneLicense, SpdxOrganization) are instance data and are
   left out.
 - A class's ``sh:property`` shapes are its fields. ``sh:class`` or
-  ``sh:datatype`` is the range, falling back to the property's ``rdfs:range``;
-  ``sh:minCount 1`` is ``required``; no ``sh:maxCount`` is ``multivalued``.
+  ``sh:datatype`` is the range, and the property's ``rdfs:range`` when neither
+  is given. ``sh:minCount 1`` is ``required``, and no ``sh:maxCount`` is
+  ``multivalued``. A constraint of another kind is noted and left out.
 - A property one class uses is that class's attribute. A property two or more
-  classes use is a top-level slot in the module of its namespace, carrying what
-  every use agrees on, with ``slot_usage`` on a class only where it differs.
-- The classes of ``sh:nodeKind sh:IRI`` are Element and its descendants, so
-  Element carries the identifier ``spdxId`` and a reference to any Element is
-  its IRI. The other classes have no identifier and are inlined where used.
+  classes use is a top-level slot in the module of its namespace. The slot
+  carries what every use agrees on, and a class has ``slot_usage`` only where
+  its use differs.
+- Element carries the identifier ``spdxId``, so a reference to Element or a
+  descendant is its IRI. The other classes, which SPDX lets be blank nodes,
+  have no identifier and are inlined where used.
 - A ``sh:not [sh:hasValue <class>]`` shape on ``rdf:type`` marks the class abstract.
-- The datatypes SPDX constrains with a pattern become LinkML types
+- The datatypes SPDX constrains with a pattern become string types
   (``date_time_stamp``, ``media_type``, ``semver``), and xsd:positiveInteger
   and xsd:nonNegativeInteger become bounded integer types.
 - Every element keeps its SPDX IRI, as ``class_uri``, ``slot_uri``,
   ``enum_uri`` or a value's ``meaning``, written as a CURIE under a prefix per
-  profile. Names are SPDX's own; a property whose local name another profile
-  also uses takes the SPDX JSON-LD context's key (``security_locator``).
+  profile. Names are SPDX's. A property whose local name another profile also
+  uses takes the SPDX JSON-LD context's key (``security_locator``).
 - Extension and AnyLicenseInfo are declared in the core module, because Core's
-  own fields range over them; their IRIs stay in their profiles' namespaces.
+  fields range over them. Their IRIs stay in their profiles' namespaces.
 - ``type``, the ``rdf:type`` designator, is a slot of every class that has no
   parent. Its value is the class's CURIE, such as ``spdx_core:Hash``, so an
   inlined object says which IntegrityMethod it is.
@@ -142,13 +145,27 @@ DATATYPES = {
 # module imports a module that imports it back.
 HOISTED_TO_CORE = {"Extension", "AnyLicenseInfo"}
 
+# What the converter reads on a field's property shape. sh:nodeKind follows from
+# the range, and sh:message is text. Anything else is noted and left out.
+FIELD_SHAPE_KEYS = {
+    SH.path,
+    SH["class"],
+    SH.datatype,
+    SH.minCount,
+    SH.maxCount,
+    SH.pattern,
+    SH["in"],
+    SH.nodeKind,
+    SH.message,
+}
+
 PROFILES = {
     # profile -> (title, description)
     "Core": (
         "SPDX Core profile",
         "The Core profile: the Element that every SPDX object descends from, agents, relationships, "
         "collections and documents, creation information, integrity methods and external references. "
-        "The other profiles build on it, and the LinkML types this schema declares live here.",
+        "The other profiles build on it, and it declares the schema's LinkML types.",
     ),
     "Software": (
         "SPDX Software profile",
@@ -208,7 +225,7 @@ SPDX_ID_ATTRIBUTE = {
     "range": "uri",
     "comments": [
         "SPDX JSON-LD writes an Element's IRI as spdxId. The model has no property for it, "
-        "so this key is the schema's own, in its own namespace.",
+        "so this schema declares the key in its own namespace.",
     ],
 }
 
@@ -263,9 +280,8 @@ class Converter:
         return str(iri)[len(self.terms_ns) :].split("/")[0]
 
     def curie(self, iri) -> str:
-        if str(iri).startswith(self.terms_ns):
-            return f"{module_of_profile(self.profile(iri))}:{str(iri)[len(self.terms_ns) + len(self.profile(iri)) + 1 :]}"
-        raise SystemExit(f"no prefix for {iri}")
+        profile = self.profile(iri)
+        return f"{module_of_profile(profile)}:{str(iri)[len(self.terms_ns) + len(profile) + 1 :]}"
 
     def text(self, subject, predicate=RDFS.comment) -> str:
         value = self.g.value(subject, predicate)
@@ -276,8 +292,10 @@ class Converter:
         s = s.replace(
             "\\*", "*"
         )  # a Markdown escape upstream, a stray backslash in generated code
-        s = s.replace("](../../../annexes/", f"]({self.spec}/annexes/").replace(
-            ".md)", "/)"
+        s = re.sub(
+            r"\]\(\.\./\.\./\.\./annexes/([^)]+?)\.md\)",
+            rf"]({self.spec}/annexes/\1/)",
+            s,
         )
         if "](../" in s:
             self.report.append(
@@ -305,8 +323,9 @@ class Converter:
         self.classes = owl_classes - self.enum_classes
         for c, members in by_class.items():
             if c not in self.enum_classes:
+                names = ", ".join(sorted(local(m) for m in members))
                 self.report.append(
-                    f"left out, instance data: {', '.join(sorted(local(m) for m in members))} (a {local(c)})"
+                    f"left out, instance data: {names} (individuals of {local(c)})"
                 )
         self.element = URIRef(self.terms_ns + "Core/Element")
         names = defaultdict(list)
@@ -346,15 +365,16 @@ class Converter:
         self.properties = set(g.subjects(RDF.type, OWL.ObjectProperty)) | set(
             g.subjects(RDF.type, OWL.DatatypeProperty)
         )
-        counts = defaultdict(int)
+        profiles = defaultdict(set)
         for p in self.properties:
-            counts[local(p)] += 1
+            profiles[local(p)].add(self.profile(p))
         self.slot_name: dict[URIRef, str] = {}
         for p in self.properties:
-            if counts[local(p)] > 1 and self.profile(p) != "Core":
+            others = sorted(profiles[local(p)] - {self.profile(p)})
+            if others and self.profile(p) != "Core":
                 self.slot_name[p] = f"{self.profile(p).lower()}_{local(p)}"
                 self.report.append(
-                    f"property {self.curie(p)} is the slot {self.slot_name[p]}: Core also has a {local(p)}"
+                    f"property {self.curie(p)} is the slot {self.slot_name[p]}: {', '.join(others)} also has a {local(p)}"
                 )
             else:
                 self.slot_name[p] = local(p)
@@ -370,6 +390,10 @@ class Converter:
                 path = g.value(shape, SH.path)
                 if path == RDF.type:
                     continue
+                for predicate in sorted(set(g.predicates(shape)) - FIELD_SHAPE_KEYS):
+                    self.report.append(
+                        f"left out, the {g.qname(predicate)} constraint on {local(cls)}.{local(path)}"
+                    )
                 c = merged.setdefault(
                     path,
                     {
@@ -590,14 +614,7 @@ class Converter:
             slots_in[module_of_profile(self.profile(p))].append(p)
 
         def module_of_range(name: str) -> str:
-            if name in TYPES or name in (
-                "string",
-                "uri",
-                "boolean",
-                "decimal",
-                "integer",
-                "datetime",
-            ):
+            if name in TYPES or name in DATATYPES.values():
                 return CORE
             return self.module_of_class(self.by_name[name])
 
@@ -612,7 +629,10 @@ class Converter:
                     if p in self.shared:
                         needed.add(module_of_profile(self.profile(p)))
             for p in slots_in[module]:
-                needed.add(module_of_range(slot_level[p][0]["range"]))
+                # A slot whose uses disagree on the range has none; each use's
+                # range was counted with its class above.
+                if "range" in slot_level[p][0]:
+                    needed.add(module_of_range(slot_level[p][0]["range"]))
             deps[module] = needed - {module}
         order = toposort(deps)
 
@@ -674,8 +694,8 @@ class Converter:
                 "scripts/spdx_to_linkml.py writes every YAML file in this folder from the vendored model, "
                 "upstream/spdx-model.ttl. Change the script or the model, never the files.",
                 "spdx_core imports only the LinkML types, each profile module imports the modules it "
-                "references, and this file adds nothing of its own, so an importer can take one profile.",
-                "The element descriptions are the model's own rdfs:comment texts, which the SPDX Project "
+                "references, and this file adds nothing of its own, so an importer can import one profile alone.",
+                "The element descriptions are the model's rdfs:comment texts, which the SPDX Project "
                 "publishes under the Community Specification License 1.0.",
                 "The model's individuals (NoAssertionElement, NoneElement, NoAssertionLicense, NoneLicense "
                 "and SpdxOrganization) are instance data, not schema. A reference to one is an IRI like "

@@ -18,10 +18,10 @@ comments:
     Change the script or the model, never the files.
   - >-
     spdx_core imports only the LinkML types, each profile module imports the modules it references, and
-    this file adds nothing of its own, so an importer can take one profile.
+    this file adds nothing of its own, so an importer can import one profile alone.
   - >-
-    The element descriptions are the model's own rdfs:comment texts, which the SPDX Project publishes
-    under the Community Specification License 1.0.
+    The element descriptions are the model's rdfs:comment texts, which the SPDX Project publishes under
+    the Community Specification License 1.0.
   - >-
     The model's individuals (NoAssertionElement, NoneElement, NoAssertionLicense, NoneLicense and SpdxOrganization)
     are instance data, not schema. A reference to one is an IRI like any other Element reference.

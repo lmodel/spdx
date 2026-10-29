@@ -6,10 +6,10 @@ comments:
 - scripts/spdx_to_linkml.py writes every YAML file in this folder from the vendored
   model, upstream/spdx-model.ttl. Change the script or the model, never the files.
 - spdx_core imports only the LinkML types, each profile module imports the modules
-  it references, and this file adds nothing of its own, so an importer can take one
-  profile.
-- The element descriptions are the model's own rdfs:comment texts, which the SPDX
-  Project publishes under the Community Specification License 1.0.
+  it references, and this file adds nothing of its own, so an importer can import
+  one profile alone.
+- The element descriptions are the model's rdfs:comment texts, which the SPDX Project
+  publishes under the Community Specification License 1.0.
 - The model's individuals (NoAssertionElement, NoneElement, NoAssertionLicense, NoneLicense
   and SpdxOrganization) are instance data, not schema. A reference to one is an IRI
   like any other Element reference.
@@ -2579,7 +2579,7 @@ slots:
       any field is this IRI.
     comments:
     - SPDX JSON-LD writes an Element's IRI as spdxId. The model has no property for
-      it, so this key is the schema's own, in its own namespace.
+      it, so this schema declares the key in its own namespace.
     from_schema: https://w3id.org/lmodel/spdx/spdx_core
     slot_uri: spdx_linkml:spdxId
     identifier: true
@@ -4874,7 +4874,7 @@ classes:
           from any field is this IRI.
         comments:
         - SPDX JSON-LD writes an Element's IRI as spdxId. The model has no property
-          for it, so this key is the schema's own, in its own namespace.
+          for it, so this schema declares the key in its own namespace.
         identifier: true
         range: uri
       creationInfo:
@@ -7712,6 +7712,6 @@ classes:
     class_uri: spdx_security:Vulnerability
 metamodel_version: 1.12.0
 source_file: spdx.yaml
-source_file_date: '2026-10-29T16:47:43'
-source_file_size: 2256
+source_file_date: '2026-10-29T16:50:29'
+source_file_size: 2260
 
