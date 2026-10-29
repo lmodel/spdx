@@ -11,8 +11,8 @@ sources:
   - id: justfile
     resource: justfile
     title: the gen-project, gen-python, gen-doc and _gen-yaml recipes
-  - id: config.yaml
-    resource: config.yaml
+  - id: generators.yaml
+    resource: .linkml/generators.yaml
     title: the generators gen-project runs and their arguments
   - id: config.public.mk
     resource: config.public.mk
@@ -31,7 +31,7 @@ sources:
     title: the exclude list
 generated:
   by: process:ktl-librarian
-  at: "2026-10-29T19:19:54Z"
+  at: "2026-10-29T20:52:45Z"
 status: draft
 ---
 
@@ -41,7 +41,7 @@ Every file here comes from the schema, and a change goes into the converter, aft
 
 ## project/
 
-`just gen-project` runs LinkML's `gen-project` with `config.yaml` into `project/`, moves the Python files it writes into `src/spdx_linkml/datamodel/`, and writes the Pydantic model there with `gen-pydantic`.[^justfile] It then runs `gen-java`, `gen-typescript` and `gen-owl` on their own, because those generators ignore the configuration file or cannot make a folder. `config.yaml` turns the Markdown generator off and passes `mergeimports` to the others, and repeats for `gen-project` the OWL choices that `config.public.mk` gives `gen-owl`.[^config.yaml] `config.public.mk` names the schema `spdx_linkml` in `src/spdx_linkml/schema`, and asks `gen-owl` to skip the vacuous axioms and to consolidate cardinality axioms.[^config.public.mk]
+`just gen-project` runs LinkML's `gen-project` with `.linkml/generators.yaml` into `project/`, moves the Python files it writes into `src/spdx_linkml/datamodel/`, and writes the Pydantic model there with `gen-pydantic`.[^justfile] It then runs `gen-java`, `gen-typescript` and `gen-owl` on their own, because those generators ignore the configuration file or cannot make a folder. `.linkml/generators.yaml` turns the Markdown generator off and passes `mergeimports` to the others, and repeats for `gen-project` the OWL choices that `config.public.mk` gives `gen-owl`.[^generators.yaml] `config.public.mk` names the schema `spdx_linkml` in `src/spdx_linkml/schema`, and asks `gen-owl` to skip the vacuous axioms and to consolidate cardinality axioms.[^config.public.mk]
 
 The folder holds `excel/`, `graphql/`, `java/`, `jsonld/` (the schema and its JSON-LD context), `jsonschema/`, `owl/`, `prefixmap/`, `protobuf/`, `shacl/`, `shex/`, `sqlschema/` and `typescript/`.
 
@@ -58,5 +58,5 @@ The folder holds `excel/`, `graphql/`, `java/`, `jsonld/` (the schema and its JS
 `just lokf-adapt` writes `.lokf/spdx.yaml` from the schema with lokf 0.9.0's `adapt`, and `just lokf-adapt-check` holds it to the schema. [spdx LinkML schema](spdx-linkml-schema.md) says what the copy changes. `.pre-commit-config.yaml` keeps every hook off these files, which the next run would rewrite back.
 
 [^justfile]: justfile, the `gen-project`, `gen-python`, `gen-doc` and `_gen-yaml` recipes
-[^config.yaml]: config.yaml, the generators gen-project runs and their arguments
+[^generators.yaml]: .linkml/generators.yaml, the generators gen-project runs and their arguments
 [^config.public.mk]: config.public.mk, the schema name, folder and generator arguments
