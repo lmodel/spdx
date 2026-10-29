@@ -1,121 +1,82 @@
 # Contributing to spdx
 
-:+1: First of all: Thank you for taking the time to contribute!
+*This file is a checklist, not a design log. Each rule is a line or two that links to where its reasoning lives: a code comment, a workflow header, or a linked page. `lint-and-docs.yaml` holds the file to a word budget so it stays that way.*
 
-The following is a set of guidelines for contributing to
-spdx. These guidelines are not strict rules.
-Use your best judgment, and feel free to propose changes to this document
-in a pull request.
+## What this project is
 
-## Table Of Contents
+A LinkML schema of the System Package Data Exchange (SPDX) 3.0.1 model, so LinkML's tools validate SPDX data and a knowledge bundle can type its concepts with SPDX's classes.
 
-* [Code of Conduct](#code-of-conduct)
-* [Guidelines for Contributions and Requests](#contributions)
-  * [Reporting issues and making requests](#reporting-issues)
-  * [Questions and Discussion](#questions-and-discussion)
-  * [Adding new elements yourself](#adding-elements)
-* [Best Practices](#best-practices)
-  * [How to write a great issue](#great-issues)
-  * [How to create a great pull/merge request](#great-pulls)
+| Path | Holds |
+| --- | --- |
+| `scripts/spdx_to_linkml.py` | The converter that writes the schema. Edit this. |
+| `src/spdx_linkml/schema/*.yaml` | The LinkML schema, one module per SPDX profile. Never edit. |
+| `src/spdx_linkml/schema/upstream/` | The SPDX model at the pinned release. Never edit. |
+| `src/spdx_linkml/datamodel/`, `project/`, `docs/schema/` | Artefacts generated from the schema. |
+| `docs/` | The documentation site's pages. |
+| `tests/`, `tests/data/` | Python tests, example data and SPDX's examples. |
+| `.lokf/knowledge/` | This repository's knowledge bundle. |
 
-<a id="code-of-conduct"></a>
+## Development setup
 
-## Code of Conduct
+You need Python 3.10+, [uv](https://docs.astral.sh/uv/) and [just](https://github.com/casey/just).
 
-The spdx team strives to create a
-welcoming environment for editors, users and other contributors.
-Please carefully read our [Code of Conduct](CODE_OF_CONDUCT.md).
+```bash
+git clone https://github.com/lmodel/spdx.git
+cd spdx
+uv sync --group dev
+just --list
+```
 
-<a id="contributions"></a>
+`just gen-linkml` writes the schema; `just gen-project` and `just gen-doc` regenerate the artefacts.
 
-## Guidelines for Contributions and Requests
+### Agent skills (optional, only for this repo's `.lokf/` bundle)
 
-<a id="reporting-issues"></a>
+The bundle is maintained with the Knowledge Trust Ladder (KTL) skills, **installed, never committed**; CI installs the librarian skill at run time, pinned to a release. Nothing in the schema depends on them. [The install page](https://w3id.org/ktl/docs/install/) lists every route; with npm:
 
-### Reporting problems and suggesting changes to with the data model
+```bash
+npx skills add noelmcloughlin/knowledge-trust-ladder --skill ktl-librarian --yes   # derive concepts
+npx skills add noelmcloughlin/knowledge-trust-ladder --skill ktl-curator --yes     # confirm them as a person
+```
 
-Please use our [Issue Tracker][issues] for any of the following:
+## Before opening a pull request
 
-- Reporting problems
-- Requesting new schema elements
+- **Change the converter, then regenerate.** Edit `scripts/spdx_to_linkml.py`, run `just gen-linkml`, `just gen-project`, `just gen-doc` and `just lokf-adapt`, and commit the output; `tests/test_schema_is_generated.py` fails on a hand-edited schema.
+- **Render what SPDX defines.** Name in the pull request the part of the SPDX model a converter rule reads; [AI_COVENANT.md](AI_COVENANT.md) says why.
+- **Leave `src/spdx_linkml/schema/upstream/` as upstream wrote it.** Replace the model whole from one SPDX release, as [docs/about.md](docs/about.md) says; `upstream-watch.yaml` checks the copy.
+- **Keep names apart from LOKF's and the neighbour copies'**, since a host imports them together and a shared name must carry one IRI. `tests/test_schema_rules.py` checks, and lists the names SPDX shares.
+- **Run the tests**: `just test` (schema generation, `pytest` and the examples under `tests/data/`). Example data goes in `tests/data/valid/` and `tests/data/invalid/`, named `ClassName-suffix.yaml`, with an invalid example per constraint.
+- **Follow the schema's conventions**: SPDX's own names and descriptions, with lowerCamelCase slots (`.linkmllint.yaml` says why). `just lint` checks.
+- **Run the pre-commit hooks** on what you staged (`uvx pre-commit run`): ruff, yamllint, codespell, typos and the `uv.lock` check.
+- **Lock files are part of the change.** CI installs with `uv sync --locked`; a dependency edit that does not update `uv.lock` (or `.lokf/uv.lock`) fails the run.
+- **Knowledge-bundle changes**: `cd .lokf && just lokf-validate` must pass, and `knowledge-registrar.yaml` runs on any `.lokf/**` change.
+- **`lint-and-docs.yaml` is easy to trip locally**: ShellCheck, actionlint, markdownlint against `.markdownlint-cli2.jsonc`, link-checking against `lychee.toml`, and codespell over every `*.md`.
+- **Actions are pinned to commit SHAs**, the version in a trailing comment, and bumped by Dependabot, never by hand to a tag.
+- **The skills pin moves with the sidecar copies.** When moving `TRUST_LADDER_SKILLS_REF` in `.github/workflows/knowledge-librarian.yaml`, copy the other `knowledge-*.yaml` workflows and `.lokf/scripts/` and `.lokf/m365/` from that release's `skills/ktl-sidecar/templates/` in the same pull request.
+- **If your change alters behaviour** (not just wording), add an entry under `## [Unreleased]` in [CHANGELOG.md](CHANGELOG.md).
+- Keep changes focused, and fill in the pull request template's checklist.
 
-<a id="questions-and-discussions"></a>
+## Code of conduct
 
-### Questions and Discussions
+Participation here is covered by the [Contributor Covenant](CODE_OF_CONDUCT.md).
 
-Please use our [Discussions forum][discussions] to ask general questions or contribute to discussions.
+## Using AI tools
 
-<a id="adding-elements"></a>
+AI assistance is welcome; [AI_COVENANT.md](AI_COVENANT.md) sets the rules, for people and the scheduled `knowledge-librarian` agent alike. You are the author of what you submit, and a claim about what SPDX defines must be checked against its model.
 
-### Adding new elements yourself
+## Reporting issues
 
-Please submit a [Pull Request][pulls] to submit a new term for consideration.
+Use the [issue tracker](https://github.com/lmodel/spdx/issues) for problems with the schema and requests for new elements. A problem in the SPDX model itself belongs [upstream](https://github.com/spdx/spdx-3-model/issues).
 
-<a id="best-practices"></a>
+## Releasing (maintainers)
 
-## Best Practices
+- Write `## [Unreleased]` in [CHANGELOG.md](CHANGELOG.md) as you go; the release job refuses an empty one (`.github/scripts/changelog-release.mjs check`).
+- Type the commit ([Conventional Commits](https://www.conventionalcommits.org/)) for what the change *is*. Only `feat:`, `fix:`, `security:` and a breaking `!` start a release; other types leave their entries for the next release that does. A pull request that would release must carry a releasing type in its title too, since a squash merge takes its subject from it.
+- On merge, [`semantic-release.yml`](.github/workflows/semantic-release.yml) retitles the section to `## [X.Y.Z] - YYYY-MM-DD`, commits `CHANGELOG.md`, tags `vX.Y.Z` and publishes the GitHub Release. No file is bumped. Once `KNOWLEDGE_RELEASE_ENABLED` is `true`, it dispatches `.github/workflows/knowledge-release.yaml`, which attaches the schema copy and the bundle when the bundle changed; run it with `force` when only the schema did.
+- That step runs behind the `release` GitHub Environment; configure required reviewers on it in Settings → Environments, or every qualifying merge is released unattended.
+- Below 1.0.0: push the `v0.0.0` baseline tag on `main` before the first releasing merge, which then releases 0.1.0; both release jobs refuse to run without a `v*` tag, as semantic-release would otherwise start at 1.0.0. `.releaserc.json` maps `breaking: true` to `minor`; reaching 1.0.0 means removing that rule in a pull request of its own.
+- PyPI publishing is off (`gh_action_pypi: false`); the distribution would be `spdx-linkml`.
+- A branch rule requiring pull requests, status checks or signed commits would reject the release job's own push to `main`; leave them off. [SECURITY.md](SECURITY.md) says what holds `main` instead, and the shared design is on [KTL's releasing page](https://github.com/noelmcloughlin/knowledge-trust-ladder/blob/main/docs/releasing.md).
 
-<a id="great-issues"></a>
+## License
 
-### GitHub Best Practice
-
-- Creating and curating issues
-    - Read ["About Issues"][[about-issues]]
-    - Issues should be focused and actionable
-    - Complex issues should be broken down into simpler issues where possible
-- Pull Requests
-    - Read ["About Pull Requests"][about-pulls]
-    - Read [GitHub Pull Requests: 10 Tips to Know](https://blog.mergify.com/github-pull-requests-10-tips-to-know/)
-    - Pull Requests (PRs) should be atomic and aim to close a single issue
-    - Long running PRs should be avoided where possible
-    - PRs should reference issues following standard conventions (e.g. “fixes #123”)
-    - Schema developers should always be working on a single issue at any one time
-    - Never work on the main branch, always work on an issue/feature branch
-    - Core developers can work on branches off origin rather than forks
-    - Always create a PR on a branch to maximize transparency of what you are doing
-    - PRs should be reviewed and merged in a timely fashion by the spdx technical leads
-    - PRs that do not pass GitHub actions should never be merged
-    - In the case of git conflicts, the contributor should try and resolve the conflict
-    - If a PR fails a GitHub action check, the contributor should try and resolve the issue in a timely fashion
-
-### Understanding LinkML
-
-Core developers should read the material on the [LinkML site](https://linkml.io/linkml), in particular:
-
-- [Overview](https://linkml.io/linkml/intro/overview.html)
-- [Tutorial](https://linkml.io/linkml/intro/tutorial.html)
-- [Schemas](https://linkml.io/linkml/schemas/index.html)
-- [FAQ](https://linkml.io/linkml/faq/index.html)
-
-### Modeling Best Practice
-
-- Follow Naming conventions
-    - Standard LinkML naming conventions should be followed (UpperCamelCase for classes and enums, snake_case for slots)
-    - Know how to use the LinkML linter to check style and conventions
-    - The names for classes should be nouns or noun-phrases: Person, GenomeAnnotation, Address, Sample
-    - Spell out abbreviations and short forms, except where this goes against convention (e.g. do not spell out DNA)
-    - Elements that are imported from outside (e.g. schema.org) need not follow the same naming conventions
-    - Multivalued slots should be named as plurals
-- Document model elements
-    - All model elements should have documentation (descriptions) and other textual annotations (e.g. comments, notes)
-    - Textual annotations on classes, slots and enumerations should be written with minimal jargon, clear grammar and no misspellings
-- Include examples and counter-examples (intentionally invalid examples)
-    - Rationale: these serve as documentation and unit tests
-    - These will be used by the automated test suite
-    - All elements of the schema must be illustrated with valid and invalid data examples in src/data. New schema elements will not be merged into the main branch until examples are provided
-    - Invalid example data files should be invalid for one single reason, which should be reflected in the filename. It should be possible to render the invalid example files valid by addressing that single fault.
-- Use enums for categorical values
-    - Rationale: Open-ended string ranges encourage multiple values to represent the same entity, like “water”, “H2O” and “HOH”
-    - Any slot whose values could be constrained to a finite set should use an Enum
-    - Non-categorical values, e.g. descriptive fields like `name` or `description` fall outside of this.
-- Reuse
-    - Existing scheme elements should be reused where appropriate, rather than making duplicative elements
-    - More specific classes can be created by refinining classes using inheritance (`is_a`)
-
-[about-branches]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches
-[about-issues]: https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues
-[about-pulls]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
-[issues]: https://github.com/lmodel/spdx/issues/
-[pulls]: https://github.com/lmodel/spdx/pulls/
-
-We recommend also reading [GitHub Pull Requests: 10 Tips to Know](https://blog.mergify.com/github-pull-requests-10-tips-to-know/)
+By contributing, you agree that your contributions are licensed under the [Apache License 2.0](LICENSE). The SPDX model and examples copied here are under their own terms; [NOTICE](NOTICE) lists them, so update it when you add something new from elsewhere.
