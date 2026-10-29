@@ -6,6 +6,8 @@ The `v0.0.0` tag is a baseline, not a release: it marks where versioning starts 
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-10-29
+
 ### Added
 
 - **A LinkML schema of the SPDX 3.0.1 model, one module for each of its nine profiles.** `scripts/spdx_to_linkml.py` writes it from a copy of the model the SPDX Project publishes, and a weekly upstream watch compares that copy with the release.
