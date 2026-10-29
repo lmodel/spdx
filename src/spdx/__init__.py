@@ -1,3 +1,8 @@
+"""spdx.
+
+System Package Data Exchange (SPDX): LinkML Schema
+"""
+
 try:
     from spdx._version import __version__, __version_tuple__
 except ImportError:  # pragma: no cover
