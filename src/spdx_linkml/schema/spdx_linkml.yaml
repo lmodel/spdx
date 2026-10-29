@@ -28,7 +28,7 @@ comments:
 
 prefixes:
   spdx_linkml: https://w3id.org/lmodel/spdx/
-  spdx: https://spdx.org/rdf/3.0.1/terms/
+  spdx3: https://spdx.org/rdf/3.0.1/terms/
   spdx_core: https://spdx.org/rdf/3.0.1/terms/Core/
   spdx_software: https://spdx.org/rdf/3.0.1/terms/Software/
   spdx_security: https://spdx.org/rdf/3.0.1/terms/Security/

@@ -72,7 +72,10 @@ DEFAULT_OUT = ROOT / "src" / "spdx_linkml" / "schema"
 SCHEMA_ID = "https://w3id.org/lmodel/spdx"
 OWN_PREFIX = "spdx_linkml"
 OWN_NS = SCHEMA_ID + "/"
-TERMS_PREFIX = "spdx"
+# The root of SPDX 3.0.1's terms. LOKF binds `spdx` to SPDX 2's namespace,
+# http://spdx.org/rdf/terms#, for its Checksum class, so this schema names the
+# root `spdx3`, and a `lokf adapt` copy beside lokf.yaml binds no prefix twice.
+TERMS_PREFIX = "spdx3"
 DOCS_SITE = "https://lmodel.github.io/spdx"
 LICENSE = "Apache-2.0"
 # The umbrella is named like the Python package, spdx_linkml, as the project

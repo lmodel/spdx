@@ -35,7 +35,7 @@
       "prefix_reference": "https://w3id.org/lmodel/spdx/"
     },
     {
-      "prefix_prefix": "spdx",
+      "prefix_prefix": "spdx3",
       "prefix_reference": "https://spdx.org/rdf/3.0.1/terms/"
     },
     {
@@ -8320,8 +8320,8 @@
   ],
   "metamodel_version": "1.12.0",
   "source_file": "spdx_linkml.yaml",
-  "source_file_date": "2026-10-29T18:47:27",
-  "source_file_size": 2267,
+  "source_file_date": "2026-10-29T18:54:10",
+  "source_file_size": 2268,
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/spdx_linkml.context.jsonld",

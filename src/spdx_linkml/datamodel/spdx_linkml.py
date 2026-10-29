@@ -64,7 +64,7 @@ version = "3.0.1"
 # Namespaces
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 RDF = CurieNamespace('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
-SPDX = CurieNamespace('spdx', 'https://spdx.org/rdf/3.0.1/terms/')
+SPDX3 = CurieNamespace('spdx3', 'https://spdx.org/rdf/3.0.1/terms/')
 SPDX_AI = CurieNamespace('spdx_ai', 'https://spdx.org/rdf/3.0.1/terms/AI/')
 SPDX_BUILD = CurieNamespace('spdx_build', 'https://spdx.org/rdf/3.0.1/terms/Build/')
 SPDX_CORE = CurieNamespace('spdx_core', 'https://spdx.org/rdf/3.0.1/terms/Core/')

@@ -36,8 +36,8 @@ prefixes:
   spdx_linkml:
     prefix_prefix: spdx_linkml
     prefix_reference: https://w3id.org/lmodel/spdx/
-  spdx:
-    prefix_prefix: spdx
+  spdx3:
+    prefix_prefix: spdx3
     prefix_reference: https://spdx.org/rdf/3.0.1/terms/
   spdx_core:
     prefix_prefix: spdx_core
@@ -6782,6 +6782,6 @@ classes:
     class_uri: spdx_security:Vulnerability
 metamodel_version: 1.12.0
 source_file: spdx_linkml.yaml
-source_file_date: '2026-10-29T18:47:27'
-source_file_size: 2267
+source_file_date: '2026-10-29T18:54:10'
+source_file_size: 2268
 
