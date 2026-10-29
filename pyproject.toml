@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 # Named like lmodel/gist's gist-linkml and lmodel/slsa's slsa-linkml, so the PyPI
-# name says what the distribution holds; the import package stays `spdx`.
+# name says what the distribution holds. The import package stays `spdx`.
 name = "spdx-linkml"
 description = "System Package Data Exchange (SPDX): LinkML Schema"
 authors = [

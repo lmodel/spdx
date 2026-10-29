@@ -22,9 +22,10 @@ LINKML_GENERATORS_DOC_ARGS=
 ## pass args to workaround genowl rdfs config bug (linkml#1453)
 ##   (i.e. --no-type-objects --no-metaclasses --metadata-profile=rdfs)
 # LINKML_GENERATORS_OWL_ARGS="--no-type-objects --no-metaclasses --metadata-profile=rdfs"
-## SPDX leaves its abstract classes open (another Extension or IntegrityMethod
-## may exist), so no covering axiom; the other three are the generator's
-## announced future defaults, set now so the OWL does not change under us.
+## SPDX leaves its abstract classes open, since another Extension or
+## IntegrityMethod may exist, so the OWL has no covering axiom. The other three
+## flags are the generator's announced future defaults, set now so that the OWL
+## stays the same when they become the defaults.
 LINKML_GENERATORS_OWL_ARGS="--skip-abstract-class-as-unionof-subclasses --skip-vacuous-min-zero-cardinality-axioms --skip-vacuous-local-range-axioms --consolidate-cardinality-axioms"
 
 ## pass args to pydantic generator which isn't supported by gen-project

@@ -5,4 +5,4 @@ module per SPDX profile, with every class, property and vocabulary keeping its
 SPDX IRI.
 
 - [Schema documentation](elements/index.md), generated from the schema
-- [About](about.md): where the model comes from, what the rendering adds, and how it is kept current
+- [About](about.md): where the model comes from and how it is kept current, what the rendering adds, and where it differs from SPDX's serialisations

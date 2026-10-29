@@ -1,5 +1,5 @@
 # linkml-lint reads this file from the directory `just lint` runs in.
-# The recommended rules apply, with the naming rule fitted to SPDX's own names.
+# The recommended rules apply, with the naming rule fitted to SPDX's names.
 # Slots are SPDX property names, lowerCamelCase (hashValue, packageVersion),
 # and permissible values are SPDX vocabulary entries as the JSON-LD
 # serialisation writes them (kilowattHour, sha3_256), so a document compares

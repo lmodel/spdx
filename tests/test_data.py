@@ -1,15 +1,15 @@
-"""Validate the example data against the schema, and the SPDX Project's own examples against it.
+"""Validate the local examples against the schema, and check the SPDX Project's examples against it.
 
-Local examples: ``tests/data/valid/`` and ``tests/data/problem/valid/`` hold one
-file per class, named ``<Class>-<anything>.yaml``, each validated against that
-class with closed classes. ``tests/data/invalid/`` and
-``tests/data/problem/invalid/`` hold counter-examples, each failing for the one
-reason REASONS names. The ``problem/`` folders hold the files the example runner
-cannot load because a key is a Python keyword (a Relationship's ``from``, an
-SpdxDocument's ``import``); the validator reads them like the others.
+Local examples: ``tests/data/valid/`` and ``tests/data/problem/valid/`` hold
+files named ``<Class>-<anything>.yaml``, each validated against that class with
+closed classes. ``tests/data/invalid/`` and ``tests/data/problem/invalid/`` hold
+counter-examples, each failing for the one reason REASONS names. The
+``problem/`` folders hold the files the example runner cannot load, because a
+key is a Python keyword (a Relationship's ``from``, an SpdxDocument's
+``import``). The validator reads them like the others.
 
-Upstream examples: ``tests/data/spdx-examples/`` is the SPDX Project's example
-repository. Its SPDX 3 documents are JSON-LD, whose keys differ from this
+Upstream examples: ``tests/data/spdx-examples/`` is a copy of the SPDX Project's
+example repository. Its SPDX 3 documents are JSON-LD, whose keys differ from this
 schema's in two ways the tests undo: a class or property outside Core carries
 its profile as a prefix (``software_Package``, ``software_packageVersion``), and
 a blank node's identifier is ``@id``. The tests check that every node's type is
@@ -114,7 +114,10 @@ def test_invalid_example_fails_once_for_its_reason(
 
 
 def _strip_profile(name: str, known: set[str]) -> str:
-    """software_Package -> Package, security_locator stays: the schema knows that slot."""
+    """Drop the profile prefix from a JSON-LD name, unless the schema knows the name.
+
+    software_Package becomes Package, and security_locator stays as it is.
+    """
     if name in known:
         return name
     if "_" in name:
