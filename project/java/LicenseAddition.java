@@ -16,11 +16,11 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public abstract class LicenseAddition extends Element {
 
+  private String additionText;
+  private Boolean isDeprecatedAdditionId;
   private String licenseXml;
   private String obsoletedBy;
   private List<URI> seeAlso;
-  private String additionText;
-  private Boolean isDeprecatedAdditionId;
   private String standardAdditionTemplate;
 
 

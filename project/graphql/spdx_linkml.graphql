@@ -350,8 +350,6 @@ type Agent
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -359,14 +357,14 @@ type Agent
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
   }
 
 type AIPackage
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -374,11 +372,13 @@ type AIPackage
     externalRef: [ExternalRef]
     name: String
     summary: String
-    suppliedBy: Agent
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     builtTime: DateTimeStamp
     originatedBy: [Agent]
     releaseTime: DateTimeStamp
     standardName: [String]
+    suppliedBy: Agent
     supportLevel: [SupportType]
     validUntilTime: DateTimeStamp
     additionalPurpose: [SoftwarePurpose]
@@ -412,8 +412,6 @@ type Annotation
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -421,8 +419,10 @@ type Annotation
     externalRef: [ExternalRef]
     name: String
     summary: String
-    contentType: MediaType
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     annotationType: AnnotationType!
+    contentType: MediaType
     statement: String
     subject: Element!
   }
@@ -431,8 +431,6 @@ interface AnyLicenseInfo
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -440,14 +438,14 @@ interface AnyLicenseInfo
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
   }
 
 interface Artifact
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -455,11 +453,13 @@ interface Artifact
     externalRef: [ExternalRef]
     name: String
     summary: String
-    suppliedBy: Agent
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     builtTime: DateTimeStamp
     originatedBy: [Agent]
     releaseTime: DateTimeStamp
     standardName: [String]
+    suppliedBy: Agent
     supportLevel: [SupportType]
     validUntilTime: DateTimeStamp
   }
@@ -468,8 +468,6 @@ type Bom
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -477,6 +475,8 @@ type Bom
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     element: [Element]
     profileConformance: [ProfileIdentifierType]
     rootElement: [Element]
@@ -487,8 +487,6 @@ type Build
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -496,6 +494,8 @@ type Build
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     buildEndTime: DateTimeStamp
     buildId: String
     buildStartTime: DateTimeStamp
@@ -511,8 +511,6 @@ type Bundle
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -520,6 +518,8 @@ type Bundle
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     element: [Element]
     profileConformance: [ProfileIdentifierType]
     rootElement: [Element]
@@ -543,8 +543,6 @@ type ConjunctiveLicenseSet
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -552,6 +550,8 @@ type ConjunctiveLicenseSet
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     member: [AnyLicenseInfo]!
   }
 
@@ -577,8 +577,6 @@ type CustomLicense
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -586,13 +584,15 @@ type CustomLicense
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    isDeprecatedLicenseId: Boolean
+    isFsfLibre: Boolean
+    isOsiApproved: Boolean
     licenseText: String!
     licenseXml: String
     obsoletedBy: String
     seeAlso: [String]
-    isDeprecatedLicenseId: Boolean
-    isFsfLibre: Boolean
-    isOsiApproved: Boolean
     standardLicenseHeader: String
     standardLicenseTemplate: String
   }
@@ -601,8 +601,6 @@ type CustomLicenseAddition
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -610,11 +608,13 @@ type CustomLicenseAddition
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    additionText: String!
+    isDeprecatedAdditionId: Boolean
     licenseXml: String
     obsoletedBy: String
     seeAlso: [String]
-    additionText: String!
-    isDeprecatedAdditionId: Boolean
     standardAdditionTemplate: String
   }
 
@@ -622,8 +622,6 @@ type CvssV2VulnAssessmentRelationship
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -631,17 +629,19 @@ type CvssV2VulnAssessmentRelationship
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     completeness: RelationshipCompleteness
     endTime: DateTimeStamp
     from: Element!
     relationshipType: RelationshipType!
     startTime: DateTimeStamp
     to: [Element]!
+    assessedElement: SoftwareArtifact
     modifiedTime: DateTimeStamp
     publishedTime: DateTimeStamp
     suppliedBy: Agent
     withdrawnTime: DateTimeStamp
-    assessedElement: SoftwareArtifact
     score: Float!
     vectorString: String!
   }
@@ -650,8 +650,6 @@ type CvssV3VulnAssessmentRelationship
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -659,17 +657,19 @@ type CvssV3VulnAssessmentRelationship
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     completeness: RelationshipCompleteness
     endTime: DateTimeStamp
     from: Element!
     relationshipType: RelationshipType!
     startTime: DateTimeStamp
     to: [Element]!
+    assessedElement: SoftwareArtifact
     modifiedTime: DateTimeStamp
     publishedTime: DateTimeStamp
     suppliedBy: Agent
     withdrawnTime: DateTimeStamp
-    assessedElement: SoftwareArtifact
     score: Float!
     severity: CvssSeverityType!
     vectorString: String!
@@ -679,8 +679,6 @@ type CvssV4VulnAssessmentRelationship
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -688,17 +686,19 @@ type CvssV4VulnAssessmentRelationship
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     completeness: RelationshipCompleteness
     endTime: DateTimeStamp
     from: Element!
     relationshipType: RelationshipType!
     startTime: DateTimeStamp
     to: [Element]!
+    assessedElement: SoftwareArtifact
     modifiedTime: DateTimeStamp
     publishedTime: DateTimeStamp
     suppliedBy: Agent
     withdrawnTime: DateTimeStamp
-    assessedElement: SoftwareArtifact
     score: Float!
     severity: CvssSeverityType!
     vectorString: String!
@@ -708,8 +708,6 @@ type DatasetPackage
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -717,11 +715,13 @@ type DatasetPackage
     externalRef: [ExternalRef]
     name: String
     summary: String
-    suppliedBy: Agent
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     builtTime: DateTimeStamp
     originatedBy: [Agent]
     releaseTime: DateTimeStamp
     standardName: [String]
+    suppliedBy: Agent
     supportLevel: [SupportType]
     validUntilTime: DateTimeStamp
     additionalPurpose: [SoftwarePurpose]
@@ -760,8 +760,6 @@ type DisjunctiveLicenseSet
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -769,6 +767,8 @@ type DisjunctiveLicenseSet
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     member: [AnyLicenseInfo]!
   }
 
@@ -776,8 +776,6 @@ interface Element
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -785,14 +783,14 @@ interface Element
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
   }
 
 interface ElementCollection
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -800,6 +798,8 @@ interface ElementCollection
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     element: [Element]
     profileConformance: [ProfileIdentifierType]
     rootElement: [Element]
@@ -824,8 +824,6 @@ type EpssVulnAssessmentRelationship
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -833,17 +831,19 @@ type EpssVulnAssessmentRelationship
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     completeness: RelationshipCompleteness
     endTime: DateTimeStamp
     from: Element!
     relationshipType: RelationshipType!
     startTime: DateTimeStamp
     to: [Element]!
+    assessedElement: SoftwareArtifact
     modifiedTime: DateTimeStamp
     publishedTime: DateTimeStamp
     suppliedBy: Agent
     withdrawnTime: DateTimeStamp
-    assessedElement: SoftwareArtifact
     percentile: Float!
     probability: Float!
   }
@@ -852,8 +852,6 @@ type ExploitCatalogVulnAssessmentRelationship
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -861,17 +859,19 @@ type ExploitCatalogVulnAssessmentRelationship
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     completeness: RelationshipCompleteness
     endTime: DateTimeStamp
     from: Element!
     relationshipType: RelationshipType!
     startTime: DateTimeStamp
     to: [Element]!
+    assessedElement: SoftwareArtifact
     modifiedTime: DateTimeStamp
     publishedTime: DateTimeStamp
     suppliedBy: Agent
     withdrawnTime: DateTimeStamp
-    assessedElement: SoftwareArtifact
     catalogType: ExploitCatalogType!
     exploited: Boolean!
     securityLocator: String!
@@ -881,8 +881,6 @@ interface ExtendableLicense
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -890,6 +888,8 @@ interface ExtendableLicense
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
   }
 
 interface Extension
@@ -910,10 +910,10 @@ type ExternalIdentifier
 type ExternalMap
   {
     type: String
-    verifiedUsing: [IntegrityMethod]
     definingArtifact: Artifact
     externalSpdxId: String!
     locationHint: String
+    verifiedUsing: [IntegrityMethod]
   }
 
 type ExternalRef
@@ -929,8 +929,6 @@ type File
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -938,11 +936,13 @@ type File
     externalRef: [ExternalRef]
     name: String
     summary: String
-    suppliedBy: Agent
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     builtTime: DateTimeStamp
     originatedBy: [Agent]
     releaseTime: DateTimeStamp
     standardName: [String]
+    suppliedBy: Agent
     supportLevel: [SupportType]
     validUntilTime: DateTimeStamp
     additionalPurpose: [SoftwarePurpose]
@@ -966,8 +966,6 @@ type IndividualElement
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -975,14 +973,14 @@ type IndividualElement
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
   }
 
 type IndividualLicensingInfo
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -990,6 +988,8 @@ type IndividualLicensingInfo
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
   }
 
 interface IntegrityMethod
@@ -1002,8 +1002,6 @@ interface License
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1011,13 +1009,15 @@ interface License
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    isDeprecatedLicenseId: Boolean
+    isFsfLibre: Boolean
+    isOsiApproved: Boolean
     licenseText: String!
     licenseXml: String
     obsoletedBy: String
     seeAlso: [String]
-    isDeprecatedLicenseId: Boolean
-    isFsfLibre: Boolean
-    isOsiApproved: Boolean
     standardLicenseHeader: String
     standardLicenseTemplate: String
   }
@@ -1026,8 +1026,6 @@ interface LicenseAddition
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1035,11 +1033,13 @@ interface LicenseAddition
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    additionText: String!
+    isDeprecatedAdditionId: Boolean
     licenseXml: String
     obsoletedBy: String
     seeAlso: [String]
-    additionText: String!
-    isDeprecatedAdditionId: Boolean
     standardAdditionTemplate: String
   }
 
@@ -1047,8 +1047,6 @@ type LicenseExpression
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1056,6 +1054,8 @@ type LicenseExpression
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     customIdToUri: [DictionaryEntry]
     licenseExpression: String!
     licenseListVersion: Semver
@@ -1065,8 +1065,6 @@ type LifecycleScopedRelationship
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1074,6 +1072,8 @@ type LifecycleScopedRelationship
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     completeness: RelationshipCompleteness
     endTime: DateTimeStamp
     from: Element!
@@ -1087,8 +1087,6 @@ type ListedLicense
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1096,13 +1094,15 @@ type ListedLicense
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    isDeprecatedLicenseId: Boolean
+    isFsfLibre: Boolean
+    isOsiApproved: Boolean
     licenseText: String!
     licenseXml: String
     obsoletedBy: String
     seeAlso: [String]
-    isDeprecatedLicenseId: Boolean
-    isFsfLibre: Boolean
-    isOsiApproved: Boolean
     standardLicenseHeader: String
     standardLicenseTemplate: String
     deprecatedVersion: String
@@ -1113,8 +1113,6 @@ type ListedLicenseException
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1122,11 +1120,13 @@ type ListedLicenseException
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
+    additionText: String!
+    isDeprecatedAdditionId: Boolean
     licenseXml: String
     obsoletedBy: String
     seeAlso: [String]
-    additionText: String!
-    isDeprecatedAdditionId: Boolean
     standardAdditionTemplate: String
     deprecatedVersion: String
     listVersionAdded: String
@@ -1143,8 +1143,6 @@ type Organization
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1152,14 +1150,14 @@ type Organization
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
   }
 
 type OrLaterOperator
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1167,6 +1165,8 @@ type OrLaterOperator
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     subjectLicense: License!
   }
 
@@ -1174,8 +1174,6 @@ type Package
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1183,11 +1181,13 @@ type Package
     externalRef: [ExternalRef]
     name: String
     summary: String
-    suppliedBy: Agent
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     builtTime: DateTimeStamp
     originatedBy: [Agent]
     releaseTime: DateTimeStamp
     standardName: [String]
+    suppliedBy: Agent
     supportLevel: [SupportType]
     validUntilTime: DateTimeStamp
     additionalPurpose: [SoftwarePurpose]
@@ -1215,8 +1215,6 @@ type Person
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1224,6 +1222,8 @@ type Person
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
   }
 
 type PositiveIntegerRange
@@ -1237,8 +1237,6 @@ type Relationship
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1246,6 +1244,8 @@ type Relationship
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     completeness: RelationshipCompleteness
     endTime: DateTimeStamp
     from: Element!
@@ -1258,8 +1258,6 @@ type Sbom
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1267,6 +1265,8 @@ type Sbom
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     element: [Element]
     profileConformance: [ProfileIdentifierType]
     rootElement: [Element]
@@ -1278,8 +1278,6 @@ type SimpleLicensingText
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1287,6 +1285,8 @@ type SimpleLicensingText
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     licenseText: String!
   }
 
@@ -1294,8 +1294,6 @@ type Snippet
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1303,11 +1301,13 @@ type Snippet
     externalRef: [ExternalRef]
     name: String
     summary: String
-    suppliedBy: Agent
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     builtTime: DateTimeStamp
     originatedBy: [Agent]
     releaseTime: DateTimeStamp
     standardName: [String]
+    suppliedBy: Agent
     supportLevel: [SupportType]
     validUntilTime: DateTimeStamp
     additionalPurpose: [SoftwarePurpose]
@@ -1324,8 +1324,6 @@ type SoftwareAgent
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1333,14 +1331,14 @@ type SoftwareAgent
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
   }
 
 interface SoftwareArtifact
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1348,11 +1346,13 @@ interface SoftwareArtifact
     externalRef: [ExternalRef]
     name: String
     summary: String
-    suppliedBy: Agent
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     builtTime: DateTimeStamp
     originatedBy: [Agent]
     releaseTime: DateTimeStamp
     standardName: [String]
+    suppliedBy: Agent
     supportLevel: [SupportType]
     validUntilTime: DateTimeStamp
     additionalPurpose: [SoftwarePurpose]
@@ -1366,8 +1366,6 @@ type SpdxDocument
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1375,6 +1373,8 @@ type SpdxDocument
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     element: [Element]
     profileConformance: [ProfileIdentifierType]
     rootElement: [Element]
@@ -1387,8 +1387,6 @@ type SsvcVulnAssessmentRelationship
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1396,17 +1394,19 @@ type SsvcVulnAssessmentRelationship
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     completeness: RelationshipCompleteness
     endTime: DateTimeStamp
     from: Element!
     relationshipType: RelationshipType!
     startTime: DateTimeStamp
     to: [Element]!
+    assessedElement: SoftwareArtifact
     modifiedTime: DateTimeStamp
     publishedTime: DateTimeStamp
     suppliedBy: Agent
     withdrawnTime: DateTimeStamp
-    assessedElement: SoftwareArtifact
     decisionType: SsvcDecisionType!
   }
 
@@ -1414,8 +1414,6 @@ type Tool
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1423,14 +1421,14 @@ type Tool
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
   }
 
 type VexAffectedVulnAssessmentRelationship
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1438,17 +1436,19 @@ type VexAffectedVulnAssessmentRelationship
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     completeness: RelationshipCompleteness
     endTime: DateTimeStamp
     from: Element!
     relationshipType: RelationshipType!
     startTime: DateTimeStamp
     to: [Element]!
+    assessedElement: SoftwareArtifact
     modifiedTime: DateTimeStamp
     publishedTime: DateTimeStamp
     suppliedBy: Agent
     withdrawnTime: DateTimeStamp
-    assessedElement: SoftwareArtifact
     statusNotes: String
     vexVersion: String
     actionStatement: String!
@@ -1459,8 +1459,6 @@ type VexFixedVulnAssessmentRelationship
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1468,17 +1466,19 @@ type VexFixedVulnAssessmentRelationship
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     completeness: RelationshipCompleteness
     endTime: DateTimeStamp
     from: Element!
     relationshipType: RelationshipType!
     startTime: DateTimeStamp
     to: [Element]!
+    assessedElement: SoftwareArtifact
     modifiedTime: DateTimeStamp
     publishedTime: DateTimeStamp
     suppliedBy: Agent
     withdrawnTime: DateTimeStamp
-    assessedElement: SoftwareArtifact
     statusNotes: String
     vexVersion: String
   }
@@ -1487,8 +1487,6 @@ type VexNotAffectedVulnAssessmentRelationship
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1496,17 +1494,19 @@ type VexNotAffectedVulnAssessmentRelationship
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     completeness: RelationshipCompleteness
     endTime: DateTimeStamp
     from: Element!
     relationshipType: RelationshipType!
     startTime: DateTimeStamp
     to: [Element]!
+    assessedElement: SoftwareArtifact
     modifiedTime: DateTimeStamp
     publishedTime: DateTimeStamp
     suppliedBy: Agent
     withdrawnTime: DateTimeStamp
-    assessedElement: SoftwareArtifact
     statusNotes: String
     vexVersion: String
     impactStatement: String
@@ -1518,8 +1518,6 @@ type VexUnderInvestigationVulnAssessmentRelationship
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1527,17 +1525,19 @@ type VexUnderInvestigationVulnAssessmentRelationship
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     completeness: RelationshipCompleteness
     endTime: DateTimeStamp
     from: Element!
     relationshipType: RelationshipType!
     startTime: DateTimeStamp
     to: [Element]!
+    assessedElement: SoftwareArtifact
     modifiedTime: DateTimeStamp
     publishedTime: DateTimeStamp
     suppliedBy: Agent
     withdrawnTime: DateTimeStamp
-    assessedElement: SoftwareArtifact
     statusNotes: String
     vexVersion: String
   }
@@ -1546,8 +1546,6 @@ interface VexVulnAssessmentRelationship
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1555,17 +1553,19 @@ interface VexVulnAssessmentRelationship
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     completeness: RelationshipCompleteness
     endTime: DateTimeStamp
     from: Element!
     relationshipType: RelationshipType!
     startTime: DateTimeStamp
     to: [Element]!
+    assessedElement: SoftwareArtifact
     modifiedTime: DateTimeStamp
     publishedTime: DateTimeStamp
     suppliedBy: Agent
     withdrawnTime: DateTimeStamp
-    assessedElement: SoftwareArtifact
     statusNotes: String
     vexVersion: String
   }
@@ -1574,8 +1574,6 @@ interface VulnAssessmentRelationship
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1583,25 +1581,25 @@ interface VulnAssessmentRelationship
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     completeness: RelationshipCompleteness
     endTime: DateTimeStamp
     from: Element!
     relationshipType: RelationshipType!
     startTime: DateTimeStamp
     to: [Element]!
+    assessedElement: SoftwareArtifact
     modifiedTime: DateTimeStamp
     publishedTime: DateTimeStamp
     suppliedBy: Agent
     withdrawnTime: DateTimeStamp
-    assessedElement: SoftwareArtifact
   }
 
 type Vulnerability
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1609,11 +1607,13 @@ type Vulnerability
     externalRef: [ExternalRef]
     name: String
     summary: String
-    suppliedBy: Agent
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     builtTime: DateTimeStamp
     originatedBy: [Agent]
     releaseTime: DateTimeStamp
     standardName: [String]
+    suppliedBy: Agent
     supportLevel: [SupportType]
     validUntilTime: DateTimeStamp
     modifiedTime: DateTimeStamp
@@ -1625,8 +1625,6 @@ type WithAdditionOperator
   {
     type: String
     comment: String
-    verifiedUsing: [IntegrityMethod]
-    spdxId: String!
     creationInfo: CreationInfo!
     description: String
     extension: [Extension]
@@ -1634,6 +1632,8 @@ type WithAdditionOperator
     externalRef: [ExternalRef]
     name: String
     summary: String
+    verifiedUsing: [IntegrityMethod]
+    spdxId: String!
     subjectAddition: LicenseAddition!
     subjectExtendableLicense: ExtendableLicense!
   }

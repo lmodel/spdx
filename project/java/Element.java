@@ -18,8 +18,6 @@ public abstract class Element  {
 
   private URI type;
   private String comment;
-  private List<IntegrityMethod> verifiedUsing;
-  private URI spdxId;
   private CreationInfo creationInfo;
   private String description;
   private List<Extension> extension;
@@ -27,6 +25,8 @@ public abstract class Element  {
   private List<ExternalRef> externalRef;
   private String name;
   private String summary;
+  private List<IntegrityMethod> verifiedUsing;
+  private URI spdxId;
 
 
 }

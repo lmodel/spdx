@@ -8,24 +8,24 @@ message Agent {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
 }
 // Specifies an AI package and its associated information.
 message AIPackage {
@@ -33,34 +33,34 @@ message AIPackage {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
-  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
-  Agent suppliedBy = 12;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Specifies the time an artifact was built.
-  string builtTime = 13;
+  string builtTime = 12;
   // Identifies from where or whom the Element originally came.
-  repeated Agent originatedBy = 14;
+  repeated Agent originatedBy = 13;
   // Specifies the time an artifact was released.
-  string releaseTime = 15;
+  string releaseTime = 14;
   // The name of a relevant standard that may apply to an artifact.
-  repeated string standardName = 16;
+  repeated string standardName = 15;
+  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
+  Agent suppliedBy = 16;
   // Specifies the level of support associated with an artifact.
   repeated SupportType supportLevel = 17;
   // Specifies until when the artifact can be used before its usage needs to be reassessed.
@@ -122,28 +122,28 @@ message Annotation {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
-  // Provides information about the content type of an Element or a Property.
-  string contentType = 12;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Describes the type of annotation.
-  AnnotationType annotationType = 13;
+  AnnotationType annotationType = 12;
+  // Provides information about the content type of an Element or a Property.
+  string contentType = 13;
   // Commentary on an assertion that an annotator has made.
   string statement = 14;
   // An Element an annotator has made an assertion about.
@@ -155,24 +155,24 @@ message AnyLicenseInfo {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
 }
 // A distinct article or unit within the digital domain.
 message Artifact {
@@ -180,34 +180,34 @@ message Artifact {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
-  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
-  Agent suppliedBy = 12;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Specifies the time an artifact was built.
-  string builtTime = 13;
+  string builtTime = 12;
   // Identifies from where or whom the Element originally came.
-  repeated Agent originatedBy = 14;
+  repeated Agent originatedBy = 13;
   // Specifies the time an artifact was released.
-  string releaseTime = 15;
+  string releaseTime = 14;
   // The name of a relevant standard that may apply to an artifact.
-  repeated string standardName = 16;
+  repeated string standardName = 15;
+  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
+  Agent suppliedBy = 16;
   // Specifies the level of support associated with an artifact.
   repeated SupportType supportLevel = 17;
   // Specifies until when the artifact can be used before its usage needs to be reassessed.
@@ -219,24 +219,24 @@ message Bom {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Refers to one or more Elements that are part of an ElementCollection.
   repeated Element element = 12;
   // Describes one a profile which the creator of this ElementCollection intends to conform to.
@@ -252,24 +252,24 @@ message Build {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Property that describes the time at which a build stops.
   string buildEndTime = 12;
   // A buildId is a locally unique identifier used by a builder to identify a unique instance of a build produced by it.
@@ -295,24 +295,24 @@ message Bundle {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Refers to one or more Elements that are part of an ElementCollection.
   repeated Element element = 12;
   // Describes one a profile which the creator of this ElementCollection intends to conform to.
@@ -344,24 +344,24 @@ message ConjunctiveLicenseSet {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // A license expression participating in a license set.
   repeated AnyLicenseInfo member = 12;
 }
@@ -397,38 +397,38 @@ message CustomLicense {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
-  // Identifies the full text of a License or Addition.
-  string licenseText = 12;
-  // Identifies all the text and metadata associated with a license in the license XML format.
-  string licenseXml = 13;
-  // Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
-  string obsoletedBy = 14;
-  // Contains a URL where the License or LicenseAddition can be found in use.
-  repeated string seeAlso = 15;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Specifies whether a license or additional text identifier has been marked as deprecated.
-  bool isDeprecatedLicenseId = 16;
+  bool isDeprecatedLicenseId = 12;
   // Specifies whether the License is listed as free by the Free Software Foundation (FSF).
-  bool isFsfLibre = 17;
+  bool isFsfLibre = 13;
   // Specifies whether the License is listed as approved by the Open Source Initiative (OSI).
-  bool isOsiApproved = 18;
+  bool isOsiApproved = 14;
+  // Identifies the full text of a License or Addition.
+  string licenseText = 15;
+  // Identifies all the text and metadata associated with a license in the license XML format.
+  string licenseXml = 16;
+  // Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
+  string obsoletedBy = 17;
+  // Contains a URL where the License or LicenseAddition can be found in use.
+  repeated string seeAlso = 18;
   // Provides a License author's preferred text to indicate that a file is covered by the License.
   string standardLicenseHeader = 19;
   // Identifies the full text of a License, in SPDX templating format.
@@ -440,34 +440,34 @@ message CustomLicenseAddition {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
-  // Identifies all the text and metadata associated with a license in the license XML format.
-  string licenseXml = 12;
-  // Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
-  string obsoletedBy = 13;
-  // Contains a URL where the License or LicenseAddition can be found in use.
-  repeated string seeAlso = 14;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Identifies the full text of a LicenseAddition.
-  string additionText = 15;
+  string additionText = 12;
   // Specifies whether an additional text identifier has been marked as deprecated.
-  bool isDeprecatedAdditionId = 16;
+  bool isDeprecatedAdditionId = 13;
+  // Identifies all the text and metadata associated with a license in the license XML format.
+  string licenseXml = 14;
+  // Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
+  string obsoletedBy = 15;
+  // Contains a URL where the License or LicenseAddition can be found in use.
+  repeated string seeAlso = 16;
   // Identifies the full text of a LicenseAddition, in SPDX templating format.
   string standardAdditionTemplate = 17;
 }
@@ -477,24 +477,24 @@ message CvssV2VulnAssessmentRelationship {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Provides information about the completeness of relationships.
   RelationshipCompleteness completeness = 12;
   // Specifies the time from which an element is no longer applicable / valid.
@@ -507,16 +507,16 @@ message CvssV2VulnAssessmentRelationship {
   string startTime = 16;
   // References an Element on the right-hand side of a relationship.
   repeated Element to = 17;
-  // Specifies a time when a vulnerability assessment was modified
-  string modifiedTime = 18;
-  // Specifies the time when a vulnerability was published.
-  string publishedTime = 19;
-  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
-  Agent suppliedBy = 20;
-  // Specified the time and date when a vulnerability was withdrawn.
-  string withdrawnTime = 21;
   // Specifies an Element contained in a piece of software where a vulnerability was found.
-  SoftwareArtifact assessedElement = 22;
+  SoftwareArtifact assessedElement = 18;
+  // Specifies a time when a vulnerability assessment was modified
+  string modifiedTime = 19;
+  // Specifies the time when a vulnerability was published.
+  string publishedTime = 20;
+  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
+  Agent suppliedBy = 21;
+  // Specified the time and date when a vulnerability was withdrawn.
+  string withdrawnTime = 22;
   // Provides a numerical (0-10) representation of the severity of a vulnerability.
   string score = 23;
   // Specifies the CVSS vector string for a vulnerability.
@@ -528,24 +528,24 @@ message CvssV3VulnAssessmentRelationship {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Provides information about the completeness of relationships.
   RelationshipCompleteness completeness = 12;
   // Specifies the time from which an element is no longer applicable / valid.
@@ -558,16 +558,16 @@ message CvssV3VulnAssessmentRelationship {
   string startTime = 16;
   // References an Element on the right-hand side of a relationship.
   repeated Element to = 17;
-  // Specifies a time when a vulnerability assessment was modified
-  string modifiedTime = 18;
-  // Specifies the time when a vulnerability was published.
-  string publishedTime = 19;
-  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
-  Agent suppliedBy = 20;
-  // Specified the time and date when a vulnerability was withdrawn.
-  string withdrawnTime = 21;
   // Specifies an Element contained in a piece of software where a vulnerability was found.
-  SoftwareArtifact assessedElement = 22;
+  SoftwareArtifact assessedElement = 18;
+  // Specifies a time when a vulnerability assessment was modified
+  string modifiedTime = 19;
+  // Specifies the time when a vulnerability was published.
+  string publishedTime = 20;
+  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
+  Agent suppliedBy = 21;
+  // Specified the time and date when a vulnerability was withdrawn.
+  string withdrawnTime = 22;
   // Provides a numerical (0-10) representation of the severity of a vulnerability.
   string score = 23;
   // Specifies the CVSS qualitative severity rating of a vulnerability in relation to a piece of software.
@@ -581,24 +581,24 @@ message CvssV4VulnAssessmentRelationship {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Provides information about the completeness of relationships.
   RelationshipCompleteness completeness = 12;
   // Specifies the time from which an element is no longer applicable / valid.
@@ -611,16 +611,16 @@ message CvssV4VulnAssessmentRelationship {
   string startTime = 16;
   // References an Element on the right-hand side of a relationship.
   repeated Element to = 17;
-  // Specifies a time when a vulnerability assessment was modified
-  string modifiedTime = 18;
-  // Specifies the time when a vulnerability was published.
-  string publishedTime = 19;
-  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
-  Agent suppliedBy = 20;
-  // Specified the time and date when a vulnerability was withdrawn.
-  string withdrawnTime = 21;
   // Specifies an Element contained in a piece of software where a vulnerability was found.
-  SoftwareArtifact assessedElement = 22;
+  SoftwareArtifact assessedElement = 18;
+  // Specifies a time when a vulnerability assessment was modified
+  string modifiedTime = 19;
+  // Specifies the time when a vulnerability was published.
+  string publishedTime = 20;
+  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
+  Agent suppliedBy = 21;
+  // Specified the time and date when a vulnerability was withdrawn.
+  string withdrawnTime = 22;
   // Provides a numerical (0-10) representation of the severity of a vulnerability.
   string score = 23;
   // Specifies the CVSS qualitative severity rating of a vulnerability in relation to a piece of software.
@@ -634,34 +634,34 @@ message DatasetPackage {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
-  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
-  Agent suppliedBy = 12;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Specifies the time an artifact was built.
-  string builtTime = 13;
+  string builtTime = 12;
   // Identifies from where or whom the Element originally came.
-  repeated Agent originatedBy = 14;
+  repeated Agent originatedBy = 13;
   // Specifies the time an artifact was released.
-  string releaseTime = 15;
+  string releaseTime = 14;
   // The name of a relevant standard that may apply to an artifact.
-  repeated string standardName = 16;
+  repeated string standardName = 15;
+  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
+  Agent suppliedBy = 16;
   // Specifies the level of support associated with an artifact.
   repeated SupportType supportLevel = 17;
   // Specifies until when the artifact can be used before its usage needs to be reassessed.
@@ -728,24 +728,24 @@ message DisjunctiveLicenseSet {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // A license expression participating in a license set.
   repeated AnyLicenseInfo member = 12;
 }
@@ -755,24 +755,24 @@ message Element {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
 }
 // A collection of Elements, not necessarily with unifying context.
 message ElementCollection {
@@ -780,24 +780,24 @@ message ElementCollection {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Refers to one or more Elements that are part of an ElementCollection.
   repeated Element element = 12;
   // Describes one a profile which the creator of this ElementCollection intends to conform to.
@@ -831,24 +831,24 @@ message EpssVulnAssessmentRelationship {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Provides information about the completeness of relationships.
   RelationshipCompleteness completeness = 12;
   // Specifies the time from which an element is no longer applicable / valid.
@@ -861,16 +861,16 @@ message EpssVulnAssessmentRelationship {
   string startTime = 16;
   // References an Element on the right-hand side of a relationship.
   repeated Element to = 17;
-  // Specifies a time when a vulnerability assessment was modified
-  string modifiedTime = 18;
-  // Specifies the time when a vulnerability was published.
-  string publishedTime = 19;
-  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
-  Agent suppliedBy = 20;
-  // Specified the time and date when a vulnerability was withdrawn.
-  string withdrawnTime = 21;
   // Specifies an Element contained in a piece of software where a vulnerability was found.
-  SoftwareArtifact assessedElement = 22;
+  SoftwareArtifact assessedElement = 18;
+  // Specifies a time when a vulnerability assessment was modified
+  string modifiedTime = 19;
+  // Specifies the time when a vulnerability was published.
+  string publishedTime = 20;
+  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
+  Agent suppliedBy = 21;
+  // Specified the time and date when a vulnerability was withdrawn.
+  string withdrawnTime = 22;
   // The percentile of the current probability score.
   string percentile = 23;
   // A probability score between 0 and 1 of a vulnerability being exploited.
@@ -882,24 +882,24 @@ message ExploitCatalogVulnAssessmentRelationship {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Provides information about the completeness of relationships.
   RelationshipCompleteness completeness = 12;
   // Specifies the time from which an element is no longer applicable / valid.
@@ -912,16 +912,16 @@ message ExploitCatalogVulnAssessmentRelationship {
   string startTime = 16;
   // References an Element on the right-hand side of a relationship.
   repeated Element to = 17;
-  // Specifies a time when a vulnerability assessment was modified
-  string modifiedTime = 18;
-  // Specifies the time when a vulnerability was published.
-  string publishedTime = 19;
-  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
-  Agent suppliedBy = 20;
-  // Specified the time and date when a vulnerability was withdrawn.
-  string withdrawnTime = 21;
   // Specifies an Element contained in a piece of software where a vulnerability was found.
-  SoftwareArtifact assessedElement = 22;
+  SoftwareArtifact assessedElement = 18;
+  // Specifies a time when a vulnerability assessment was modified
+  string modifiedTime = 19;
+  // Specifies the time when a vulnerability was published.
+  string publishedTime = 20;
+  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
+  Agent suppliedBy = 21;
+  // Specified the time and date when a vulnerability was withdrawn.
+  string withdrawnTime = 22;
   // Specifies the exploit catalog type.
   ExploitCatalogType catalogType = 23;
   // Describe that a CVE is known to have an exploit because it's been listed in an exploit catalog.
@@ -935,24 +935,24 @@ message ExtendableLicense {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
 }
 // A characterization of some aspect of an Element that is associated with the Element in a generalized fashion.
 message Extension {
@@ -978,14 +978,14 @@ message ExternalIdentifier {
 message ExternalMap {
   // The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
   string type = 1;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 2;
   // Artifact representing a serialization instance of SPDX data containing the definition of a particular Element.
-  Artifact definingArtifact = 3;
+  Artifact definingArtifact = 2;
   // Identifies an external Element used within an SpdxDocument but defined external to that SpdxDocument.
-  string externalSpdxId = 4;
+  string externalSpdxId = 3;
   // Provides an indication of where to retrieve an external Element.
-  string locationHint = 5;
+  string locationHint = 4;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 5;
 }
 // A reference to a resource outside the scope of SPDX-3.0 content related to an Element.
 message ExternalRef {
@@ -1006,34 +1006,34 @@ message File {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
-  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
-  Agent suppliedBy = 12;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Specifies the time an artifact was built.
-  string builtTime = 13;
+  string builtTime = 12;
   // Identifies from where or whom the Element originally came.
-  repeated Agent originatedBy = 14;
+  repeated Agent originatedBy = 13;
   // Specifies the time an artifact was released.
-  string releaseTime = 15;
+  string releaseTime = 14;
   // The name of a relevant standard that may apply to an artifact.
-  repeated string standardName = 16;
+  repeated string standardName = 15;
+  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
+  Agent suppliedBy = 16;
   // Specifies the level of support associated with an artifact.
   repeated SupportType supportLevel = 17;
   // Specifies until when the artifact can be used before its usage needs to be reassessed.
@@ -1070,24 +1070,24 @@ message IndividualElement {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
 }
 // A concrete subclass of AnyLicenseInfo used by Individuals in the ExpandedLicensing profile.
 message IndividualLicensingInfo {
@@ -1095,24 +1095,24 @@ message IndividualLicensingInfo {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
 }
 // Provides an independently reproducible mechanism that permits verification of a specific Element.
 message IntegrityMethod {
@@ -1127,38 +1127,38 @@ message License {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
-  // Identifies the full text of a License or Addition.
-  string licenseText = 12;
-  // Identifies all the text and metadata associated with a license in the license XML format.
-  string licenseXml = 13;
-  // Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
-  string obsoletedBy = 14;
-  // Contains a URL where the License or LicenseAddition can be found in use.
-  repeated string seeAlso = 15;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Specifies whether a license or additional text identifier has been marked as deprecated.
-  bool isDeprecatedLicenseId = 16;
+  bool isDeprecatedLicenseId = 12;
   // Specifies whether the License is listed as free by the Free Software Foundation (FSF).
-  bool isFsfLibre = 17;
+  bool isFsfLibre = 13;
   // Specifies whether the License is listed as approved by the Open Source Initiative (OSI).
-  bool isOsiApproved = 18;
+  bool isOsiApproved = 14;
+  // Identifies the full text of a License or Addition.
+  string licenseText = 15;
+  // Identifies all the text and metadata associated with a license in the license XML format.
+  string licenseXml = 16;
+  // Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
+  string obsoletedBy = 17;
+  // Contains a URL where the License or LicenseAddition can be found in use.
+  repeated string seeAlso = 18;
   // Provides a License author's preferred text to indicate that a file is covered by the License.
   string standardLicenseHeader = 19;
   // Identifies the full text of a License, in SPDX templating format.
@@ -1170,34 +1170,34 @@ message LicenseAddition {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
-  // Identifies all the text and metadata associated with a license in the license XML format.
-  string licenseXml = 12;
-  // Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
-  string obsoletedBy = 13;
-  // Contains a URL where the License or LicenseAddition can be found in use.
-  repeated string seeAlso = 14;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Identifies the full text of a LicenseAddition.
-  string additionText = 15;
+  string additionText = 12;
   // Specifies whether an additional text identifier has been marked as deprecated.
-  bool isDeprecatedAdditionId = 16;
+  bool isDeprecatedAdditionId = 13;
+  // Identifies all the text and metadata associated with a license in the license XML format.
+  string licenseXml = 14;
+  // Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
+  string obsoletedBy = 15;
+  // Contains a URL where the License or LicenseAddition can be found in use.
+  repeated string seeAlso = 16;
   // Identifies the full text of a LicenseAddition, in SPDX templating format.
   string standardAdditionTemplate = 17;
 }
@@ -1207,24 +1207,24 @@ message LicenseExpression {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Maps a LicenseRef or AdditionRef string for a Custom License or a Custom License Addition to its URI ID.
   repeated DictionaryEntry customIdToUri = 12;
   // A string in the license expression format.
@@ -1238,24 +1238,24 @@ message LifecycleScopedRelationship {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Provides information about the completeness of relationships.
   RelationshipCompleteness completeness = 12;
   // Specifies the time from which an element is no longer applicable / valid.
@@ -1277,38 +1277,38 @@ message ListedLicense {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
-  // Identifies the full text of a License or Addition.
-  string licenseText = 12;
-  // Identifies all the text and metadata associated with a license in the license XML format.
-  string licenseXml = 13;
-  // Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
-  string obsoletedBy = 14;
-  // Contains a URL where the License or LicenseAddition can be found in use.
-  repeated string seeAlso = 15;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Specifies whether a license or additional text identifier has been marked as deprecated.
-  bool isDeprecatedLicenseId = 16;
+  bool isDeprecatedLicenseId = 12;
   // Specifies whether the License is listed as free by the Free Software Foundation (FSF).
-  bool isFsfLibre = 17;
+  bool isFsfLibre = 13;
   // Specifies whether the License is listed as approved by the Open Source Initiative (OSI).
-  bool isOsiApproved = 18;
+  bool isOsiApproved = 14;
+  // Identifies the full text of a License or Addition.
+  string licenseText = 15;
+  // Identifies all the text and metadata associated with a license in the license XML format.
+  string licenseXml = 16;
+  // Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
+  string obsoletedBy = 17;
+  // Contains a URL where the License or LicenseAddition can be found in use.
+  repeated string seeAlso = 18;
   // Provides a License author's preferred text to indicate that a file is covered by the License.
   string standardLicenseHeader = 19;
   // Identifies the full text of a License, in SPDX templating format.
@@ -1324,34 +1324,34 @@ message ListedLicenseException {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
-  // Identifies all the text and metadata associated with a license in the license XML format.
-  string licenseXml = 12;
-  // Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
-  string obsoletedBy = 13;
-  // Contains a URL where the License or LicenseAddition can be found in use.
-  repeated string seeAlso = 14;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Identifies the full text of a LicenseAddition.
-  string additionText = 15;
+  string additionText = 12;
   // Specifies whether an additional text identifier has been marked as deprecated.
-  bool isDeprecatedAdditionId = 16;
+  bool isDeprecatedAdditionId = 13;
+  // Identifies all the text and metadata associated with a license in the license XML format.
+  string licenseXml = 14;
+  // Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
+  string obsoletedBy = 15;
+  // Contains a URL where the License or LicenseAddition can be found in use.
+  repeated string seeAlso = 16;
   // Identifies the full text of a LicenseAddition, in SPDX templating format.
   string standardAdditionTemplate = 17;
   // Specifies the SPDX License List version in which this license or exception identifier was deprecated.
@@ -1374,24 +1374,24 @@ message Organization {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
 }
 // Portion of an AnyLicenseInfo representing this version, or any later version, of the indicated License.
 message OrLaterOperator {
@@ -1399,24 +1399,24 @@ message OrLaterOperator {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // A License participating in an 'or later' model.
   License subjectLicense = 12;
 }
@@ -1426,34 +1426,34 @@ message Package {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
-  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
-  Agent suppliedBy = 12;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Specifies the time an artifact was built.
-  string builtTime = 13;
+  string builtTime = 12;
   // Identifies from where or whom the Element originally came.
-  repeated Agent originatedBy = 14;
+  repeated Agent originatedBy = 13;
   // Specifies the time an artifact was released.
-  string releaseTime = 15;
+  string releaseTime = 14;
   // The name of a relevant standard that may apply to an artifact.
-  repeated string standardName = 16;
+  repeated string standardName = 15;
+  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
+  Agent suppliedBy = 16;
   // Specifies the level of support associated with an artifact.
   repeated SupportType supportLevel = 17;
   // Specifies until when the artifact can be used before its usage needs to be reassessed.
@@ -1498,24 +1498,24 @@ message Person {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
 }
 // A tuple of two positive integers that define a range.
 message PositiveIntegerRange {
@@ -1532,24 +1532,24 @@ message Relationship {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Provides information about the completeness of relationships.
   RelationshipCompleteness completeness = 12;
   // Specifies the time from which an element is no longer applicable / valid.
@@ -1569,24 +1569,24 @@ message Sbom {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Refers to one or more Elements that are part of an ElementCollection.
   repeated Element element = 12;
   // Describes one a profile which the creator of this ElementCollection intends to conform to.
@@ -1604,24 +1604,24 @@ message SimpleLicensingText {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Identifies the full text of a License or Addition.
   string licenseText = 12;
 }
@@ -1631,34 +1631,34 @@ message Snippet {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
-  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
-  Agent suppliedBy = 12;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Specifies the time an artifact was built.
-  string builtTime = 13;
+  string builtTime = 12;
   // Identifies from where or whom the Element originally came.
-  repeated Agent originatedBy = 14;
+  repeated Agent originatedBy = 13;
   // Specifies the time an artifact was released.
-  string releaseTime = 15;
+  string releaseTime = 14;
   // The name of a relevant standard that may apply to an artifact.
-  repeated string standardName = 16;
+  repeated string standardName = 15;
+  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
+  Agent suppliedBy = 16;
   // Specifies the level of support associated with an artifact.
   repeated SupportType supportLevel = 17;
   // Specifies until when the artifact can be used before its usage needs to be reassessed.
@@ -1686,24 +1686,24 @@ message SoftwareAgent {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
 }
 // A distinct article or unit related to Software.
 message SoftwareArtifact {
@@ -1711,34 +1711,34 @@ message SoftwareArtifact {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
-  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
-  Agent suppliedBy = 12;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Specifies the time an artifact was built.
-  string builtTime = 13;
+  string builtTime = 12;
   // Identifies from where or whom the Element originally came.
-  repeated Agent originatedBy = 14;
+  repeated Agent originatedBy = 13;
   // Specifies the time an artifact was released.
-  string releaseTime = 15;
+  string releaseTime = 14;
   // The name of a relevant standard that may apply to an artifact.
-  repeated string standardName = 16;
+  repeated string standardName = 15;
+  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
+  Agent suppliedBy = 16;
   // Specifies the level of support associated with an artifact.
   repeated SupportType supportLevel = 17;
   // Specifies until when the artifact can be used before its usage needs to be reassessed.
@@ -1760,24 +1760,24 @@ message SpdxDocument {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Refers to one or more Elements that are part of an ElementCollection.
   repeated Element element = 12;
   // Describes one a profile which the creator of this ElementCollection intends to conform to.
@@ -1797,24 +1797,24 @@ message SsvcVulnAssessmentRelationship {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Provides information about the completeness of relationships.
   RelationshipCompleteness completeness = 12;
   // Specifies the time from which an element is no longer applicable / valid.
@@ -1827,16 +1827,16 @@ message SsvcVulnAssessmentRelationship {
   string startTime = 16;
   // References an Element on the right-hand side of a relationship.
   repeated Element to = 17;
-  // Specifies a time when a vulnerability assessment was modified
-  string modifiedTime = 18;
-  // Specifies the time when a vulnerability was published.
-  string publishedTime = 19;
-  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
-  Agent suppliedBy = 20;
-  // Specified the time and date when a vulnerability was withdrawn.
-  string withdrawnTime = 21;
   // Specifies an Element contained in a piece of software where a vulnerability was found.
-  SoftwareArtifact assessedElement = 22;
+  SoftwareArtifact assessedElement = 18;
+  // Specifies a time when a vulnerability assessment was modified
+  string modifiedTime = 19;
+  // Specifies the time when a vulnerability was published.
+  string publishedTime = 20;
+  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
+  Agent suppliedBy = 21;
+  // Specified the time and date when a vulnerability was withdrawn.
+  string withdrawnTime = 22;
   // Provide the enumeration of possible decisions in the [Stakeholder-Specific Vulnerability Categorization (SSVC) decision tree](https://www.cisa.gov/stakeholder-specific-vulnerability-categorization-ssvc).
   SsvcDecisionType decisionType = 23;
 }
@@ -1846,24 +1846,24 @@ message Tool {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
 }
 // Connects a vulnerability and an element designating the element as a product affected by the vulnerability.
 message VexAffectedVulnAssessmentRelationship {
@@ -1871,24 +1871,24 @@ message VexAffectedVulnAssessmentRelationship {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Provides information about the completeness of relationships.
   RelationshipCompleteness completeness = 12;
   // Specifies the time from which an element is no longer applicable / valid.
@@ -1901,16 +1901,16 @@ message VexAffectedVulnAssessmentRelationship {
   string startTime = 16;
   // References an Element on the right-hand side of a relationship.
   repeated Element to = 17;
-  // Specifies a time when a vulnerability assessment was modified
-  string modifiedTime = 18;
-  // Specifies the time when a vulnerability was published.
-  string publishedTime = 19;
-  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
-  Agent suppliedBy = 20;
-  // Specified the time and date when a vulnerability was withdrawn.
-  string withdrawnTime = 21;
   // Specifies an Element contained in a piece of software where a vulnerability was found.
-  SoftwareArtifact assessedElement = 22;
+  SoftwareArtifact assessedElement = 18;
+  // Specifies a time when a vulnerability assessment was modified
+  string modifiedTime = 19;
+  // Specifies the time when a vulnerability was published.
+  string publishedTime = 20;
+  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
+  Agent suppliedBy = 21;
+  // Specified the time and date when a vulnerability was withdrawn.
+  string withdrawnTime = 22;
   // Conveys information about how VEX status was determined.
   string statusNotes = 23;
   // Specifies the version of a VEX statement.
@@ -1926,24 +1926,24 @@ message VexFixedVulnAssessmentRelationship {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Provides information about the completeness of relationships.
   RelationshipCompleteness completeness = 12;
   // Specifies the time from which an element is no longer applicable / valid.
@@ -1956,16 +1956,16 @@ message VexFixedVulnAssessmentRelationship {
   string startTime = 16;
   // References an Element on the right-hand side of a relationship.
   repeated Element to = 17;
-  // Specifies a time when a vulnerability assessment was modified
-  string modifiedTime = 18;
-  // Specifies the time when a vulnerability was published.
-  string publishedTime = 19;
-  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
-  Agent suppliedBy = 20;
-  // Specified the time and date when a vulnerability was withdrawn.
-  string withdrawnTime = 21;
   // Specifies an Element contained in a piece of software where a vulnerability was found.
-  SoftwareArtifact assessedElement = 22;
+  SoftwareArtifact assessedElement = 18;
+  // Specifies a time when a vulnerability assessment was modified
+  string modifiedTime = 19;
+  // Specifies the time when a vulnerability was published.
+  string publishedTime = 20;
+  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
+  Agent suppliedBy = 21;
+  // Specified the time and date when a vulnerability was withdrawn.
+  string withdrawnTime = 22;
   // Conveys information about how VEX status was determined.
   string statusNotes = 23;
   // Specifies the version of a VEX statement.
@@ -1977,24 +1977,24 @@ message VexNotAffectedVulnAssessmentRelationship {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Provides information about the completeness of relationships.
   RelationshipCompleteness completeness = 12;
   // Specifies the time from which an element is no longer applicable / valid.
@@ -2007,16 +2007,16 @@ message VexNotAffectedVulnAssessmentRelationship {
   string startTime = 16;
   // References an Element on the right-hand side of a relationship.
   repeated Element to = 17;
-  // Specifies a time when a vulnerability assessment was modified
-  string modifiedTime = 18;
-  // Specifies the time when a vulnerability was published.
-  string publishedTime = 19;
-  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
-  Agent suppliedBy = 20;
-  // Specified the time and date when a vulnerability was withdrawn.
-  string withdrawnTime = 21;
   // Specifies an Element contained in a piece of software where a vulnerability was found.
-  SoftwareArtifact assessedElement = 22;
+  SoftwareArtifact assessedElement = 18;
+  // Specifies a time when a vulnerability assessment was modified
+  string modifiedTime = 19;
+  // Specifies the time when a vulnerability was published.
+  string publishedTime = 20;
+  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
+  Agent suppliedBy = 21;
+  // Specified the time and date when a vulnerability was withdrawn.
+  string withdrawnTime = 22;
   // Conveys information about how VEX status was determined.
   string statusNotes = 23;
   // Specifies the version of a VEX statement.
@@ -2034,24 +2034,24 @@ message VexUnderInvestigationVulnAssessmentRelationship {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Provides information about the completeness of relationships.
   RelationshipCompleteness completeness = 12;
   // Specifies the time from which an element is no longer applicable / valid.
@@ -2064,16 +2064,16 @@ message VexUnderInvestigationVulnAssessmentRelationship {
   string startTime = 16;
   // References an Element on the right-hand side of a relationship.
   repeated Element to = 17;
-  // Specifies a time when a vulnerability assessment was modified
-  string modifiedTime = 18;
-  // Specifies the time when a vulnerability was published.
-  string publishedTime = 19;
-  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
-  Agent suppliedBy = 20;
-  // Specified the time and date when a vulnerability was withdrawn.
-  string withdrawnTime = 21;
   // Specifies an Element contained in a piece of software where a vulnerability was found.
-  SoftwareArtifact assessedElement = 22;
+  SoftwareArtifact assessedElement = 18;
+  // Specifies a time when a vulnerability assessment was modified
+  string modifiedTime = 19;
+  // Specifies the time when a vulnerability was published.
+  string publishedTime = 20;
+  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
+  Agent suppliedBy = 21;
+  // Specified the time and date when a vulnerability was withdrawn.
+  string withdrawnTime = 22;
   // Conveys information about how VEX status was determined.
   string statusNotes = 23;
   // Specifies the version of a VEX statement.
@@ -2085,24 +2085,24 @@ message VexVulnAssessmentRelationship {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Provides information about the completeness of relationships.
   RelationshipCompleteness completeness = 12;
   // Specifies the time from which an element is no longer applicable / valid.
@@ -2115,16 +2115,16 @@ message VexVulnAssessmentRelationship {
   string startTime = 16;
   // References an Element on the right-hand side of a relationship.
   repeated Element to = 17;
-  // Specifies a time when a vulnerability assessment was modified
-  string modifiedTime = 18;
-  // Specifies the time when a vulnerability was published.
-  string publishedTime = 19;
-  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
-  Agent suppliedBy = 20;
-  // Specified the time and date when a vulnerability was withdrawn.
-  string withdrawnTime = 21;
   // Specifies an Element contained in a piece of software where a vulnerability was found.
-  SoftwareArtifact assessedElement = 22;
+  SoftwareArtifact assessedElement = 18;
+  // Specifies a time when a vulnerability assessment was modified
+  string modifiedTime = 19;
+  // Specifies the time when a vulnerability was published.
+  string publishedTime = 20;
+  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
+  Agent suppliedBy = 21;
+  // Specified the time and date when a vulnerability was withdrawn.
+  string withdrawnTime = 22;
   // Conveys information about how VEX status was determined.
   string statusNotes = 23;
   // Specifies the version of a VEX statement.
@@ -2136,24 +2136,24 @@ message VulnAssessmentRelationship {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Provides information about the completeness of relationships.
   RelationshipCompleteness completeness = 12;
   // Specifies the time from which an element is no longer applicable / valid.
@@ -2166,16 +2166,16 @@ message VulnAssessmentRelationship {
   string startTime = 16;
   // References an Element on the right-hand side of a relationship.
   repeated Element to = 17;
-  // Specifies a time when a vulnerability assessment was modified
-  string modifiedTime = 18;
-  // Specifies the time when a vulnerability was published.
-  string publishedTime = 19;
-  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
-  Agent suppliedBy = 20;
-  // Specified the time and date when a vulnerability was withdrawn.
-  string withdrawnTime = 21;
   // Specifies an Element contained in a piece of software where a vulnerability was found.
-  SoftwareArtifact assessedElement = 22;
+  SoftwareArtifact assessedElement = 18;
+  // Specifies a time when a vulnerability assessment was modified
+  string modifiedTime = 19;
+  // Specifies the time when a vulnerability was published.
+  string publishedTime = 20;
+  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
+  Agent suppliedBy = 21;
+  // Specified the time and date when a vulnerability was withdrawn.
+  string withdrawnTime = 22;
 }
 // Specifies a vulnerability and its associated information.
 message Vulnerability {
@@ -2183,34 +2183,34 @@ message Vulnerability {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
-  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
-  Agent suppliedBy = 12;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // Specifies the time an artifact was built.
-  string builtTime = 13;
+  string builtTime = 12;
   // Identifies from where or whom the Element originally came.
-  repeated Agent originatedBy = 14;
+  repeated Agent originatedBy = 13;
   // Specifies the time an artifact was released.
-  string releaseTime = 15;
+  string releaseTime = 14;
   // The name of a relevant standard that may apply to an artifact.
-  repeated string standardName = 16;
+  repeated string standardName = 15;
+  // Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
+  Agent suppliedBy = 16;
   // Specifies the level of support associated with an artifact.
   repeated SupportType supportLevel = 17;
   // Specifies until when the artifact can be used before its usage needs to be reassessed.
@@ -2228,24 +2228,24 @@ message WithAdditionOperator {
   string type = 1;
   // Provide consumers with comments by the creator of the Element about the Element.
   string comment = 2;
-  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
-  repeated IntegrityMethod verifiedUsing = 3;
-  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
-  string spdxId = 4;
   // Provides information about the creation of the Element.
-  CreationInfo creationInfo = 5;
+  CreationInfo creationInfo = 3;
   // Provides a detailed description of the Element.
-  string description = 6;
+  string description = 4;
   // Specifies an Extension characterization of some aspect of an Element.
-  repeated Extension extension = 7;
+  repeated Extension extension = 5;
   // Provides a reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.
-  repeated ExternalIdentifier externalIdentifier = 8;
+  repeated ExternalIdentifier externalIdentifier = 6;
   // Points to a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element.
-  repeated ExternalRef externalRef = 9;
+  repeated ExternalRef externalRef = 7;
   // Identifies the name of an Element as designated by the creator.
-  string name = 10;
+  string name = 8;
   // A short description of an Element.
-  string summary = 11;
+  string summary = 9;
+  // Provides an IntegrityMethod with which the integrity of an Element can be asserted.
+  repeated IntegrityMethod verifiedUsing = 10;
+  // The IRI that identifies this Element. A reference to an Element from any field is this IRI.
+  string spdxId = 11;
   // A LicenseAddition participating in a 'with addition' model.
   LicenseAddition subjectAddition = 12;
   // A License participating in a 'with addition' model.

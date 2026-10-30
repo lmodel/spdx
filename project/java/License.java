@@ -16,13 +16,13 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public abstract class License extends ExtendableLicense {
 
+  private Boolean isDeprecatedLicenseId;
+  private Boolean isFsfLibre;
+  private Boolean isOsiApproved;
   private String licenseText;
   private String licenseXml;
   private String obsoletedBy;
   private List<URI> seeAlso;
-  private Boolean isDeprecatedLicenseId;
-  private Boolean isFsfLibre;
-  private Boolean isOsiApproved;
   private String standardLicenseHeader;
   private String standardLicenseTemplate;
 

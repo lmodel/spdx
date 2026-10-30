@@ -17,10 +17,10 @@ import lombok.*;
 public class ExternalMap  {
 
   private URI type;
-  private List<IntegrityMethod> verifiedUsing;
   private Artifact definingArtifact;
   private URI externalSpdxId;
   private URI locationHint;
+  private List<IntegrityMethod> verifiedUsing;
 
 
 }

@@ -16,8 +16,8 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public class Annotation extends Element {
 
-  private String contentType;
   private String annotationType;
+  private String contentType;
   private String statement;
   private Element subject;
 

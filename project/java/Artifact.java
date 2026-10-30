@@ -16,11 +16,11 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public abstract class Artifact extends Element {
 
-  private Agent suppliedBy;
   private String builtTime;
   private List<Agent> originatedBy;
   private String releaseTime;
   private List<String> standardName;
+  private Agent suppliedBy;
   private List<String> supportLevel;
   private String validUntilTime;
 
