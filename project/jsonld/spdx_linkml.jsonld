@@ -8320,7 +8320,7 @@
   ],
   "metamodel_version": "1.12.0",
   "source_file": "spdx_linkml.yaml",
-  "source_file_date": "2026-10-29T18:54:10",
+  "source_file_date": "2026-10-30T08:35:01",
   "source_file_size": 2268,
   "@type": "SchemaDefinition",
   "@context": [

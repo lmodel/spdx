@@ -1,60 +1,60 @@
 -- # Class: Agent Description: Agent represents anything with the potential to act on a system.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: Annotation Description: An assertion made in relation to one or more elements.
---     * Slot: contentType Description: Provides information about the content type of an Element or a Property.
 --     * Slot: annotationType Description: Describes the type of annotation.
+--     * Slot: contentType Description: Provides information about the content type of an Element or a Property.
 --     * Slot: statement Description: Commentary on an assertion that an annotator has made.
 --     * Slot: subject Description: An Element an annotator has made an assertion about.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Abstract Class: AnyLicenseInfo Description: Abstract class representing a license combination consisting of one or more licenses.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Abstract Class: Artifact Description: A distinct article or unit within the digital domain.
---     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: builtTime Description: Specifies the time an artifact was built.
 --     * Slot: releaseTime Description: Specifies the time an artifact was released.
+--     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: validUntilTime Description: Specifies until when the artifact can be used before its usage needs to be reassessed.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: Bom Description: A container for a grouping of SPDX-3.0 content characterizing details (provenence, composition, licensing, etc.) about a product.
 --     * Slot: context Description: Gives information about the circumstances or unifying properties that Elements of the bundle have been assembled under.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: Bundle Description: A collection of Elements that have a shared context.
 --     * Slot: context Description: Gives information about the circumstances or unifying properties that Elements of the bundle have been assembled under.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: CreationInfo Description: Provides information about the creation of the Element.
 --     * Slot: id
@@ -74,18 +74,18 @@
 -- # Abstract Class: Element Description: Base domain class from which all other SPDX-3.0 domain classes derive.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Abstract Class: ElementCollection Description: A collection of Elements, not necessarily with unifying context.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Abstract Class: Extension Description: A characterization of some aspect of an Element that is associated with the Element in a generalized fashion.
 --     * Slot: id
@@ -273,10 +273,10 @@
 -- # Class: IndividualElement Description: A concrete subclass of Element used by Individuals in the Core profile.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Abstract Class: IntegrityMethod Description: Provides an independently reproducible mechanism that permits verification of a specific Element.
 --     * Slot: id
@@ -343,10 +343,10 @@
 --     * Slot: startTime Description: Specifies the time from which an element is applicable / valid.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: NamespaceMap Description: A mapping between prefixes and namespace partial URIs.
 --     * Slot: id
@@ -357,10 +357,10 @@
 -- # Class: Organization Description: A group of people who work together in an organized way for a shared purpose.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: PackageVerificationCode Description: An SPDX version 2.X compatible verification method for software packages.
 --     * Slot: id
@@ -371,10 +371,10 @@
 -- # Class: Person Description: An individual human being.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: PositiveIntegerRange Description: A tuple of two positive integers that define a range.
 --     * Slot: id
@@ -389,35 +389,35 @@
 --     * Slot: startTime Description: Specifies the time from which an element is applicable / valid.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: SoftwareAgent Description: A software agent.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: SpdxDocument Description: A collection of SPDX Elements that could potentially be serialized.
 --     * Slot: dataLicense Description: Provides the license under which the SPDX documentation of the Element can be used.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: Tool Description: An element of hardware and/or software utilized to carry out a particular function.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: Build Description: Class that describes a build instance of software/artifacts.
 --     * Slot: buildEndTime Description: Property that describes the time at which a build stops.
@@ -426,10 +426,10 @@
 --     * Slot: buildType Description: A buildType is a hint that is used to indicate the toolchain, platform, or infrastructure that the build was invoked on.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: CdxPropertiesExtension Description: A type of extension consisting of a list of name value pairs.
 --     * Slot: id
@@ -445,19 +445,19 @@
 --     * Slot: licenseListVersion Description: The version of the SPDX License List used in the license expression.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: SimpleLicensingText Description: A license or addition that is not listed on the SPDX License List.
 --     * Slot: licenseText Description: Identifies the full text of a License or Addition.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: ContentIdentifier Description: A canonical, unique, immutable identifier
 --     * Slot: id
@@ -476,16 +476,16 @@
 --     * Slot: fileKind Description: Describes if a given file is a directory or non-directory kind of file.
 --     * Slot: copyrightText Description: Identifies the text of one or more copyright notices for a software Package, File or Snippet, if any.
 --     * Slot: primaryPurpose Description: Provides information about the primary purpose of the software artifact.
---     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: builtTime Description: Specifies the time an artifact was built.
 --     * Slot: releaseTime Description: Specifies the time an artifact was released.
+--     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: validUntilTime Description: Specifies until when the artifact can be used before its usage needs to be reassessed.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: Package Description: Refers to any unit of content that can be associated with a distribution of software.
 --     * Slot: downloadLocation Description: Identifies the download Uniform Resource Identifier for the package at the time that the document was created.
@@ -495,56 +495,56 @@
 --     * Slot: sourceInfo Description: Records any relevant background information or additional comments about the origin of the package.
 --     * Slot: copyrightText Description: Identifies the text of one or more copyright notices for a software Package, File or Snippet, if any.
 --     * Slot: primaryPurpose Description: Provides information about the primary purpose of the software artifact.
---     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: builtTime Description: Specifies the time an artifact was built.
 --     * Slot: releaseTime Description: Specifies the time an artifact was released.
+--     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: validUntilTime Description: Specifies until when the artifact can be used before its usage needs to be reassessed.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: Sbom Description: A collection of SPDX Elements describing a single package.
 --     * Slot: context Description: Gives information about the circumstances or unifying properties that Elements of the bundle have been assembled under.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: Snippet Description: Describes a certain part of a file.
 --     * Slot: snippetFromFile Description: Defines the original host file that the snippet information applies to.
 --     * Slot: copyrightText Description: Identifies the text of one or more copyright notices for a software Package, File or Snippet, if any.
 --     * Slot: primaryPurpose Description: Provides information about the primary purpose of the software artifact.
---     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: builtTime Description: Specifies the time an artifact was built.
 --     * Slot: releaseTime Description: Specifies the time an artifact was released.
+--     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: validUntilTime Description: Specifies until when the artifact can be used before its usage needs to be reassessed.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: byteRange_id Description: Defines the byte range in the original host file that the snippet information applies to.
 --     * Slot: lineRange_id Description: Defines the line range in the original host file that the snippet information applies to.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Abstract Class: SoftwareArtifact Description: A distinct article or unit related to Software.
 --     * Slot: copyrightText Description: Identifies the text of one or more copyright notices for a software Package, File or Snippet, if any.
 --     * Slot: primaryPurpose Description: Provides information about the primary purpose of the software artifact.
---     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: builtTime Description: Specifies the time an artifact was built.
 --     * Slot: releaseTime Description: Specifies the time an artifact was released.
+--     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: validUntilTime Description: Specifies until when the artifact can be used before its usage needs to be reassessed.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: AIPackage Description: Specifies an AI package and its associated information.
 --     * Slot: autonomyType Description: Indicates whether the system can perform a decision or action without human involvement or guidance.
@@ -560,16 +560,16 @@
 --     * Slot: sourceInfo Description: Records any relevant background information or additional comments about the origin of the package.
 --     * Slot: copyrightText Description: Identifies the text of one or more copyright notices for a software Package, File or Snippet, if any.
 --     * Slot: primaryPurpose Description: Provides information about the primary purpose of the software artifact.
---     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: builtTime Description: Specifies the time an artifact was built.
 --     * Slot: releaseTime Description: Specifies the time an artifact was released.
+--     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: validUntilTime Description: Specifies until when the artifact can be used before its usage needs to be reassessed.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: energyConsumption_id Description: Indicates the amount of energy consumption incurred by an AI model.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: EnergyConsumption Description: A class for describing the energy consumption incurred by an AI model in different stages of its lifecycle.
@@ -597,167 +597,167 @@
 --     * Slot: sourceInfo Description: Records any relevant background information or additional comments about the origin of the package.
 --     * Slot: copyrightText Description: Identifies the text of one or more copyright notices for a software Package, File or Snippet, if any.
 --     * Slot: primaryPurpose Description: Provides information about the primary purpose of the software artifact.
---     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: builtTime Description: Specifies the time an artifact was built.
 --     * Slot: releaseTime Description: Specifies the time an artifact was released.
+--     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: validUntilTime Description: Specifies until when the artifact can be used before its usage needs to be reassessed.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: ConjunctiveLicenseSet Description: Portion of an AnyLicenseInfo representing a set of licensing information where all elements apply.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: CustomLicense Description: A license that is not listed on the SPDX License List.
---     * Slot: licenseText Description: Identifies the full text of a License or Addition.
---     * Slot: licenseXml Description: Identifies all the text and metadata associated with a license in the license XML format.
---     * Slot: obsoletedBy Description: Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
 --     * Slot: isDeprecatedLicenseId Description: Specifies whether a license or additional text identifier has been marked as deprecated.
 --     * Slot: isFsfLibre Description: Specifies whether the License is listed as free by the Free Software Foundation (FSF).
 --     * Slot: isOsiApproved Description: Specifies whether the License is listed as approved by the Open Source Initiative (OSI).
+--     * Slot: licenseText Description: Identifies the full text of a License or Addition.
+--     * Slot: licenseXml Description: Identifies all the text and metadata associated with a license in the license XML format.
+--     * Slot: obsoletedBy Description: Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
 --     * Slot: standardLicenseHeader Description: Provides a License author's preferred text to indicate that a file is covered by the License.
 --     * Slot: standardLicenseTemplate Description: Identifies the full text of a License, in SPDX templating format.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: CustomLicenseAddition Description: A license addition that is not listed on the SPDX Exceptions List.
---     * Slot: licenseXml Description: Identifies all the text and metadata associated with a license in the license XML format.
---     * Slot: obsoletedBy Description: Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
 --     * Slot: additionText Description: Identifies the full text of a LicenseAddition.
 --     * Slot: isDeprecatedAdditionId Description: Specifies whether an additional text identifier has been marked as deprecated.
+--     * Slot: licenseXml Description: Identifies all the text and metadata associated with a license in the license XML format.
+--     * Slot: obsoletedBy Description: Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
 --     * Slot: standardAdditionTemplate Description: Identifies the full text of a LicenseAddition, in SPDX templating format.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: DisjunctiveLicenseSet Description: Portion of an AnyLicenseInfo representing a set of licensing information where only one of the elements applies.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Abstract Class: ExtendableLicense Description: Abstract class representing a License or an OrLaterOperator.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: IndividualLicensingInfo Description: A concrete subclass of AnyLicenseInfo used by Individuals in the ExpandedLicensing profile.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Abstract Class: License Description: Abstract class for the portion of an AnyLicenseInfo representing a license.
---     * Slot: licenseText Description: Identifies the full text of a License or Addition.
---     * Slot: licenseXml Description: Identifies all the text and metadata associated with a license in the license XML format.
---     * Slot: obsoletedBy Description: Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
 --     * Slot: isDeprecatedLicenseId Description: Specifies whether a license or additional text identifier has been marked as deprecated.
 --     * Slot: isFsfLibre Description: Specifies whether the License is listed as free by the Free Software Foundation (FSF).
 --     * Slot: isOsiApproved Description: Specifies whether the License is listed as approved by the Open Source Initiative (OSI).
+--     * Slot: licenseText Description: Identifies the full text of a License or Addition.
+--     * Slot: licenseXml Description: Identifies all the text and metadata associated with a license in the license XML format.
+--     * Slot: obsoletedBy Description: Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
 --     * Slot: standardLicenseHeader Description: Provides a License author's preferred text to indicate that a file is covered by the License.
 --     * Slot: standardLicenseTemplate Description: Identifies the full text of a License, in SPDX templating format.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Abstract Class: LicenseAddition Description: Abstract class for additional text intended to be added to a License, but which is not itself a standalone License.
---     * Slot: licenseXml Description: Identifies all the text and metadata associated with a license in the license XML format.
---     * Slot: obsoletedBy Description: Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
 --     * Slot: additionText Description: Identifies the full text of a LicenseAddition.
 --     * Slot: isDeprecatedAdditionId Description: Specifies whether an additional text identifier has been marked as deprecated.
+--     * Slot: licenseXml Description: Identifies all the text and metadata associated with a license in the license XML format.
+--     * Slot: obsoletedBy Description: Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
 --     * Slot: standardAdditionTemplate Description: Identifies the full text of a LicenseAddition, in SPDX templating format.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: ListedLicense Description: A license that is listed on the SPDX License List.
 --     * Slot: deprecatedVersion Description: Specifies the SPDX License List version in which this license or exception identifier was deprecated.
 --     * Slot: listVersionAdded Description: Specifies the SPDX License List version in which this ListedLicense or ListedLicenseException identifier was first added.
---     * Slot: licenseText Description: Identifies the full text of a License or Addition.
---     * Slot: licenseXml Description: Identifies all the text and metadata associated with a license in the license XML format.
---     * Slot: obsoletedBy Description: Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
 --     * Slot: isDeprecatedLicenseId Description: Specifies whether a license or additional text identifier has been marked as deprecated.
 --     * Slot: isFsfLibre Description: Specifies whether the License is listed as free by the Free Software Foundation (FSF).
 --     * Slot: isOsiApproved Description: Specifies whether the License is listed as approved by the Open Source Initiative (OSI).
+--     * Slot: licenseText Description: Identifies the full text of a License or Addition.
+--     * Slot: licenseXml Description: Identifies all the text and metadata associated with a license in the license XML format.
+--     * Slot: obsoletedBy Description: Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
 --     * Slot: standardLicenseHeader Description: Provides a License author's preferred text to indicate that a file is covered by the License.
 --     * Slot: standardLicenseTemplate Description: Identifies the full text of a License, in SPDX templating format.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: ListedLicenseException Description: A license exception that is listed on the SPDX Exceptions list.
 --     * Slot: deprecatedVersion Description: Specifies the SPDX License List version in which this license or exception identifier was deprecated.
 --     * Slot: listVersionAdded Description: Specifies the SPDX License List version in which this ListedLicense or ListedLicenseException identifier was first added.
---     * Slot: licenseXml Description: Identifies all the text and metadata associated with a license in the license XML format.
---     * Slot: obsoletedBy Description: Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
 --     * Slot: additionText Description: Identifies the full text of a LicenseAddition.
 --     * Slot: isDeprecatedAdditionId Description: Specifies whether an additional text identifier has been marked as deprecated.
+--     * Slot: licenseXml Description: Identifies all the text and metadata associated with a license in the license XML format.
+--     * Slot: obsoletedBy Description: Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition.
 --     * Slot: standardAdditionTemplate Description: Identifies the full text of a LicenseAddition, in SPDX templating format.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: OrLaterOperator Description: Portion of an AnyLicenseInfo representing this version, or any later version, of the indicated License.
 --     * Slot: subjectLicense Description: A License participating in an 'or later' model.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: WithAdditionOperator Description: Portion of an AnyLicenseInfo representing a License which has additional text applied to it.
 --     * Slot: subjectAddition Description: A LicenseAddition participating in a 'with addition' model.
 --     * Slot: subjectExtendableLicense Description: A License participating in a 'with addition' model.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: CvssV2VulnAssessmentRelationship Description: Provides a CVSS version 2.0 assessment for a vulnerability.
 --     * Slot: score Description: Provides a numerical (0-10) representation of the severity of a vulnerability.
 --     * Slot: vectorString Description: Specifies the CVSS vector string for a vulnerability.
+--     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: modifiedTime Description: Specifies a time when a vulnerability assessment was modified
 --     * Slot: publishedTime Description: Specifies the time when a vulnerability was published.
 --     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: withdrawnTime Description: Specified the time and date when a vulnerability was withdrawn.
---     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: completeness Description: Provides information about the completeness of relationships.
 --     * Slot: endTime Description: Specifies the time from which an element is no longer applicable / valid.
 --     * Slot: from Description: References the Element on the left-hand side of a relationship.
@@ -765,20 +765,20 @@
 --     * Slot: startTime Description: Specifies the time from which an element is applicable / valid.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: CvssV3VulnAssessmentRelationship Description: Provides a CVSS version 3 assessment for a vulnerability.
 --     * Slot: score Description: Provides a numerical (0-10) representation of the severity of a vulnerability.
 --     * Slot: severity Description: Specifies the CVSS qualitative severity rating of a vulnerability in relation to a piece of software.
 --     * Slot: vectorString Description: Specifies the CVSS vector string for a vulnerability.
+--     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: modifiedTime Description: Specifies a time when a vulnerability assessment was modified
 --     * Slot: publishedTime Description: Specifies the time when a vulnerability was published.
 --     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: withdrawnTime Description: Specified the time and date when a vulnerability was withdrawn.
---     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: completeness Description: Provides information about the completeness of relationships.
 --     * Slot: endTime Description: Specifies the time from which an element is no longer applicable / valid.
 --     * Slot: from Description: References the Element on the left-hand side of a relationship.
@@ -786,20 +786,20 @@
 --     * Slot: startTime Description: Specifies the time from which an element is applicable / valid.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: CvssV4VulnAssessmentRelationship Description: Provides a CVSS version 4 assessment for a vulnerability.
 --     * Slot: score Description: Provides a numerical (0-10) representation of the severity of a vulnerability.
 --     * Slot: severity Description: Specifies the CVSS qualitative severity rating of a vulnerability in relation to a piece of software.
 --     * Slot: vectorString Description: Specifies the CVSS vector string for a vulnerability.
+--     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: modifiedTime Description: Specifies a time when a vulnerability assessment was modified
 --     * Slot: publishedTime Description: Specifies the time when a vulnerability was published.
 --     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: withdrawnTime Description: Specified the time and date when a vulnerability was withdrawn.
---     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: completeness Description: Provides information about the completeness of relationships.
 --     * Slot: endTime Description: Specifies the time from which an element is no longer applicable / valid.
 --     * Slot: from Description: References the Element on the left-hand side of a relationship.
@@ -807,19 +807,19 @@
 --     * Slot: startTime Description: Specifies the time from which an element is applicable / valid.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: EpssVulnAssessmentRelationship Description: Provides an EPSS assessment for a vulnerability.
 --     * Slot: percentile Description: The percentile of the current probability score.
 --     * Slot: probability Description: A probability score between 0 and 1 of a vulnerability being exploited.
+--     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: modifiedTime Description: Specifies a time when a vulnerability assessment was modified
 --     * Slot: publishedTime Description: Specifies the time when a vulnerability was published.
 --     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: withdrawnTime Description: Specified the time and date when a vulnerability was withdrawn.
---     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: completeness Description: Provides information about the completeness of relationships.
 --     * Slot: endTime Description: Specifies the time from which an element is no longer applicable / valid.
 --     * Slot: from Description: References the Element on the left-hand side of a relationship.
@@ -827,20 +827,20 @@
 --     * Slot: startTime Description: Specifies the time from which an element is applicable / valid.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: ExploitCatalogVulnAssessmentRelationship Description: Provides an exploit assessment of a vulnerability.
 --     * Slot: catalogType Description: Specifies the exploit catalog type.
 --     * Slot: exploited Description: Describe that a CVE is known to have an exploit because it's been listed in an exploit catalog.
 --     * Slot: security_locator Description: Provides the location of an exploit catalog.
+--     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: modifiedTime Description: Specifies a time when a vulnerability assessment was modified
 --     * Slot: publishedTime Description: Specifies the time when a vulnerability was published.
 --     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: withdrawnTime Description: Specified the time and date when a vulnerability was withdrawn.
---     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: completeness Description: Provides information about the completeness of relationships.
 --     * Slot: endTime Description: Specifies the time from which an element is no longer applicable / valid.
 --     * Slot: from Description: References the Element on the left-hand side of a relationship.
@@ -848,18 +848,18 @@
 --     * Slot: startTime Description: Specifies the time from which an element is applicable / valid.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: SsvcVulnAssessmentRelationship Description: Provides an SSVC assessment for a vulnerability.
 --     * Slot: decisionType Description: Provide the enumeration of possible decisions in the [Stakeholder-Specific Vulnerability Categorization (SSVC) decision tree](https://www.cisa.gov/stakeholder-specific-vulnerability-categorization-ssvc).
+--     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: modifiedTime Description: Specifies a time when a vulnerability assessment was modified
 --     * Slot: publishedTime Description: Specifies the time when a vulnerability was published.
 --     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: withdrawnTime Description: Specified the time and date when a vulnerability was withdrawn.
---     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: completeness Description: Provides information about the completeness of relationships.
 --     * Slot: endTime Description: Specifies the time from which an element is no longer applicable / valid.
 --     * Slot: from Description: References the Element on the left-hand side of a relationship.
@@ -867,21 +867,21 @@
 --     * Slot: startTime Description: Specifies the time from which an element is applicable / valid.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: VexAffectedVulnAssessmentRelationship Description: Connects a vulnerability and an element designating the element as a product affected by the vulnerability.
 --     * Slot: actionStatement Description: Provides advise on how to mitigate or remediate a vulnerability when a VEX product is affected by it.
 --     * Slot: actionStatementTime Description: Records the time when a recommended action was communicated in a VEX statement to mitigate a vulnerability.
 --     * Slot: statusNotes Description: Conveys information about how VEX status was determined.
 --     * Slot: vexVersion Description: Specifies the version of a VEX statement.
+--     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: modifiedTime Description: Specifies a time when a vulnerability assessment was modified
 --     * Slot: publishedTime Description: Specifies the time when a vulnerability was published.
 --     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: withdrawnTime Description: Specified the time and date when a vulnerability was withdrawn.
---     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: completeness Description: Provides information about the completeness of relationships.
 --     * Slot: endTime Description: Specifies the time from which an element is no longer applicable / valid.
 --     * Slot: from Description: References the Element on the left-hand side of a relationship.
@@ -889,19 +889,19 @@
 --     * Slot: startTime Description: Specifies the time from which an element is applicable / valid.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: VexFixedVulnAssessmentRelationship Description: Links a vulnerability and elements representing products (in the VEX sense) where a fix has been applied and are no longer affected.
 --     * Slot: statusNotes Description: Conveys information about how VEX status was determined.
 --     * Slot: vexVersion Description: Specifies the version of a VEX statement.
+--     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: modifiedTime Description: Specifies a time when a vulnerability assessment was modified
 --     * Slot: publishedTime Description: Specifies the time when a vulnerability was published.
 --     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: withdrawnTime Description: Specified the time and date when a vulnerability was withdrawn.
---     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: completeness Description: Provides information about the completeness of relationships.
 --     * Slot: endTime Description: Specifies the time from which an element is no longer applicable / valid.
 --     * Slot: from Description: References the Element on the left-hand side of a relationship.
@@ -909,10 +909,10 @@
 --     * Slot: startTime Description: Specifies the time from which an element is applicable / valid.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: VexNotAffectedVulnAssessmentRelationship Description: Links a vulnerability and one or more elements designating the latter as products not affected by the vulnerability.
 --     * Slot: impactStatement Description: Explains why a VEX product is not affected by a vulnerability. It is an alternative in VexNotAffectedVulnAssessmentRelationship to the machine-readable justification label.
@@ -920,11 +920,11 @@
 --     * Slot: justificationType Description: Impact justification label to be used when linking a vulnerability to an element representing a VEX product with a VexNotAffectedVulnAssessmentRelationship relationship.
 --     * Slot: statusNotes Description: Conveys information about how VEX status was determined.
 --     * Slot: vexVersion Description: Specifies the version of a VEX statement.
+--     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: modifiedTime Description: Specifies a time when a vulnerability assessment was modified
 --     * Slot: publishedTime Description: Specifies the time when a vulnerability was published.
 --     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: withdrawnTime Description: Specified the time and date when a vulnerability was withdrawn.
---     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: completeness Description: Provides information about the completeness of relationships.
 --     * Slot: endTime Description: Specifies the time from which an element is no longer applicable / valid.
 --     * Slot: from Description: References the Element on the left-hand side of a relationship.
@@ -932,19 +932,19 @@
 --     * Slot: startTime Description: Specifies the time from which an element is applicable / valid.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: VexUnderInvestigationVulnAssessmentRelationship Description: Designates elements as products where the impact of a vulnerability is being investigated.
 --     * Slot: statusNotes Description: Conveys information about how VEX status was determined.
 --     * Slot: vexVersion Description: Specifies the version of a VEX statement.
+--     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: modifiedTime Description: Specifies a time when a vulnerability assessment was modified
 --     * Slot: publishedTime Description: Specifies the time when a vulnerability was published.
 --     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: withdrawnTime Description: Specified the time and date when a vulnerability was withdrawn.
---     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: completeness Description: Provides information about the completeness of relationships.
 --     * Slot: endTime Description: Specifies the time from which an element is no longer applicable / valid.
 --     * Slot: from Description: References the Element on the left-hand side of a relationship.
@@ -952,19 +952,19 @@
 --     * Slot: startTime Description: Specifies the time from which an element is applicable / valid.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Abstract Class: VexVulnAssessmentRelationship Description: Abstract ancestor class for all VEX relationships
 --     * Slot: statusNotes Description: Conveys information about how VEX status was determined.
 --     * Slot: vexVersion Description: Specifies the version of a VEX statement.
+--     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: modifiedTime Description: Specifies a time when a vulnerability assessment was modified
 --     * Slot: publishedTime Description: Specifies the time when a vulnerability was published.
 --     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: withdrawnTime Description: Specified the time and date when a vulnerability was withdrawn.
---     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: completeness Description: Provides information about the completeness of relationships.
 --     * Slot: endTime Description: Specifies the time from which an element is no longer applicable / valid.
 --     * Slot: from Description: References the Element on the left-hand side of a relationship.
@@ -972,17 +972,17 @@
 --     * Slot: startTime Description: Specifies the time from which an element is applicable / valid.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Abstract Class: VulnAssessmentRelationship Description: Abstract ancestor class for all vulnerability assessments
+--     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: modifiedTime Description: Specifies a time when a vulnerability assessment was modified
 --     * Slot: publishedTime Description: Specifies the time when a vulnerability was published.
 --     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: withdrawnTime Description: Specified the time and date when a vulnerability was withdrawn.
---     * Slot: assessedElement Description: Specifies an Element contained in a piece of software where a vulnerability was found.
 --     * Slot: completeness Description: Provides information about the completeness of relationships.
 --     * Slot: endTime Description: Specifies the time from which an element is no longer applicable / valid.
 --     * Slot: from Description: References the Element on the left-hand side of a relationship.
@@ -990,25 +990,25 @@
 --     * Slot: startTime Description: Specifies the time from which an element is applicable / valid.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: Vulnerability Description: Specifies a vulnerability and its associated information.
 --     * Slot: modifiedTime Description: Specifies a time when a vulnerability assessment was modified
 --     * Slot: publishedTime Description: Specifies the time when a vulnerability was published.
 --     * Slot: withdrawnTime Description: Specified the time and date when a vulnerability was withdrawn.
---     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: builtTime Description: Specifies the time an artifact was built.
 --     * Slot: releaseTime Description: Specifies the time an artifact was released.
+--     * Slot: suppliedBy Description: Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element.
 --     * Slot: validUntilTime Description: Specifies until when the artifact can be used before its usage needs to be reassessed.
 --     * Slot: type Description: The class an object is an instance of, as the class's CURIE, such as spdx_software:Package.
 --     * Slot: comment Description: Provide consumers with comments by the creator of the Element about the Element.
---     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: description Description: Provides a detailed description of the Element.
 --     * Slot: name Description: Identifies the name of an Element as designated by the creator.
 --     * Slot: summary Description: A short description of an Element.
+--     * Slot: spdxId Description: The IRI that identifies this Element. A reference to an Element from any field is this IRI.
 --     * Slot: creationInfo_id Description: Provides information about the creation of the Element.
 -- # Class: Artifact_originatedBy
 --     * Slot: Artifact_spdxId Description: Autocreated FK slot
@@ -1327,10 +1327,10 @@ CREATE INDEX "ix_EnergyConsumption_id" ON "EnergyConsumption" (id);
 CREATE TABLE "Agent" (
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1340,10 +1340,10 @@ CREATE INDEX "ix_Agent_spdxId" ON "Agent" ("spdxId");
 CREATE TABLE "AnyLicenseInfo" (
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1354,10 +1354,10 @@ CREATE TABLE "Bom" (
 	context TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1368,10 +1368,10 @@ CREATE TABLE "Bundle" (
 	context TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1381,10 +1381,10 @@ CREATE INDEX "ix_Bundle_spdxId" ON "Bundle" ("spdxId");
 CREATE TABLE "Element" (
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1394,10 +1394,10 @@ CREATE INDEX "ix_Element_spdxId" ON "Element" ("spdxId");
 CREATE TABLE "ElementCollection" (
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1407,10 +1407,10 @@ CREATE INDEX "ix_ElementCollection_spdxId" ON "ElementCollection" ("spdxId");
 CREATE TABLE "IndividualElement" (
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1420,10 +1420,10 @@ CREATE INDEX "ix_IndividualElement_spdxId" ON "IndividualElement" ("spdxId");
 CREATE TABLE "Organization" (
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1433,10 +1433,10 @@ CREATE INDEX "ix_Organization_spdxId" ON "Organization" ("spdxId");
 CREATE TABLE "Person" (
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1446,10 +1446,10 @@ CREATE INDEX "ix_Person_spdxId" ON "Person" ("spdxId");
 CREATE TABLE "SoftwareAgent" (
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1459,10 +1459,10 @@ CREATE INDEX "ix_SoftwareAgent_spdxId" ON "SoftwareAgent" ("spdxId");
 CREATE TABLE "Tool" (
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1476,10 +1476,10 @@ CREATE TABLE "Build" (
 	"buildType" TEXT NOT NULL,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1502,10 +1502,10 @@ CREATE TABLE "LicenseExpression" (
 	"licenseListVersion" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1516,10 +1516,10 @@ CREATE TABLE "SimpleLicensingText" (
 	"licenseText" TEXT NOT NULL,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1530,10 +1530,10 @@ CREATE TABLE "Sbom" (
 	context TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1554,10 +1554,10 @@ CREATE INDEX "ix_EnergyConsumptionDescription_id" ON "EnergyConsumptionDescripti
 CREATE TABLE "ConjunctiveLicenseSet" (
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1565,20 +1565,20 @@ CREATE TABLE "ConjunctiveLicenseSet" (
 CREATE INDEX "ix_ConjunctiveLicenseSet_spdxId" ON "ConjunctiveLicenseSet" ("spdxId");
 
 CREATE TABLE "CustomLicense" (
-	"licenseText" TEXT NOT NULL,
-	"licenseXml" TEXT,
-	"obsoletedBy" TEXT,
 	"isDeprecatedLicenseId" BOOLEAN,
 	"isFsfLibre" BOOLEAN,
 	"isOsiApproved" BOOLEAN,
+	"licenseText" TEXT NOT NULL,
+	"licenseXml" TEXT,
+	"obsoletedBy" TEXT,
 	"standardLicenseHeader" TEXT,
 	"standardLicenseTemplate" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1586,17 +1586,17 @@ CREATE TABLE "CustomLicense" (
 CREATE INDEX "ix_CustomLicense_spdxId" ON "CustomLicense" ("spdxId");
 
 CREATE TABLE "CustomLicenseAddition" (
-	"licenseXml" TEXT,
-	"obsoletedBy" TEXT,
 	"additionText" TEXT NOT NULL,
 	"isDeprecatedAdditionId" BOOLEAN,
+	"licenseXml" TEXT,
+	"obsoletedBy" TEXT,
 	"standardAdditionTemplate" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1606,10 +1606,10 @@ CREATE INDEX "ix_CustomLicenseAddition_spdxId" ON "CustomLicenseAddition" ("spdx
 CREATE TABLE "DisjunctiveLicenseSet" (
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1619,10 +1619,10 @@ CREATE INDEX "ix_DisjunctiveLicenseSet_spdxId" ON "DisjunctiveLicenseSet" ("spdx
 CREATE TABLE "ExtendableLicense" (
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1632,10 +1632,10 @@ CREATE INDEX "ix_ExtendableLicense_spdxId" ON "ExtendableLicense" ("spdxId");
 CREATE TABLE "IndividualLicensingInfo" (
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1643,20 +1643,20 @@ CREATE TABLE "IndividualLicensingInfo" (
 CREATE INDEX "ix_IndividualLicensingInfo_spdxId" ON "IndividualLicensingInfo" ("spdxId");
 
 CREATE TABLE "License" (
-	"licenseText" TEXT NOT NULL,
-	"licenseXml" TEXT,
-	"obsoletedBy" TEXT,
 	"isDeprecatedLicenseId" BOOLEAN,
 	"isFsfLibre" BOOLEAN,
 	"isOsiApproved" BOOLEAN,
+	"licenseText" TEXT NOT NULL,
+	"licenseXml" TEXT,
+	"obsoletedBy" TEXT,
 	"standardLicenseHeader" TEXT,
 	"standardLicenseTemplate" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1664,17 +1664,17 @@ CREATE TABLE "License" (
 CREATE INDEX "ix_License_spdxId" ON "License" ("spdxId");
 
 CREATE TABLE "LicenseAddition" (
-	"licenseXml" TEXT,
-	"obsoletedBy" TEXT,
 	"additionText" TEXT NOT NULL,
 	"isDeprecatedAdditionId" BOOLEAN,
+	"licenseXml" TEXT,
+	"obsoletedBy" TEXT,
 	"standardAdditionTemplate" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1684,20 +1684,20 @@ CREATE INDEX "ix_LicenseAddition_spdxId" ON "LicenseAddition" ("spdxId");
 CREATE TABLE "ListedLicense" (
 	"deprecatedVersion" TEXT,
 	"listVersionAdded" TEXT,
-	"licenseText" TEXT NOT NULL,
-	"licenseXml" TEXT,
-	"obsoletedBy" TEXT,
 	"isDeprecatedLicenseId" BOOLEAN,
 	"isFsfLibre" BOOLEAN,
 	"isOsiApproved" BOOLEAN,
+	"licenseText" TEXT NOT NULL,
+	"licenseXml" TEXT,
+	"obsoletedBy" TEXT,
 	"standardLicenseHeader" TEXT,
 	"standardLicenseTemplate" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1707,17 +1707,17 @@ CREATE INDEX "ix_ListedLicense_spdxId" ON "ListedLicense" ("spdxId");
 CREATE TABLE "ListedLicenseException" (
 	"deprecatedVersion" TEXT,
 	"listVersionAdded" TEXT,
-	"licenseXml" TEXT,
-	"obsoletedBy" TEXT,
 	"additionText" TEXT NOT NULL,
 	"isDeprecatedAdditionId" BOOLEAN,
+	"licenseXml" TEXT,
+	"obsoletedBy" TEXT,
 	"standardAdditionTemplate" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
@@ -1730,20 +1730,20 @@ CREATE TABLE "PackageVerificationCode_packageVerificationCodeExcludedFile" (
 	PRIMARY KEY ("PackageVerificationCode_id", "packageVerificationCodeExcludedFile"),
 	FOREIGN KEY("PackageVerificationCode_id") REFERENCES "PackageVerificationCode" (id)
 );
-CREATE INDEX "ix_PackageVerificationCode_packageVerificationCodeExcludedFile_PackageVerificationCode_id" ON "PackageVerificationCode_packageVerificationCodeExcludedFile" ("PackageVerificationCode_id");
 CREATE INDEX "ix_PackageVerificationCode_packageVerificationCodeExcludedFile_packageVerificationCodeExcludedFile" ON "PackageVerificationCode_packageVerificationCodeExcludedFile" ("packageVerificationCodeExcludedFile");
+CREATE INDEX "ix_PackageVerificationCode_packageVerificationCodeExcludedFile_PackageVerificationCode_id" ON "PackageVerificationCode_packageVerificationCodeExcludedFile" ("PackageVerificationCode_id");
 
 CREATE TABLE "Annotation" (
-	"contentType" TEXT,
 	"annotationType" VARCHAR(6) NOT NULL,
+	"contentType" TEXT,
 	statement TEXT,
 	subject TEXT NOT NULL,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY(subject) REFERENCES "Element" ("spdxId"),
@@ -1752,16 +1752,16 @@ CREATE TABLE "Annotation" (
 CREATE INDEX "ix_Annotation_spdxId" ON "Annotation" ("spdxId");
 
 CREATE TABLE "Artifact" (
-	"suppliedBy" TEXT,
 	"builtTime" TEXT,
 	"releaseTime" TEXT,
+	"suppliedBy" TEXT,
 	"validUntilTime" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
@@ -1790,10 +1790,10 @@ CREATE TABLE "LifecycleScopedRelationship" (
 	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("from") REFERENCES "Element" ("spdxId"),
@@ -1809,10 +1809,10 @@ CREATE TABLE "Relationship" (
 	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("from") REFERENCES "Element" ("spdxId"),
@@ -1824,10 +1824,10 @@ CREATE TABLE "SpdxDocument" (
 	"dataLicense" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("dataLicense") REFERENCES "AnyLicenseInfo" ("spdxId"),
@@ -1840,16 +1840,16 @@ CREATE TABLE "File" (
 	"fileKind" VARCHAR(9),
 	"copyrightText" TEXT,
 	"primaryPurpose" VARCHAR(15),
-	"suppliedBy" TEXT,
 	"builtTime" TEXT,
 	"releaseTime" TEXT,
+	"suppliedBy" TEXT,
 	"validUntilTime" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
@@ -1865,16 +1865,16 @@ CREATE TABLE "Package" (
 	"sourceInfo" TEXT,
 	"copyrightText" TEXT,
 	"primaryPurpose" VARCHAR(15),
-	"suppliedBy" TEXT,
 	"builtTime" TEXT,
 	"releaseTime" TEXT,
+	"suppliedBy" TEXT,
 	"validUntilTime" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
@@ -1885,16 +1885,16 @@ CREATE INDEX "ix_Package_spdxId" ON "Package" ("spdxId");
 CREATE TABLE "SoftwareArtifact" (
 	"copyrightText" TEXT,
 	"primaryPurpose" VARCHAR(15),
-	"suppliedBy" TEXT,
 	"builtTime" TEXT,
 	"releaseTime" TEXT,
+	"suppliedBy" TEXT,
 	"validUntilTime" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
@@ -1916,16 +1916,16 @@ CREATE TABLE "AIPackage" (
 	"sourceInfo" TEXT,
 	"copyrightText" TEXT,
 	"primaryPurpose" VARCHAR(15),
-	"suppliedBy" TEXT,
 	"builtTime" TEXT,
 	"releaseTime" TEXT,
+	"suppliedBy" TEXT,
 	"validUntilTime" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"energyConsumption_id" INTEGER,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
@@ -1951,16 +1951,16 @@ CREATE TABLE "DatasetPackage" (
 	"sourceInfo" TEXT,
 	"copyrightText" TEXT,
 	"primaryPurpose" VARCHAR(15),
-	"suppliedBy" TEXT,
 	"builtTime" TEXT,
 	"releaseTime" TEXT,
+	"suppliedBy" TEXT,
 	"validUntilTime" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
@@ -1972,10 +1972,10 @@ CREATE TABLE "OrLaterOperator" (
 	"subjectLicense" TEXT NOT NULL,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("subjectLicense") REFERENCES "License" ("spdxId"),
@@ -1988,10 +1988,10 @@ CREATE TABLE "WithAdditionOperator" (
 	"subjectExtendableLicense" TEXT NOT NULL,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("subjectAddition") REFERENCES "LicenseAddition" ("spdxId"),
@@ -2004,16 +2004,16 @@ CREATE TABLE "Vulnerability" (
 	"modifiedTime" TEXT,
 	"publishedTime" TEXT,
 	"withdrawnTime" TEXT,
-	"suppliedBy" TEXT,
 	"builtTime" TEXT,
 	"releaseTime" TEXT,
+	"suppliedBy" TEXT,
 	"validUntilTime" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
 	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
@@ -2028,8 +2028,8 @@ CREATE TABLE "Bom_element" (
 	FOREIGN KEY("Bom_spdxId") REFERENCES "Bom" ("spdxId"),
 	FOREIGN KEY("element_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_Bom_element_element_spdxId" ON "Bom_element" ("element_spdxId");
 CREATE INDEX "ix_Bom_element_Bom_spdxId" ON "Bom_element" ("Bom_spdxId");
+CREATE INDEX "ix_Bom_element_element_spdxId" ON "Bom_element" ("element_spdxId");
 
 CREATE TABLE "Bom_profileConformance" (
 	"Bom_spdxId" TEXT,
@@ -2076,8 +2076,8 @@ CREATE TABLE "Bundle_rootElement" (
 	FOREIGN KEY("Bundle_spdxId") REFERENCES "Bundle" ("spdxId"),
 	FOREIGN KEY("rootElement_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_Bundle_rootElement_Bundle_spdxId" ON "Bundle_rootElement" ("Bundle_spdxId");
 CREATE INDEX "ix_Bundle_rootElement_rootElement_spdxId" ON "Bundle_rootElement" ("rootElement_spdxId");
+CREATE INDEX "ix_Bundle_rootElement_Bundle_spdxId" ON "Bundle_rootElement" ("Bundle_spdxId");
 
 CREATE TABLE "CreationInfo_createdBy" (
 	"CreationInfo_id" INTEGER,
@@ -2162,8 +2162,8 @@ CREATE TABLE "Sbom_element" (
 	FOREIGN KEY("Sbom_spdxId") REFERENCES "Sbom" ("spdxId"),
 	FOREIGN KEY("element_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_Sbom_element_element_spdxId" ON "Sbom_element" ("element_spdxId");
 CREATE INDEX "ix_Sbom_element_Sbom_spdxId" ON "Sbom_element" ("Sbom_spdxId");
+CREATE INDEX "ix_Sbom_element_element_spdxId" ON "Sbom_element" ("element_spdxId");
 
 CREATE TABLE "Sbom_profileConformance" (
 	"Sbom_spdxId" TEXT,
@@ -2191,8 +2191,8 @@ CREATE TABLE "ConjunctiveLicenseSet_member" (
 	FOREIGN KEY("ConjunctiveLicenseSet_spdxId") REFERENCES "ConjunctiveLicenseSet" ("spdxId"),
 	FOREIGN KEY("member_spdxId") REFERENCES "AnyLicenseInfo" ("spdxId")
 );
-CREATE INDEX "ix_ConjunctiveLicenseSet_member_ConjunctiveLicenseSet_spdxId" ON "ConjunctiveLicenseSet_member" ("ConjunctiveLicenseSet_spdxId");
 CREATE INDEX "ix_ConjunctiveLicenseSet_member_member_spdxId" ON "ConjunctiveLicenseSet_member" ("member_spdxId");
+CREATE INDEX "ix_ConjunctiveLicenseSet_member_ConjunctiveLicenseSet_spdxId" ON "ConjunctiveLicenseSet_member" ("ConjunctiveLicenseSet_spdxId");
 
 CREATE TABLE "CustomLicense_seeAlso" (
 	"CustomLicense_spdxId" TEXT,
@@ -2200,8 +2200,8 @@ CREATE TABLE "CustomLicense_seeAlso" (
 	PRIMARY KEY ("CustomLicense_spdxId", "seeAlso"),
 	FOREIGN KEY("CustomLicense_spdxId") REFERENCES "CustomLicense" ("spdxId")
 );
-CREATE INDEX "ix_CustomLicense_seeAlso_CustomLicense_spdxId" ON "CustomLicense_seeAlso" ("CustomLicense_spdxId");
 CREATE INDEX "ix_CustomLicense_seeAlso_seeAlso" ON "CustomLicense_seeAlso" ("seeAlso");
+CREATE INDEX "ix_CustomLicense_seeAlso_CustomLicense_spdxId" ON "CustomLicense_seeAlso" ("CustomLicense_spdxId");
 
 CREATE TABLE "CustomLicenseAddition_seeAlso" (
 	"CustomLicenseAddition_spdxId" TEXT,
@@ -2228,8 +2228,8 @@ CREATE TABLE "License_seeAlso" (
 	PRIMARY KEY ("License_spdxId", "seeAlso"),
 	FOREIGN KEY("License_spdxId") REFERENCES "License" ("spdxId")
 );
-CREATE INDEX "ix_License_seeAlso_License_spdxId" ON "License_seeAlso" ("License_spdxId");
 CREATE INDEX "ix_License_seeAlso_seeAlso" ON "License_seeAlso" ("seeAlso");
+CREATE INDEX "ix_License_seeAlso_License_spdxId" ON "License_seeAlso" ("License_spdxId");
 
 CREATE TABLE "LicenseAddition_seeAlso" (
 	"LicenseAddition_spdxId" TEXT,
@@ -2303,16 +2303,16 @@ CREATE TABLE "Snippet" (
 	"snippetFromFile" TEXT NOT NULL,
 	"copyrightText" TEXT,
 	"primaryPurpose" VARCHAR(15),
-	"suppliedBy" TEXT,
 	"builtTime" TEXT,
 	"releaseTime" TEXT,
+	"suppliedBy" TEXT,
 	"validUntilTime" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"byteRange_id" INTEGER,
 	"lineRange_id" INTEGER,
 	"creationInfo_id" INTEGER NOT NULL,
@@ -2328,11 +2328,11 @@ CREATE INDEX "ix_Snippet_spdxId" ON "Snippet" ("spdxId");
 CREATE TABLE "CvssV2VulnAssessmentRelationship" (
 	score NUMERIC NOT NULL,
 	"vectorString" TEXT NOT NULL,
+	"assessedElement" TEXT,
 	"modifiedTime" TEXT,
 	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
 	"withdrawnTime" TEXT,
-	"assessedElement" TEXT,
 	completeness VARCHAR(11),
 	"endTime" TEXT,
 	"from" TEXT NOT NULL,
@@ -2340,14 +2340,14 @@ CREATE TABLE "CvssV2VulnAssessmentRelationship" (
 	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
-	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("assessedElement") REFERENCES "SoftwareArtifact" ("spdxId"),
+	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("from") REFERENCES "Element" ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
 );
@@ -2357,11 +2357,11 @@ CREATE TABLE "CvssV3VulnAssessmentRelationship" (
 	score NUMERIC NOT NULL,
 	severity VARCHAR(8) NOT NULL,
 	"vectorString" TEXT NOT NULL,
+	"assessedElement" TEXT,
 	"modifiedTime" TEXT,
 	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
 	"withdrawnTime" TEXT,
-	"assessedElement" TEXT,
 	completeness VARCHAR(11),
 	"endTime" TEXT,
 	"from" TEXT NOT NULL,
@@ -2369,14 +2369,14 @@ CREATE TABLE "CvssV3VulnAssessmentRelationship" (
 	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
-	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("assessedElement") REFERENCES "SoftwareArtifact" ("spdxId"),
+	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("from") REFERENCES "Element" ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
 );
@@ -2386,11 +2386,11 @@ CREATE TABLE "CvssV4VulnAssessmentRelationship" (
 	score NUMERIC NOT NULL,
 	severity VARCHAR(8) NOT NULL,
 	"vectorString" TEXT NOT NULL,
+	"assessedElement" TEXT,
 	"modifiedTime" TEXT,
 	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
 	"withdrawnTime" TEXT,
-	"assessedElement" TEXT,
 	completeness VARCHAR(11),
 	"endTime" TEXT,
 	"from" TEXT NOT NULL,
@@ -2398,14 +2398,14 @@ CREATE TABLE "CvssV4VulnAssessmentRelationship" (
 	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
-	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("assessedElement") REFERENCES "SoftwareArtifact" ("spdxId"),
+	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("from") REFERENCES "Element" ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
 );
@@ -2414,11 +2414,11 @@ CREATE INDEX "ix_CvssV4VulnAssessmentRelationship_spdxId" ON "CvssV4VulnAssessme
 CREATE TABLE "EpssVulnAssessmentRelationship" (
 	percentile NUMERIC NOT NULL,
 	probability NUMERIC NOT NULL,
+	"assessedElement" TEXT,
 	"modifiedTime" TEXT,
 	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
 	"withdrawnTime" TEXT,
-	"assessedElement" TEXT,
 	completeness VARCHAR(11),
 	"endTime" TEXT,
 	"from" TEXT NOT NULL,
@@ -2426,14 +2426,14 @@ CREATE TABLE "EpssVulnAssessmentRelationship" (
 	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
-	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("assessedElement") REFERENCES "SoftwareArtifact" ("spdxId"),
+	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("from") REFERENCES "Element" ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
 );
@@ -2443,11 +2443,11 @@ CREATE TABLE "ExploitCatalogVulnAssessmentRelationship" (
 	"catalogType" VARCHAR(5) NOT NULL,
 	exploited BOOLEAN NOT NULL,
 	security_locator TEXT NOT NULL,
+	"assessedElement" TEXT,
 	"modifiedTime" TEXT,
 	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
 	"withdrawnTime" TEXT,
-	"assessedElement" TEXT,
 	completeness VARCHAR(11),
 	"endTime" TEXT,
 	"from" TEXT NOT NULL,
@@ -2455,14 +2455,14 @@ CREATE TABLE "ExploitCatalogVulnAssessmentRelationship" (
 	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
-	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("assessedElement") REFERENCES "SoftwareArtifact" ("spdxId"),
+	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("from") REFERENCES "Element" ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
 );
@@ -2470,11 +2470,11 @@ CREATE INDEX "ix_ExploitCatalogVulnAssessmentRelationship_spdxId" ON "ExploitCat
 
 CREATE TABLE "SsvcVulnAssessmentRelationship" (
 	"decisionType" VARCHAR(9) NOT NULL,
+	"assessedElement" TEXT,
 	"modifiedTime" TEXT,
 	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
 	"withdrawnTime" TEXT,
-	"assessedElement" TEXT,
 	completeness VARCHAR(11),
 	"endTime" TEXT,
 	"from" TEXT NOT NULL,
@@ -2482,14 +2482,14 @@ CREATE TABLE "SsvcVulnAssessmentRelationship" (
 	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
-	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("assessedElement") REFERENCES "SoftwareArtifact" ("spdxId"),
+	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("from") REFERENCES "Element" ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
 );
@@ -2500,11 +2500,11 @@ CREATE TABLE "VexAffectedVulnAssessmentRelationship" (
 	"actionStatementTime" TEXT,
 	"statusNotes" TEXT,
 	"vexVersion" TEXT,
+	"assessedElement" TEXT,
 	"modifiedTime" TEXT,
 	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
 	"withdrawnTime" TEXT,
-	"assessedElement" TEXT,
 	completeness VARCHAR(11),
 	"endTime" TEXT,
 	"from" TEXT NOT NULL,
@@ -2512,14 +2512,14 @@ CREATE TABLE "VexAffectedVulnAssessmentRelationship" (
 	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
-	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("assessedElement") REFERENCES "SoftwareArtifact" ("spdxId"),
+	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("from") REFERENCES "Element" ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
 );
@@ -2528,11 +2528,11 @@ CREATE INDEX "ix_VexAffectedVulnAssessmentRelationship_spdxId" ON "VexAffectedVu
 CREATE TABLE "VexFixedVulnAssessmentRelationship" (
 	"statusNotes" TEXT,
 	"vexVersion" TEXT,
+	"assessedElement" TEXT,
 	"modifiedTime" TEXT,
 	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
 	"withdrawnTime" TEXT,
-	"assessedElement" TEXT,
 	completeness VARCHAR(11),
 	"endTime" TEXT,
 	"from" TEXT NOT NULL,
@@ -2540,14 +2540,14 @@ CREATE TABLE "VexFixedVulnAssessmentRelationship" (
 	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
-	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("assessedElement") REFERENCES "SoftwareArtifact" ("spdxId"),
+	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("from") REFERENCES "Element" ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
 );
@@ -2559,11 +2559,11 @@ CREATE TABLE "VexNotAffectedVulnAssessmentRelationship" (
 	"justificationType" VARCHAR(43),
 	"statusNotes" TEXT,
 	"vexVersion" TEXT,
+	"assessedElement" TEXT,
 	"modifiedTime" TEXT,
 	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
 	"withdrawnTime" TEXT,
-	"assessedElement" TEXT,
 	completeness VARCHAR(11),
 	"endTime" TEXT,
 	"from" TEXT NOT NULL,
@@ -2571,14 +2571,14 @@ CREATE TABLE "VexNotAffectedVulnAssessmentRelationship" (
 	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
-	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("assessedElement") REFERENCES "SoftwareArtifact" ("spdxId"),
+	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("from") REFERENCES "Element" ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
 );
@@ -2587,11 +2587,11 @@ CREATE INDEX "ix_VexNotAffectedVulnAssessmentRelationship_spdxId" ON "VexNotAffe
 CREATE TABLE "VexUnderInvestigationVulnAssessmentRelationship" (
 	"statusNotes" TEXT,
 	"vexVersion" TEXT,
+	"assessedElement" TEXT,
 	"modifiedTime" TEXT,
 	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
 	"withdrawnTime" TEXT,
-	"assessedElement" TEXT,
 	completeness VARCHAR(11),
 	"endTime" TEXT,
 	"from" TEXT NOT NULL,
@@ -2599,14 +2599,14 @@ CREATE TABLE "VexUnderInvestigationVulnAssessmentRelationship" (
 	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
-	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("assessedElement") REFERENCES "SoftwareArtifact" ("spdxId"),
+	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("from") REFERENCES "Element" ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
 );
@@ -2615,11 +2615,11 @@ CREATE INDEX "ix_VexUnderInvestigationVulnAssessmentRelationship_spdxId" ON "Vex
 CREATE TABLE "VexVulnAssessmentRelationship" (
 	"statusNotes" TEXT,
 	"vexVersion" TEXT,
+	"assessedElement" TEXT,
 	"modifiedTime" TEXT,
 	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
 	"withdrawnTime" TEXT,
-	"assessedElement" TEXT,
 	completeness VARCHAR(11),
 	"endTime" TEXT,
 	"from" TEXT NOT NULL,
@@ -2627,25 +2627,25 @@ CREATE TABLE "VexVulnAssessmentRelationship" (
 	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
-	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("assessedElement") REFERENCES "SoftwareArtifact" ("spdxId"),
+	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("from") REFERENCES "Element" ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
 );
 CREATE INDEX "ix_VexVulnAssessmentRelationship_spdxId" ON "VexVulnAssessmentRelationship" ("spdxId");
 
 CREATE TABLE "VulnAssessmentRelationship" (
+	"assessedElement" TEXT,
 	"modifiedTime" TEXT,
 	"publishedTime" TEXT,
 	"suppliedBy" TEXT,
 	"withdrawnTime" TEXT,
-	"assessedElement" TEXT,
 	completeness VARCHAR(11),
 	"endTime" TEXT,
 	"from" TEXT NOT NULL,
@@ -2653,14 +2653,14 @@ CREATE TABLE "VulnAssessmentRelationship" (
 	"startTime" TEXT,
 	type TEXT,
 	comment TEXT,
-	"spdxId" TEXT NOT NULL,
 	description TEXT,
 	name TEXT,
 	summary TEXT,
+	"spdxId" TEXT NOT NULL,
 	"creationInfo_id" INTEGER NOT NULL,
 	PRIMARY KEY ("spdxId"),
-	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("assessedElement") REFERENCES "SoftwareArtifact" ("spdxId"),
+	FOREIGN KEY("suppliedBy") REFERENCES "Agent" ("spdxId"),
 	FOREIGN KEY("from") REFERENCES "Element" ("spdxId"),
 	FOREIGN KEY("creationInfo_id") REFERENCES "CreationInfo" (id)
 );
@@ -2673,8 +2673,8 @@ CREATE TABLE "Artifact_originatedBy" (
 	FOREIGN KEY("Artifact_spdxId") REFERENCES "Artifact" ("spdxId"),
 	FOREIGN KEY("originatedBy_spdxId") REFERENCES "Agent" ("spdxId")
 );
-CREATE INDEX "ix_Artifact_originatedBy_originatedBy_spdxId" ON "Artifact_originatedBy" ("originatedBy_spdxId");
 CREATE INDEX "ix_Artifact_originatedBy_Artifact_spdxId" ON "Artifact_originatedBy" ("Artifact_spdxId");
+CREATE INDEX "ix_Artifact_originatedBy_originatedBy_spdxId" ON "Artifact_originatedBy" ("originatedBy_spdxId");
 
 CREATE TABLE "Artifact_standardName" (
 	"Artifact_spdxId" TEXT,
@@ -2701,8 +2701,8 @@ CREATE TABLE "LifecycleScopedRelationship_to" (
 	FOREIGN KEY("LifecycleScopedRelationship_spdxId") REFERENCES "LifecycleScopedRelationship" ("spdxId"),
 	FOREIGN KEY("to_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_LifecycleScopedRelationship_to_LifecycleScopedRelationship_spdxId" ON "LifecycleScopedRelationship_to" ("LifecycleScopedRelationship_spdxId");
 CREATE INDEX "ix_LifecycleScopedRelationship_to_to_spdxId" ON "LifecycleScopedRelationship_to" ("to_spdxId");
+CREATE INDEX "ix_LifecycleScopedRelationship_to_LifecycleScopedRelationship_spdxId" ON "LifecycleScopedRelationship_to" ("LifecycleScopedRelationship_spdxId");
 
 CREATE TABLE "Relationship_to" (
 	"Relationship_spdxId" TEXT,
@@ -2730,8 +2730,8 @@ CREATE TABLE "SpdxDocument_profileConformance" (
 	PRIMARY KEY ("SpdxDocument_spdxId", "profileConformance"),
 	FOREIGN KEY("SpdxDocument_spdxId") REFERENCES "SpdxDocument" ("spdxId")
 );
-CREATE INDEX "ix_SpdxDocument_profileConformance_SpdxDocument_spdxId" ON "SpdxDocument_profileConformance" ("SpdxDocument_spdxId");
 CREATE INDEX "ix_SpdxDocument_profileConformance_profileConformance" ON "SpdxDocument_profileConformance" ("profileConformance");
+CREATE INDEX "ix_SpdxDocument_profileConformance_SpdxDocument_spdxId" ON "SpdxDocument_profileConformance" ("SpdxDocument_spdxId");
 
 CREATE TABLE "SpdxDocument_rootElement" (
 	"SpdxDocument_spdxId" TEXT,
@@ -2749,8 +2749,8 @@ CREATE TABLE "File_additionalPurpose" (
 	PRIMARY KEY ("File_spdxId", "additionalPurpose"),
 	FOREIGN KEY("File_spdxId") REFERENCES "File" ("spdxId")
 );
-CREATE INDEX "ix_File_additionalPurpose_additionalPurpose" ON "File_additionalPurpose" ("additionalPurpose");
 CREATE INDEX "ix_File_additionalPurpose_File_spdxId" ON "File_additionalPurpose" ("File_spdxId");
+CREATE INDEX "ix_File_additionalPurpose_additionalPurpose" ON "File_additionalPurpose" ("additionalPurpose");
 
 CREATE TABLE "File_attributionText" (
 	"File_spdxId" TEXT,
@@ -2768,8 +2768,8 @@ CREATE TABLE "File_originatedBy" (
 	FOREIGN KEY("File_spdxId") REFERENCES "File" ("spdxId"),
 	FOREIGN KEY("originatedBy_spdxId") REFERENCES "Agent" ("spdxId")
 );
-CREATE INDEX "ix_File_originatedBy_File_spdxId" ON "File_originatedBy" ("File_spdxId");
 CREATE INDEX "ix_File_originatedBy_originatedBy_spdxId" ON "File_originatedBy" ("originatedBy_spdxId");
+CREATE INDEX "ix_File_originatedBy_File_spdxId" ON "File_originatedBy" ("File_spdxId");
 
 CREATE TABLE "File_standardName" (
 	"File_spdxId" TEXT,
@@ -2786,8 +2786,8 @@ CREATE TABLE "File_supportLevel" (
 	PRIMARY KEY ("File_spdxId", "supportLevel"),
 	FOREIGN KEY("File_spdxId") REFERENCES "File" ("spdxId")
 );
-CREATE INDEX "ix_File_supportLevel_File_spdxId" ON "File_supportLevel" ("File_spdxId");
 CREATE INDEX "ix_File_supportLevel_supportLevel" ON "File_supportLevel" ("supportLevel");
+CREATE INDEX "ix_File_supportLevel_File_spdxId" ON "File_supportLevel" ("File_spdxId");
 
 CREATE TABLE "Package_additionalPurpose" (
 	"Package_spdxId" TEXT,
@@ -2795,8 +2795,8 @@ CREATE TABLE "Package_additionalPurpose" (
 	PRIMARY KEY ("Package_spdxId", "additionalPurpose"),
 	FOREIGN KEY("Package_spdxId") REFERENCES "Package" ("spdxId")
 );
-CREATE INDEX "ix_Package_additionalPurpose_Package_spdxId" ON "Package_additionalPurpose" ("Package_spdxId");
 CREATE INDEX "ix_Package_additionalPurpose_additionalPurpose" ON "Package_additionalPurpose" ("additionalPurpose");
+CREATE INDEX "ix_Package_additionalPurpose_Package_spdxId" ON "Package_additionalPurpose" ("Package_spdxId");
 
 CREATE TABLE "Package_attributionText" (
 	"Package_spdxId" TEXT,
@@ -2814,8 +2814,8 @@ CREATE TABLE "Package_originatedBy" (
 	FOREIGN KEY("Package_spdxId") REFERENCES "Package" ("spdxId"),
 	FOREIGN KEY("originatedBy_spdxId") REFERENCES "Agent" ("spdxId")
 );
-CREATE INDEX "ix_Package_originatedBy_originatedBy_spdxId" ON "Package_originatedBy" ("originatedBy_spdxId");
 CREATE INDEX "ix_Package_originatedBy_Package_spdxId" ON "Package_originatedBy" ("Package_spdxId");
+CREATE INDEX "ix_Package_originatedBy_originatedBy_spdxId" ON "Package_originatedBy" ("originatedBy_spdxId");
 
 CREATE TABLE "Package_standardName" (
 	"Package_spdxId" TEXT,
@@ -2823,8 +2823,8 @@ CREATE TABLE "Package_standardName" (
 	PRIMARY KEY ("Package_spdxId", "standardName"),
 	FOREIGN KEY("Package_spdxId") REFERENCES "Package" ("spdxId")
 );
-CREATE INDEX "ix_Package_standardName_standardName" ON "Package_standardName" ("standardName");
 CREATE INDEX "ix_Package_standardName_Package_spdxId" ON "Package_standardName" ("Package_spdxId");
+CREATE INDEX "ix_Package_standardName_standardName" ON "Package_standardName" ("standardName");
 
 CREATE TABLE "Package_supportLevel" (
 	"Package_spdxId" TEXT,
@@ -2832,8 +2832,8 @@ CREATE TABLE "Package_supportLevel" (
 	PRIMARY KEY ("Package_spdxId", "supportLevel"),
 	FOREIGN KEY("Package_spdxId") REFERENCES "Package" ("spdxId")
 );
-CREATE INDEX "ix_Package_supportLevel_Package_spdxId" ON "Package_supportLevel" ("Package_spdxId");
 CREATE INDEX "ix_Package_supportLevel_supportLevel" ON "Package_supportLevel" ("supportLevel");
+CREATE INDEX "ix_Package_supportLevel_Package_spdxId" ON "Package_supportLevel" ("Package_spdxId");
 
 CREATE TABLE "SoftwareArtifact_additionalPurpose" (
 	"SoftwareArtifact_spdxId" TEXT,
@@ -2841,8 +2841,8 @@ CREATE TABLE "SoftwareArtifact_additionalPurpose" (
 	PRIMARY KEY ("SoftwareArtifact_spdxId", "additionalPurpose"),
 	FOREIGN KEY("SoftwareArtifact_spdxId") REFERENCES "SoftwareArtifact" ("spdxId")
 );
-CREATE INDEX "ix_SoftwareArtifact_additionalPurpose_SoftwareArtifact_spdxId" ON "SoftwareArtifact_additionalPurpose" ("SoftwareArtifact_spdxId");
 CREATE INDEX "ix_SoftwareArtifact_additionalPurpose_additionalPurpose" ON "SoftwareArtifact_additionalPurpose" ("additionalPurpose");
+CREATE INDEX "ix_SoftwareArtifact_additionalPurpose_SoftwareArtifact_spdxId" ON "SoftwareArtifact_additionalPurpose" ("SoftwareArtifact_spdxId");
 
 CREATE TABLE "SoftwareArtifact_attributionText" (
 	"SoftwareArtifact_spdxId" TEXT,
@@ -2850,8 +2850,8 @@ CREATE TABLE "SoftwareArtifact_attributionText" (
 	PRIMARY KEY ("SoftwareArtifact_spdxId", "attributionText"),
 	FOREIGN KEY("SoftwareArtifact_spdxId") REFERENCES "SoftwareArtifact" ("spdxId")
 );
-CREATE INDEX "ix_SoftwareArtifact_attributionText_attributionText" ON "SoftwareArtifact_attributionText" ("attributionText");
 CREATE INDEX "ix_SoftwareArtifact_attributionText_SoftwareArtifact_spdxId" ON "SoftwareArtifact_attributionText" ("SoftwareArtifact_spdxId");
+CREATE INDEX "ix_SoftwareArtifact_attributionText_attributionText" ON "SoftwareArtifact_attributionText" ("attributionText");
 
 CREATE TABLE "SoftwareArtifact_originatedBy" (
 	"SoftwareArtifact_spdxId" TEXT,
@@ -2869,8 +2869,8 @@ CREATE TABLE "SoftwareArtifact_standardName" (
 	PRIMARY KEY ("SoftwareArtifact_spdxId", "standardName"),
 	FOREIGN KEY("SoftwareArtifact_spdxId") REFERENCES "SoftwareArtifact" ("spdxId")
 );
-CREATE INDEX "ix_SoftwareArtifact_standardName_standardName" ON "SoftwareArtifact_standardName" ("standardName");
 CREATE INDEX "ix_SoftwareArtifact_standardName_SoftwareArtifact_spdxId" ON "SoftwareArtifact_standardName" ("SoftwareArtifact_spdxId");
+CREATE INDEX "ix_SoftwareArtifact_standardName_standardName" ON "SoftwareArtifact_standardName" ("standardName");
 
 CREATE TABLE "SoftwareArtifact_supportLevel" (
 	"SoftwareArtifact_spdxId" TEXT,
@@ -2887,8 +2887,8 @@ CREATE TABLE "AIPackage_domain" (
 	PRIMARY KEY ("AIPackage_spdxId", domain),
 	FOREIGN KEY("AIPackage_spdxId") REFERENCES "AIPackage" ("spdxId")
 );
-CREATE INDEX "ix_AIPackage_domain_domain" ON "AIPackage_domain" (domain);
 CREATE INDEX "ix_AIPackage_domain_AIPackage_spdxId" ON "AIPackage_domain" ("AIPackage_spdxId");
+CREATE INDEX "ix_AIPackage_domain_domain" ON "AIPackage_domain" (domain);
 
 CREATE TABLE "AIPackage_modelDataPreprocessing" (
 	"AIPackage_spdxId" TEXT,
@@ -2932,8 +2932,8 @@ CREATE TABLE "AIPackage_additionalPurpose" (
 	PRIMARY KEY ("AIPackage_spdxId", "additionalPurpose"),
 	FOREIGN KEY("AIPackage_spdxId") REFERENCES "AIPackage" ("spdxId")
 );
-CREATE INDEX "ix_AIPackage_additionalPurpose_additionalPurpose" ON "AIPackage_additionalPurpose" ("additionalPurpose");
 CREATE INDEX "ix_AIPackage_additionalPurpose_AIPackage_spdxId" ON "AIPackage_additionalPurpose" ("AIPackage_spdxId");
+CREATE INDEX "ix_AIPackage_additionalPurpose_additionalPurpose" ON "AIPackage_additionalPurpose" ("additionalPurpose");
 
 CREATE TABLE "AIPackage_attributionText" (
 	"AIPackage_spdxId" TEXT,
@@ -2941,8 +2941,8 @@ CREATE TABLE "AIPackage_attributionText" (
 	PRIMARY KEY ("AIPackage_spdxId", "attributionText"),
 	FOREIGN KEY("AIPackage_spdxId") REFERENCES "AIPackage" ("spdxId")
 );
-CREATE INDEX "ix_AIPackage_attributionText_attributionText" ON "AIPackage_attributionText" ("attributionText");
 CREATE INDEX "ix_AIPackage_attributionText_AIPackage_spdxId" ON "AIPackage_attributionText" ("AIPackage_spdxId");
+CREATE INDEX "ix_AIPackage_attributionText_attributionText" ON "AIPackage_attributionText" ("attributionText");
 
 CREATE TABLE "AIPackage_originatedBy" (
 	"AIPackage_spdxId" TEXT,
@@ -2951,8 +2951,8 @@ CREATE TABLE "AIPackage_originatedBy" (
 	FOREIGN KEY("AIPackage_spdxId") REFERENCES "AIPackage" ("spdxId"),
 	FOREIGN KEY("originatedBy_spdxId") REFERENCES "Agent" ("spdxId")
 );
-CREATE INDEX "ix_AIPackage_originatedBy_originatedBy_spdxId" ON "AIPackage_originatedBy" ("originatedBy_spdxId");
 CREATE INDEX "ix_AIPackage_originatedBy_AIPackage_spdxId" ON "AIPackage_originatedBy" ("AIPackage_spdxId");
+CREATE INDEX "ix_AIPackage_originatedBy_originatedBy_spdxId" ON "AIPackage_originatedBy" ("originatedBy_spdxId");
 
 CREATE TABLE "AIPackage_standardName" (
 	"AIPackage_spdxId" TEXT,
@@ -2969,8 +2969,8 @@ CREATE TABLE "AIPackage_supportLevel" (
 	PRIMARY KEY ("AIPackage_spdxId", "supportLevel"),
 	FOREIGN KEY("AIPackage_spdxId") REFERENCES "AIPackage" ("spdxId")
 );
-CREATE INDEX "ix_AIPackage_supportLevel_supportLevel" ON "AIPackage_supportLevel" ("supportLevel");
 CREATE INDEX "ix_AIPackage_supportLevel_AIPackage_spdxId" ON "AIPackage_supportLevel" ("AIPackage_spdxId");
+CREATE INDEX "ix_AIPackage_supportLevel_supportLevel" ON "AIPackage_supportLevel" ("supportLevel");
 
 CREATE TABLE "DatasetPackage_anonymizationMethodUsed" (
 	"DatasetPackage_spdxId" TEXT,
@@ -2978,8 +2978,8 @@ CREATE TABLE "DatasetPackage_anonymizationMethodUsed" (
 	PRIMARY KEY ("DatasetPackage_spdxId", "anonymizationMethodUsed"),
 	FOREIGN KEY("DatasetPackage_spdxId") REFERENCES "DatasetPackage" ("spdxId")
 );
-CREATE INDEX "ix_DatasetPackage_anonymizationMethodUsed_anonymizationMethodUsed" ON "DatasetPackage_anonymizationMethodUsed" ("anonymizationMethodUsed");
 CREATE INDEX "ix_DatasetPackage_anonymizationMethodUsed_DatasetPackage_spdxId" ON "DatasetPackage_anonymizationMethodUsed" ("DatasetPackage_spdxId");
+CREATE INDEX "ix_DatasetPackage_anonymizationMethodUsed_anonymizationMethodUsed" ON "DatasetPackage_anonymizationMethodUsed" ("anonymizationMethodUsed");
 
 CREATE TABLE "DatasetPackage_dataPreprocessing" (
 	"DatasetPackage_spdxId" TEXT,
@@ -3023,8 +3023,8 @@ CREATE TABLE "DatasetPackage_attributionText" (
 	PRIMARY KEY ("DatasetPackage_spdxId", "attributionText"),
 	FOREIGN KEY("DatasetPackage_spdxId") REFERENCES "DatasetPackage" ("spdxId")
 );
-CREATE INDEX "ix_DatasetPackage_attributionText_DatasetPackage_spdxId" ON "DatasetPackage_attributionText" ("DatasetPackage_spdxId");
 CREATE INDEX "ix_DatasetPackage_attributionText_attributionText" ON "DatasetPackage_attributionText" ("attributionText");
+CREATE INDEX "ix_DatasetPackage_attributionText_DatasetPackage_spdxId" ON "DatasetPackage_attributionText" ("DatasetPackage_spdxId");
 
 CREATE TABLE "DatasetPackage_originatedBy" (
 	"DatasetPackage_spdxId" TEXT,
@@ -3033,8 +3033,8 @@ CREATE TABLE "DatasetPackage_originatedBy" (
 	FOREIGN KEY("DatasetPackage_spdxId") REFERENCES "DatasetPackage" ("spdxId"),
 	FOREIGN KEY("originatedBy_spdxId") REFERENCES "Agent" ("spdxId")
 );
-CREATE INDEX "ix_DatasetPackage_originatedBy_DatasetPackage_spdxId" ON "DatasetPackage_originatedBy" ("DatasetPackage_spdxId");
 CREATE INDEX "ix_DatasetPackage_originatedBy_originatedBy_spdxId" ON "DatasetPackage_originatedBy" ("originatedBy_spdxId");
+CREATE INDEX "ix_DatasetPackage_originatedBy_DatasetPackage_spdxId" ON "DatasetPackage_originatedBy" ("DatasetPackage_spdxId");
 
 CREATE TABLE "DatasetPackage_standardName" (
 	"DatasetPackage_spdxId" TEXT,
@@ -3556,8 +3556,8 @@ CREATE TABLE "Snippet_additionalPurpose" (
 	PRIMARY KEY ("Snippet_spdxId", "additionalPurpose"),
 	FOREIGN KEY("Snippet_spdxId") REFERENCES "Snippet" ("spdxId")
 );
-CREATE INDEX "ix_Snippet_additionalPurpose_additionalPurpose" ON "Snippet_additionalPurpose" ("additionalPurpose");
 CREATE INDEX "ix_Snippet_additionalPurpose_Snippet_spdxId" ON "Snippet_additionalPurpose" ("Snippet_spdxId");
+CREATE INDEX "ix_Snippet_additionalPurpose_additionalPurpose" ON "Snippet_additionalPurpose" ("additionalPurpose");
 
 CREATE TABLE "Snippet_attributionText" (
 	"Snippet_spdxId" TEXT,
@@ -3565,8 +3565,8 @@ CREATE TABLE "Snippet_attributionText" (
 	PRIMARY KEY ("Snippet_spdxId", "attributionText"),
 	FOREIGN KEY("Snippet_spdxId") REFERENCES "Snippet" ("spdxId")
 );
-CREATE INDEX "ix_Snippet_attributionText_attributionText" ON "Snippet_attributionText" ("attributionText");
 CREATE INDEX "ix_Snippet_attributionText_Snippet_spdxId" ON "Snippet_attributionText" ("Snippet_spdxId");
+CREATE INDEX "ix_Snippet_attributionText_attributionText" ON "Snippet_attributionText" ("attributionText");
 
 CREATE TABLE "Snippet_originatedBy" (
 	"Snippet_spdxId" TEXT,
@@ -3575,8 +3575,8 @@ CREATE TABLE "Snippet_originatedBy" (
 	FOREIGN KEY("Snippet_spdxId") REFERENCES "Snippet" ("spdxId"),
 	FOREIGN KEY("originatedBy_spdxId") REFERENCES "Agent" ("spdxId")
 );
-CREATE INDEX "ix_Snippet_originatedBy_Snippet_spdxId" ON "Snippet_originatedBy" ("Snippet_spdxId");
 CREATE INDEX "ix_Snippet_originatedBy_originatedBy_spdxId" ON "Snippet_originatedBy" ("originatedBy_spdxId");
+CREATE INDEX "ix_Snippet_originatedBy_Snippet_spdxId" ON "Snippet_originatedBy" ("Snippet_spdxId");
 
 CREATE TABLE "Snippet_standardName" (
 	"Snippet_spdxId" TEXT,
@@ -3603,8 +3603,8 @@ CREATE TABLE "CvssV2VulnAssessmentRelationship_to" (
 	FOREIGN KEY("CvssV2VulnAssessmentRelationship_spdxId") REFERENCES "CvssV2VulnAssessmentRelationship" ("spdxId"),
 	FOREIGN KEY("to_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_CvssV2VulnAssessmentRelationship_to_CvssV2VulnAssessmentRelationship_spdxId" ON "CvssV2VulnAssessmentRelationship_to" ("CvssV2VulnAssessmentRelationship_spdxId");
 CREATE INDEX "ix_CvssV2VulnAssessmentRelationship_to_to_spdxId" ON "CvssV2VulnAssessmentRelationship_to" ("to_spdxId");
+CREATE INDEX "ix_CvssV2VulnAssessmentRelationship_to_CvssV2VulnAssessmentRelationship_spdxId" ON "CvssV2VulnAssessmentRelationship_to" ("CvssV2VulnAssessmentRelationship_spdxId");
 
 CREATE TABLE "CvssV3VulnAssessmentRelationship_to" (
 	"CvssV3VulnAssessmentRelationship_spdxId" TEXT,
@@ -3623,8 +3623,8 @@ CREATE TABLE "CvssV4VulnAssessmentRelationship_to" (
 	FOREIGN KEY("CvssV4VulnAssessmentRelationship_spdxId") REFERENCES "CvssV4VulnAssessmentRelationship" ("spdxId"),
 	FOREIGN KEY("to_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_CvssV4VulnAssessmentRelationship_to_to_spdxId" ON "CvssV4VulnAssessmentRelationship_to" ("to_spdxId");
 CREATE INDEX "ix_CvssV4VulnAssessmentRelationship_to_CvssV4VulnAssessmentRelationship_spdxId" ON "CvssV4VulnAssessmentRelationship_to" ("CvssV4VulnAssessmentRelationship_spdxId");
+CREATE INDEX "ix_CvssV4VulnAssessmentRelationship_to_to_spdxId" ON "CvssV4VulnAssessmentRelationship_to" ("to_spdxId");
 
 CREATE TABLE "EpssVulnAssessmentRelationship_to" (
 	"EpssVulnAssessmentRelationship_spdxId" TEXT,
@@ -3643,8 +3643,8 @@ CREATE TABLE "ExploitCatalogVulnAssessmentRelationship_to" (
 	FOREIGN KEY("ExploitCatalogVulnAssessmentRelationship_spdxId") REFERENCES "ExploitCatalogVulnAssessmentRelationship" ("spdxId"),
 	FOREIGN KEY("to_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_ExploitCatalogVulnAssessmentRelationship_to_ExploitCatalogVulnAssessmentRelationship_spdxId" ON "ExploitCatalogVulnAssessmentRelationship_to" ("ExploitCatalogVulnAssessmentRelationship_spdxId");
 CREATE INDEX "ix_ExploitCatalogVulnAssessmentRelationship_to_to_spdxId" ON "ExploitCatalogVulnAssessmentRelationship_to" ("to_spdxId");
+CREATE INDEX "ix_ExploitCatalogVulnAssessmentRelationship_to_ExploitCatalogVulnAssessmentRelationship_spdxId" ON "ExploitCatalogVulnAssessmentRelationship_to" ("ExploitCatalogVulnAssessmentRelationship_spdxId");
 
 CREATE TABLE "SsvcVulnAssessmentRelationship_to" (
 	"SsvcVulnAssessmentRelationship_spdxId" TEXT,
@@ -3663,8 +3663,8 @@ CREATE TABLE "VexAffectedVulnAssessmentRelationship_to" (
 	FOREIGN KEY("VexAffectedVulnAssessmentRelationship_spdxId") REFERENCES "VexAffectedVulnAssessmentRelationship" ("spdxId"),
 	FOREIGN KEY("to_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_VexAffectedVulnAssessmentRelationship_to_to_spdxId" ON "VexAffectedVulnAssessmentRelationship_to" ("to_spdxId");
 CREATE INDEX "ix_VexAffectedVulnAssessmentRelationship_to_VexAffectedVulnAssessmentRelationship_spdxId" ON "VexAffectedVulnAssessmentRelationship_to" ("VexAffectedVulnAssessmentRelationship_spdxId");
+CREATE INDEX "ix_VexAffectedVulnAssessmentRelationship_to_to_spdxId" ON "VexAffectedVulnAssessmentRelationship_to" ("to_spdxId");
 
 CREATE TABLE "VexFixedVulnAssessmentRelationship_to" (
 	"VexFixedVulnAssessmentRelationship_spdxId" TEXT,
@@ -3683,8 +3683,8 @@ CREATE TABLE "VexNotAffectedVulnAssessmentRelationship_to" (
 	FOREIGN KEY("VexNotAffectedVulnAssessmentRelationship_spdxId") REFERENCES "VexNotAffectedVulnAssessmentRelationship" ("spdxId"),
 	FOREIGN KEY("to_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_VexNotAffectedVulnAssessmentRelationship_to_VexNotAffectedVulnAssessmentRelationship_spdxId" ON "VexNotAffectedVulnAssessmentRelationship_to" ("VexNotAffectedVulnAssessmentRelationship_spdxId");
 CREATE INDEX "ix_VexNotAffectedVulnAssessmentRelationship_to_to_spdxId" ON "VexNotAffectedVulnAssessmentRelationship_to" ("to_spdxId");
+CREATE INDEX "ix_VexNotAffectedVulnAssessmentRelationship_to_VexNotAffectedVulnAssessmentRelationship_spdxId" ON "VexNotAffectedVulnAssessmentRelationship_to" ("VexNotAffectedVulnAssessmentRelationship_spdxId");
 
 CREATE TABLE "VexUnderInvestigationVulnAssessmentRelationship_to" (
 	"VexUnderInvestigationVulnAssessmentRelationship_spdxId" TEXT,
@@ -3703,8 +3703,8 @@ CREATE TABLE "VexVulnAssessmentRelationship_to" (
 	FOREIGN KEY("VexVulnAssessmentRelationship_spdxId") REFERENCES "VexVulnAssessmentRelationship" ("spdxId"),
 	FOREIGN KEY("to_spdxId") REFERENCES "Element" ("spdxId")
 );
-CREATE INDEX "ix_VexVulnAssessmentRelationship_to_to_spdxId" ON "VexVulnAssessmentRelationship_to" ("to_spdxId");
 CREATE INDEX "ix_VexVulnAssessmentRelationship_to_VexVulnAssessmentRelationship_spdxId" ON "VexVulnAssessmentRelationship_to" ("VexVulnAssessmentRelationship_spdxId");
+CREATE INDEX "ix_VexVulnAssessmentRelationship_to_to_spdxId" ON "VexVulnAssessmentRelationship_to" ("to_spdxId");
 
 CREATE TABLE "VulnAssessmentRelationship_to" (
 	"VulnAssessmentRelationship_spdxId" TEXT,
@@ -3722,8 +3722,8 @@ CREATE TABLE "ExternalIdentifier_identifierLocator" (
 	PRIMARY KEY ("ExternalIdentifier_id", "identifierLocator"),
 	FOREIGN KEY("ExternalIdentifier_id") REFERENCES "ExternalIdentifier" (id)
 );
-CREATE INDEX "ix_ExternalIdentifier_identifierLocator_identifierLocator" ON "ExternalIdentifier_identifierLocator" ("identifierLocator");
 CREATE INDEX "ix_ExternalIdentifier_identifierLocator_ExternalIdentifier_id" ON "ExternalIdentifier_identifierLocator" ("ExternalIdentifier_id");
+CREATE INDEX "ix_ExternalIdentifier_identifierLocator_identifierLocator" ON "ExternalIdentifier_identifierLocator" ("identifierLocator");
 
 CREATE TABLE "ExternalRef_locator" (
 	"ExternalRef_id" INTEGER,
@@ -3731,5 +3731,5 @@ CREATE TABLE "ExternalRef_locator" (
 	PRIMARY KEY ("ExternalRef_id", locator),
 	FOREIGN KEY("ExternalRef_id") REFERENCES "ExternalRef" (id)
 );
-CREATE INDEX "ix_ExternalRef_locator_ExternalRef_id" ON "ExternalRef_locator" ("ExternalRef_id");
 CREATE INDEX "ix_ExternalRef_locator_locator" ON "ExternalRef_locator" (locator);
+CREATE INDEX "ix_ExternalRef_locator_ExternalRef_id" ON "ExternalRef_locator" ("ExternalRef_id");

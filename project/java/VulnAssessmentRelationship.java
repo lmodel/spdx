@@ -16,11 +16,11 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public abstract class VulnAssessmentRelationship extends Relationship {
 
+  private SoftwareArtifact assessedElement;
   private String modifiedTime;
   private String publishedTime;
   private Agent suppliedBy;
   private String withdrawnTime;
-  private SoftwareArtifact assessedElement;
 
 
 }

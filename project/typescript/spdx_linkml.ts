@@ -708,10 +708,10 @@ export interface Agent extends Element {
  * An assertion made in relation to one or more elements.
  */
 export interface Annotation extends Element {
-    /** Provides information about the content type of an Element or a Property. */
-    contentType?: string,
     /** Describes the type of annotation. */
     annotationType: string,
+    /** Provides information about the content type of an Element or a Property. */
+    contentType?: string,
     /** Commentary on an assertion that an annotator has made. */
     statement?: string,
     /** An Element an annotator has made an assertion about. */
@@ -730,8 +730,6 @@ export interface AnyLicenseInfo extends Element {
  * A distinct article or unit within the digital domain.
  */
 export interface Artifact extends Element {
-    /** Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element. */
-    suppliedBy?: AgentSpdxId,
     /** Specifies the time an artifact was built. */
     builtTime?: string,
     /** Identifies from where or whom the Element originally came. */
@@ -740,6 +738,8 @@ export interface Artifact extends Element {
     releaseTime?: string,
     /** The name of a relevant standard that may apply to an artifact. */
     standardName?: string[],
+    /** Identifies who or what supplied the artifact or VulnAssessmentRelationship referenced by the Element. */
+    suppliedBy?: AgentSpdxId,
     /** Specifies the level of support associated with an artifact. */
     supportLevel?: string,
     /** Specifies until when the artifact can be used before its usage needs to be reassessed. */
@@ -803,10 +803,6 @@ export interface Element {
     type?: string,
     /** Provide consumers with comments by the creator of the Element about the Element. */
     comment?: string,
-    /** Provides an IntegrityMethod with which the integrity of an Element can be asserted. */
-    verifiedUsing?: IntegrityMethod[],
-    /** The IRI that identifies this Element. A reference to an Element from any field is this IRI. */
-    spdxId: string,
     /** Provides information about the creation of the Element. */
     creationInfo: CreationInfo,
     /** Provides a detailed description of the Element. */
@@ -821,6 +817,10 @@ export interface Element {
     name?: string,
     /** A short description of an Element. */
     summary?: string,
+    /** Provides an IntegrityMethod with which the integrity of an Element can be asserted. */
+    verifiedUsing?: IntegrityMethod[],
+    /** The IRI that identifies this Element. A reference to an Element from any field is this IRI. */
+    spdxId: string,
 }
 
 
@@ -871,14 +871,14 @@ export interface ExternalIdentifier {
 export interface ExternalMap {
     /** The class an object is an instance of, as the class's CURIE, such as spdx_software:Package. */
     type?: string,
-    /** Provides an IntegrityMethod with which the integrity of an Element can be asserted. */
-    verifiedUsing?: IntegrityMethod[],
     /** Artifact representing a serialization instance of SPDX data containing the definition of a particular Element. */
     definingArtifact?: ArtifactSpdxId,
     /** Identifies an external Element used within an SpdxDocument but defined external to that SpdxDocument. */
     externalSpdxId: string,
     /** Provides an indication of where to retrieve an external Element. */
     locationHint?: string,
+    /** Provides an IntegrityMethod with which the integrity of an Element can be asserted. */
+    verifiedUsing?: IntegrityMethod[],
 }
 
 
@@ -1331,6 +1331,12 @@ export interface IndividualLicensingInfo extends AnyLicenseInfo {
  * Abstract class for the portion of an AnyLicenseInfo representing a license.
  */
 export interface License extends ExtendableLicense {
+    /** Specifies whether a license or additional text identifier has been marked as deprecated. */
+    isDeprecatedLicenseId?: boolean,
+    /** Specifies whether the License is listed as free by the Free Software Foundation (FSF). */
+    isFsfLibre?: boolean,
+    /** Specifies whether the License is listed as approved by the Open Source Initiative (OSI). */
+    isOsiApproved?: boolean,
     /** Identifies the full text of a License or Addition. */
     licenseText: string,
     /** Identifies all the text and metadata associated with a license in the license XML format. */
@@ -1339,12 +1345,6 @@ export interface License extends ExtendableLicense {
     obsoletedBy?: string,
     /** Contains a URL where the License or LicenseAddition can be found in use. */
     seeAlso?: string[],
-    /** Specifies whether a license or additional text identifier has been marked as deprecated. */
-    isDeprecatedLicenseId?: boolean,
-    /** Specifies whether the License is listed as free by the Free Software Foundation (FSF). */
-    isFsfLibre?: boolean,
-    /** Specifies whether the License is listed as approved by the Open Source Initiative (OSI). */
-    isOsiApproved?: boolean,
     /** Provides a License author's preferred text to indicate that a file is covered by the License. */
     standardLicenseHeader?: string,
     /** Identifies the full text of a License, in SPDX templating format. */
@@ -1356,16 +1356,16 @@ export interface License extends ExtendableLicense {
  * Abstract class for additional text intended to be added to a License, but which is not itself a standalone License.
  */
 export interface LicenseAddition extends Element {
+    /** Identifies the full text of a LicenseAddition. */
+    additionText: string,
+    /** Specifies whether an additional text identifier has been marked as deprecated. */
+    isDeprecatedAdditionId?: boolean,
     /** Identifies all the text and metadata associated with a license in the license XML format. */
     licenseXml?: string,
     /** Specifies the licenseId that is preferred to be used in place of a deprecated License or LicenseAddition. */
     obsoletedBy?: string,
     /** Contains a URL where the License or LicenseAddition can be found in use. */
     seeAlso?: string[],
-    /** Identifies the full text of a LicenseAddition. */
-    additionText: string,
-    /** Specifies whether an additional text identifier has been marked as deprecated. */
-    isDeprecatedAdditionId?: boolean,
     /** Identifies the full text of a LicenseAddition, in SPDX templating format. */
     standardAdditionTemplate?: string,
 }
@@ -1536,6 +1536,8 @@ export interface VexVulnAssessmentRelationship extends VulnAssessmentRelationshi
  * Abstract ancestor class for all vulnerability assessments
  */
 export interface VulnAssessmentRelationship extends Relationship {
+    /** Specifies an Element contained in a piece of software where a vulnerability was found. */
+    assessedElement?: SoftwareArtifactSpdxId,
     /** Specifies a time when a vulnerability assessment was modified */
     modifiedTime?: string,
     /** Specifies the time when a vulnerability was published. */
@@ -1544,8 +1546,6 @@ export interface VulnAssessmentRelationship extends Relationship {
     suppliedBy?: AgentSpdxId,
     /** Specified the time and date when a vulnerability was withdrawn. */
     withdrawnTime?: string,
-    /** Specifies an Element contained in a piece of software where a vulnerability was found. */
-    assessedElement?: SoftwareArtifactSpdxId,
 }
 
 

@@ -398,8 +398,8 @@
                 }
             },
             "required": [
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "AIPackage",
             "type": "object"
@@ -508,8 +508,8 @@
                 }
             },
             "required": [
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "Agent",
             "type": "object"
@@ -644,8 +644,8 @@
             "required": [
                 "annotationType",
                 "subject",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "Annotation",
             "type": "object"
@@ -763,8 +763,8 @@
                 }
             },
             "required": [
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "AnyLicenseInfo",
             "type": "object"
@@ -936,8 +936,8 @@
                 }
             },
             "required": [
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "Artifact",
             "type": "object"
@@ -1085,8 +1085,8 @@
                 }
             },
             "required": [
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "Bom",
             "type": "object"
@@ -1275,8 +1275,8 @@
             },
             "required": [
                 "buildType",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "Build",
             "type": "object"
@@ -1424,8 +1424,8 @@
                 }
             },
             "required": [
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "Bundle",
             "type": "object"
@@ -1617,8 +1617,8 @@
             },
             "required": [
                 "member",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "ConjunctiveLicenseSet",
             "type": "object"
@@ -1900,8 +1900,8 @@
             },
             "required": [
                 "licenseText",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "CustomLicense",
             "type": "object"
@@ -2054,8 +2054,8 @@
             },
             "required": [
                 "additionText",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "CustomLicenseAddition",
             "type": "object"
@@ -2273,8 +2273,8 @@
                 "from",
                 "relationshipType",
                 "to",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "CvssV2VulnAssessmentRelationship",
             "type": "object"
@@ -2485,8 +2485,8 @@
                 "from",
                 "relationshipType",
                 "to",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "CvssV3VulnAssessmentRelationship",
             "type": "object"
@@ -2697,8 +2697,8 @@
                 "from",
                 "relationshipType",
                 "to",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "CvssV4VulnAssessmentRelationship",
             "type": "object"
@@ -3085,8 +3085,8 @@
             },
             "required": [
                 "datasetType",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "DatasetPackage",
             "type": "object"
@@ -3259,8 +3259,8 @@
             },
             "required": [
                 "member",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "DisjunctiveLicenseSet",
             "type": "object"
@@ -3369,8 +3369,8 @@
                 }
             },
             "required": [
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "Element",
             "type": "object"
@@ -3511,8 +3511,8 @@
                 }
             },
             "required": [
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "ElementCollection",
             "type": "object"
@@ -3808,8 +3808,8 @@
                 "from",
                 "relationshipType",
                 "to",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "EpssVulnAssessmentRelationship",
             "type": "object"
@@ -4030,8 +4030,8 @@
                 "from",
                 "relationshipType",
                 "to",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "ExploitCatalogVulnAssessmentRelationship",
             "type": "object"
@@ -4140,8 +4140,8 @@
                 }
             },
             "required": [
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "ExtendableLicense",
             "type": "object"
@@ -4644,8 +4644,8 @@
                 }
             },
             "required": [
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "File",
             "type": "object"
@@ -4830,8 +4830,8 @@
                 }
             },
             "required": [
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "IndividualElement",
             "type": "object"
@@ -4940,8 +4940,8 @@
                 }
             },
             "required": [
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "IndividualLicensingInfo",
             "type": "object"
@@ -5141,8 +5141,8 @@
             },
             "required": [
                 "licenseText",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "License",
             "type": "object"
@@ -5295,8 +5295,8 @@
             },
             "required": [
                 "additionText",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "LicenseAddition",
             "type": "object"
@@ -5428,8 +5428,8 @@
             },
             "required": [
                 "licenseExpression",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "LicenseExpression",
             "type": "object"
@@ -5609,8 +5609,8 @@
                 "from",
                 "relationshipType",
                 "to",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "LifecycleScopedRelationship",
             "type": "object"
@@ -5798,8 +5798,8 @@
             },
             "required": [
                 "licenseText",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "ListedLicense",
             "type": "object"
@@ -5966,8 +5966,8 @@
             },
             "required": [
                 "additionText",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "ListedLicenseException",
             "type": "object"
@@ -6114,8 +6114,8 @@
             },
             "required": [
                 "subjectLicense",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "OrLaterOperator",
             "type": "object"
@@ -6224,8 +6224,8 @@
                 }
             },
             "required": [
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "Organization",
             "type": "object"
@@ -6483,8 +6483,8 @@
                 }
             },
             "required": [
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "Package",
             "type": "object"
@@ -6641,8 +6641,8 @@
                 }
             },
             "required": [
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "Person",
             "type": "object"
@@ -6858,8 +6858,8 @@
                 "from",
                 "relationshipType",
                 "to",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "Relationship",
             "type": "object"
@@ -7104,8 +7104,8 @@
                 }
             },
             "required": [
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "Sbom",
             "type": "object"
@@ -7232,8 +7232,8 @@
             },
             "required": [
                 "licenseText",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "SimpleLicensingText",
             "type": "object"
@@ -7481,8 +7481,8 @@
             },
             "required": [
                 "snippetFromFile",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "Snippet",
             "type": "object"
@@ -7591,8 +7591,8 @@
                 }
             },
             "required": [
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "SoftwareAgent",
             "type": "object"
@@ -7812,8 +7812,8 @@
                 }
             },
             "required": [
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "SoftwareArtifact",
             "type": "object"
@@ -8018,8 +8018,8 @@
                 }
             },
             "required": [
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "SpdxDocument",
             "type": "object"
@@ -8231,8 +8231,8 @@
                 "from",
                 "relationshipType",
                 "to",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "SsvcVulnAssessmentRelationship",
             "type": "object"
@@ -8355,8 +8355,8 @@
                 }
             },
             "required": [
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "Tool",
             "type": "object"
@@ -8579,8 +8579,8 @@
                 "from",
                 "relationshipType",
                 "to",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "VexAffectedVulnAssessmentRelationship",
             "type": "object"
@@ -8790,8 +8790,8 @@
                 "from",
                 "relationshipType",
                 "to",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "VexFixedVulnAssessmentRelationship",
             "type": "object"
@@ -9039,8 +9039,8 @@
                 "from",
                 "relationshipType",
                 "to",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "VexNotAffectedVulnAssessmentRelationship",
             "type": "object"
@@ -9250,8 +9250,8 @@
                 "from",
                 "relationshipType",
                 "to",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "VexUnderInvestigationVulnAssessmentRelationship",
             "type": "object"
@@ -9461,8 +9461,8 @@
                 "from",
                 "relationshipType",
                 "to",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "VexVulnAssessmentRelationship",
             "type": "object"
@@ -9658,8 +9658,8 @@
                 "from",
                 "relationshipType",
                 "to",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "VulnAssessmentRelationship",
             "type": "object"
@@ -9855,8 +9855,8 @@
                 }
             },
             "required": [
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "Vulnerability",
             "type": "object"
@@ -9977,8 +9977,8 @@
             "required": [
                 "subjectAddition",
                 "subjectExtendableLicense",
-                "spdxId",
-                "creationInfo"
+                "creationInfo",
+                "spdxId"
             ],
             "title": "WithAdditionOperator",
             "type": "object"

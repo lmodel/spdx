@@ -106,9 +106,9 @@ linkml:Sparqlpath xsd:string
 <Annotation> CLOSED {
     (  $<Annotation_tes> (  &<Element_tes> ;
           rdf:type [ spdx_core:Element ] ? ;
-          spdx_core:contentType @<MediaType> ? ;
           spdx_core:annotationType [ <https://spdx.org/rdf/3.0.1/terms/Core/AnnotationType/other>
              <https://spdx.org/rdf/3.0.1/terms/Core/AnnotationType/review> ] ;
+          spdx_core:contentType @<MediaType> ? ;
           spdx_core:statement @linkml:String ? ;
           spdx_core:subject @<Element>
        ) ;
@@ -136,11 +136,11 @@ linkml:Sparqlpath xsd:string
 <Artifact_struct> {
     (  $<Artifact_tes> (  &<Element_tes> ;
           rdf:type [ spdx_core:Element ] ? ;
-          spdx_core:suppliedBy @<Agent> ? ;
           spdx_core:builtTime @<DateTimeStamp> ? ;
           spdx_core:originatedBy @<Agent> * ;
           spdx_core:releaseTime @<DateTimeStamp> ? ;
           spdx_core:standardName @linkml:String * ;
+          spdx_core:suppliedBy @<Agent> ? ;
           spdx_core:supportLevel [ <https://spdx.org/rdf/3.0.1/terms/Core/SupportType/deployed>
              <https://spdx.org/rdf/3.0.1/terms/Core/SupportType/development>
              <https://spdx.org/rdf/3.0.1/terms/Core/SupportType/endOfSupport>
@@ -367,14 +367,14 @@ linkml:Sparqlpath xsd:string
 <Element_struct> {
     (  $<Element_tes> (  rdf:type @linkml:Uriorcurie ? ;
           spdx_core:comment @linkml:String ? ;
-          spdx_core:verifiedUsing @<IntegrityMethod> * ;
           spdx_core:creationInfo @<CreationInfo> ;
           spdx_core:description @linkml:String ? ;
           spdx_core:extension @<Extension> * ;
           spdx_core:externalIdentifier @<ExternalIdentifier> * ;
           spdx_core:externalRef @<ExternalRef> * ;
           spdx_core:name @linkml:String ? ;
-          spdx_core:summary @linkml:String ?
+          spdx_core:summary @linkml:String ? ;
+          spdx_core:verifiedUsing @<IntegrityMethod> *
        ) ;
        rdf:type [ spdx_core:Element ]
     )
@@ -491,10 +491,10 @@ linkml:Sparqlpath xsd:string
 
 <ExternalMap> CLOSED {
     (  $<ExternalMap_tes> (  rdf:type @linkml:Uriorcurie ? ;
-          spdx_core:verifiedUsing @<IntegrityMethod> * ;
           spdx_core:definingArtifact @<Artifact> ? ;
           spdx_core:externalSpdxId @linkml:Uri ;
-          spdx_core:locationHint @linkml:Uri ?
+          spdx_core:locationHint @linkml:Uri ? ;
+          spdx_core:verifiedUsing @<IntegrityMethod> *
        ) ;
        rdf:type [ spdx_core:ExternalMap ] ?
     )
@@ -630,13 +630,13 @@ linkml:Sparqlpath xsd:string
 <License_struct> {
     (  $<License_tes> (  &<ExtendableLicense_tes> ;
           rdf:type [ spdx_expanded_licensing:ExtendableLicense ] ? ;
+          spdx_expanded_licensing:isDeprecatedLicenseId @linkml:Boolean ? ;
+          spdx_expanded_licensing:isFsfLibre @linkml:Boolean ? ;
+          spdx_expanded_licensing:isOsiApproved @linkml:Boolean ? ;
           spdx_simple_licensing:licenseText @linkml:String ;
           spdx_expanded_licensing:licenseXml @linkml:String ? ;
           spdx_expanded_licensing:obsoletedBy @linkml:String ? ;
           spdx_expanded_licensing:seeAlso @linkml:Uri * ;
-          spdx_expanded_licensing:isDeprecatedLicenseId @linkml:Boolean ? ;
-          spdx_expanded_licensing:isFsfLibre @linkml:Boolean ? ;
-          spdx_expanded_licensing:isOsiApproved @linkml:Boolean ? ;
           spdx_expanded_licensing:standardLicenseHeader @linkml:String ? ;
           spdx_expanded_licensing:standardLicenseTemplate @linkml:String ?
        ) ;
@@ -651,11 +651,11 @@ linkml:Sparqlpath xsd:string
 <LicenseAddition_struct> {
     (  $<LicenseAddition_tes> (  &<Element_tes> ;
           rdf:type [ spdx_core:Element ] ? ;
+          spdx_expanded_licensing:additionText @linkml:String ;
+          spdx_expanded_licensing:isDeprecatedAdditionId @linkml:Boolean ? ;
           spdx_expanded_licensing:licenseXml @linkml:String ? ;
           spdx_expanded_licensing:obsoletedBy @linkml:String ? ;
           spdx_expanded_licensing:seeAlso @linkml:Uri * ;
-          spdx_expanded_licensing:additionText @linkml:String ;
-          spdx_expanded_licensing:isDeprecatedAdditionId @linkml:Boolean ? ;
           spdx_expanded_licensing:standardAdditionTemplate @linkml:String ?
        ) ;
        rdf:type [ spdx_expanded_licensing:LicenseAddition ]
@@ -1081,11 +1081,11 @@ linkml:Sparqlpath xsd:string
 <VulnAssessmentRelationship_struct> {
     (  $<VulnAssessmentRelationship_tes> (  &<Relationship_tes> ;
           rdf:type [ spdx_core:Relationship ] ? ;
+          spdx_security:assessedElement @<SoftwareArtifact> ? ;
           spdx_security:modifiedTime @<DateTimeStamp> ? ;
           spdx_security:publishedTime @<DateTimeStamp> ? ;
           spdx_core:suppliedBy @<Agent> ? ;
-          spdx_security:withdrawnTime @<DateTimeStamp> ? ;
-          spdx_security:assessedElement @<SoftwareArtifact> ?
+          spdx_security:withdrawnTime @<DateTimeStamp> ?
        ) ;
        rdf:type [ spdx_security:VulnAssessmentRelationship ]
     )
