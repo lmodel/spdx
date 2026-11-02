@@ -6,6 +6,8 @@ The `v0.0.0` tag is a baseline, not a release: it marks where versioning starts 
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-02
+
 ### Changed
 
 - **The generated artefacts in `project/` are regenerated with linkml 1.12.1 from the current schema.** Pull request #18 declared every SPDX property as a top-level slot and bound `spdx3`, but left `project/` as #16 wrote it.
