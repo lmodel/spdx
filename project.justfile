@@ -34,8 +34,8 @@ test-data:
 
 # ============ Knowledge bundle: the adapted domain schema ============
 
-# `.lokf/spdx.yaml` is the copy `lokf adapt` writes from the schema so that it
-# can sit beside `.lokf/lokf.yaml` (`lokf adapt --help` lists the moves). The
+# `.lokf/schema/spdx.yaml` is the copy `lokf adapt` writes from the schema so that it
+# can sit beside `.lokf/schema/lokf.yaml` (`lokf adapt --help` lists the moves). The
 # root is Element, the one class SPDX gives an identifier: every class a
 # knowledge concept may name as its `type` descends from it, and the copy puts
 # LOKF's `id` in place of `spdxId`. Re-rooting a subclass such as Package on
@@ -48,12 +48,12 @@ test-data:
 lokf_cmd := env_var_or_default("LOKF_CMD", "uv run --project .lokf lokf")
 lokf_adapt_roots := "--root Element"
 
-# Rewrite .lokf/spdx.yaml from the schema (run after every schema change)
+# Rewrite .lokf/schema/spdx.yaml from the schema (run after every schema change)
 [group('knowledge bundle')]
 lokf-adapt:
-  {{lokf_cmd}} adapt {{source_schema_path}} {{lokf_adapt_roots}} --prefix spdx --lokf .lokf/lokf.yaml -o .lokf/spdx.yaml
+  {{lokf_cmd}} adapt {{source_schema_path}} {{lokf_adapt_roots}} --prefix spdx --lokf .lokf/schema/lokf.yaml -o .lokf/schema/spdx.yaml
 
-# Fail when .lokf/spdx.yaml is stale against the schema or .lokf/lokf.yaml
+# Fail when .lokf/schema/spdx.yaml is stale against the schema or .lokf/schema/lokf.yaml
 [group('knowledge bundle')]
 lokf-adapt-check:
-  {{lokf_cmd}} adapt {{source_schema_path}} {{lokf_adapt_roots}} --prefix spdx --lokf .lokf/lokf.yaml -o .lokf/spdx.yaml --check
+  {{lokf_cmd}} adapt {{source_schema_path}} {{lokf_adapt_roots}} --prefix spdx --lokf .lokf/schema/lokf.yaml -o .lokf/schema/spdx.yaml --check

@@ -35,7 +35,7 @@ sources:
     title: the examples output folder
 generated:
   by: process:ktl-librarian
-  at: "2026-10-29T19:19:54Z"
+  at: "2026-11-06T21:24:46Z"
 status: draft
 ---
 
@@ -70,7 +70,7 @@ A file name has the form `<Class>-<anything>.yaml`, and the test validates the f
 
 ## tests/test_schema_rules.py
 
-`tests/test_schema_rules.py` checks `.lokf/spdx.yaml` against `.lokf/lokf.yaml` and three neighbour copies in `tests/neighbours/`, the schema assets of slsa v0.7.0, github-actions v0.2.1 and oscal v0.1.0, each checked against its `.sha256` and its attestation.[^test_schema_rules.py] Its four tests require that:
+`tests/test_schema_rules.py` checks `.lokf/schema/spdx.yaml` against `.lokf/schema/lokf.yaml` and three neighbour copies in `tests/neighbours/`, the schema assets of slsa v0.7.0, github-actions v0.2.1 and oscal v0.1.0, each checked against its `.sha256` and its attestation.[^test_schema_rules.py] Its four tests require that:
 
 - no class, enum, type or subset name of the copy is LOKF's, and no key is LOKF's under another IRI;
 - the copy shares with a neighbour only the listed class, `Hash` with oscal's copy, and the listed keys, `subject` and `value` with slsa's and `identifier`, `statement`, `subject` and `value` with oscal's;

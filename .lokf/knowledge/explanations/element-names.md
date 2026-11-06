@@ -25,11 +25,11 @@ sources:
     title: SHARED_KEYS, SHARED_CLASSES and the four tests
   - resource: docs/about.md
     title: What the rendering adds
-  - resource: .lokf/spdx.yaml
+  - resource: .lokf/schema/spdx.yaml
     title: the notes lokf adapt wrote
 generated:
   by: process:ktl-librarian
-  at: "2026-10-29T19:19:54Z"
+  at: "2026-11-06T21:24:46Z"
 status: draft
 ---
 
@@ -49,7 +49,7 @@ The Python package and the umbrella schema are `spdx_linkml`. A comment in `pypr
 
 ## In the adapt copy
 
-A host imports `.lokf/spdx.yaml` beside `lokf.yaml`, and LinkML merges the two into one namespace, where the last definition of a name wins silently. The README says that the copy gives each name LOKF also defines an `spdx` prefix and keeps its SPDX IRI.[^readme.md] The classes `Agent`, `Organization` and `Person` become `SpdxAgent`, `SpdxOrganization` and `SpdxPerson`, and the type `media_type` becomes `spdx_media_type`. The keys `algorithm`, `context`, `created`, `description`, `from`, `name` and `to` take an `spdx_` prefix. `lokf adapt` renames only top-level slots, never a class attribute, which is why the converter makes every property a top-level slot. In the copy, LOKF's `id` replaces `spdxId`, and LOKF's `type` replaces the designator, so an inlined object names its class as `type: Hash`.
+A host imports `.lokf/schema/spdx.yaml` beside `lokf.yaml`, and LinkML merges the two into one namespace, where the last definition of a name wins silently. The README says that the copy gives each name LOKF also defines an `spdx` prefix and keeps its SPDX IRI.[^readme.md] The classes `Agent`, `Organization` and `Person` become `SpdxAgent`, `SpdxOrganization` and `SpdxPerson`, and the type `media_type` becomes `spdx_media_type`. The keys `algorithm`, `context`, `created`, `description`, `from`, `name` and `to` take an `spdx_` prefix. `lokf adapt` renames only top-level slots, never a class attribute, which is why the converter makes every property a top-level slot. In the copy, LOKF's `id` replaces `spdxId`, and LOKF's `type` replaces the designator, so an inlined object names its class as `type: Hash`.
 
 `lokf adapt` keeps a copy apart from `lokf.yaml` only. `tests/test_schema_rules.py` pins what the copy shares with the copies other lmodel repositories release: the keys `subject` and `value` with slsa's, the keys `identifier`, `statement`, `subject` and `value` with oscal's, and the class `Hash` with oscal's.[^test_schema_rules.py] A host that imports the copy beside slsa's or oscal's projects each shared key under one vocabulary's IRI, and cannot import it beside oscal's until one of the two copies renames `Hash`.
 

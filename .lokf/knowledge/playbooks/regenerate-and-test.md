@@ -27,7 +27,7 @@ sources:
     title: the environment the justfile loads
 generated:
   by: process:ktl-librarian
-  at: "2026-10-29T19:19:54Z"
+  at: "2026-11-06T21:24:46Z"
 status: draft
 ---
 
@@ -42,7 +42,7 @@ CONTRIBUTING.md asks for Python 3.10 or later, uv and just, then `uv sync --grou
 1. Change `scripts/spdx_to_linkml.py`, never the files under `src/spdx_linkml/schema/`, which the converter writes.
 2. Run `just gen-linkml` to rewrite the schema from the vendored model.[^project.justfile] `just gen-linkml-check` fails when the schema differs from a fresh run, as `tests/test_schema_is_generated.py` does.
 3. Run `just gen-project` to regenerate `project/` and the Python models, and `just gen-doc` to regenerate `docs/schema/` and the element pages.
-4. Run `just lokf-adapt` to rewrite `.lokf/spdx.yaml`, the bundle's domain schema.
+4. Run `just lokf-adapt` to rewrite `.lokf/schema/spdx.yaml`, the bundle's domain schema.
 5. Commit what the recipes wrote with the change.
 
 ## Add examples
@@ -53,7 +53,7 @@ Put a valid example in `tests/data/valid/` and a counter-example for each new co
 
 - `just test` generates the project into `tmp/`, regenerates the Python models and runs pytest, and runs `linkml-run-examples` over the examples. `just test-data` runs the data tests alone.
 - `just lint` runs `linkml-lint` over the schema, with the rules `.linkmllint.yaml` sets.
-- `just lokf-adapt-check` fails when `.lokf/spdx.yaml` is stale against the schema or `.lokf/lokf.yaml`.
+- `just lokf-adapt-check` fails when `.lokf/schema/spdx.yaml` is stale against the schema or `.lokf/schema/lokf.yaml`.
 - `just upstream-check` compares the vendored model with the SPDX Project's releases.
 - `uvx pre-commit run` runs the hooks on what is staged: the file checks, yamllint, codespell, typos, ruff and the `uv.lock` check. `.pre-commit-config.yaml` keeps every hook off the files the repository does not write by hand: the model copy, the SPDX examples, the schema, the generated files, the sidecar's scripts, the adapt copies and the neighbour copies.[^pre-commit-config.yaml]
 

@@ -17,7 +17,7 @@ exclude: >-
     project/|
     docs/schema/|
     \.lokf/(scripts|m365)/|
-    \.lokf/(lokf|spdx)\.yaml$|
+    \.lokf/schema/(lokf|spdx)\.yaml$|
     tests/neighbours/
   )
 repos:
