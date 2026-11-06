@@ -43,7 +43,7 @@ Run `just` to list the project's [just](https://github.com/casey/just/) recipes.
 
 ## Knowledge Trust Ladder (KTL)
 
-`.lokf/` holds this project's [KTL](https://w3id.org/ktl/) knowledge bundle. Its domain schema, `.lokf/spdx.yaml`, is the copy `just lokf-adapt` writes from `src/spdx_linkml/schema/spdx_linkml.yaml`, and `just lokf-adapt-check` says when it is stale. Change the converter, never the copy. A release carries the copy as `schema-<tag>-spdx.yaml`, on the terms [CONTRIBUTING.md](CONTRIBUTING.md#releasing-maintainers) gives.
+`.lokf/` holds this project's [KTL](https://w3id.org/ktl/) knowledge bundle. Its domain schema, `.lokf/schema/spdx.yaml`, is the copy `just lokf-adapt` writes from `src/spdx_linkml/schema/spdx_linkml.yaml`, and `just lokf-adapt-check` says when it is stale. Change the converter, never the copy. A release carries the copy as `schema-<tag>-spdx.yaml`, on the terms [CONTRIBUTING.md](CONTRIBUTING.md#releasing-maintainers) gives.
 
 The copy roots Element on `Concept`, because SPDX gives Element alone an identifier, so a concept may name any concrete subclass as its `type`. In Obsidian, add these classes to the *Known LOKF types* setting of the KTL Registrar and KTL Curator plugins:
 

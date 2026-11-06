@@ -1,6 +1,6 @@
 """Checks that the adapt copy can sit beside LOKF's schema and the neighbour copies.
 
-`.lokf/spdx.yaml` is the copy `lokf adapt` writes from the schema, and a host
+`.lokf/schema/spdx.yaml` is the copy `lokf adapt` writes from the schema, and a host
 imports it beside `lokf.yaml` and the copies other lmodel repositories release.
 LinkML merges a host's imports into one namespace, where the last definition of
 a name wins, and the JSON-LD context gives each key one IRI. So a name the copy

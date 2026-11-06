@@ -24,4 +24,4 @@ package = false
 [tool.lokf]
 # The domain schema a bare `lokf` command reads; the justfile's
 # `schema :=` line names the same file for the recipes.
-schema = "spdx.yaml"
+schema = "schema/spdx.yaml"
