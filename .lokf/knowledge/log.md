@@ -1,5 +1,9 @@
 # Change Log
 
+## 2026-11-06
+
+* **Changed**: `lokf.yaml` and `spdx.yaml` moved into `.lokf/schema/`, where KTL v0.62.0 keeps a sidecar's schema files, and the concepts that name them follow.
+
 ## 2026-10-29
 
 * **Changed**: the generators' settings moved from `config.yaml` to `.linkml/generators.yaml`.

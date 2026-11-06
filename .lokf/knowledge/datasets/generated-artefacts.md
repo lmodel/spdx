@@ -3,7 +3,7 @@ type: Dataset
 id: https://w3id.org/lmodel/spdx/knowledge/datasets/generated-artefacts
 genre: reference
 title: Generated artefacts
-description: "Files generated from the spdx schema and never edited by hand: project/ (Excel, GraphQL, Java, JSON-LD, JSON Schema, OWL, a prefix map, protobuf, SHACL, ShEx, SQL and TypeScript), the dataclass and Pydantic models in src/spdx_linkml/datamodel/, the merged schema in docs/schema/, the gen-doc pages in docs/elements/ and the domain schema copy .lokf/spdx.yaml."
+description: "Files generated from the spdx schema and never edited by hand: project/ (Excel, GraphQL, Java, JSON-LD, JSON Schema, OWL, a prefix map, protobuf, SHACL, ShEx, SQL and TypeScript), the dataclass and Pydantic models in src/spdx_linkml/datamodel/, the merged schema in docs/schema/, the gen-doc pages in docs/elements/ and the domain schema copy .lokf/schema/spdx.yaml."
 resource: project
 derivedFrom:
   - https://w3id.org/lmodel/spdx/knowledge/datasets/spdx-linkml-schema
@@ -23,7 +23,7 @@ sources:
     title: the dataclass and Pydantic models
   - resource: docs/schema/spdx_linkml.yaml
     title: the merged schema
-  - resource: .lokf/spdx.yaml
+  - resource: .lokf/schema/spdx.yaml
     title: the adapt copy
   - resource: project.justfile
     title: the lokf-adapt recipe
@@ -31,7 +31,7 @@ sources:
     title: the exclude list
 generated:
   by: process:ktl-librarian
-  at: "2026-10-29T20:52:45Z"
+  at: "2026-11-06T21:24:46Z"
 status: draft
 ---
 
@@ -55,7 +55,7 @@ The folder holds `excel/`, `graphql/`, `java/`, `jsonld/` (the schema and its JS
 
 ## The adapt copy
 
-`just lokf-adapt` writes `.lokf/spdx.yaml` from the schema with lokf 0.9.0's `adapt`, and `just lokf-adapt-check` holds it to the schema. [spdx LinkML schema](spdx-linkml-schema.md) says what the copy changes. `.pre-commit-config.yaml` keeps every hook off these files, which the next run would rewrite back.
+`just lokf-adapt` writes `.lokf/schema/spdx.yaml` from the schema with lokf 0.9.0's `adapt`, and `just lokf-adapt-check` holds it to the schema. [spdx LinkML schema](spdx-linkml-schema.md) says what the copy changes. `.pre-commit-config.yaml` keeps every hook off these files, which the next run would rewrite back.
 
 [^justfile]: justfile, the `gen-project`, `gen-python`, `gen-doc` and `_gen-yaml` recipes
 [^generators.yaml]: .linkml/generators.yaml, the generators gen-project runs and their arguments

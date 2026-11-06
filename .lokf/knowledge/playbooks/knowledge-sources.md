@@ -40,8 +40,8 @@ sources:
   - resource: CHANGELOG.md
   - resource: .releaserc.json
   - resource: website
-  - resource: .lokf/spdx.yaml
-  - resource: .lokf/lokf.yaml
+  - resource: .lokf/schema/spdx.yaml
+  - resource: .lokf/schema/lokf.yaml
   - resource: .lokf/justfile
   - resource: .lokf/pyproject.toml
   - resource: https://spdx.github.io/spdx-spec/v3.0.1/
@@ -83,7 +83,7 @@ exclusions:
     reason: The line-ending rule for the sidecar folder, from the template.
 generated:
   by: process:ktl-librarian
-  at: "2026-10-29T20:52:45Z"
+  at: "2026-11-06T21:24:46Z"
 status: draft
 ---
 
@@ -108,7 +108,7 @@ This map lists where the bundle's concepts come from, in this repository and out
 | `NOTICE`, `LICENSE`, `SECURITY.md`, `AI_COVENANT.md`, `CONTRIBUTING.md` | License and attribution; Security policy; AI covenant; Regenerate and test the schema; Release the schema | Read each section. |
 | `CHANGELOG.md`, `.releaserc.json` | Release the schema | Read the opening note, the Unreleased section and the release rules. |
 | `website/` | spdx documentation site | Read `website/README.md` and `website/site.config.mjs`. |
-| `.lokf/spdx.yaml`, `.lokf/lokf.yaml`, `.lokf/justfile`, `.lokf/pyproject.toml` | spdx LinkML schema; Element names and the shared namespace | Run `just lokf-adapt-check`, and read the `schema :=` line and the `[tool.lokf]` table. |
+| `.lokf/schema/spdx.yaml`, `.lokf/schema/lokf.yaml`, `.lokf/justfile`, `.lokf/pyproject.toml` | spdx LinkML schema; Element names and the shared namespace | Run `just lokf-adapt-check`, and read the `schema :=` line and the `[tool.lokf]` table. |
 
 ## Outside the repository
 

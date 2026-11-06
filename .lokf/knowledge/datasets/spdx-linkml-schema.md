@@ -3,7 +3,7 @@ type: Dataset
 id: https://w3id.org/lmodel/spdx/knowledge/datasets/spdx-linkml-schema
 genre: reference
 title: spdx LinkML schema
-description: "The LinkML schema of the SPDX 3.0.1 model (schema id `https://w3id.org/lmodel/spdx`, version 3.0.1): `spdx_linkml.yaml` imports one module per SPDX profile, 67 classes, 160 slots, 23 enums and 5 types in all, which scripts/spdx_to_linkml.py writes from the vendored model; its `lokf adapt` copy in `.lokf/spdx.yaml`, rooted on Element, is the bundle's domain schema."
+description: "The LinkML schema of the SPDX 3.0.1 model (schema id `https://w3id.org/lmodel/spdx`, version 3.0.1): `spdx_linkml.yaml` imports one module per SPDX profile, 67 classes, 160 slots, 23 enums and 5 types in all, which scripts/spdx_to_linkml.py writes from the vendored model; its `lokf adapt` copy in `.lokf/schema/spdx.yaml`, rooted on Element, is the bundle's domain schema."
 resource: src/spdx_linkml/schema/spdx_linkml.yaml
 derivedFrom:
   - https://w3id.org/lmodel/spdx/knowledge/datasets/spdx-model-copy
@@ -24,7 +24,7 @@ sources:
     title: the gen-linkml, gen-linkml-check, lokf-adapt and lokf-adapt-check recipes
   - resource: src/spdx_linkml/schema
     title: the nine module files
-  - resource: .lokf/spdx.yaml
+  - resource: .lokf/schema/spdx.yaml
     title: the header lokf adapt wrote and its notes
   - resource: .lokf/justfile
     title: the schema line
@@ -36,7 +36,7 @@ sources:
     title: the template's note on the folder
 generated:
   by: process:ktl-librarian
-  at: "2026-10-29T19:19:54Z"
+  at: "2026-11-06T21:24:46Z"
 status: draft
 ---
 
@@ -66,7 +66,7 @@ docs/about.md lists what the rendering adds to the model: `spdxId`, `type`, the 
 
 ## Recipes and the adapt copy
 
-`just gen-linkml` rewrites the schema from the vendored model, and `just gen-linkml-check` fails when a schema file differs from a fresh run.[^project.justfile] `just lokf-adapt` writes `.lokf/spdx.yaml`, the copy `lokf adapt` makes so the bundle can validate against the schema beside `lokf.yaml`, rooted on Element with the prefix `spdx` for the names it renames. `just lokf-adapt-check` fails when the copy is stale. `.lokf/justfile` names the copy on its `schema :=` line, and `.lokf/pyproject.toml` names it as `[tool.lokf] schema`. The Python package that holds the schema is `spdx_linkml`, and its distribution would be `spdx-linkml`.
+`just gen-linkml` rewrites the schema from the vendored model, and `just gen-linkml-check` fails when a schema file differs from a fresh run.[^project.justfile] `just lokf-adapt` writes `.lokf/schema/spdx.yaml`, the copy `lokf adapt` makes so the bundle can validate against the schema beside `lokf.yaml`, rooted on Element with the prefix `spdx` for the names it renames. `just lokf-adapt-check` fails when the copy is stale. `.lokf/justfile` names the copy on its `schema :=` line, and `.lokf/pyproject.toml` names it as `[tool.lokf] schema`. The Python package that holds the schema is `spdx_linkml`, and its distribution would be `spdx-linkml`.
 
 [^spdx_linkml.yaml]: src/spdx_linkml/schema/spdx_linkml.yaml, the header, the prefixes and the imports
 [^spdx_to_linkml.py]: scripts/spdx_to_linkml.py, the docstring, the constants and the summary it prints
