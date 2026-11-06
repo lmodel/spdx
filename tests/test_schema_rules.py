@@ -19,8 +19,8 @@ ROOT = Path(__file__).parent.parent
 # its build-provenance attestation: schema-v0.7.0-slsa.yaml from lmodel/slsa,
 # schema-v0.2.1-github-actions.yaml from lmodel/github-actions and
 # schema-v0.1.0-oscal.yaml from lmodel/oscal.
-COPY = ROOT / ".lokf" / "spdx.yaml"
-LOKF = ROOT / ".lokf" / "lokf.yaml"
+COPY = ROOT / ".lokf" / "schema" / "spdx.yaml"
+LOKF = ROOT / ".lokf" / "schema" / "lokf.yaml"
 NEIGHBOURS = (
     ROOT / "tests" / "neighbours" / "slsa.yaml",
     ROOT / "tests" / "neighbours" / "github-actions.yaml",
