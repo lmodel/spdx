@@ -3,7 +3,7 @@ type: Service
 id: https://w3id.org/lmodel/spdx/knowledge/workflows/main
 genre: reference
 title: Build and test (main.yaml)
-description: "The Build and test workflow, .github/workflows/main.yaml: on a push to main and on every pull request, its test job runs just test on Python 3.10 to 3.14, and on 3.13 also just lint and just lokf-adapt-check, the check that .lokf/schema/spdx.yaml is current."
+description: "The Build and test workflow, .github/workflows/main.yaml: on a push to main and on every pull request, its test job runs just test on Python 3.11 to 3.14, and on 3.13 also just lint and just lokf-adapt-check, the check that .lokf/schema/spdx.yaml is current."
 resource: .github/workflows/main.yaml
 relatedTo:
   - https://w3id.org/lmodel/spdx/knowledge/datasets/test-data
@@ -14,7 +14,7 @@ sources:
     title: the on key, the concurrency group and the test job
 generated:
   by: process:ktl-librarian
-  at: "2026-11-06T21:24:46Z"
+  at: "2026-11-15T10:38:13Z"
 status: draft
 ---
 
@@ -24,7 +24,7 @@ status: draft
 
 ## The test job
 
-The `test` job runs on `ubuntu-latest` once for each Python version from 3.10 to 3.14, and a failure on one version does not stop the others. It hardens the runner with harden-runner in audit mode, checks the repository out without persisting credentials, installs uv, Python and just, and installs the project with `uv sync --locked --group dev`. It then runs:
+The `test` job runs on `ubuntu-latest` once for each Python version from 3.11 to 3.14, and a failure on one version does not stop the others. It hardens the runner with harden-runner in audit mode, checks the repository out without persisting credentials, installs uv, Python and just, and installs the project with `uv sync --locked --group dev`. It then runs:
 
 - `just lint`, on Python 3.13 only, which reports warnings as well as errors;
 - `just test`, on every version;

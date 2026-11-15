@@ -3,7 +3,7 @@ type: Playbook
 id: https://w3id.org/lmodel/spdx/knowledge/playbooks/regenerate-and-test
 genre: how-to
 title: Regenerate and test the schema
-description: "How to change the spdx schema: set up with uv and just, change scripts/spdx_to_linkml.py rather than the schema files, regenerate with just gen-linkml, gen-project, gen-doc and lokf-adapt, add examples, then run the checks CI runs (just test on Python 3.10 to 3.14, just lint and just lokf-adapt-check on 3.13) and the pre-commit hooks."
+description: "How to change the spdx schema: set up with uv and just, change scripts/spdx_to_linkml.py rather than the schema files, regenerate with just gen-linkml, gen-project, gen-doc and lokf-adapt, add examples, then run the checks CI runs (just test on Python 3.11 to 3.14, just lint and just lokf-adapt-check on 3.13) and the pre-commit hooks."
 resource: CONTRIBUTING.md
 relatedTo:
   - https://w3id.org/lmodel/spdx/knowledge/workflows/main
@@ -27,7 +27,7 @@ sources:
     title: the environment the justfile loads
 generated:
   by: process:ktl-librarian
-  at: "2026-11-06T21:24:46Z"
+  at: "2026-11-15T10:38:13Z"
 status: draft
 ---
 
@@ -35,7 +35,7 @@ status: draft
 
 ## Set up
 
-CONTRIBUTING.md asks for Python 3.10 or later, uv and just, then `uv sync --group dev` in a clone of `lmodel/spdx`, and `just --list` to see the recipes.[^contributing.md] `just install` runs the same `uv sync`.[^justfile]
+CONTRIBUTING.md asks for Python 3.11 or later, uv and just, then `uv sync --group dev` in a clone of `lmodel/spdx`, and `just --list` to see the recipes.[^contributing.md] `just install` runs the same `uv sync`.[^justfile]
 
 ## Change the converter, then regenerate
 
@@ -57,7 +57,7 @@ Put a valid example in `tests/data/valid/` and a counter-example for each new co
 - `just upstream-check` compares the vendored model with the SPDX Project's releases.
 - `uvx pre-commit run` runs the hooks on what is staged: the file checks, yamllint, codespell, typos, ruff and the `uv.lock` check. `.pre-commit-config.yaml` keeps every hook off the files the repository does not write by hand: the model copy, the SPDX examples, the schema, the generated files, the sidecar's scripts, the adapt copies and the neighbour copies.[^pre-commit-config.yaml]
 
-[Build and test](../workflows/main.md) runs `just test` on Python 3.10 to 3.14, and `just lint` and `just lokf-adapt-check` on Python 3.13, on every pull request.
+[Build and test](../workflows/main.md) runs `just test` on Python 3.11 to 3.14, and `just lint` and `just lokf-adapt-check` on Python 3.13, on every pull request.
 
 [^contributing.md]: CONTRIBUTING.md, Development setup and Before opening a pull request
 [^justfile]: justfile, the `install`, `gen-project`, `gen-doc`, `lint` and `test` recipes
