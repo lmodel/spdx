@@ -55,3 +55,47 @@ updates:
       release-tools:
         patterns:
           - "*"
+
+  # tests/data/spdx-examples/ is a copy of the SPDX examples, kept as the
+  # test suite's input. Their manifests describe the example projects, are
+  # never built, and must stay byte for byte as upstream wrote them. Ignoring
+  # every dependency stops both version and security updates for them.
+  - package-ecosystem: cargo
+    directories:
+      - "/tests/data/**/*"
+    schedule:
+      interval: monthly
+    ignore:
+      - dependency-name: "*"
+
+  - package-ecosystem: bundler
+    directories:
+      - "/tests/data/**/*"
+    schedule:
+      interval: monthly
+    ignore:
+      - dependency-name: "*"
+
+  - package-ecosystem: gomod
+    directories:
+      - "/tests/data/**/*"
+    schedule:
+      interval: monthly
+    ignore:
+      - dependency-name: "*"
+
+  - package-ecosystem: maven
+    directories:
+      - "/tests/data/**/*"
+    schedule:
+      interval: monthly
+    ignore:
+      - dependency-name: "*"
+
+  - package-ecosystem: pip
+    directories:
+      - "/tests/data/**/*"
+    schedule:
+      interval: monthly
+    ignore:
+      - dependency-name: "*"
