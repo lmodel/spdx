@@ -83,7 +83,7 @@ exclusions:
     reason: The line-ending rule for the sidecar folder, from the template.
 generated:
   by: process:ktl-librarian
-  at: "2026-11-06T21:24:46Z"
+  at: "2026-11-15T03:02:58Z"
 status: draft
 ---
 
@@ -107,7 +107,7 @@ This map lists where the bundle's concepts come from, in this repository and out
 | `.pre-commit-config.yaml`, `.yamllint.yaml`, `lychee.toml`, `.markdownlint-cli2.jsonc` | Regenerate and test the schema; Lint & docs | Read each file's exclusions and their comments. |
 | `NOTICE`, `LICENSE`, `SECURITY.md`, `AI_COVENANT.md`, `CONTRIBUTING.md` | License and attribution; Security policy; AI covenant; Regenerate and test the schema; Release the schema | Read each section. |
 | `CHANGELOG.md`, `.releaserc.json` | Release the schema | Read the opening note, the Unreleased section and the release rules. |
-| `website/` | spdx documentation site | Read `website/README.md` and `website/site.config.mjs`. |
+| `website/` | spdx documentation site | Read `website/README.md` and `website/site.toml`. |
 | `.lokf/schema/spdx.yaml`, `.lokf/schema/lokf.yaml`, `.lokf/justfile`, `.lokf/pyproject.toml` | spdx LinkML schema; Element names and the shared namespace | Run `just lokf-adapt-check`, and read the `schema :=` line and the `[tool.lokf]` table. |
 
 ## Outside the repository
