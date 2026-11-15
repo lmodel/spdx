@@ -2,6 +2,11 @@
 
 # spdx
 
+[![Build and test](https://github.com/lmodel/spdx/actions/workflows/main.yaml/badge.svg)](https://github.com/lmodel/spdx/actions/workflows/main.yaml)
+[![Licence](https://img.shields.io/github/license/lmodel/spdx?label=licence)](LICENSE)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/lmodel/spdx/badge)](https://scorecard.dev/viewer/?uri=github.com/lmodel/spdx)
+[![KTL scorecard](https://img.shields.io/endpoint?url=https://lmodel.github.io/spdx/badge.json)](https://lmodel.github.io/spdx/health/)
+
 System Package Data Exchange (LinkML)
 
 > **Only want to ask?** Install `ktl-docent` into any agent you use, by a route from [the install page](https://w3id.org/ktl/docs/install/), and ask it about this project. It answers from the bundle and says how far each answer has been checked.
