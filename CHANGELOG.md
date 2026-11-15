@@ -6,6 +6,8 @@ The `v0.0.0` tag is a baseline, not a release: it marks where versioning starts 
 
 ## [Unreleased]
 
+## [0.2.3] - 2026-11-15
+
 ### Changed
 
 - **Dependabot leaves the SPDX example manifests in `tests/data/` alone**, since they are test input copied from upstream and never built.
