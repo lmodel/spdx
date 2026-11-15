@@ -28,14 +28,14 @@ The model's individuals, such as NoneElement, are instance data and not part of 
 
 ## Repository Structure
 
-* [docs/](docs/): the website's pages, with the generated schema pages in [elements/](docs/elements/)
+* [docs/](docs/): the website's pages, with the generated schema pages in `docs/elements/`
 * [examples/](examples/): usage examples
 * [project/](project/): generated project files (do not edit them)
 * [scripts/](scripts/): the converter that writes the schema, and the upstream watch
 * [src/spdx_linkml/schema/](src/spdx_linkml/schema): the LinkML schema, `spdx_linkml.yaml` and one module per profile, as the converter writes them (do not edit them), and the model copy
 * [src/spdx_linkml/datamodel/](src/spdx_linkml/datamodel): the generated Python datamodel
 * [tests/](tests/): Python tests, with example data and the SPDX Project's examples in [data/](tests/data)
-* [website/](website/): the Astro Starlight site built from the README, `docs/`, the schema's pages and the knowledge bundle
+* [website/](website/): the Hugo site built from the README, `docs/`, the schema's pages and the knowledge bundle
 
 ## Developer Tools
 
